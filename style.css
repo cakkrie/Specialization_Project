@@ -2,7 +2,7 @@
 /* Alternative: You can also use "Neue Haas Grotesk" if you have it installed */
 
 body {
-  font-family: "Helvetica Neue", "Helvetica", sans-serif;
+  font-family: "Helvetica", "Helvetica Neue", sans-serif;
   background-color: #000000;
   color: #ffffff;
   margin: 0;
@@ -106,10 +106,9 @@ main {
 
 .section-subtitle {
   font-size: 14px;
-  color: #ffffff;
+  color: #4a9eff;
   margin-bottom: 14px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
+  font-weight: 600;
 }
 
 b {
@@ -123,6 +122,21 @@ p {
   font-size: 14px;
   line-height: 1.6;
   color: #ababab;
+}
+
+ul {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ababab;
+  margin: 0;
+  padding-left: 20px;
+}
+
+li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ababab;
+  margin-bottom: 4px;
 }
 
 img.content-image {
@@ -169,10 +183,6 @@ img.content-image {
   border-left-color: #4a9eff;
 }
 
-.callout.info::before {
-  background: linear-gradient(180deg, #4a9eff 0%, #2d5aa0 100%);
-}
-
 /* Label styles */
 .label {
   display: inline-block;
@@ -188,7 +198,7 @@ img.content-image {
 
 .label.info {
   background-color: #1a3a5c;
-  color: #4a9eff;
+  color: #9fccff;
   border: 1px solid #2d5aa0;
 }
 
@@ -217,8 +227,8 @@ img.content-image {
 }
 
 .label.outline.info {
-  color: #4a9eff;
-  border-color: #4a9eff;
+  color: #9fccff;
+  border-color: #9fccff;
 }
 
 .label.outline.warning {
