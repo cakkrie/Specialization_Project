@@ -110,51 +110,62 @@
       <br>
       <br>
       <div class="section-title">Map of Community of Practice</div>
-      <div class="section-subtitle">Long Latency</div>
+      <div class="section-subtitle"></div>
 
-      <p><b>Current Companies & Solutions:</b>
+      <div class="knowledge-container">
+        <div class="knowledge-column">
+          <div class="person-header">
+            <h4>Long Latency</h4>
+          </div>
+          <div class="knowledge-areas">
+            <div class="knowledge-item">
+              <h5>Engineering & Infrastructure Optimizations</h5>
+              <ul>
+                <li><b>Uber</b>: AI team at Uber's Development Platform mitigates blocking from single-point latency in large-scale operations (e.g., code migration, real-time data querying), improving system response speed.</li>
+                <li><b>Amazon</b>: Offers latency-optimized inference modes for LLMs, accelerating response times and enhancing real-time UX.</li>
+                <li><b>Lepton AI</b>: Enables "think-while-speaking" by starting AI responses within 300 milliseconds.</li>
+              </ul>
+            </div>
+            <div class="knowledge-item">
+              <h5>UX / Design Strategies</h5>
+              <ul>
+                <li><b>Ricky Ho</b>: Fast vs. Slow Path Design—uses flow graphs and intent detection to route simple requests quickly, sending complex tasks to LLMs only as needed.</li>
+                <li><b>Procreator / Duolingo</b>: Adds empathy to latency UX with friendly micro-copy and humanized messaging.</li>
+                <li><b>Morgan Stanley / BofA</b>: Embeds UX guidance in workflows and trains users (especially leadership) to manage AI expectations.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="knowledge-column">
+          <div class="person-header">
+            <h4>Cognitive Difference</h4>
+          </div>
+          <div class="knowledge-areas">
+            <div class="knowledge-item">
+              <h5>Black Box & Model Evaluation Issues</h5>
+              <ul>
+                <li><b>Google Vertex Explainable AI</b>: Explains key features of model input/output, supports comparison, evaluation, and prompt optimization for generative models.</li>
+                <li><b>Rawbot</b>: Consumer-facing model comparison platform showing differences between GPT, Claude, Cohere, etc., across tasks.</li>
+                <li><b>InterpretML</b>: Toolkit for model interpretability and responsible machine learning.</li>
+                <li><b>LMArena</b>: Compares answers from top AI models, collects feedback, and powers public evaluation.</li>
+              </ul>
+            </div>
+            <div class="knowledge-item">
+              <h5>The Community</h5>
+              <ul>
+                <li>AI Engineers / Model Developers</li>
+                <li>UX / Product Designers</li>
+                <li>Infrastructure / DevOps Teams</li>
+                <li>Industry Regulators</li>
+                <li>End Users</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <b>Engineering + Infrastructure Optimizations:</b>
       <br>
-      Uber: The AI team at Uber's Development Platform: When handling large-scale operations such as code migration and real-time data querying, this effectively mitigates blocking caused by single-point latency and significantly improves system response speed.
-      <br>
-      Amazon: offers latency-optimized inference modes to accelerate response times when using LLMs, crucial for improving UX in real-time applications.
-      <br>
-      Lepton AI: allowing the AI to start responding within 300 milliseconds to a "think-while-speaking" function
-      
-      <br>
-      <br>
-      <b>UX / Design Strategies:</b>
-      <br>
-      Ricky Ho: Fast vs. Slow Path Design: pre-defined flow graphs and intent detection to route simple requests (e.g., weather) through fast paths and complex tasks to LLMs only if needed
-      <br>
-      Procreator / Duolingo: Infuses empathy into latency UX with friendly micro-copy and humanized messaging
-      <br>
-      Morgan Stanley / BofA: Embeds UX guidance into workflows & trains users (especially leadership) to manage AI expectations</p>
-
-      <br>
-      <div class="section-subtitle">Cognitive Difference</div>
-
-      <p><b>Black Box and Model Evaluation Issues:</b>
-      <br>
-      Google Vertex Explainable AI: explain the important features of model input and output, and can conduct comparison, evaluation, and prompt optimization for generative models
-      <br>
-      Rawbot: A toC model comparison platform that showcases the differences between models such as GPT, Claude, and Cohere across multiple tasks
-      <br>
-      InterpretML: A toolkit to help understand models and enable responsible machine learning
-      <br>
-      LMArena: Compare answers across top AI models, share your feedback and power our public
-      
-      <b>The Community:</b>
-      <ul>
-        <li>AI Engineers / Model Developers</li>
-        <li>UX / Product Designer</li>
-        <li>Infrastructure / DevOps Teams</li>
-        <li>Industry Regulators</li>
-        <li>End User</li>
-      </ul>    
-
-      <div class="section-subtitle">Our Radical Prototype</div>
+      <div class="section-title">Our Radical Prototype</div>
 
       <p>Our radical prototype will be a system, not a product. We are designing a universal latency-adaptive interaction component that mediates between model delay and user engagement across platforms, tasks, and model types. Its purpose is to guide the users with coexisting with latency, to not hide the waiting but make it meaningful. The second idea, we will make a playground accessible across desktop and mobile, inviting casual users, researchers and other stakeholder to explore AI not as black-box but in a decentrualized system.</p>
   </main>
