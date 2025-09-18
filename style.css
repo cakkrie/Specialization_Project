@@ -420,7 +420,7 @@ img.content-image {
   font-weight: 600;
   color: #ffffff;
   margin: 0 0 8px 0;
-  padding-right: 100px;
+  padding-right: 200px;
 }
 
 .skill-level {
@@ -433,6 +433,40 @@ img.content-image {
   position: absolute;
   top: 14px;
   right: 14px;
+}
+
+/* Right-aligned note for knowledge items */
+.item-note {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  max-width: 45%;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #ffffff;
+  text-align: right;
+}
+
+/* Scoped color for Map of Community of Practice entries */
+.map-practice .knowledge-item h4 {
+  color: #D8E276;
+}
+
+/* Make space for longer notes in the Map of Community of Practice */
+.map-practice .knowledge-item {
+  padding: 16px 16px 72px 10px;
+}
+
+.map-practice .knowledge-item h4 {
+  padding-right: 360px;
+}
+
+.map-practice .item-note {
+  max-width: 50%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  top: 10px;
 }
 
 .skill-level.expert {
