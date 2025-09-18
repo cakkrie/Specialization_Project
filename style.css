@@ -357,9 +357,17 @@ img.content-image {
 }
 
 /* Knowledge Container Styles */
-.knowledge-container {
+.container-2column {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 40px 0;
+}
+
+/* Three-column layout for Proposed Workflow */
+.container-3column {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   margin: 40px 0;
 }
@@ -372,19 +380,20 @@ img.content-image {
   position: relative;
 }
 
-.person-header {
-  margin-bottom: 24px;
-  padding-bottom: 16px;
+.container-header {
+  margin-bottom: 10px;
+  padding-bottom: 12px;
 }
 
-.person-header h3 {
+.container-header h3 {
   font-size: 16px;
   font-weight: 600;
   color: #ffffff;
-  margin: 0 0 4px 0;
+  padding-bottom: 12px;
+
 }
 
-.person-role {
+.container-subheader {
   font-size: 10px;
   color: #676767;
   text-transform: uppercase;
@@ -457,6 +466,11 @@ img.content-image {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
+
+  /* Reduce three columns to two on medium screens */
+  .container-3column {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -465,9 +479,14 @@ img.content-image {
     gap: 20px;
   }
   
-  .knowledge-container {
+  .container-2column {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+  
+  /* Single column on small screens */
+  .container-3column {
+    grid-template-columns: 1fr;
   }
   
   .knowledge-column {
