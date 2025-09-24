@@ -26,93 +26,93 @@
     <br>
     <br>
 
-    <div class="gallery-container">
-      <div class="project-card" onclick="openProjectDetail(1)">
-        <div class="card-image">
-          <div class="image-placeholder">
-            <div class="image-icon">📊</div>
-            <div class="image-text">AI Latency & Cognitive Design</div>
-          </div>
-        </div>
-        
-        <div class="card-content">
-          <div class="project-meta">2025.09.11</div>
-          <div class="project-title">Ideation1</div>
-          
-          <div class="card-tags">
-            <span class="label outline info">Ideation</span>
-          </div>
-          
-          <div class="card-description">
-            <p>Ideas about Reframce Cognitive Rhythm for Latency and Fulfill Cognitive Gap for diverse AI Products Users</p>
-          </div>
-          
-          <div class="card-footer">
-            <span class="click-hint">Click to view full report →</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" onclick="openProjectDetail(2)">
-        <div class="card-image">
-          <div class="image-placeholder">
-            <div class="image-icon">🎨</div>
-            <div class="image-text">Design System & Prototyping</div>
-          </div>
-        </div>
-        
-        <div class="card-content">
-          <div class="project-meta">2025.09.18</div>
-          <div class="project-title">Ideation2</div>
-          
-          <div class="card-tags">
-            <span class="label outline info">Prototyping</span>
-            <span class="label outline info">Design System</span>
-          </div>
-          
-          <div class="card-description">
-            <p>Developing interactive prototypes and design systems to test and validate our latency interaction concepts with real users.</p>
-          </div>
-          
-          <div class="card-footer">
-            <span class="click-hint">Click to view full project →</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" onclick="openProjectDetail(3)">
-        <div class="card-image">
-          <div class="image-placeholder">
-            <div class="image-icon">🚀</div>
-            <div class="image-text">Implementation & Testing</div>
-          </div>
-        </div>
-        
-        <div class="card-content">
-          <div class="project-meta">2025.10.02</div>
-          <div class="project-title">Ideation3</div>
-          
-          <div class="card-tags">
-            <span class="label outline info">Development</span>
-            <span class="label outline info">Testing</span>
-          </div>
-          
-          <div class="card-description">
-            <p>Building and deploying our latency-adaptive interaction component for real-world testing and evaluation across different platforms.</p>
-          </div>
-          
-          <div class="card-footer">
-            <span class="click-hint">Click to view full project →</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="react-card-swap"></div>
   </main>
 
-  <script>
-    function openProjectDetail(ideationNumber) {
-      window.open(`ideation${ideationNumber}.html`, '_blank');
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Card Swap inspired by React Bits Card Swap
+    // Source: https://reactbits.dev/components/card-swap
+    const cards = [
+      { id: 1, title: 'Ideation1', date: '2025.09.11', desc: 'AI Latency & Cognitive Design', emoji: '📊', href: 'ideation1.html' },
+      { id: 2, title: 'Ideation2', date: '2025.09.18', desc: 'Design System & Prototyping', emoji: '🎨', href: 'ideation2.html' },
+      { id: 3, title: 'Ideation3', date: '2025.10.02', desc: 'Implementation & Testing', emoji: '🚀', href: 'ideation3.html' }
+    ];
+
+    function Card({card, style, onClick}) {
+      return (
+        <div onClick={onClick} style={{
+          position:'absolute',
+          width: 360,
+          height: 480,
+          borderRadius: 12,
+          background:'#111',
+          border:'1px solid #333',
+          cursor:'pointer',
+          boxShadow:'0 20px 60px rgba(0,0,0,0.5)',
+          overflow:'hidden',
+          ...style
+        }}>
+          <div style={{height:200,display:'flex',alignItems:'center',justifyContent:'center',background:'linear-gradient(135deg,#1a1a2e,#16213e)'}}>
+            <div style={{textAlign:'center',color:'#fff'}}>
+              <div style={{fontSize:40,opacity:.9}}>{card.emoji}</div>
+              <div style={{fontSize:12,color:'#9fccff'}}>{card.desc}</div>
+            </div>
+          </div>
+          <div style={{padding:16}}>
+            <div style={{color:'#aaa',fontSize:12}}>{card.date}</div>
+            <div style={{color:'#fff',fontSize:20,marginTop:4}}>{card.title}</div>
+            <div style={{color:'#4a9eff',fontSize:12,marginTop:10}}>Click to open →</div>
+          </div>
+        </div>
+      );
     }
+
+    function CardSwap() {
+      const [order, setOrder] = React.useState([0,1,2]);
+      const cycle = () => setOrder(([a,b,c]) => [b,c,a]);
+      const open = (href) => window.open(href, '_blank');
+
+      const positions = [
+        { x: -260, z: 0,  s: .9,  r: -8, o: .85 },
+        { x:    0, z: 40, s: 1.0, r:  0, o: 1.0 },
+        { x:  260, z: 0,  s: .9,  r:  8, o: .85 }
+      ];
+
+      return (
+        <div onMouseEnter={cycle} onClick={cycle} style={{
+          position:'relative',
+          height:540,
+          margin:'40px auto 0',
+          maxWidth:1200
+        }}>
+          {order.map((idx, i) => {
+            const p = positions[i];
+            const card = cards[idx];
+            return (
+              <Card
+                key={card.id}
+                card={card}
+                onClick={() => open(card.href)}
+                style={{
+                  left:`calc(50% + ${p.x}px - 180px)`,
+                  top:0,
+                  transform:`translateZ(${p.z}px) scale(${p.s}) rotate(${p.r}deg)`,
+                  opacity:p.o,
+                  zIndex:i===1?3:(i===0?2:1),
+                  transition:'transform 400ms ease, opacity 400ms ease, left 400ms ease'
+                }}
+              />
+            );
+          })}
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('react-card-swap'));
+    root.render(<CardSwap />);
   </script>
 </body>
 </html>
