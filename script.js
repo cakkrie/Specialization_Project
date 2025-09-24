@@ -36,3 +36,17 @@
     if (e.key === 'Escape') close();
   });
 })();
+
+// Inject shared header.html into any page containing #site-header
+(function injectSharedHeader() {
+  const mount = document.getElementById('site-header');
+  if (!mount) return;
+  fetch('header.html', { cache: 'no-store' })
+    .then((res) => res.text())
+    .then((html) => {
+      mount.innerHTML = html;
+    })
+    .catch((err) => {
+      console.error('Failed to load header.html', err);
+    });
+})();
