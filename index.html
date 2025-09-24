@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
   <div id="site-header"></div>
 
   <main>
@@ -29,14 +28,11 @@
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="script.js"></script>
   <script type="text/babel">
     // Card Swap inspired by React Bits Card Swap
     // Source: https://reactbits.dev/components/card-swap
-    const cards = [
-      { id: 1, title: 'Ideation1', date: '2025.09.11', desc: 'AI Latency & Cognitive Design', emoji: '📊', href: 'ideation1.html' },
-      { id: 2, title: 'Ideation2', date: '2025.09.18', desc: 'Design System & Prototyping', emoji: '🎨', href: 'ideation2.html' },
-      { id: 3, title: 'Ideation3', date: '2025.10.02', desc: 'Implementation & Testing', emoji: '🚀', href: 'ideation3.html' }
-    ];
+    let cards = [];
 
     function Card({card, style, onClick}) {
       return (
@@ -69,14 +65,38 @@
 
     function CardSwap() {
       const [order, setOrder] = React.useState([0,1,2]);
+      const [cardsLoaded, setCardsLoaded] = React.useState(false);
       const cycle = () => setOrder(([a,b,c]) => [b,c,a]);
       const open = (href) => window.open(href, '_blank');
+
+      React.useEffect(() => {
+        fetch('cards.json')
+          .then(response => response.json())
+          .then(data => {
+            cards = data;
+            setCardsLoaded(true);
+          })
+          .catch(error => {
+            console.error('Error loading cards:', error);
+            // Fallback cards if JSON fails to load
+            cards = [
+              { id: 1, title: 'Ideation1', date: '2025.09.11', href: 'ideation1.html', cover: 'Photo/ai-latency-cover.jpg' },
+              { id: 2, title: 'Ideation2', date: '2025.09.18', href: 'ideation2.html', cover: 'Photo/design-system-cover.jpg' },
+              { id: 3, title: 'Ideation3', date: '2025.10.02', href: 'ideation3.html', cover: 'Photo/implementation-cover.jpg' }
+            ];
+            setCardsLoaded(true);
+          });
+      }, []);
 
       const positions = [
         { x: -260, z: 0,  s: .9,  r: -8, o: .85 },
         { x:    0, z: 40, s: 1.0, r:  0, o: 1.0 },
         { x:  260, z: 0,  s: .9,  r:  8, o: .85 }
       ];
+
+      if (!cardsLoaded) {
+        return <div style={{textAlign:'center', color:'#fff', marginTop:100}}>Loading cards...</div>;
+      }
 
       return (
         <div onMouseEnter={cycle} onClick={cycle} style={{
