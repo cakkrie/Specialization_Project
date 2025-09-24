@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Ideation1",
+    "date": "2025.09.11",
+    "desc": "AI Latency & Cognitive Design",
+    "href": "ideation1.html",
+    "cover": "Photo/ai-latency-cover.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Ideation2",
+    "date": "2025.09.18",
+    "desc": "Design System & Prototyping",
+    "href": "ideation2.html",
+    "cover": "Photo/design-system-cover.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Ideation3",
+    "date": "2025.10.02",
+    "desc": "Implementation & Testing",
+    "href": "ideation3.html",
+    "cover": "Photo/implementation-cover.jpg"
+  }
+]
