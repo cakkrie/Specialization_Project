@@ -1,36 +1,46 @@
 /* Using Helvetica Neue - widely available on most systems */
 /* Alternative: You can also use "Neue Haas Grotesk" if you have it installed */
 
+:root {
+  --dark-grey: #333333;
+}
+
 body {
-  font-family: "Helvetica", "Helvetica Neue", sans-serif;
+  font-family: "Jost", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #000000;
   color: #ffffff;
   margin: 0;
   padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 header {
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  margin: 0 auto;
-  padding: 20px;
-  border-bottom: 1px solid #333;
+  padding: 10px;
   font-size: 12px;
+  width: 100vw;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #000000;
 }
 
 header .left {
   color: #888;
-  width: 150px;
   font-weight: 500;
+  text-transform: uppercase;
+  text-align: left;
+  grid-column: 1;
 }
 
 header .center {
   font-weight: 400;
-  text-align: left;
-  margin-left: 100px;
-  flex-grow: 1;
+  text-align: center;
   color: #ffffff;
+  grid-column: 2;
+  text-transform: uppercase;
 }
 
 header .center span {
@@ -38,10 +48,21 @@ header .center span {
   color: #aaa;
 }
 
+header .center a {
+  color: var(--dark-grey);
+  text-decoration: none;
+  font-weight: 400;
+  margin: 0 15px;
+}
+
+header .center a:hover {
+  color: #ccc;
+}
+
 header .right {
-  width: 150px;
-  text-align: left;
+  text-align: center;
   text-transform: uppercase;
+  grid-column: 3;
 }
 
 header .right a {
@@ -54,11 +75,32 @@ header .right a:hover {
   color: #ccc;
 }
 
+/* Icon styling */
+header i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+header .left i {
+  color: #4a9eff;
+}
+
 main {
   margin: 60px 0;
   padding: 0 20px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Landing Page Section */
+.landing-page {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+/* Gallery Section */
+.gallery-section {
+  width: 100%;
 }
 
 /* Ontology overlay trigger bar */
@@ -177,7 +219,9 @@ main {
 }
 
 .project-card {
-  background-color: #111111;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border: 1px solid #333;
   border-radius: 5px;
   overflow: hidden;
@@ -186,9 +230,35 @@ main {
   position: relative;
   flex: 0 0 300px;
   min-width: 300px;
+  height: 400px;
   opacity: 0;
   transform: translateX(-50px) scale(0.95);
   will-change: transform, opacity;
+}
+
+/* Background images for each card */
+.project-card:nth-child(1) {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/ai-latency-cover.jpg');
+}
+
+.project-card:nth-child(2) {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/Information-architecture.png');
+}
+
+.project-card:nth-child(3) {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/On-boarding.png');
+}
+
+.project-card:nth-child(4) {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/questionnaire.png');
+}
+
+.project-card:nth-child(5) {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/Leaderboard.JPG');
+}
+
+.project-card:nth-child(6) {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/matrix.png');
 }
 
 .project-card:hover {
@@ -213,6 +283,16 @@ main {
   opacity: 1;
 }
 
+/* Card number styling */
+.card-number {
+  position: absolute;
+  font-size: 40px;
+  font-weight: 100;
+  color: #ffffff;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+}
+
 .project-card::before {
   content: '';
   position: absolute;
@@ -229,64 +309,6 @@ main {
   opacity: 1;
 }
 
-.card-image {
-  height: 180px;
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.image-placeholder {
-  text-align: center;
-  color: #ffffff;
-}
-
-.image-icon {
-  font-size: 48px;
-  margin-bottom: 12px;
-  opacity: 0.8;
-}
-
-.image-text {
-  font-size: 14px;
-  font-weight: 500;
-  color: #9fccff;
-  letter-spacing: 0.5px;
-}
-
-.card-content {
-  padding: 20px;
-}
-
-.card-tags {
-  margin: 16px 0;
-}
-
-.card-description {
-  margin: 16px 0;
-}
-
-.card-description p {
-  font-size: 13px;
-  line-height: 1.5;
-  color: #ababab;
-  margin: 0;
-}
-
-.card-footer {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.click-hint {
-  font-size: 12px;
-  color: #4a9eff;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
 
 .project-meta {
   font-size: 14px;
@@ -719,6 +741,14 @@ img.content-image {
   .project-card {
     flex: 0 0 280px;
     min-width: 280px;
+    height: 350px;
+  }
+  
+  .card-number {
+    font-size: 20px;
+    top: 16px;
+    left: 16px;
+    padding: 6px 10px;
   }
 }
 
@@ -731,5 +761,13 @@ img.content-image {
   .project-card {
     flex: 0 0 250px;
     min-width: 250px;
+    height: 300px;
+  }
+  
+  .card-number {
+    font-size: 18px;
+    top: 12px;
+    left: 12px;
+    padding: 4px 8px;
   }
 }

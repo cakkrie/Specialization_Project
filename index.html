@@ -3,191 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <title>Cornell Tech Design Tech Project</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="left">Cornell Tech</div>
-    <div class="right"><a href="#">Archive</a></div>
-    <div class="right"><a href="#">About</a></div>
-  </header>
+  <header id="header-container"></header>
 
   <main>
-    <div class="course-info">DESIGN 8131 Specialization Project 1</div>
-    <div class="name">Jinyue (Carrie) Wang </div>
-    <div class="name">Wing Sze (Sissi) Zheng</div>
-    <br>
+    <section class="landing-page">
+      <div class="course-info">DESIGN 8131 Specialization Project 1</div>
+      <div class="name">Jinyue (Carrie) Wang </div>
+      <div class="name">Wing Sze (Sissi) Zheng</div>
+      <br>
+      <div class="name">Advisor<br><strong>Jose Sanchez</strong></div>
+    </section>
 
-    <div class="name">Advisor<br><strong>Jose Sanchez</strong></div>
-
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <div class="gallery-container">
-      <div class="project-card" onclick="openProjectDetail(1)">
-        <div class="card-image">
-          <div class="image-placeholder">
-            <div class="image-icon">📊</div>
-            <div class="image-text">AI Latency & Cognitive Design</div>
-          </div>
+    <section class="gallery-section">
+      <div class="gallery-container">
+        <div class="project-card" onclick="openProjectDetail(1)">
+          <div class="card-number">01</div>
         </div>
-        
-        <div class="card-content">
-          <div class="project-meta">2025.09.11</div>
-          <div class="project-title">Ideation1</div>
-          
-          <div class="card-tags">
-            <span class="label outline info">Ideation</span>
-          </div>
-          
-          <div class="card-description">
-            <p>Ideas about Reframce Cognitive Rhythm for Latency and Fulfill Cognitive Gap for diverse AI Products Users</p>
-          </div>
-          
-          <div class="card-footer">
-            <span class="click-hint">Click to view full report →</span>
-          </div>
+
+        <div class="project-card" onclick="openProjectDetail(2)">
+          <div class="card-number">02</div>
+        </div>
+
+        <div class="project-card" onclick="openProjectDetail(3)">
+          <div class="card-number">03</div>
+        </div>
+
+        <div class="project-card" onclick="openProjectDetail(4)">
+          <div class="card-number">04</div>
+        </div>
+
+        <div class="project-card" onclick="openProjectDetail(5)">
+          <div class="card-number">05</div>
+        </div>
+
+        <div class="project-card" onclick="openProjectDetail(6)">
+          <div class="card-number">06</div>
         </div>
       </div>
-
-      <div class="project-card" onclick="openProjectDetail(2)">
-        <div class="card-image">
-          <div class="image-placeholder">
-            <div class="image-icon">🎨</div>
-            <div class="image-text">Design System & Prototyping</div>
-          </div>
-        </div>
-        
-        <div class="card-content">
-          <div class="project-meta">2025.09.18</div>
-          <div class="project-title">Ideation2</div>
-          
-          <div class="card-tags">
-            <span class="label outline info">Prototyping</span>
-            <span class="label outline info">Design System</span>
-          </div>
-          
-          <div class="card-description">
-            <p>Developing interactive prototypes and design systems to test and validate our latency interaction concepts with real users.</p>
-          </div>
-          
-          <div class="card-footer">
-            <span class="click-hint">Click to view full project →</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" onclick="openProjectDetail(3)">
-        <div class="card-image">
-          <div class="image-placeholder">
-            <div class="image-icon">⚡</div>
-            <div class="image-text">Development & Testing</div>
-          </div>
-        </div>
-        
-        <div class="card-content">
-          <div class="project-meta">2025.10.02</div>
-          <div class="project-title">Ideation3</div>
-          
-          <div class="card-tags">
-            <span class="label outline info">Development</span>
-            <span class="label outline info">Testing</span>
-          </div>
-          
-          <div class="card-description">
-            <p>Building and deploying our latency-adaptive interaction component for real-world testing and evaluation across different platforms.</p>
-          </div>
-          
-          <div class="card-footer">
-            <span class="click-hint">Click to view full project →</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" onclick="openProjectDetail(4)">
-        <div class="card-image">
-          <div class="image-placeholder">
-            <div class="image-icon">🔬</div>
-            <div class="image-text">Research & Analysis</div>
-          </div>
-        </div>
-        
-        <div class="card-content">
-          <div class="project-meta">2025.10.16</div>
-          <div class="project-title">Research Phase</div>
-          
-          <div class="card-tags">
-            <span class="label outline info">Research</span>
-            <span class="label outline info">Analysis</span>
-          </div>
-          
-          <div class="card-description">
-            <p>Conducting comprehensive user research and data analysis to understand cognitive load patterns and latency perception across different user groups.</p>
-          </div>
-          
-          <div class="card-footer">
-            <span class="click-hint">Click to view full research →</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" onclick="openProjectDetail(5)">
-        <div class="card-image">
-          <div class="image-placeholder">
-            <div class="image-icon">🚀</div>
-            <div class="image-text">Implementation</div>
-          </div>
-        </div>
-        
-        <div class="card-content">
-          <div class="project-meta">2025.11.01</div>
-          <div class="project-title">Implementation</div>
-          
-          <div class="card-tags">
-            <span class="label outline info">Implementation</span>
-            <span class="label outline info">Deployment</span>
-          </div>
-          
-          <div class="card-description">
-            <p>Final implementation and deployment of the cognitive latency adaptation system with real-time performance monitoring and optimization.</p>
-          </div>
-          
-          <div class="card-footer">
-            <span class="click-hint">Click to view full implementation →</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" onclick="openProjectDetail(6)">
-        <div class="card-image">
-          <div class="image-placeholder">
-            <div class="image-icon">📈</div>
-            <div class="image-text">Results & Impact</div>
-          </div>
-        </div>
-        
-        <div class="card-content">
-          <div class="project-meta">2025.11.15</div>
-          <div class="project-title">Results</div>
-          
-          <div class="card-tags">
-            <span class="label outline info">Results</span>
-            <span class="label outline info">Impact</span>
-          </div>
-          
-          <div class="card-description">
-            <p>Comprehensive analysis of results, user feedback, and impact assessment of our cognitive latency adaptation approach across different applications.</p>
-          </div>
-          
-          <div class="card-footer">
-            <span class="click-hint">Click to view full results →</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   </main>
 
   <script>
@@ -267,8 +125,28 @@
       galleryContainer.addEventListener('scroll', requestTick, { passive: true });
     }
 
-    // Initialize animations when DOM is loaded
-    document.addEventListener('DOMContentLoaded', initScrollAnimations);
+    // Load header from external file
+    function loadHeader() {
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header-container').innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error loading header:', error);
+          // Fallback header if file can't be loaded
+          document.getElementById('header-container').innerHTML = `
+            <div class="left">FishOn</div>
+            <div class="right"><a href="index.html">← Back to Gallery</a></div>
+          `;
+        });
+    }
+
+    // Initialize animations and load header when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      loadHeader();
+      initScrollAnimations();
+    });
   </script>
 </body>
 </html>
