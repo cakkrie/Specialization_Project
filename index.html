@@ -11,17 +11,25 @@
   <header id="header-container"></header>
 
   <main>
+ 
     <section class="landing-page">
       <video autoplay muted loop>
         <source src="Photo/fishing-background.mp4" type="video/mp4">
       </video>
-      <div class="landing-page-question">Create a natural, seamless flow that guides users before, during, and after fishing trips</div>
+      <!-- <div class="landing-page-question">Create a natural, seamless flow that guides users before, during, and after fishing trips</div> -->
+      
       <div class="landing-page-title">
         DESIGN 8131
         <div class="title-arrow" onclick="scrollToAbout()">
           <i class="fas fa-chevron-down"></i>
         </div>
       </div>
+      
+      <!-- Labels positioned over the video -->
+      <span class="label outline info">Multi-sensor Physicalization</span>
+      <span class="label outline info">Community</span>
+      <span class="label outline">Play</span>
+      
       <!-- <div class="name">Jinyue (Carrie) Wang </div>
       <div class="name">Wing Sze (Sissi) Zheng</div> -->
       <!-- <div class="name">Advisor<br><strong>Jose Sanchez</strong></div> -->
@@ -79,6 +87,15 @@
         </div>
       </div>
 
+      <div class="context">
+        While FishOn already <bold>digitalizes the market for younger users,</bold>it still lacks a natural flow to guide them before, during, and after their trips. Young anglers often face fragmented knowledge and steep learning curves, especially when fishing within limited time. 
+        <br>
+        <br>
+        Our goal is to make the experience more organized, reduce disappointment from empty catches, and ensure fishing remains fun and efficient.
+        <br>
+        <br>
+    </div>
+
       <section class="gallery-section">
         <div class="gallery-container">
           <div class="project-card" onclick="openProjectDetail(1)">
@@ -88,38 +105,18 @@
   
           <div class="project-card" onclick="openProjectDetail(2)">
             <div class="card-number">02</div>
-            <div class="card-title">Selection</div>
+            <div class="card-title">Research</div>
           </div>
   
           <div class="project-card" onclick="openProjectDetail(3)">
             <div class="card-number">03</div>
-            <div class="card-title">Research</div>
+            <div class="card-title">Asethetics</div>
           </div>
   
           <div class="project-card" onclick="openProjectDetail(4)">
             <div class="card-number">04</div>
-            <div class="card-title">Aesthetics</div>
+            <div class="card-title">Development</div>
           </div>
-  
-          <div class="project-card" onclick="openProjectDetail(5)">
-            <div class="card-number">05</div>
-            <div class="card-title">Pending</div>
-          </div>
-  
-          <div class="project-card" onclick="openProjectDetail(6)">
-            <div class="card-number">06</div>
-            <div class="card-title">Pending</div>
-          </div>
-        </div>
-        
-        <!-- Gallery Navigation Arrows -->
-        <div class="gallery-navigation">
-          <button class="nav-arrow nav-arrow-left" onclick="scrollGallery('left')" aria-label="Scroll gallery left">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="nav-arrow nav-arrow-right" onclick="scrollGallery('right')" aria-label="Scroll gallery right">
-            <i class="fas fa-chevron-right"></i>
-          </button>
         </div>
       </section>
 
@@ -152,51 +149,25 @@
       }
     }
 
-    function scrollGallery(direction) {
-      const galleryContainer = document.querySelector('.gallery-container');
-      const cards = document.querySelectorAll('.project-card');
-      
-      if (cards.length === 0) return;
-      
-      // Calculate scroll amount based on card width and gap
-      const firstCard = cards[0];
-      const cardRect = firstCard.getBoundingClientRect();
-      const cardWidth = cardRect.width;
-      const gap = 8; // Default gap from CSS
-      const scrollAmount = cardWidth + gap;
-      
-      if (direction === 'left') {
-        galleryContainer.scrollBy({
-          left: -scrollAmount,
-          behavior: 'smooth'
-        });
-      } else if (direction === 'right') {
-        galleryContainer.scrollBy({
-          left: scrollAmount,
-          behavior: 'smooth'
-        });
-      }
-    }
 
     // Scroll-based animation functionality
     function initScrollAnimations() {
       const cards = document.querySelectorAll('.project-card');
-      const galleryContainer = document.querySelector('.gallery-container');
       
-      // Intersection Observer for left-to-right animation
+      // Intersection Observer for fade-in animation
       const observerOptions = {
         threshold: 0.2,
-        rootMargin: '0px 0px -100px 0px'
+        rootMargin: '0px 0px -50px 0px'
       };
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const cardIndex = Array.from(cards).indexOf(entry.target);
-            // Stagger animation from left to right with increasing delay
+            // Stagger animation with increasing delay
             setTimeout(() => {
               entry.target.classList.add('animate-in');
-            }, cardIndex * 150);
+            }, cardIndex * 100);
           }
         });
       }, observerOptions);
@@ -205,49 +176,6 @@
       cards.forEach(card => {
         observer.observe(card);
       });
-
-      // Handle horizontal scroll-based effects
-      let ticking = false;
-      
-      function updateHorizontalEffects() {
-        const scrollY = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const galleryRect = galleryContainer.getBoundingClientRect();
-        const galleryTop = galleryRect.top + scrollY;
-        
-        cards.forEach((card, index) => {
-          const cardRect = card.getBoundingClientRect();
-          const cardLeft = cardRect.left;
-          const cardWidth = cardRect.width;
-          
-          // Calculate scroll progress for the gallery section
-          const galleryScrollProgress = Math.max(0, Math.min(1, (scrollY - galleryTop + windowHeight) / (windowHeight + galleryRect.height)));
-          
-          // Calculate individual card visibility based on horizontal position
-          const cardVisibility = Math.max(0, Math.min(1, (window.innerWidth - cardLeft) / (cardWidth + 50)));
-          
-          // Apply stacking effect to cards that are partially visible
-          if (galleryScrollProgress > 0.2 && galleryScrollProgress < 0.8 && cardVisibility < 0.8 && cardVisibility > 0.2) {
-            card.classList.add('animate-stack');
-          } else {
-            card.classList.remove('animate-stack');
-          }
-        });
-        
-        ticking = false;
-      }
-      
-      function requestTick() {
-        if (!ticking) {
-          requestAnimationFrame(updateHorizontalEffects);
-          ticking = true;
-        }
-      }
-      
-      window.addEventListener('scroll', requestTick, { passive: true });
-      
-      // Also listen for horizontal scroll on the gallery container
-      galleryContainer.addEventListener('scroll', requestTick, { passive: true });
     }
 
     // Load header from external file
