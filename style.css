@@ -164,8 +164,8 @@ main {
 }
 
 .About-us {
-  height: 100vh;
   padding: 20px;
+  padding-top: 40px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -261,6 +261,23 @@ main {
   border: 1px solid #2d5aa0;
 }
 
+.About-project {
+  padding: 20px;
+  padding-top: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.About-project .title {
+  font-size: 60px;
+  font-weight: 200;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+
 .section-line {
   height: 1px;
   background-color: var(--dark-grey);
@@ -282,15 +299,86 @@ main {
   text-align: left;
 }
 
-.About-us .gallery-section {
-  margin-top: 600px;
-  padding: 0;
+.gallery-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: stretch;
+  padding: 20px 0;
+  padding-top: 100px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
 }
+
 /* Gallery Section */
 .gallery-section {
   width: 100%;
   position: relative;
+  padding: 0;
+}
+
+/* Gallery Navigation */
+.gallery-navigation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
   padding: 0 20px;
+}
+
+.nav-arrow {
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  font-size: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-arrow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #4a9eff, #9fccff);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+}
+
+.nav-arrow:hover::before {
+  opacity: 0.1;
+}
+
+.nav-arrow:hover {
+  border-color: #4a9eff;
+  color: #4a9eff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
+}
+
+.nav-arrow:active {
+  transform: scale(0.95);
+}
+
+.nav-arrow i {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.nav-arrow:hover i {
+  transform: scale(1.2);
 }
 
 /* Ontology overlay trigger bar */
@@ -388,16 +476,7 @@ main {
   display: block;
 }
 
-.gallery-container {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  align-items: stretch;
-  padding: 20px 0;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  min-height: 500px;
-}
+
 
 .project-detail {
   background-color: #111111;
@@ -518,6 +597,30 @@ main {
   margin-bottom: 8px;
   font-weight: 800;
   letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.title-arrow {
+  font-size: 24px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-arrow:hover {
+  background-color: gainsboro;
+  color: gray;
+  transform: scale(1.1);
 }
 
 .project-subtitle {
@@ -938,6 +1041,17 @@ img.content-image {
     left: 16px;
     padding: 6px 10px;
   }
+  
+  .nav-arrow {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+  
+  .gallery-navigation {
+    gap: 15px;
+    margin-top: 25px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -957,5 +1071,17 @@ img.content-image {
     top: 12px;
     left: 12px;
     padding: 4px 8px;
+  }
+  
+  .nav-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+  
+  .gallery-navigation {
+    gap: 12px;
+    margin-top: 20px;
+    padding: 0 15px;
   }
 }

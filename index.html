@@ -16,7 +16,12 @@
         <source src="Photo/fishing-background.mp4" type="video/mp4">
       </video>
       <div class="landing-page-question">Create a natural, seamless flow that guides users before, during, and after fishing trips</div>
-      <div class="landing-page-title">DESIGN 8131</div>
+      <div class="landing-page-title">
+        DESIGN 8131
+        <div class="title-arrow" onclick="scrollToAbout()">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
       <!-- <div class="name">Jinyue (Carrie) Wang </div>
       <div class="name">Wing Sze (Sissi) Zheng</div> -->
       <!-- <div class="name">Advisor<br><strong>Jose Sanchez</strong></div> -->
@@ -65,6 +70,15 @@
           <div class="section-line"></div>
         </div>
 
+    </section>
+
+    <section class="About-project">
+      <div class="title">About<br>The Project</div>
+      <div class="content">
+        <div class="name-container">
+        </div>
+      </div>
+
       <section class="gallery-section">
         <div class="gallery-container">
           <div class="project-card" onclick="openProjectDetail(1)">
@@ -91,14 +105,32 @@
             <div class="card-number">06</div>
           </div>
         </div>
+        
+        <!-- Gallery Navigation Arrows -->
+        <div class="gallery-navigation">
+          <button class="nav-arrow nav-arrow-left" onclick="scrollGallery('left')" aria-label="Scroll gallery left">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="nav-arrow nav-arrow-right" onclick="scrollGallery('right')" aria-label="Scroll gallery right">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
       </section>
-    </section>
+
 
   </main>
 
   <script>
     function openProjectDetail(ideationNumber) {
       window.open(`ideation${ideationNumber}.html`, '_blank');
+    }
+
+    function scrollToAbout() {
+      const aboutSection = document.querySelector('.About-us');
+      aboutSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
 
     function toggleContent(person) {
@@ -111,6 +143,32 @@
       } else {
         content.style.display = 'none';
         icon.textContent = '+';
+      }
+    }
+
+    function scrollGallery(direction) {
+      const galleryContainer = document.querySelector('.gallery-container');
+      const cards = document.querySelectorAll('.project-card');
+      
+      if (cards.length === 0) return;
+      
+      // Calculate scroll amount based on card width and gap
+      const firstCard = cards[0];
+      const cardRect = firstCard.getBoundingClientRect();
+      const cardWidth = cardRect.width;
+      const gap = 8; // Default gap from CSS
+      const scrollAmount = cardWidth + gap;
+      
+      if (direction === 'left') {
+        galleryContainer.scrollBy({
+          left: -scrollAmount,
+          behavior: 'smooth'
+        });
+      } else if (direction === 'right') {
+        galleryContainer.scrollBy({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
       }
     }
 
