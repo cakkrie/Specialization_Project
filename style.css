@@ -338,6 +338,39 @@ main {
   padding: 0 20px;
 }
 
+
+.About-us .name {
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1;
+  text-align: right;
+  flex: 1;
+  padding-right: 10px;
+}
+
+.add-icon {
+  font-size: 20px;
+  font-weight: 300;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #333;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  margin-top: -6px;
+}
+
+.add-icon:hover {
+  background-color: #333;
+  transform: scale(1.1);
+}
+
+
 .nav-arrow {
   background: transparent;
   border: 1px solid #333;
@@ -663,22 +696,24 @@ main {
 .context {
   font-size: 40px;
   font-weight: 300;
-  padding: 200px 20px 0 300px;
+  padding: 250px 20px 0 300px;
   line-height: 1;
   color: #ababab;
 }
 
 .hmw{
-  font-size: 80px;
+  font-size: 60px;
   font-weight: 500;
   padding: 100px 20px 0 300px;
   line-height: 1;
   color: #ffffff;
 }
 
-.section-subtitle {
-  font-size: 14px;
-  color: #4a9eff;
+.section-title {
+  padding: 20px 0px 0px 300px;
+  font-size: 20px;
+  color: gray;
+  text-transform: uppercase;
   margin-bottom: 14px;
   font-weight: 600;
 }
@@ -712,9 +747,10 @@ li {
 }
 
 img.content-image {
-  width: 100%;
+  width: 70%;
   height: auto;
   margin: 40px 0;
+  padding-left: 300px;
   display: block;
   border-radius: 4px;
 }
@@ -818,12 +854,81 @@ img.content-image {
   border-color: #ef5350;
 }
 
-/* Knowledge Container Styles */
-.container-2column {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin: 40px 0;
+/* Expandable Title Styles */
+.expandable-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 0px 0px 300px;
+  font-size: 16px;
+  color: gray;
+  margin-bottom: 10px;
+  font-weight: 400;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.expandable-title .add-icon {
+  font-size: 16px;
+  font-weight: 300;
+  color: gray;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid gray;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  margin-top: 0;
+}
+
+.expandable-title .add-icon:hover {
+  background-color: gray;
+  color: black;
+  transform: scale(1.1);
+}
+
+.expandable-title.expanded .add-icon {
+  content: '−';
+}
+
+.expandable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding-left: 300px;
+}
+
+.expandable-content.expanded {
+  max-height: 1000px;
+}
+
+.expandable-item {
+  margin-bottom: 20px;
+  padding: 0px;
+  border-bottom: 1px solid #222;
+  text-align: left;
+}
+
+.expandable-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.expandable-item .item-note {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: left;
+  color: #ababab;
+  margin-bottom: 4px;
+  position: static;
+  max-width: none;
+  white-space: normal;
 }
 
 /* Three-column layout for Proposed Workflow */
