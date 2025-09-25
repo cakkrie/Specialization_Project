@@ -747,10 +747,9 @@ li {
 }
 
 img.content-image {
-  width: 70%;
+  width: 100%;
   height: auto;
   margin: 40px 0;
-  padding-left: 300px;
   display: block;
   border-radius: 4px;
 }
