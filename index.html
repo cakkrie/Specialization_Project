@@ -12,45 +12,106 @@
 
   <main>
     <section class="landing-page">
-      <div class="course-info">DESIGN 8131 Specialization Project 1</div>
-      <div class="name">Jinyue (Carrie) Wang </div>
-      <div class="name">Wing Sze (Sissi) Zheng</div>
-      <br>
-      <div class="name">Advisor<br><strong>Jose Sanchez</strong></div>
+      <video autoplay muted loop>
+        <source src="Photo/fishing-background.mp4" type="video/mp4">
+      </video>
+      <div class="landing-page-question">Create a natural, seamless flow that guides users before, during, and after fishing trips</div>
+      <div class="landing-page-title">DESIGN 8131</div>
+      <!-- <div class="name">Jinyue (Carrie) Wang </div>
+      <div class="name">Wing Sze (Sissi) Zheng</div> -->
+      <!-- <div class="name">Advisor<br><strong>Jose Sanchez</strong></div> -->
     </section>
 
-    <section class="gallery-section">
-      <div class="gallery-container">
-        <div class="project-card" onclick="openProjectDetail(1)">
-          <div class="card-number">01</div>
+    <section class="About-us">
+      <div class="title">Who We<br>Are?</div>
+        <div class="content">
+          <div class="name-container">
+            <div class="name">Carrie Wang</div>
+            <div class="add-icon" onclick="toggleContent('carrie')">+</div>
+          </div>
+          <div class="description-container" id="carrie-content" style="display: none;">
+            <div class="description">
+              Mobile/Web UIUX
+              <div class="skill-level">Expert</div>
+            </div>
+            <div class="description">
+              AI/ML Concepts
+              <div class="skill-level">Intermediate</div>
+            </div>
+            <div class="description">
+              Product Management
+              <div class="skill-level">Intermediate</div>
+            </div>
+          </div>
+
+          <div class="name-container">
+            <div class="name">Sissi Zheng</div>
+            <div class="add-icon" onclick="toggleContent('sissi')">+</div>
+          </div>
+          <div class="description-container" id="sissi-content" style="display: none;">
+            <div class="description">
+              Software/Hardware interaction
+              <div class="skill-level">Expert</div>
+            </div>
+            <div class="description">
+              Voice AI interaction
+              <div class="skill-level">Expert</div>
+            </div>
+            <div class="description">
+              LLM
+              <div class="skill-level">Intermediate</div>
+            </div>
+          </div>
+          <div class="section-line"></div>
         </div>
 
-        <div class="project-card" onclick="openProjectDetail(2)">
-          <div class="card-number">02</div>
+      <section class="gallery-section">
+        <div class="gallery-container">
+          <div class="project-card" onclick="openProjectDetail(1)">
+            <div class="card-number">01</div>
+          </div>
+  
+          <div class="project-card" onclick="openProjectDetail(2)">
+            <div class="card-number">02</div>
+          </div>
+  
+          <div class="project-card" onclick="openProjectDetail(3)">
+            <div class="card-number">03</div>
+          </div>
+  
+          <div class="project-card" onclick="openProjectDetail(4)">
+            <div class="card-number">04</div>
+          </div>
+  
+          <div class="project-card" onclick="openProjectDetail(5)">
+            <div class="card-number">05</div>
+          </div>
+  
+          <div class="project-card" onclick="openProjectDetail(6)">
+            <div class="card-number">06</div>
+          </div>
         </div>
-
-        <div class="project-card" onclick="openProjectDetail(3)">
-          <div class="card-number">03</div>
-        </div>
-
-        <div class="project-card" onclick="openProjectDetail(4)">
-          <div class="card-number">04</div>
-        </div>
-
-        <div class="project-card" onclick="openProjectDetail(5)">
-          <div class="card-number">05</div>
-        </div>
-
-        <div class="project-card" onclick="openProjectDetail(6)">
-          <div class="card-number">06</div>
-        </div>
-      </div>
+      </section>
     </section>
+
   </main>
 
   <script>
     function openProjectDetail(ideationNumber) {
       window.open(`ideation${ideationNumber}.html`, '_blank');
+    }
+
+    function toggleContent(person) {
+      const content = document.getElementById(person + '-content');
+      const icon = event.target;
+      
+      if (content.style.display === 'none') {
+        content.style.display = 'block';
+        icon.textContent = '−';
+      } else {
+        content.style.display = 'none';
+        icon.textContent = '+';
+      }
     }
 
     // Scroll-based animation functionality
