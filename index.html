@@ -16,10 +16,10 @@
       <video autoplay muted loop>
         <source src="Photo/fishing-background.mp4" type="video/mp4">
       </video>
-      <!-- <div class="landing-page-question">Create a natural, seamless flow that guides users before, during, and after fishing trips</div> -->
+      <div class="landing-page-question">Before, during, and after fishing trips</div>
       
       <div class="landing-page-title">
-        DESIGN 8131
+        FISHON
         <div class="title-arrow" onclick="scrollToAbout()">
           <i class="fas fa-chevron-down"></i>
         </div>
@@ -110,7 +110,7 @@
   
           <div class="project-card" onclick="openProjectDetail(3)">
             <div class="card-number">03</div>
-            <div class="card-title">Asethetics</div>
+            <div class="card-title">Aesthetics</div>
           </div>
   
           <div class="project-card" onclick="openProjectDetail(4)">
@@ -124,8 +124,18 @@
   </main>
 
   <script>
-    function openProjectDetail(ideationNumber) {
-      window.open(`ideation${ideationNumber}.html`, '_blank');
+    function openProjectDetail(projectNumber) {
+      const fileNames = {
+        1: 'ideation.html',
+        2: 'research.html', 
+        3: 'aesthetic.html',
+        4: 'ideation4.html', // Keep as placeholder for future
+        5: 'ideation5.html', // Keep as placeholder for future
+        6: 'ideation6.html'  // Keep as placeholder for future
+      };
+      
+      const fileName = fileNames[projectNumber] || `ideation${projectNumber}.html`;
+      window.open(fileName, '_blank');
     }
 
     function scrollToAbout() {

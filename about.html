@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ideation2 - Design System & Prototyping</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="header-container"></header>
+
+  <main>
+    <br>
+    <br>
+    <br>
+    <span class="label outline">Multi-sensor Physicalization</span>
+    <span class="label outline">Community</span>
+    <span class="label outline">Play</span>
+    <br>
+
+    <div class="gallery-subpage">
+      <div class="context">
+        While FishOn already <bold>digitalizes the market for younger users,</bold>it still lacks a natural flow to guide them before, during, and after their trips. Young anglers often face fragmented knowledge and steep learning curves, especially when fishing within limited time. 
+        <br>
+        <br>
+        Our goal is to make the experience more organized, reduce disappointment from empty catches, and ensure fishing remains fun and efficient.
+        <br>
+        <br>
+    </div>
+
+      <div class="hmw">
+        HMW create a natural, seamless flow that guides users before, during, and after fishing trips?
+      </div>
+      <br>
+      <br>
+      <br>
+  </main>
+
+  <script>
+    // Load header from external file
+    function loadHeader() {
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header-container').innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error loading header:', error);
+          // Fallback header if file can't be loaded
+          document.getElementById('header-container').innerHTML = `
+            <div class="left">FishOn</div>
+            <div class="right"><a href="index.html">← Back to Gallery</a></div>
+          `;
+        });
+    }
+
+    // Initialize header when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      loadHeader();
+    });
+  </script>
+</body>
+</html>

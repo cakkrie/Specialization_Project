@@ -525,13 +525,6 @@ main {
 }
 
 
-.project-card:hover .card-title {
-  background-color: #4a9eff;
-  color: #ffffff;
-  transform: translateY(-2px);
-}
-
-
 .project-meta {
   font-size: 14px;
   color: #aaa;
@@ -958,7 +951,7 @@ img.content-image {
 }
 
 .project-card:nth-child(2) {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/ai-latency-cover.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/research-cover.jpg');
 }
 
 .project-card:nth-child(3) {
@@ -966,14 +959,6 @@ img.content-image {
 }
 
 .project-card:nth-child(4) {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/ai-latency-cover.jpg');
-}
-
-.project-card:nth-child(5) {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/ai-latency-cover.jpg');
-}
-
-.project-card:nth-child(6) {
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/ai-latency-cover.jpg');
 }
 
@@ -1027,6 +1012,12 @@ img.content-image {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.project-card:hover .card-title {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #fff;
 }
 
 /* Responsive Design */
