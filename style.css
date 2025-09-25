@@ -804,54 +804,10 @@ img.content-image {
   line-height: 1.2;
 }
 
-.label.info {
-  background-color: #1a3a5c;
-  color: #9fccff;
-  border: 1px solid #2d5aa0;
-}
-
-.label.warning {
-  background-color: #4a2c00;
-  color: #ffa726;
-  border: 1px solid #f57c00;
-}
-
-.label.success {
-  background-color: #1a3a1a;
-  color: #66bb6a;
-  border: 1px solid #388e3c;
-}
-
-.label.error {
-  background-color: #4a1a1a;
-  color: #ef5350;
-  border: 1px solid #d32f2f;
-}
-
 .label.outline {
   background-color: transparent;
   color: #ffffff;
   border: 1px solid #666;
-}
-
-.label.outline.info {
-  color: #9fccff;
-  border-color: #9fccff;
-}
-
-.label.outline.warning {
-  color: #ffa726;
-  border-color: #ffa726;
-}
-
-.label.outline.success {
-  color: #66bb6a;
-  border-color: #66bb6a;
-}
-
-.label.outline.error {
-  color: #ef5350;
-  border-color: #ef5350;
 }
 
 /* Expandable Title Styles */
@@ -929,109 +885,6 @@ img.content-image {
   position: static;
   max-width: none;
   white-space: normal;
-}
-
-/* Three-column layout for Proposed Workflow */
-.container-3column {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin: 40px 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
-  border: 1px solid #292929;
-  border-top: 4px solid var(--accent);
-  border-radius: 10px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-
-.container-3column :hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
-}
-
-/* Distinct accents per column */
-.container-3column > .knowledge-column:nth-child(1) { --accent: #4a9eff; }
-.container-3column > .knowledge-column:nth-child(2) { --accent: #66bb6a; }
-.container-3column > .knowledge-column:nth-child(3) { --accent: #ffa726; }
-
-/* Header visuals */
-.container-3column .container-header {
-  margin-bottom: 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #242424;
-}
-
-.container-3column .container-header h4 {
-  margin: 0 0 6px 0;
-  font-size: 18px;
-  font-weight: 600;
-  color: #ffffff;
-  padding-left: 26px;
-  position: relative;
-}
-
-.container-3column .container-header h4::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 2px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #ffffff, var(--accent));
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
-}
-
-.container-3column .container-subheader {
-  font-size: 11px;
-  color: #a5a5a5;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-}
-
-/* Section blocks */
-.container-3column .general-column {
-  background-color: #0e0e0e;
-  border: 1px solid #232323;
-  border-radius: 8px;
-  padding: 12px 14px;
-}
-
-.container-3column .general-column h5 {
-  font-size: 12px;
-  color: #e6e6e6;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  margin: 0 0 8px 0;
-  padding-left: 10px;
-  border-left: 3px solid var(--accent);
-}
-
-/* Custom bullets */
-.container-3column ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.container-3column li {
-  position: relative;
-  padding-left: 18px;
-  margin-bottom: 6px;
-}
-
-.container-3column li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--accent);
-  opacity: 0.9;
 }
 
 .knowledge-column {
@@ -1139,24 +992,6 @@ img.content-image {
   overflow-wrap: anywhere;
   word-break: break-word;
   top: 10px;
-}
-
-.skill-level.expert {
-  background-color: #1a3a1a;
-  color: #66bb6a;
-  border: 1px solid #388e3c;
-}
-
-.skill-level.intermediate {
-  background-color: #4a2c00;
-  color: #ffa726;
-  border: 1px solid #f57c00;
-}
-
-.skill-level.beginner {
-  background-color: #4a1a1a;
-  color: #ef5350;
-  border: 1px solid #d32f2f;
 }
 
 /* Responsive Design */
