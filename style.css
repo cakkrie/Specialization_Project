@@ -42,6 +42,18 @@ header .left {
   grid-column: 1;
 }
 
+header .left a {
+  color: #888;
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+header .left a:hover {
+  color: white;
+}
+
 header .center {
   font-weight: 400;
   text-align: center;
@@ -94,7 +106,7 @@ header .left i {
 
 main {
   margin: 0;
-  padding: 0;
+  padding: 20px;
   width: 100%;
   min-height: 100vh;
 }
@@ -392,7 +404,7 @@ main {
 .ontology-launch {
   background: #0e2a4a;
   color: #9fccff;
-  border: 1px solid #2d5aa0;
+  border: none;
   padding: 8px 12px;
   border-radius: 6px;
   font-size: 12px;
@@ -463,7 +475,7 @@ main {
   width: 100%;
   max-width: 1100px;
   height: 520px;
-  border: 1px solid #2a2a2a;
+  border: none;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.45);
@@ -533,6 +545,8 @@ main {
 
 .project-card:hover {
   transform: scale(1.05);
+  flex: 0 0 400px;
+  max-width: 400px;
 }
 
 /* Scroll-triggered animation classes */
@@ -561,20 +575,31 @@ main {
   transition: all 0.3s ease;
 }
 
-.project-card::before {
-  content: '';
+/* Card title styling */
+.card-title {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #4a9eff, #9fccff);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  bottom: 10px;
+  left: 10px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+  max-width: calc(100% - 24px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.project-card:hover::before {
-  opacity: 1;
+
+.project-card:hover .card-title {
+  background-color: #4a9eff;
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 
@@ -635,12 +660,19 @@ main {
   color: #ccc;
 }
 
-.section-title {
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 40px;
-  margin-bottom: 12px;
-  font-size: 14px;
+.context {
+  font-size: 40px;
+  font-weight: 300;
+  padding: 200px 20px 0 300px;
+  line-height: 1;
+  color: #ababab;
+}
+
+.hmw{
+  font-size: 80px;
+  font-weight: 500;
+  padding: 100px 20px 0 300px;
+  line-height: 1;
   color: #ffffff;
 }
 
@@ -1035,11 +1067,23 @@ img.content-image {
     height: 350px;
   }
   
+  .project-card:hover {
+    flex: 0 0 350px;
+    max-width: 350px;
+  }
+  
   .card-number {
     font-size: 20px;
     top: 16px;
     left: 16px;
     padding: 6px 10px;
+  }
+  
+  .card-title {
+    font-size: 11px;
+    bottom: 10px;
+    left: 10px;
+    padding: 5px 8px;
   }
   
   .nav-arrow {
@@ -1066,11 +1110,23 @@ img.content-image {
     height: 300px;
   }
   
+  .project-card:hover {
+    flex: 0 0 300px;
+    max-width: 300px;
+  }
+  
   .card-number {
     font-size: 18px;
     top: 12px;
     left: 12px;
     padding: 4px 8px;
+  }
+  
+  .card-title {
+    font-size: 10px;
+    bottom: 8px;
+    left: 8px;
+    padding: 4px 6px;
   }
   
   .nav-arrow {

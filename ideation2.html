@@ -7,60 +7,24 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="left">Cornell Tech</div>
-    <div class="right"><a href="index.html">← Back to Gallery</a></div>
-  </header>
+  <header id="header-container"></header>
 
   <main>
-    <div class="ontology-bar">
-      <div class="ontology-inline-wrap">
-        <iframe
-          class="ontology-inline"
-          src="ontology.html"
-          title="Ontology Graph (inline)"
-        ></iframe>
-      </div>
-    </div>
+ 
+    <div class="context">
+    With recreational fishing projected to reach hundreds of millions of participants worldwide, the need for a trusted, intelligent companion has never been greater. While I have developed a fishing app that helps digitalize the market for younger users, it still lacks a natural flow to guide people before, during, and after their fishing events. Anglers everywhere face fragmented access to knowledge, varying local regulations, and steep skill gaps, creating demand for a seamless, intelligent solution.
+  </div>
 
-    <div class="ontology-overlay" id="ontology-overlay" aria-hidden="true">
-      <div class="ontology-modal" role="dialog" aria-modal="true" aria-label="Ontology Graph">
-        <button class="ontology-close" id="close-ontology" aria-label="Close Ontology Graph">×</button>
-        <iframe
-          class="ontology-iframe"
-          src="ontology.html"
-          id="ontology-iframe"
-          title="Ontology Graph"
-        ></iframe>
-      </div>
-    </div>
-
-    <div class="project-meta">2025.09.18</div>
-
-    <div class="section-title">Context</div>
-      <p>With recreational fishing projected to reach hundreds of millions of participants worldwide, the need for a trusted, intelligent companion has never been greater. While I have developed a fishing app that helps digitalize the market for younger users, it still lacks a natural flow to guide people before, during, and after their fishing events. Anglers everywhere face fragmented access to knowledge, varying local regulations, and steep skill gaps, creating demand for a seamless, intelligent solution.</p>
-
-    <br>
-
-    <div class="section-title">Project Questions</div>
-
-      <!-- Labels -->
+      <!-- Labels
       <span class="label outline info">Multi-sensor</span>
       <span class="label outline info">Communication</span>
         
       <span class="label outline">Physicalization</span>
-      <span class="label outline">Play</span>
+      <span class="label outline">Play</span> -->
 
-      <div class="callout">
-        <p>HMW create a natural, seamless flow that guides users before, during, and after fishing trips?</p>
-      </div>
-
-    <br>
- 
-
-   
-
-    <div class="section-title">Ideation 2 Context</div>
+    <div class="hmw">
+      HMW create a natural, seamless flow that guides users before, during, and after fishing trips?
+    </div>
 
 
     <div class="section-title">Matrix</div>
@@ -122,6 +86,28 @@
       <li><strong>Feedback on current app</strong> – capturing structured feedback from team members and early adopters.</li>
       <li><strong>AI tools/model research</strong> – how agent AI are used today and how to fine-tune a fishing model</li>
     </ul>
+
+    <div class="ontology-bar">
+      <div class="ontology-inline-wrap">
+        <iframe
+          class="ontology-inline"
+          src="ontology.html"
+          title="Ontology Graph (inline)"
+        ></iframe>
+      </div>
+    </div>
+
+    <div class="ontology-overlay" id="ontology-overlay" aria-hidden="true">
+      <div class="ontology-modal" role="dialog" aria-modal="true" aria-label="Ontology Graph">
+        <button class="ontology-close" id="close-ontology" aria-label="Close Ontology Graph">×</button>
+        <iframe
+          class="ontology-iframe"
+          src="ontology.html"
+          id="ontology-iframe"
+          title="Ontology Graph"
+        ></iframe>
+      </div>
+    </div>
 
 
     <div class="section-title">Proposed Workflow</div>
@@ -224,5 +210,16 @@
   <script src="https://unpkg.com/three@0.159.0/examples/js/controls/OrbitControls.js"></script>
   <script src="fullscreen-script.js"></script>
   <script src="script.js"></script>
+  <script>
+    // Load header.html content
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error loading header:', error);
+      });
+  </script>
 </body>
 </html>
