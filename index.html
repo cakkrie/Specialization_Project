@@ -26,157 +26,249 @@
     <br>
     <br>
 
-    <div id="circular-gallery"></div>
+    <div class="gallery-container">
+      <div class="project-card" onclick="openProjectDetail(1)">
+        <div class="card-image">
+          <div class="image-placeholder">
+            <div class="image-icon">📊</div>
+            <div class="image-text">AI Latency & Cognitive Design</div>
+          </div>
+        </div>
+        
+        <div class="card-content">
+          <div class="project-meta">2025.09.11</div>
+          <div class="project-title">Ideation1</div>
+          
+          <div class="card-tags">
+            <span class="label outline info">Ideation</span>
+          </div>
+          
+          <div class="card-description">
+            <p>Ideas about Reframce Cognitive Rhythm for Latency and Fulfill Cognitive Gap for diverse AI Products Users</p>
+          </div>
+          
+          <div class="card-footer">
+            <span class="click-hint">Click to view full report →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openProjectDetail(2)">
+        <div class="card-image">
+          <div class="image-placeholder">
+            <div class="image-icon">🎨</div>
+            <div class="image-text">Design System & Prototyping</div>
+          </div>
+        </div>
+        
+        <div class="card-content">
+          <div class="project-meta">2025.09.18</div>
+          <div class="project-title">Ideation2</div>
+          
+          <div class="card-tags">
+            <span class="label outline info">Prototyping</span>
+            <span class="label outline info">Design System</span>
+          </div>
+          
+          <div class="card-description">
+            <p>Developing interactive prototypes and design systems to test and validate our latency interaction concepts with real users.</p>
+          </div>
+          
+          <div class="card-footer">
+            <span class="click-hint">Click to view full project →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openProjectDetail(3)">
+        <div class="card-image">
+          <div class="image-placeholder">
+            <div class="image-icon">⚡</div>
+            <div class="image-text">Development & Testing</div>
+          </div>
+        </div>
+        
+        <div class="card-content">
+          <div class="project-meta">2025.10.02</div>
+          <div class="project-title">Ideation3</div>
+          
+          <div class="card-tags">
+            <span class="label outline info">Development</span>
+            <span class="label outline info">Testing</span>
+          </div>
+          
+          <div class="card-description">
+            <p>Building and deploying our latency-adaptive interaction component for real-world testing and evaluation across different platforms.</p>
+          </div>
+          
+          <div class="card-footer">
+            <span class="click-hint">Click to view full project →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openProjectDetail(4)">
+        <div class="card-image">
+          <div class="image-placeholder">
+            <div class="image-icon">🔬</div>
+            <div class="image-text">Research & Analysis</div>
+          </div>
+        </div>
+        
+        <div class="card-content">
+          <div class="project-meta">2025.10.16</div>
+          <div class="project-title">Research Phase</div>
+          
+          <div class="card-tags">
+            <span class="label outline info">Research</span>
+            <span class="label outline info">Analysis</span>
+          </div>
+          
+          <div class="card-description">
+            <p>Conducting comprehensive user research and data analysis to understand cognitive load patterns and latency perception across different user groups.</p>
+          </div>
+          
+          <div class="card-footer">
+            <span class="click-hint">Click to view full research →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openProjectDetail(5)">
+        <div class="card-image">
+          <div class="image-placeholder">
+            <div class="image-icon">🚀</div>
+            <div class="image-text">Implementation</div>
+          </div>
+        </div>
+        
+        <div class="card-content">
+          <div class="project-meta">2025.11.01</div>
+          <div class="project-title">Implementation</div>
+          
+          <div class="card-tags">
+            <span class="label outline info">Implementation</span>
+            <span class="label outline info">Deployment</span>
+          </div>
+          
+          <div class="card-description">
+            <p>Final implementation and deployment of the cognitive latency adaptation system with real-time performance monitoring and optimization.</p>
+          </div>
+          
+          <div class="card-footer">
+            <span class="click-hint">Click to view full implementation →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openProjectDetail(6)">
+        <div class="card-image">
+          <div class="image-placeholder">
+            <div class="image-icon">📈</div>
+            <div class="image-text">Results & Impact</div>
+          </div>
+        </div>
+        
+        <div class="card-content">
+          <div class="project-meta">2025.11.15</div>
+          <div class="project-title">Results</div>
+          
+          <div class="card-tags">
+            <span class="label outline info">Results</span>
+            <span class="label outline info">Impact</span>
+          </div>
+          
+          <div class="card-description">
+            <p>Comprehensive analysis of results, user feedback, and impact assessment of our cognitive latency adaptation approach across different applications.</p>
+          </div>
+          
+          <div class="card-footer">
+            <span class="click-hint">Click to view full results →</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
-  <!-- React Dependencies -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  
-  <!-- Circular Gallery Component -->
-  <script type="text/babel">
-    // Circular Gallery Component - Exact React Bits implementation
-    // Source: https://reactbits.dev/components/circular-gallery
+  <script>
+    function openProjectDetail(ideationNumber) {
+      window.open(`ideation${ideationNumber}.html`, '_blank');
+    }
 
-    const { useState } = React;
-
-    const CircularGallery = () => {
-      const [activeIndex, setActiveIndex] = useState(0);
+    // Scroll-based animation functionality
+    function initScrollAnimations() {
+      const cards = document.querySelectorAll('.project-card');
+      const galleryContainer = document.querySelector('.gallery-container');
       
-      const items = [
-        { id: 1, title: 'Ideation1', date: '2025.09.11', desc: 'AI Latency & Cognitive Design', emoji: '📊', href: 'ideation1.html', active: true },
-        { id: 2, title: 'Ideation2', date: '2025.09.18', desc: 'Design System & Prototyping', emoji: '🎨', href: 'ideation2.html', active: true },
-        { id: 3, title: 'Ideation3', date: '2025.10.02', desc: 'Implementation & Testing', emoji: '🚀', href: 'ideation3.html', active: true },
-        { id: 4, title: 'Coming Soon', date: 'TBD', desc: 'Future Project', emoji: '⏳', href: null, active: false },
-        { id: 5, title: 'Coming Soon', date: 'TBD', desc: 'Future Project', emoji: '⏳', href: null, active: false },
-        { id: 6, title: 'Coming Soon', date: 'TBD', desc: 'Future Project', emoji: '⏳', href: null, active: false },
-        { id: 7, title: 'Coming Soon', date: 'TBD', desc: 'Future Project', emoji: '⏳', href: null, active: false },
-        { id: 8, title: 'Coming Soon', date: 'TBD', desc: 'Future Project', emoji: '⏳', href: null, active: false },
-        { id: 9, title: 'Coming Soon', date: 'TBD', desc: 'Future Project', emoji: '⏳', href: null, active: false },
-        { id: 10, title: 'Coming Soon', date: 'TBD', desc: 'Future Project', emoji: '⏳', href: null, active: false }
-      ];
-
-      const handleItemClick = (item, index) => {
-        if (item.active && item.href) {
-          window.open(item.href, '_blank');
-        } else {
-          setActiveIndex(index);
-        }
+      // Intersection Observer for left-to-right animation
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
       };
 
-      const getItemStyle = (index) => {
-        const angle = (index * 36) - 90; // 10 items, 36 degrees apart
-        const baseRadius = 500; // Base radius
-        const radius = baseRadius + Math.sin(angle * Math.PI / 180) * 40; // Elliptical curve
-        const x = Math.cos(angle * Math.PI / 180) * radius;
-        const y = Math.sin(angle * Math.PI / 180) * radius * 0.8; // Flattened ellipse
-        
-        return {
-          position: 'absolute',
-          left: `calc(50% + ${x}px - 40px)`, // Exact React Bits positioning
-          top: `calc(50% + ${y}px - 40px)`,
-          transform: `scale(1)`,
-          transition: 'all 0.3s ease',
-          zIndex: index === activeIndex ? 10 : 1
-        };
-      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const cardIndex = Array.from(cards).indexOf(entry.target);
+            // Stagger animation from left to right with increasing delay
+            setTimeout(() => {
+              entry.target.classList.add('animate-in');
+            }, cardIndex * 150);
+          }
+        });
+      }, observerOptions);
 
-      const getCardStyle = (item, index) => ({
-        width: 250, // Exact React Bits card size
-        height: 380,
-        borderRadius: 12,
-        background: item.active ? '#1a1a1a' : '#2a2a2a',
-        border: item.active ? '2px solid #3b82f6' : '1px solid #374151',
-        cursor: item.active ? 'pointer' : 'default',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        color: item.active ? '#fff' : '#9ca3af',
-        boxShadow: item.active 
-          ? '0 10px 25px rgba(59, 130, 246, 0.3)' 
-          : '0 4px 6px rgba(0,0,0,0.1)',
-        transition: 'all 0.3s ease',
-        pointerEvents: 'auto'
+      // Observe all cards
+      cards.forEach(card => {
+        observer.observe(card);
       });
 
-      return React.createElement('div', {
-        style: {
-          position: 'relative',
-          width: 360, // Exact React Bits container size
-          height: 360,
-          margin: '40px auto',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          pointerEvents: 'none'
-        }
-      }, [
-        ...items.map((item, index) => 
-          React.createElement('div', {
-            key: item.id,
-            style: {
-              ...getItemStyle(index),
-              pointerEvents: 'none'
-            }
-          }, 
-            React.createElement('div', {
-              style: {
-                ...getCardStyle(item, index),
-                pointerEvents: 'auto'
-              },
-              onClick: () => handleItemClick(item, index)
-            }, [
-              React.createElement('div', {
-                key: `emoji-${item.id}`,
-                style: { fontSize: 24, marginBottom: 4 }
-              }, item.emoji),
-              React.createElement('div', {
-                key: `title-${item.id}`,
-                style: { fontSize: 10, fontWeight: '500' }
-              }, item.title),
-              React.createElement('div', {
-                key: `date-${item.id}`,
-                style: { fontSize: 8, opacity: 0.7 }
-              }, item.date)
-            ])
-          )
-        ),
-        // Center info display
-        React.createElement('div', {
-          key: 'center-info',
-          style: {
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            textAlign: 'center',
-            color: '#fff',
-            pointerEvents: 'none',
-            background: 'rgba(0,0,0,0.9)',
-            padding: '16px 20px',
-            borderRadius: '16px',
-            border: '1px solid rgba(255,255,255,0.1)',
-            minWidth: '140px'
+      // Handle horizontal scroll-based effects
+      let ticking = false;
+      
+      function updateHorizontalEffects() {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const galleryRect = galleryContainer.getBoundingClientRect();
+        const galleryTop = galleryRect.top + scrollY;
+        
+        cards.forEach((card, index) => {
+          const cardRect = card.getBoundingClientRect();
+          const cardLeft = cardRect.left;
+          const cardWidth = cardRect.width;
+          
+          // Calculate scroll progress for the gallery section
+          const galleryScrollProgress = Math.max(0, Math.min(1, (scrollY - galleryTop + windowHeight) / (windowHeight + galleryRect.height)));
+          
+          // Calculate individual card visibility based on horizontal position
+          const cardVisibility = Math.max(0, Math.min(1, (window.innerWidth - cardLeft) / (cardWidth + 50)));
+          
+          // Apply stacking effect to cards that are partially visible
+          if (galleryScrollProgress > 0.2 && galleryScrollProgress < 0.8 && cardVisibility < 0.8 && cardVisibility > 0.2) {
+            card.classList.add('animate-stack');
+          } else {
+            card.classList.remove('animate-stack');
           }
-        }, [
-          React.createElement('div', {
-            key: 'center-title',
-            style: { fontSize: 14, fontWeight: '600', marginBottom: 4 }
-          }, items[activeIndex].title),
-          React.createElement('div', {
-            key: 'center-desc',
-            style: { fontSize: 11, color: '#d1d5db', lineHeight: 1.4 }
-          }, items[activeIndex].desc)
-        ])
-      ]);
-    };
+        });
+        
+        ticking = false;
+      }
+      
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(updateHorizontalEffects);
+          ticking = true;
+        }
+      }
+      
+      window.addEventListener('scroll', requestTick, { passive: true });
+      
+      // Also listen for horizontal scroll on the gallery container
+      galleryContainer.addEventListener('scroll', requestTick, { passive: true });
+    }
 
-    // Initialize the component
-    const root = ReactDOM.createRoot(document.getElementById('circular-gallery'));
-    root.render(React.createElement(CircularGallery));
+    // Initialize animations when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initScrollAnimations);
   </script>
 </body>
 </html>
