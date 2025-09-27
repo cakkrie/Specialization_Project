@@ -7,18 +7,241 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="site-header"></div>
+  <header id="header-container"></header>
 
   <main>
+    <br>
+    <br>
+    <br>
     <div class="gallery-subpage">
-      <div class="project-meta">2025.09.11</div>
+      
+      <div class="context">
+        <span class="label outline">Multi-sensor Physicalization</span>
+        <span class="label outline">Community</span>
+        <span class="label outline">Play</span>
+        <br>
+        <br>
+        While FishOn already <bold>digitalizes the market for younger users,</bold>it still lacks a natural flow to guide them before, during, and after their trips. Young anglers often face fragmented knowledge and steep learning curves, especially when fishing within limited time. 
+        <br>
+        <br>
+        Our goal is to make the experience more organized, reduce disappointment from empty catches, and ensure fishing remains fun and efficient.
+        <br>
+        <br>
+        
+    </div>
+
+      <div class="hmw">
+        HMW create a natural, seamless flow that guides users before, during, and after fishing trips?
+      </div>
+      <br>
+      <br>
+      <br>
+
+      <div class="section-line"></div>
+
+      <div class="section-title">Map of Community of Practice</div>
+      <div class="expandable-title">
+        Software - Platforms & Services
+        <div class="add-icon" onclick="toggleContent(this)">+</div>
+      </div>
+      <div class="expandable-content">
+        <div class="expandable-item">
+          <h4>LakeMonster</h4>
+          <div class="item-note">An app that analyzes data points — including satellite imagery, weather patterns, water depth data, and historical fishing records to generate fish activity forecasts, hotspot maps, and water clarity maps.</div>
+        </div>
+        <div class="expandable-item">
+          <h4>Fishbuddy</h4>
+          <div class="item-note">Smart decisions: uses 10+ weather factors (temp, pressure, humidity) to flag prime times, recommend bait, and navigate nearby spots. Social: in-app forum to share catches and techniques.</div>
+        </div>
+        <div class="expandable-item">
+          <h4>墨迹天气</h4>
+          <div class="item-note">Expert-verified with hi-res satellite and depth maps. AR+AI logging: snap a fish to auto-record species, size/weight, location, and weather. AR contests: create/join casual challenges with live leaderboards.</div>
+        </div>
+      </div>
+
+      <div class="expandable-title">
+        Hardware - Devices & Interfaces
+        <div class="add-icon" onclick="toggleContent(this)">+</div>
+      </div>
+      <div class="expandable-content">
+        <div class="expandable-item">
+          <h4>Sea.ai</h4>
+          <div class="item-note">Smart camera: combines optical and infrared sensors, utilizes AI and ML algorithms to detect objects on the water surface.</div>
+        </div>
+        <div class="expandable-item">
+          <h4>Chasing F1 Pro</h4>
+          <div class="item-note">Remote/autonomous lateral movement, station-hold, multi-spot waypoints. Depth & temperature sensors; Wi-Fi streams live video + depth/temp to the app. Bait-boat mount with one-tap in-app bait release.</div>
+        </div>
+      </div>
+
+      <div class="expandable-title">
+        Matrix
+        <div class="add-icon" onclick="toggleContent(this)">+</div>
+      </div>
+      <div class="expandable-content">
+        <img class="content-image" src="Photo/matrix.png" alt="">
+      </div>
+
+      <div class="section-title">Forking Path</div>
+      <div class="expandable-title">
+        Map of Community of Practice
+        <div class="add-icon" onclick="toggleContent(this)">+</div>
+      </div>
+      <div class="expandable-content">
+        <img class="content-image" src="Photo/map_of_c.png" alt="">
+      </div>
+      <div class="expandable-title">
+        Ontology Graph
+        <div class="add-icon" onclick="toggleContent(this)">+</div>
+      </div>
+      <div class="expandable-content">
+        <div class="ontology-bar">
+          <div class="ontology-inline-wrap">
+            <iframe
+              class="ontology-inline"
+              src="ontology.html"
+              title="Ontology Graph (inline)"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="ontology-overlay" id="ontology-overlay" aria-hidden="true">
+        <div class="ontology-modal" role="dialog" aria-modal="true" aria-label="Ontology Graph">
+          <button class="ontology-close" id="close-ontology" aria-label="Close Ontology Graph">×</button>
+          <iframe
+            class="ontology-iframe"
+            src="ontology.html"
+            id="ontology-iframe"
+            title="Ontology Graph"
+          ></iframe>
+        </div>
+      </div>
+
+
+      <div class="section-title">Research Methods</div>
+      <ul style="padding-left: 300px;">
+        <li><strong>Market research</strong> – analyzing fishing industry trends, competitors, and emerging technologies in global market</li>
+        <li><strong>Questionnaires/Surveys</strong> – collecting quantitative insights on user behaviors, needs, and expectations.</li>
+      </ul>
+      <div class="expandable-title">
+        Questionnaire
+        <div class="add-icon" onclick="toggleContent(this)">+</div>
+      </div>
+      <div class="expandable-content">
+        <img class="content-image" src="Photo/questionnaire.png" alt="Questionnaire Photo">
+      </div>
+      <ul style="padding-left: 300px;">
+        <li><strong>Interviews</strong> – focusing on 3 types of users (e.g., novice anglers and experienced anglers) to gather qualitative perspectives.</li>
+        <li><strong>Feedback on current app</strong> – capturing structured feedback from team members and early adopters.</li>
+        <li><strong>AI tools/model research</strong> – how agent AI are used today and how to fine-tune a fishing model</li>
+      </ul>
+      <br>
+      <br>
+      <br>
+
+      <div class="section-line"></div>
+
+      <div class="section-title">Proposed Workflow</div>
+
+      <div class="expandable-title">
+        Information Architecture
+        <div class="add-icon" onclick="toggleContent(this)">+</div>
+      </div>
+      <div class="expandable-content">
+        <img class="content-image" src="Photo/Information-architecture.png" alt="Information architecture Photo">
+      </div>
+
+      <div class="expandable-title">
+        Pre-Fishing - Preparation & Planning
+        <div class="add-icon" onclick="toggleContent(this)">+</div>
+      </div>
+      <div class="expandable-content">
+        <div class="expandable-item">
+          <h4>Inputs</h4>
+          <div class="item-note">User profile (experience level, preferences), Time availability, Location access, Weather data, Regulations</div>
+        </div>
+        <div class="expandable-item">
+          <h4>Agent Actions</h4>
+          <div class="item-note">Collect user goals ("I want to fish this weekend for 3 hours."), Analyze external data (weather, water level, seasonality), Recommend optimal time & location for fishing, Suggest equipment & bait (with purchase/rental links), Provide a step-by-step preparation checklist</div>
+        </div>
+      </div>
+
+      <div class="expandable-title">
+        During Fishing - Real-Time Guidance & Support
+        <div class="add-icon" onclick="toggleContent(this)">+</div>
+      </div>
+      <div class="expandable-content">
+        <div class="expandable-item">
+          <h4>Inputs</h4>
+          <div class="item-note">GPS location, Live conditions (weather/water APIs), Manual user updates</div>
+        </div>
+        <div class="expandable-item">
+          <h4>Agent Actions</h4>
+          <div class="item-note">Provide real-time tips (e.g., adjust bait, change spot), Offer safety alerts for sudden weather/water risks, Enable quick-reference tutorials (casting, knot tying), Track catches & efforts automatically (photo or manual logging), Offer motivational nudges if no fish caught after a while</div>
+        </div>
+      </div>
+
+      <div class="expandable-title">
+        Post-Fishing - Reflection & Engagement
+        <div class="add-icon" onclick="toggleContent(this)">+</div>
+      </div>
+      <div class="expandable-content">
+        <div class="expandable-item">
+          <h4>Inputs</h4>
+          <div class="item-note">Catch log, Effort data, Social sharing intent</div>
+        </div>
+        <div class="expandable-item">
+          <h4>Agent Actions</h4>
+          <div class="item-note">Summarize trip results (e.g., effort vs. outcome), Suggest improvements for next time (learning loop), Provide AI-generated trip journal (story + photos), Enable social sharing (successes & learnings), Offer gamification: badges, streaks, community challenges</div>
+        </div>
+      </div>
+
+      <div class="expandable-title">
+        On-boarding Process
+        <div class="add-icon" onclick="toggleContent(this)">+</div>
+      </div>
+      <div class="expandable-content">
+        <img class="content-image" src="Photo/On-boarding.png" alt="On boarding process">
+      </div>
+    
+      <br>
+      <br>
+      <br>
+
+      <div class="section-title">Computational Challenges</div>
+
+      <div class="expandable-title">
+        RAG
+        <div class="add-icon" onclick="toggleContent(this)">+</div>
+      </div>
+      <div class="expandable-content">
+    
+      </div>
+
+      <div class="expandable-title">
+        Harware Information Extraction and API Integration
+        <div class="add-icon" onclick="toggleContent(this)">+</div>
+      </div>
+      <div class="expandable-content">
+
+      </div>
+    </div>
+
+    <section class="subpage-section">
+      <div class="title">Archive</div>
+    </section>
+
+    <div class="gallery-subpage">
 
       <div class="context">
       Large language models (LLMs) are advancing at an unprecedented pace, with new capabilities released monthly.
       </div>
 
       <div class="section-title">Project Questions</div>
+    
       <div class="section-subtitle">Reframce Cognitive Rhythm for Latency</div>
+      <br>
 
       <!-- Labels -->
       <span class="label outline info">Multi-sensor</span>
@@ -38,6 +261,7 @@
       </div>
 
       <br>
+  
       <div class="section-subtitle">Fulfill Cognitive Gap for diverse AI Products Users</div>
 
       <!-- Labels -->
@@ -61,7 +285,7 @@
       <div class="section-title">Map of Community of Practice</div>
       <div class="section-subtitle"></div>
 
-      <div class="kcontainer-2column">
+      <div class="container-2column">
         <div class="knowledge-column">
           <div class="container-header">
             <h4>Long Latency</h4>
@@ -85,6 +309,7 @@
             </div>
           </div>
         </div>
+        <br>
         <div class="knowledge-column">
           <div class="container-header">
             <h4>Cognitive Difference</h4>
@@ -118,6 +343,33 @@
 
       <p>Our radical prototype will be a system, not a product. We are designing a universal latency-adaptive interaction component that mediates between model delay and user engagement across platforms, tasks, and model types. Its purpose is to guide the users with coexisting with latency, to not hide the waiting but make it meaningful. The second idea, we will make a playground accessible across desktop and mobile, inviting casual users, researchers and other stakeholder to explore AI not as black-box but in a decentrualized system.</p>
     </div>
+
   </main>
+
+  <script>  
+      // Load header from external file
+  function loadHeader() {
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error loading header:', error);
+        // Fallback header if file can't be loaded
+        document.getElementById('header-container').innerHTML = `
+          <div class="left">FishOn</div>
+          <div class="right"><a href="index.html">← Back to Gallery</a></div>
+        `;
+      });
+  }
+
+  // Initialize animations and load header when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    loadHeader();
+  });
+  </script>
+
+
 </body>
 </html>

@@ -178,6 +178,23 @@ main {
   z-index: 1;
 }
 
+.subpage-section {
+  padding: 20px;
+  padding-top: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.subpage-section .title {
+  font-size: 60px;
+  font-weight: 200;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
 .About-us {
   padding: 20px;
   padding-top: 40px;
@@ -703,12 +720,10 @@ img.content-image {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border-radius: 3px;
-  margin: 0 4px 4px 0;
   line-height: 1.2;
 }
 
 .label.outline {
-  margin-left: 10px;
   background-color: transparent;
   font-size: 18px;
   color: #ffffff;
