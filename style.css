@@ -955,11 +955,11 @@ img.content-image {
 }
 
 .project-card:nth-child(3) {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/ai-latency-cover.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/aesthetics-cover.jpg');
 }
 
 .project-card:nth-child(4) {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/ai-latency-cover.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Photo/development-cover.jpg');
 }
 
 /* Hide other cards when hovering on one card */
