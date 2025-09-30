@@ -120,27 +120,19 @@
 
 
       <div class="section-title">Research Methods</div>
-      <ul style="padding-left: 300px;">
+      <ul>
         <li><strong>Market research</strong> – analyzing fishing industry trends, competitors, and emerging technologies in global market</li>
         <li><strong>Questionnaires/Surveys</strong> – collecting quantitative insights on user behaviors, needs, and expectations.</li>
       </ul>
-      <div class="expandable-title">
-        Questionnaire
-        <div class="add-icon" onclick="toggleContent(this)">+</div>
-      </div>
       <div class="expandable-content">
         <img class="content-image" src="Photo/questionnaire.png" alt="Questionnaire Photo">
       </div>
-      <ul style="padding-left: 300px;">
+      <ul>
         <li><strong>Interviews</strong> – focusing on 3 types of users (e.g., novice anglers and experienced anglers) to gather qualitative perspectives.</li>
         <li><strong>Feedback on current app</strong> – capturing structured feedback from team members and early adopters.</li>
         <li><strong>AI tools/model research</strong> – how agent AI are used today and how to fine-tune a fishing model</li>
       </ul>
       <br>
-      <br>
-      <br>
-
-      <div class="section-line"></div>
 
       <div class="section-title">Proposed Workflow</div>
 
@@ -206,8 +198,6 @@
       </div>
     
       <br>
-      <br>
-      <br>
 
       <div class="section-title">Computational Challenges</div>
 
@@ -228,121 +218,11 @@
       </div>
     </div>
 
-    <section class="subpage-section">
-      <div class="title">Archive</div>
-    </section>
 
-    <div class="gallery-subpage">
 
-      <div class="context">
-      Large language models (LLMs) are advancing at an unprecedented pace, with new capabilities released monthly.
-      </div>
-
-      <div class="section-title">Project Questions</div>
-    
-      <div class="section-subtitle">Reframce Cognitive Rhythm for Latency</div>
-      <br>
-
-      <!-- Labels -->
-      <span class="label outline info">Multi-sensor</span>
-      <span class="label outline info">Communication</span>
-      <span class="label outline info">Scientific Research</span>
-      
-      <span class="label outline">Physicalization</span>
-      <span class="label outline">Play</span>
-
-      <p>As AI systems take on increasingly complex tasks, the computational resources required to process them grow substantially. This often leads to extended response latency in AI products. Such delays present several challenges for user experience.</p>
-
-      <p>*First, long waiting times test user patience and can lead to frustration, abandonment of tasks, or diminished trust in the system.*Second, interruptions caused by latency disrupt cognitive flow, making it harder for users to maintain continuity in thought and workflow. *Finally, without clear feedback about the system's current state, users face uncertainty over whether the AI is still processing, stalled, or has failed altogether.</p>
-
-       <!-- Question -->
-      <div class="callout">
-        <p>How might we activate and reframe the dimension of AI latency as a system that offers cognitive rhythm and distribution of flows?</p>
-      </div>
-
-      <br>
-  
-      <div class="section-subtitle">Fulfill Cognitive Gap for diverse AI Products Users</div>
-
-      <!-- Labels -->
-      <span class="label outline info">Communication</span>
-      <span class="label outline info">Accessibility</span>
-      <span class="label outline info">Connectivity</span>
-      <span class="label outline info">Scalability</span>
-      
-      <p>Given the rapid iteration and development of AI models, each serves different disciplines with distinct strengths—for example, code decomposition, visual design, or other specialized tasks.</p>
-
-      <p>While OpenAI has released a leaderboard that is widely accepted in the industry, its benchmarks are primarily designed for ML engineering rather than general users. As a result, users struggle to identify which model best fits their specific needs in this fast-evolving landscape, since different stakeholders prioritize different functions and evaluation dimensions.</p>
-
-      <p>Addressing this gap could help close the cognitive divide between AI products and their consumers. </p>
-
-      <div class="callout">
-        <p>How might we design user-friendly evaluation frameworks that help non-expert users identify which AI model best fits their task needs in a rapidly evolving landscape of specialized models?</p>
-      </div>
-
-      <br>
-      <br>
-      <div class="section-title">Map of Community of Practice</div>
-      <div class="section-subtitle"></div>
-
-      <div class="container-2column">
-        <div class="knowledge-column">
-          <div class="container-header">
-            <h4>Long Latency</h4>
-          </div>
-          <div class="knowledge-areas">
-            <div class="knowledge-item">
-              <h5>Engineering & Infrastructure Optimizations</h5>
-              <ul>
-                <li><b>Uber</b>: AI team at Uber's Development Platform mitigates blocking from single-point latency in large-scale operations (e.g., code migration, real-time data querying), improving system response speed.</li>
-                <li><b>Amazon</b>: Offers latency-optimized inference modes for LLMs, accelerating response times and enhancing real-time UX.</li>
-                <li><b>Lepton AI</b>: Enables "think-while-speaking" by starting AI responses within 300 milliseconds.</li>
-              </ul>
-            </div>
-            <div class="knowledge-item">
-              <h5>UX / Design Strategies</h5>
-              <ul>
-                <li><b>Ricky Ho</b>: Fast vs. Slow Path Design—uses flow graphs and intent detection to route simple requests quickly, sending complex tasks to LLMs only as needed.</li>
-                <li><b>Procreator / Duolingo</b>: Adds empathy to latency UX with friendly micro-copy and humanized messaging.</li>
-                <li><b>Morgan Stanley / BofA</b>: Embeds UX guidance in workflows and trains users (especially leadership) to manage AI expectations.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <br>
-        <div class="knowledge-column">
-          <div class="container-header">
-            <h4>Cognitive Difference</h4>
-          </div>
-          <div class="knowledge-areas">
-            <div class="knowledge-item">
-              <h5>Black Box & Model Evaluation Issues</h5>
-              <ul>
-                <li><b>Google Vertex Explainable AI</b>: Explains key features of model input/output, supports comparison, evaluation, and prompt optimization for generative models.</li>
-                <li><b>Rawbot</b>: Consumer-facing model comparison platform showing differences between GPT, Claude, Cohere, etc., across tasks.</li>
-                <li><b>InterpretML</b>: Toolkit for model interpretability and responsible machine learning.</li>
-                <li><b>LMArena</b>: Compares answers from top AI models, collects feedback, and powers public evaluation.</li>
-              </ul>
-            </div>
-            <div class="knowledge-item">
-              <h5>The Community</h5>
-              <ul>
-                <li>AI Engineers / Model Developers</li>
-                <li>UX / Product Designers</li>
-                <li>Infrastructure / DevOps Teams</li>
-                <li>Industry Regulators</li>
-                <li>End Users</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <br>
-      <div class="section-title">Our Radical Prototype</div>
-
-      <p>Our radical prototype will be a system, not a product. We are designing a universal latency-adaptive interaction component that mediates between model delay and user engagement across platforms, tasks, and model types. Its purpose is to guide the users with coexisting with latency, to not hide the waiting but make it meaningful. The second idea, we will make a playground accessible across desktop and mobile, inviting casual users, researchers and other stakeholder to explore AI not as black-box but in a decentrualized system.</p>
-    </div>
+    <br>
+    <br>
+    <br>
 
   </main>
 
@@ -362,6 +242,23 @@
           <div class="right"><a href="index.html">← Back to Gallery</a></div>
         `;
       });
+  }
+
+  // Toggle content with add icon
+  function toggleContent(iconElement) {
+    const titleElement = iconElement.parentElement;
+    const content = titleElement.nextElementSibling;
+    const isExpanded = titleElement.classList.contains('expanded');
+    
+    if (isExpanded) {
+      titleElement.classList.remove('expanded');
+      content.classList.remove('expanded');
+      iconElement.textContent = '+';
+    } else {
+      titleElement.classList.add('expanded');
+      content.classList.add('expanded');
+      iconElement.textContent = '−';
+    }
   }
 
   // Initialize animations and load header when DOM is loaded
