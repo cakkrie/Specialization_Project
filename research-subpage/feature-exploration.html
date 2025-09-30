@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Research - Design System & Prototyping</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <header id="header-container"></header>
@@ -22,28 +22,6 @@
         Our goal is to make the experience more organized, reduce disappointment from empty catches, and ensure fishing remains fun and efficient.
         <br>
         <br>
-      </div>
-
-      <!-- Gallery Section -->
-      <div class="gallery-section">
-        <div class="gallery-container">
-          <div class="project-card" data-link="research-subpage/feature-exploration.html">
-            <h3 class="card-title">Feature Exploration</h3>
-          </div>
-          
-          <div class="project-card" data-link="research.html">
-            <h3 class="card-title">User Research</h3>
-          </div>
-          
-          <div class="project-card" data-link="ideation.html">
-            <h3 class="card-title">Ideation Process</h3>
-          </div>
-          
-          <div class="project-card" data-link="ontology.html">
-            <h3 class="card-title">System Ontology</h3>
-          </div>
-        </div>
-      </div>
     </div>
 
   </main>
@@ -53,11 +31,11 @@
   <!-- Three.js dependencies for fullscreen ontology graph -->
   <script src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
   <script src="https://unpkg.com/three@0.159.0/examples/js/controls/OrbitControls.js"></script>
-  <script src="fullscreen-script.js"></script>
-  <script src="script.js"></script>
+  <script src="../fullscreen-script.js"></script>
+  <script src="../script.js"></script>
   <script>
     // Load header.html content
-    fetch('header.html')
+    fetch('../header.html')
       .then(response => response.text())
       .then(data => {
         document.getElementById('header-container').innerHTML = data;
@@ -96,40 +74,6 @@
         iconElement.textContent = '−';
       }
     }
-
-    // Gallery card functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const projectCards = document.querySelectorAll('.project-card');
-      
-      // Add click functionality to cards
-      projectCards.forEach(card => {
-        card.addEventListener('click', function() {
-          const link = this.getAttribute('data-link');
-          console.log('Card clicked, link:', link); // Debug log
-          if (link) {
-            window.location.href = link;
-          }
-        });
-      });
-
-      // Animate cards on scroll
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-          }
-        });
-      }, observerOptions);
-
-      projectCards.forEach(card => {
-        observer.observe(card);
-      });
-    });
   </script>
 </body>
 </html>
