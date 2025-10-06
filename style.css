@@ -68,7 +68,7 @@ header .center span {
 }
 
 header .center a {
-  color: var(--dark-grey);
+  color: gray;
   text-decoration: none;
   font-weight: 400;
   margin: 0 15px;
@@ -1099,5 +1099,88 @@ img.content-image {
   
   .card-title {
     font-size: 12px;
+  }
+}
+
+/* Research Page Two-Column Layout */
+.research-main {
+  display: flex;
+  height: 100vh;
+  padding-top: 80px; /* Account for fixed header */
+  box-sizing: border-box;
+}
+
+.left-fixed-section {
+  position: fixed;
+  left: 0;
+  top: 40px; /* Below the header */
+  width: 30%;
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: #000000;
+  z-index: 10;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.fixed-content {
+  max-width: 400px;
+}
+
+.fixed-sentence {
+  font-size: 40px;
+  line-height: 1.4;
+  color: #ffffff;
+  font-weight: 300;
+  margin: 0;
+  text-align: left;
+}
+
+.right-gallery-section {
+  width: 70%;
+  margin-left: 30%; /* Push to the right half */
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.right-gallery-section .gallery-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+  max-width: none;
+}
+
+/* Responsive adjustments for research page */
+@media (max-width: 768px) {
+  .research-main {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .left-fixed-section {
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: 0;
+    padding: 20px;
+    min-height: 200px;
+  }
+  
+  .right-gallery-section {
+    width: 100%;
+    margin-left: 0;
+    height: auto;
+    overflow-y: visible;
+  }
+  
+  .fixed-sentence {
+    font-size: 20px;
+    text-align: center;
   }
 }
