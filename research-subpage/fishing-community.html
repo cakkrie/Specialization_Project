@@ -6,8 +6,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-  <header id="header-container"></header>
+<body style="background-color: #ffffff;">
+  <header>
+    <div class="left"><a href="../index.html">FishOn</a></div>
+    <div class="center">
+      <a href="/main-page/about.html">About</a>
+      <a href="/main-page/log.html">Log</a>
+    </div>
+    <!-- <div class="right"><a href="index.html">← Back to Gallery</a></div> -->
+  </header>
+  
 
   <main>
     <br>
@@ -15,6 +23,9 @@
     <br>
 
     <div class="gallery-subpage">
+
+      <div class="section-title">Fishing Community</div>
+      
       <div class="context">
         While FishOn already <bold>digitalizes the market for younger users,</bold>it still lacks a natural flow to guide them before, during, and after their trips. Young anglers often face fragmented knowledge and steep learning curves, especially when fishing within limited time. 
         <br>
@@ -27,23 +38,7 @@
   </main>
 
 
-
-  <!-- Three.js dependencies for fullscreen ontology graph -->
-  <script src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
-  <script src="https://unpkg.com/three@0.159.0/examples/js/controls/OrbitControls.js"></script>
-  <script src="../fullscreen-script.js"></script>
-  <script src="../script.js"></script>
   <script>
-    // Load header.html content
-    fetch('../header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-container').innerHTML = data;
-      })
-      .catch(error => {
-        console.error('Error loading header:', error);
-      });
-
     // Expandable functionality
     function toggleExpandable(element) {
       const content = element.nextElementSibling;
