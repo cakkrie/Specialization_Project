@@ -8,7 +8,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header id="header-container"></header>
+  <header>
+    <div class="left"><a href="../index.html">FishOn</a></div>
+    <div class="center">
+      <a href="/main-page/about.html">About</a>
+      <a href="#">Log</a>
+    </div>
+    <!-- <div class="right"><a href="index.html">← Back to Gallery</a></div> -->
+  </header>
 
   <main>
  
@@ -126,12 +133,10 @@
   <script>
     function openProjectDetail(projectNumber) {
       const fileNames = {
-        1: 'ideation.html',
-        2: 'research.html', 
-        3: 'aesthetic.html',
-        4: 'ideation4.html', // Keep as placeholder for future
-        5: 'ideation5.html', // Keep as placeholder for future
-        6: 'ideation6.html'  // Keep as placeholder for future
+        1: '/main-page/ideation.html',
+        2: '/main-page/research.html', 
+        3: '/main-page/aesthetic.html',
+        4: '/main-page/development.html'
       };
       
       const fileName = fileNames[projectNumber] || `ideation${projectNumber}.html`;
@@ -186,23 +191,6 @@
       cards.forEach(card => {
         observer.observe(card);
       });
-    }
-
-    // Load header from external file
-    function loadHeader() {
-      fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('header-container').innerHTML = data;
-        })
-        .catch(error => {
-          console.error('Error loading header:', error);
-          // Fallback header if file can't be loaded
-          document.getElementById('header-container').innerHTML = `
-            <div class="left">FishOn</div>
-            <div class="right"><a href="index.html">← Back to Gallery</a></div>
-          `;
-        });
     }
 
     // Initialize animations and load header when DOM is loaded
