@@ -4,10 +4,17 @@
   <meta charset="UTF-8">
   <title>Ideation2 - Design System & Prototyping</title>
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <header id="header-container"></header>
+  <header>
+    <div class="left"><a href="../index.html">FishOn</a></div>
+    <div class="center">
+      <a href="/main-page/about.html">About</a>
+      <a href="/main-page/log.html">Log</a>
+    </div>
+    <!-- <div class="right"><a href="index.html">← Back to Gallery</a></div> -->
+  </header>
 
   <main>
     <br>
@@ -103,7 +110,7 @@
       // 直接设置header内容，避免CORS问题
       document.getElementById('header-container').innerHTML = `
         <div class="left">FishOn</div>
-        <div class="right"><a href="index.html">← Back to Gallery</a></div>
+        <div class="right"><a href="../index.html">← Back to Ga</div>
       `;
       
       initEarthInteraction();
@@ -288,9 +295,9 @@
       
       function setupCanvases() {
         const imageFiles = {
-          'bottom': 'buttom.png',
-          'middle': 'middle.png', 
-          'top': 'top.png'
+          'bottom': '../Photo/buttom.png',
+          'middle': '../Photo/middle.png', 
+          'top': '../Photo/top.png'
         };
         
         canvases.forEach(canvas => {
