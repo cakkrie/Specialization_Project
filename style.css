@@ -28,7 +28,6 @@ header {
   width: 100vw;
   margin: 0;
   box-sizing: border-box;
-  background-color: #000000;
   position: fixed;
   top: 0;
   z-index: 1000;
@@ -1113,39 +1112,43 @@ img.content-image {
 .left-fixed-section {
   position: fixed;
   left: 0;
-  top: 40px; /* Below the header */
-  width: 30%;
-  height: calc(100vh - 80px);
+  top: 60px; /* Below the header */
+  width: 40%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  background-color: #000000;
   z-index: 10;
   padding: 20px;
   box-sizing: border-box;
+  height: 100vh;
 }
 
 .fixed-content {
-  max-width: 400px;
+  max-width: 90%;
 }
 
 .fixed-sentence {
-  font-size: 40px;
-  line-height: 1.4;
-  color: #ffffff;
-  font-weight: 300;
+  font-size: 45px;
+  line-height: 1.2;
+  color: gray;
+  font-weight: 400;
   margin: 0;
   text-align: left;
 }
 
+.fixed-sentence .highlight {
+  color: white;
+}
+
 .right-gallery-section {
+  font-size: 20px;
   width: 70%;
-  margin-left: 30%; /* Push to the right half */
-  height: calc(100vh - 80px);
+  margin-left: 40%; /* Push to the right half */
   overflow-y: auto;
   padding-right: 20px;
   box-sizing: border-box;
 }
+
 
 .right-gallery-section .gallery-container {
   display: grid;
@@ -1155,6 +1158,61 @@ img.content-image {
   margin: 0;
   max-width: none;
 }
+
+.project-card2 {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 15px;
+  align-items: center;
+  position: relative;
+  border: none;
+  background: transparent;
+  cursor: default;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.project-card2.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.project-thumb {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  filter: grayscale(100%);
+  transition: filter 0.25s ease;
+}
+
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.project-title-line {
+  font-size:20px;
+  font-weight: 400;
+  padding-bottom: 6px;
+  color: lightgray;
+}
+
+.project-caption {
+  font-size: 12px;
+  color: #9a9a9a;
+}
+
+/* Hover: turn text white on card */
+.project-card2:hover .project-title-line,
+.project-card2:hover .project-caption {
+  color: #ffffff !important;
+}
+
 
 /* Responsive adjustments for research page */
 @media (max-width: 768px) {
