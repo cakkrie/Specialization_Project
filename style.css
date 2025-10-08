@@ -5,6 +5,400 @@
   --dark-grey: #333333;
 }
 
+/* Earth Visualization Styles */
+.earth-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  margin: 100px 0 200px 0;
+  padding: 0 40px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 60vh;
+}
+
+.earth-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+  flex: 0 0 auto;
+  transform: translateX(-100px); /* 向左移动100px */
+}
+
+.earth-layers {
+  position: relative;
+  width: 675px; /* 300px * 1.5 * 1.5 = 675px */
+  height: 675px; /* 300px * 1.5 * 1.5 = 675px */
+}
+
+.earth-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* 设置图层的默认z-index */
+.earth-layer[data-layer="bottom"] {
+  z-index: 1;
+}
+
+.earth-layer[data-layer="middle"] {
+  z-index: 2;
+}
+
+.earth-layer[data-layer="top"] {
+  z-index: 3;
+}
+
+/* Hide earth layers when parallax is active */
+.earth-layers.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+/* 当hover到某个图层时，提升它的z-index */
+.earth-layer:hover {
+  z-index: 10;
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 150, 255, 0.3);
+}
+
+.earth-layer {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.sticky-bottom {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.sticky-bottom.fixed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 675px;
+  height: 675px;
+  z-index: 1000;
+}
+
+/* Parallax container for the bottom layer */
+.parallax-container {
+  position: relative;
+  width: 100%;
+  height: 300vh; /* 3 window heights */
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.parallax-wrapper {
+  position: relative;
+  width: 675px;
+  height: 675px;
+}
+
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1001;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.progress-ring.visible {
+  opacity: 1;
+}
+
+.progress-circle-bg {
+  opacity: 0.3;
+}
+
+.progress-circle {
+  transform-origin: 337.5px 337.5px;
+  transition: stroke-dashoffset 1s ease;
+  stroke-linecap: butt;
+}
+
+/* Each section covers 120 degrees (1/3 of circle) */
+.progress-section-1 {
+  transform: rotate(0deg);
+  stroke-dasharray: 234 469;
+}
+
+.progress-section-2 {
+  transform: rotate(120deg);
+  stroke-dasharray: 234 469;
+}
+
+.progress-section-3 {
+  transform: rotate(240deg);
+  stroke-dasharray: 234 469;
+}
+
+/* Parallax titles */
+.parallax-titles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1002;
+}
+
+.title-text {
+  position: absolute;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1002;
+}
+
+.title-text.visible {
+  opacity: 1;
+}
+
+/* 第一个标题：圆圈的右上 */
+.title-1 {
+  top: 15%;
+  right: 5%;
+  transform: translate(50%, -50%);
+}
+
+/* 第二个标题：圆圈的左中 */
+.title-2 {
+  top: 50%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+}
+
+/* 第三个标题：圆圈的右下 */
+.title-3 {
+  bottom: 15%;
+  right: 5%;
+  transform: translate(50%, 50%);
+}
+
+.parallax-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  pointer-events: none;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.parallax-image {
+  width: 675px;
+  height: 675px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: block;
+}
+
+/* Initial state - positioned at earth-content location (top-left) */
+.parallax-wrapper.initial {
+  top: calc(50% - 150px); /* Position higher */
+  left: calc(50% - 300px); /* Position to the left */
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Center state - slides to center (diagonal movement) */
+.parallax-wrapper.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive adjustments for parallax */
+@media (max-width: 768px) {
+  .parallax-wrapper {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .parallax-image {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .progress-ring {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .progress-ring circle {
+    cx: 200;
+    cy: 200;
+    r: 198;
+  }
+  
+  .parallax-wrapper.initial {
+    top: calc(50% - 100px); /* Position higher on mobile */
+    left: calc(50% - 200px); /* Position to the left on mobile */
+  }
+  
+  .parallax-container {
+    height: 300vh;
+  }
+  
+  .title-text {
+    font-size: 14px;
+  }
+  
+  /* 移动端调整标题位置，确保在圆圈外 */
+  .title-1 {
+    top: 10%;
+    right: 2%;
+  }
+  
+  .title-2 {
+    left: 2%;
+  }
+  
+  .title-3 {
+    bottom: 10%;
+    right: 2%;
+  }
+}
+
+.earth-layer:hover .layer-image {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+.earth-content {
+  flex: 1;
+  max-width: 600px;
+  min-width: 500px;
+  margin-left: auto;
+  padding-left: 20px;
+  padding-right: 40px;
+}
+
+.earth-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.earth-info {
+  position: relative;
+}
+
+.info-item {
+  display: none;
+  animation: fadeInUp 0.5s ease;
+  text-align: left;
+}
+
+.info-item.active {
+  display: block;
+}
+
+.info-item h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 260px;
+  color: #ffffff;
+  text-align: right;
+}
+
+.info-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+
+.info-item li {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #cccccc;
+  position: relative;
+  padding-left: 20px;
+}
+
+.info-item li:before {
+  content: "";
+  color: #4a9eff;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .earth-section {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 20px;
+    min-height: auto;
+    justify-content: center;
+  }
+  
+  .earth-container {
+    justify-content: center;
+  }
+  
+  .earth-layers {
+    width: 400px; /* 移动端适当缩小，但仍保持较大尺寸 */
+    height: 400px;
+  }
+  
+  .earth-content {
+    min-width: auto;
+    max-width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  
+  .earth-title {
+    font-size: 2rem;
+  }
+}
+
 html, body {
   height: 100%;
   margin: 0;
