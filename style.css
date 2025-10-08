@@ -71,7 +71,6 @@
 .earth-layer:hover {
   z-index: 10;
   transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(0, 150, 255, 0.3);
 }
 
 .earth-layer {
@@ -216,6 +215,7 @@
   border-radius: 50%;
   overflow: hidden;
   display: block;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 /* Initial state - positioned at earth-content location (top-left) */

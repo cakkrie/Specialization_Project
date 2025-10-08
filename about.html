@@ -80,20 +80,20 @@
       
       <!-- Parallax Section -->
       <div class="parallax-container" id="parallax-container">
-        <div class="parallax-wrapper">
-          <img src="Photo/bottom_layer.png" alt="Bottom Layer Parallax" class="parallax-image" id="parallax-image">
-          <svg class="progress-ring" width="675" height="675">
-            <circle class="progress-circle-bg" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#333" stroke-width="2"/>
-            <circle class="progress-circle progress-section-1" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="5" stroke-dasharray="703" stroke-dashoffset="703"/>
-            <circle class="progress-circle progress-section-2" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="5" stroke-dasharray="703" stroke-dashoffset="703"/>
-            <circle class="progress-circle progress-section-3" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="5" stroke-dasharray="703" stroke-dashoffset="703"/>
-          </svg>
-          <div class="parallax-titles">
-            <div class="title-text title-1">2D Map Interface</div>
-            <div class="title-text title-2">2.5D Map Interface — Emotion & Discovery Map</div>
-            <div class="title-text title-3">4D XR Map Interface</div>
-          </div>
-        </div>
+         <div class="parallax-wrapper">
+           <img src="Photo/bottom_layer.png" alt="Bottom Layer Parallax" class="parallax-image" id="parallax-image">
+           <svg class="progress-ring" width="675" height="675">
+             <circle class="progress-circle-bg" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#333" stroke-width="2"/>
+             <circle class="progress-circle progress-section-1" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="5" stroke-dasharray="703" stroke-dashoffset="703"/>
+             <circle class="progress-circle progress-section-2" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="5" stroke-dasharray="703" stroke-dashoffset="703"/>
+             <circle class="progress-circle progress-section-3" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="5" stroke-dasharray="703" stroke-dashoffset="703"/>
+           </svg>
+           <div class="parallax-titles">
+             <div class="title-text title-1">2D Map Interface</div>
+             <div class="title-text title-2">2.5D Map Interface — Emotion & Discovery Map</div>
+             <div class="title-text title-3">4D XR Map Interface</div>
+           </div>
+         </div>
       </div>
   </main>
 
@@ -183,25 +183,58 @@
         }
       }
       
-      // 更新标题显示函数
-      function updateTitles(progress) {
-        // 隐藏所有标题
-        titleTexts.forEach(title => {
-          title.classList.remove('visible');
-        });
-        
-        // 根据滚动进度显示对应的标题
-        if (progress >= 0 && progress < 0.33) {
-          // 第一个窗口高度：显示第一个标题
-          titleTexts[0].classList.add('visible');
-        } else if (progress >= 0.33 && progress < 0.66) {
-          // 第二个窗口高度：显示第二个标题
-          titleTexts[1].classList.add('visible');
-        } else if (progress >= 0.66 && progress <= 1) {
-          // 第三个窗口高度：显示第三个标题
-          titleTexts[2].classList.add('visible');
-        }
-      }
+       // 更新标题显示函数
+       function updateTitles(progress) {
+         const parallaxImage = document.querySelector('.parallax-image');
+         
+         // 隐藏所有标题
+         titleTexts.forEach(title => {
+           title.classList.remove('visible');
+         });
+         
+         // 移除所有颜色类
+         parallaxImage.classList.remove('color-bottom', 'color-middle', 'color-top');
+         
+         // 根据滚动进度显示对应的标题和颜色
+         if (progress >= 0 && progress < 0.33) {
+           // 第一个窗口高度：显示第一个标题 - 蓝色（bottom层）
+           titleTexts[0].classList.add('visible');
+           changeImageWithTransition('Photo/bottom_layer.png');
+           console.log('切换到蓝色图片, progress:', progress);
+         } else if (progress >= 0.33 && progress < 0.66) {
+           // 第二个窗口高度：显示第二个标题 - 浅紫色（middle层）
+           titleTexts[1].classList.add('visible');
+           changeImageWithTransition('Photo/buttom2.png');
+           console.log('切换到buttom2图片, progress:', progress);
+         } else if (progress >= 0.66) {
+           // 第三个窗口高度：显示第三个标题 - 绿色（top层）
+           titleTexts[2].classList.add('visible');
+           changeImageWithTransition('Photo/buttom3.png');
+           console.log('切换到buttom3图片, progress:', progress);
+         }
+         
+         // 调试信息
+         console.log('当前进度:', progress, '第三个标题可见:', titleTexts[2].classList.contains('visible'));
+       }
+       
+       // 带过渡效果的图片切换函数
+       function changeImageWithTransition(newSrc) {
+         const parallaxImage = document.querySelector('.parallax-image');
+         if (parallaxImage.src.includes(newSrc)) return; // 如果已经是目标图片，不重复切换
+         
+         // 淡出
+         parallaxImage.style.opacity = '0.3';
+         parallaxImage.style.transform = 'scale(0.95)';
+         
+         setTimeout(() => {
+           // 切换图片
+           parallaxImage.src = newSrc;
+           
+           // 淡入
+           parallaxImage.style.opacity = '1';
+           parallaxImage.style.transform = 'scale(1)';
+         }, 300); // 300ms后切换图片
+       }
       
       // 进度条动画函数
       let animationTimeout;
