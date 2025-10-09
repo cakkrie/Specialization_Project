@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Research - Design System & Prototyping</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Bubble scatter styles (scoped to this page) */
+    .bubble-controls { display: flex; align-items: center; gap: 12px; padding: 0 20px 12px 20px; }
+    .bubble-field { position: relative; height: 70vh; margin: 0 20px 40px 20px; overflow: hidden; border: 1px dashed #e9e9e9; border-radius: 8px; }
+    .action-bubble {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      max-width: 260px;
+      background: #ffffff;
+      color: #111111;
+      border: 1px solid #111111;
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      font-size: 14px;
+      line-height: 1.3;
+      user-select: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      white-space: normal;
+      text-align: center;
+    }
+    .action-bubble:hover { transform: scale(1.05); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+    .bubble-cta { display: flex; justify-content: center; padding: 8px 20px 60px 20px; }
+    .black-btn { background: #000000; color: #ffffff; border: 1px solid #000000; border-radius: 999px; padding: 12px 20px; text-decoration: none; font-size: 14px; transition: all 0.2s ease; }
+    .black-btn:hover { background: #111111; border-color: #111111; transform: translateY(-1px); }
+  </style>
+</head>
+<body class="light-theme">
+  <header>
+    <div class="left"><a href="index.html">FishOn</a></div>
+    <div class="center">
+      <a href="about.html">About</a>
+      <a href="log.html">Log</a>
+    </div>
+    <!-- <div class="right"><a href="index.html">← Back to Gallery</a></div> -->
+  </header>
+  
+
+  <main>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section>
+      <div id="bubble-field" class="bubble-field" aria-live="polite"></div>
+    </section>
+    <div class="bubble-cta">
+      <a href="fishing-community.html" class="black-btn">Explore Fishing Community</a>
+    </div>
+
+  </main>
+
+
+  <script>
+    // Expandable functionality
+    function toggleExpandable(element) {
+      const content = element.nextElementSibling;
+      const isExpanded = element.classList.contains('expanded');
+      
+      if (isExpanded) {
+        element.classList.remove('expanded');
+        content.classList.remove('expanded');
+      } else {
+        element.classList.add('expanded');
+        content.classList.add('expanded');
+      }
+    }
+
+    // Toggle content with add icon
+    function toggleContent(iconElement) {
+      const titleElement = iconElement.parentElement;
+      const content = titleElement.nextElementSibling;
+      const isExpanded = titleElement.classList.contains('expanded');
+      
+      if (isExpanded) {
+        titleElement.classList.remove('expanded');
+        content.classList.remove('expanded');
+        iconElement.textContent = '+';
+      } else {
+        titleElement.classList.add('expanded');
+        content.classList.add('expanded');
+        iconElement.textContent = '−';
+      }
+    }
+
+    // Row toggle for fc-list
+    function toggleRow(btn) {
+      const row = btn.closest('.fc-row');
+      const next = row.nextElementSibling;
+      if (!next || !next.classList.contains('fc-row-content')) return;
+      const isOpen = row.classList.contains('open');
+      if (isOpen) {
+        row.classList.remove('open');
+      } else {
+        row.classList.add('open');
+      }
+    }
+
+    // Random Trip Actions Generator
+    const ANGLER_ACTIONS = [
+      'Check weather',
+      'Target species',
+      'Target location',
+      'Get fishing license',
+      'Verify local regulations',
+      'Pack',
+      'Prepare bait',
+      'Inspect line/leader',
+      'Sharpen hooks',
+      'Download offline maps',
+      'Load waypoints',
+      'Check PFDs and safety kit',
+      'Confirm boat/kayak condition and fuel/air',
+      'Pack cooler, ice, and fish bag',
+      'Carry measuring items',
+      'Set departure time',
+      'Tell someone your plan and ETA',
+    ];
+
+    function sampleActions(source, count) {
+      const array = [...source];
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array.slice(0, count);
+    }
+
+    let CURRENT_ITEMS = [];
+
+    function rectsOverlap(ax, ay, aw, ah, bx, by, bw, bh, margin = 8) {
+      return !(
+        ax + aw + margin <= bx ||
+        bx + bw + margin <= ax ||
+        ay + ah + margin <= by ||
+        by + bh + margin <= ay
+      );
+    }
+
+    function findNonOverlappingPosition(bw, bh, fieldWidth, fieldHeight, placed, attempts = 200) {
+      for (let i = 0; i < attempts; i++) {
+        const x = Math.max(0, Math.random() * Math.max(0, fieldWidth - bw));
+        const y = Math.max(0, Math.random() * Math.max(0, fieldHeight - bh));
+        let ok = true;
+        for (let j = 0; j < placed.length; j++) {
+          const p = placed[j];
+          if (rectsOverlap(x, y, bw, bh, p.x, p.y, p.w, p.h)) {
+            ok = false;
+            break;
+          }
+        }
+        if (ok) return { x, y };
+      }
+      return null; // not found
+    }
+
+    function renderBubbles(count = 12, presetItems = null) {
+      const field = document.getElementById('bubble-field');
+      if (!field) return;
+      field.innerHTML = '';
+      const items = presetItems && presetItems.length ? presetItems : sampleActions(ANGLER_ACTIONS, count);
+      CURRENT_ITEMS = items;
+      const fieldWidth = field.clientWidth;
+      const fieldHeight = field.clientHeight;
+      const placed = [];
+      items.forEach(text => {
+        const b = document.createElement('div');
+        b.className = 'action-bubble';
+        b.textContent = text;
+        field.appendChild(b);
+        // Measure and place without overlap
+        const bw = b.offsetWidth;
+        const bh = b.offsetHeight;
+        const pos = findNonOverlappingPosition(bw, bh, fieldWidth, fieldHeight, placed, 240);
+        if (pos) {
+          b.style.left = pos.x + 'px';
+          b.style.top = pos.y + 'px';
+          placed.push({ x: pos.x, y: pos.y, w: bw, h: bh });
+        } else {
+          // If no space found, remove to guarantee no overlap
+          field.removeChild(b);
+        }
+      });
+    }
+
+    function repositionBubbles() {
+      const field = document.getElementById('bubble-field');
+      if (!field || !CURRENT_ITEMS.length) return;
+      renderBubbles(CURRENT_ITEMS.length, CURRENT_ITEMS);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderBubbles();
+      const regen = document.getElementById('regenerate-bubbles');
+      if (regen) {
+        regen.addEventListener('click', (e) => {
+          e.preventDefault();
+          renderBubbles();
+        });
+      }
+      window.addEventListener('resize', () => {
+        // debounce resize
+        clearTimeout(window.__bubbleResizeTimer);
+        window.__bubbleResizeTimer = setTimeout(repositionBubbles, 150);
+      });
+    });
+  </script>
+</body>
+</html>
