@@ -968,11 +968,9 @@ main {
   left: 40px;
   width: 40%;
   max-width: none;
-  background: linear-gradient(180deg, rgba(20,20,20,0.75), rgba(12,12,12,0.75));
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 14px;
+  background: white;
+  color: #000000;
   backdrop-filter: blur(10px);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
   padding: 18px 28px 18px 28px;
 }
 
@@ -983,42 +981,28 @@ main {
   left: 0;
   width: 4px;
   height: 70%;
-  background: linear-gradient(180deg, #79c2ff, #6ef3d6);
   border-radius: 3px;
 }
 
-/* Per-card accent colors */
-.about-landing2 #young-trend.trend-card::before {
-  background: linear-gradient(180deg, #ffb661, #ff7f50);
-}
-
-.about-landing2 #rely-tech.trend-card::before {
-  background: linear-gradient(180deg, #79c2ff, #6ef3d6);
-}
-
-.about-landing2 #limited-time.trend-card::before {
-  background: linear-gradient(180deg, #f66, #ffcc70);
-}
 
 .about-landing2 .trend-card h3 {
-  font-family: "BBH Sans Bogle", sans-serif;
+  text-transform: uppercase;
   margin: 0 0 8px 0;
   font-size: clamp(22px, 3vh, 36px);
   font-weight: 400;
-padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .about-landing2 .trend-card p {
   margin: 0;
-  font-size: clamp(15px, 2vh, 17px);
-  color: #ddd;
+  font-size: clamp(18px, 2vh, 24px);
+  color: darkgray;
   line-height: 1.6;
 }
 
 .about-landing2 .trend-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 50px rgba(0,0,0,0.45);
-  border-color: rgba(255, 255, 255, 0.24);
 }
 
 @media (max-width: 900px) {
