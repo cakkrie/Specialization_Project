@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<<<<<<< Updated upstream
   <header>
     <div class="left"><a href="index.html">FishOn</a></div>
     <div class="center">
@@ -15,6 +16,9 @@
     </div>
     <!-- <div class="right"><a href="index.html">← Back to Gallery</a></div> -->
   </header>
+=======
+  <header id="header-container"></header>
+>>>>>>> Stashed changes
 
   <main>
     <section class="about-landing">
@@ -89,7 +93,11 @@
       <!-- Parallax Section -->
       <div class="parallax-container" id="parallax-container">
          <div class="parallax-wrapper">
+<<<<<<< Updated upstream
+           <img src="../Photo/bottom_layer.png" alt="Bottom Layer Parallax" class="parallax-image" id="parallax-image">
+=======
            <img src="Photo/bottom_layer.png" alt="Bottom Layer Parallax" class="parallax-image" id="parallax-image">
+>>>>>>> Stashed changes
            <svg class="progress-ring" width="675" height="675">
              <circle class="progress-circle-bg" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#333" stroke-width="2"/>
              <circle class="progress-circle progress-section-1" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="5" stroke-dasharray="703" stroke-dashoffset="703"/>
@@ -100,14 +108,34 @@
              <div class="title-text title-1">2D Map Interface</div>
              <div class="title-text title-2">2.5D Map Interface — Emotion & Discovery Map</div>
              <div class="title-text title-3">4D XR Map Interface</div>
+<<<<<<< Updated upstream
            </div>
          </div>
+       </div>
+       
+       <!-- Spacer to allow scrolling through entire parallax section -->
+       <div style="height: 100vh; background-color: #000000;"></div>
+   </main>
+
+   <script>
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+=======
+          </div>
+        </div>
       </div>
   </main>
 
   <script>
     // Initialize header when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
+      // 直接设置header内容，避免CORS问题
+      document.getElementById('header-container').innerHTML = `
+        <div class="left">FishOn</div>
+        <div class="right"><a href="index.html">← Back to Gallery</a></div>
+      `;
+      
+>>>>>>> Stashed changes
       initEarthInteraction();
       initStickyEffect();
     });
@@ -208,17 +236,29 @@
          if (progress >= 0 && progress < 0.33) {
            // 第一个窗口高度：显示第一个标题 - 蓝色（bottom层）
            titleTexts[0].classList.add('visible');
+<<<<<<< Updated upstream
+           changeImageWithTransition('../Photo/bottom_layer.png');
+=======
            changeImageWithTransition('Photo/bottom_layer.png');
+>>>>>>> Stashed changes
            console.log('切换到蓝色图片, progress:', progress);
          } else if (progress >= 0.33 && progress < 0.66) {
            // 第二个窗口高度：显示第二个标题 - 浅紫色（middle层）
            titleTexts[1].classList.add('visible');
+<<<<<<< Updated upstream
+           changeImageWithTransition('../Photo/buttom2.png');
+=======
            changeImageWithTransition('Photo/buttom2.png');
+>>>>>>> Stashed changes
            console.log('切换到buttom2图片, progress:', progress);
          } else if (progress >= 0.66) {
            // 第三个窗口高度：显示第三个标题 - 绿色（top层）
            titleTexts[2].classList.add('visible');
+<<<<<<< Updated upstream
+           changeImageWithTransition('../Photo/buttom3.png');
+=======
            changeImageWithTransition('Photo/buttom3.png');
+>>>>>>> Stashed changes
            console.log('切换到buttom3图片, progress:', progress);
          }
          
@@ -296,11 +336,19 @@
       setupCanvases();
       
       function setupCanvases() {
+<<<<<<< Updated upstream
         const imageFiles = {
           'bottom': 'Photo/buttom.png',
           'middle': 'Photo/middle.png', 
           'top': 'Photo/top.png'
         };
+=======
+         const imageFiles = {
+           'bottom': 'Photo/buttom.png',
+           'middle': 'Photo/middle.png', 
+           'top': 'Photo/top.png'
+         };
+>>>>>>> Stashed changes
         
         canvases.forEach(canvas => {
           const layerType = canvas.getAttribute('data-layer');
