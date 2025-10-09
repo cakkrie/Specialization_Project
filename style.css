@@ -2130,3 +2130,151 @@ a.project-card2 {
     text-align: center;
   }
 }
+
+/* XR Card Styles */
+.xr-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  padding: 40px 20px;
+}
+
+.xr-card {
+  width: 400px;
+  height: 800px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(-15deg) rotateX(5deg);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.xr-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 2;
+  transition: opacity 0.8s ease;
+  opacity: 1;
+  border-radius: 20px;
+}
+
+.xr-card:hover::before {
+  opacity: 0;
+}
+
+.xr-card-background {
+  width: 100%;
+  height: 100%;
+  background-image: url('./Photo/Extended_Reality/vr2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  transform: scale(1.1);
+  transition: transform 0.8s ease;
+  position: relative;
+}
+
+/* Screen reflection effect */
+.xr-card-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.8s ease;
+}
+
+.xr-card:hover {
+  transform: rotateY(0deg) rotateX(0deg) scale(1.05);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+.xr-card:hover .xr-card-background {
+  transform: scale(1);
+}
+
+.xr-card:hover .xr-card-background::after {
+  left: 150%;
+}
+
+/* Add a subtle glow effect on hover */
+.xr-card::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00f, #0ff, #0f0, #ff0, #f00, #f0f);
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  filter: blur(20px);
+}
+
+.xr-card:hover::after {
+  opacity: 0.3;
+}
+
+@media (max-width: 768px) {
+  .xr-card {
+    width: 300px;
+    height: 600px;
+    transform: rotateY(-10deg) rotateX(3deg);
+  }
+}
+
+/* XR Image Gallery */
+.xr-image-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px 20px 20px;
+  flex-wrap: wrap;
+}
+
+.xr-image-gallery img {
+  height: 200px;
+  width: calc((100% - 60px) / 4);
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.xr-image-gallery img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .xr-image-gallery img {
+    width: calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .xr-image-gallery img {
+    width: 100%;
+  }
+}
