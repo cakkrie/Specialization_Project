@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: #ffffff;">
+<body class="light-theme">
   <header>
     <div class="left"><a href="index.html">FishOn</a></div>
     <div class="center">
@@ -21,20 +21,128 @@
     <br>
     <br>
     <br>
+    <br>
+    <br>
 
-    <div class="gallery-subpage">
+    <section class="fc-hero">
+      <h1 class="fc-hero-headline">
+        Passionate <br> Young Anglers<br>
+        are reshaping <br>
+         the fishing industry<br>
+      </h1>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-      <div class="section-title">Fishing Community</div>
-      
-      <div class="context">
-        While FishOn already <bold>digitalizes the market for younger users,</bold>it still lacks a natural flow to guide them before, during, and after their trips. Young anglers often face fragmented knowledge and steep learning curves, especially when fishing within limited time. 
-        <br>
-        <br>
-        Our goal is to make the experience more organized, reduce disappointment from empty catches, and ensure fishing remains fun and efficient.
-        <br>
-        <br>
-    </div>
+    <section class="fc-features">
+      <article class="fc-feature">
+        <div class="fc-feature-meta">(01)</div>
+        <h3>Fishing Population are growing</h3>
+        <p>Fishing participation is rising worldwide as more people turn to outdoor recreation for relaxation, community, and connection with nature. Millions of new anglers join each year, especially in regions where access to fishing is expanding.</p>
+      </article>
 
+      <article class="fc-feature">
+        <div class="fc-feature-meta">(02)</div>
+        <h3>Anglers Are Getting Younger</h3>
+        <p>A new generation of passionate young anglers is reshaping the culture of fishing. Unlike traditional hobbyists, these digital-native anglers seek efficient, social, and data-driven experiences.</p>
+      </article>
+
+      <article class="fc-feature">
+        <div class="fc-feature-meta">(03)</div>
+        <h3>The Fishing Market Is Rapidly Expanding</h3>
+        <p>Valued at around USD 567 billion in 2024, the global fishing market is projected to reach nearly USD 770 billion by 2029. Recreational and sports fishing gear continues steady growth, fueled by outdoor leisure and online retail trends.</p>
+      </article>
+
+      <article class="fc-feature">
+        <div class="fc-feature-meta">(04)</div>
+        <h3>Digitalization is reshaping the fishing experience</h3>
+        <p>Smart devices, AI assistants, and mobile platforms are transforming how anglers connect, learn, and fish. This wave of innovation makes fishing more accessible, personalized, and community-driven—blending technology with tradition for a new era of angling.</p>
+      </article>
+    </section>
+
+
+    <section class="fc-stats">
+      <div class="fc-stat">
+        <div class="num"><span class="value">280M</span><span class="plus">+</span></div>
+        <div class="label">Global Angers</div>
+      </div>
+      <div class="fc-stat">
+        <div class="num"><span class="value">5%</span><span class="plus">+</span></div>
+        <div class="label">Annual Growth Rate</div>
+      </div>
+      <div class="fc-stat">
+        <div class="num"><span class="value">567B</span><span class="plus">+</span></div>
+        <div class="label">Fishing Market in 2024</div>
+      </div>
+    </section>
+
+    <br>
+  
+
+    <section class="fc-list-dark">
+      <h2 class="section-title fc-list-header">Fishing-related product</h2>
+      <br>
+ 
+      <section class="fc-list">
+      <div class="fc-row">
+        <div class="fc-row-index">(01)</div>
+        <div class="fc-row-title">LakeMonster</div>
+        <div class="fc-row-labels"><span class="fc-label">Software</span></div>
+        <button class="fc-toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+      </div>
+      <div class="fc-row-content">
+        <p>An app that analyzes data points — including satellite imagery, weather patterns, water depth data, and historical fishing records to generate fish activity forecasts, hotspot maps, and water clarity maps.</p>
+      </div>
+
+      <div class="fc-row">
+        <div class="fc-row-index">(02)</div>
+        <div class="fc-row-title">Fishbuddy</div>
+        <div class="fc-row-labels"><span class="fc-label">Software</span></div>
+        <button class="fc-toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+      </div>
+      <div class="fc-row-content">
+        <p>Smart decisions: uses 10+ weather factors (temp, pressure, humidity) to flag prime times, recommend bait, and navigate nearby spots. Social: in-app forum to share catches and techniques.</p>
+      </div>
+
+      <div class="fc-row">
+        <div class="fc-row-index">(03)</div>
+        <div class="fc-row-title">墨迹天气</div>
+        <div class="fc-row-labels"><span class="fc-label">Software</span></div>
+        <button class="fc-toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+      </div>
+      <div class="fc-row-content">
+        <p>Expert-verified with hi-res satellite and depth maps. AR+AI logging: snap a fish to auto-record species, size/weight, location, and weather. AR contests: create/join casual challenges with live leaderboards.</p>
+      </div>
+
+      <div class="fc-row">
+        <div class="fc-row-index">(04)</div>
+        <div class="fc-row-title">Sea.ai</div>
+        <div class="fc-row-labels"><span class="fc-label">Hardware</span></div>
+        <button class="fc-toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+      </div>
+      <div class="fc-row-content">
+        <p>Smart camera: combines optical and infrared sensors, utilizes AI and ML algorithms to detect objects on the water surface.</p>
+      </div>
+
+      <div class="fc-row">
+        <div class="fc-row-index">(05)</div>
+        <div class="fc-row-title">Chasing F1 Pro</div>
+        <div class="fc-row-labels"><span class="fc-label">Hardware</span></div>
+        <button class="fc-toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+      </div>
+      <div class="fc-row-content">
+        <p>Remote/autonomous lateral movement, station-hold, multi-spot waypoints. Depth &amp; temperature sensors; Wi‑Fi streams live video + depth/temp to the app. Bait-boat mount with one-tap in-app bait release.</p>
+      </div>
+      </section>
+      <br>
+      <br>
+      <br>
+      <br>
+   
+    </section>
   </main>
 
 
@@ -67,6 +175,19 @@
         titleElement.classList.add('expanded');
         content.classList.add('expanded');
         iconElement.textContent = '−';
+      }
+    }
+
+    // Row toggle for fc-list
+    function toggleRow(btn) {
+      const row = btn.closest('.fc-row');
+      const next = row.nextElementSibling;
+      if (!next || !next.classList.contains('fc-row-content')) return;
+      const isOpen = row.classList.contains('open');
+      if (isOpen) {
+        row.classList.remove('open');
+      } else {
+        row.classList.add('open');
       }
     }
   </script>
