@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Ideation2 - Design System & Prototyping</title>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bogle&family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -48,12 +50,17 @@
         <video autoplay muted loop>
           <source src="Photo/fishing-background.mp4" type="video/mp4">
         </video>
-        <div class="overlay intro-text" id="market-intro">
-          The global fishing market continues to expand steadily, driven by rising seafood demand, growing recreational participation, and advances in aquaculture.
+          <div class="overlay intro-text" id="market-intro">
+            The global fishing market continues to expand steadily, driven by rising seafood demand, growing recreational participation, and advances in aquaculture.
+          </div>
+
+        <div class="overlay mid-note" id="mid-note" aria-hidden="true">
+          In the recreation fishing, more and more yonger anglers are entering the market due to the change of lifestyle. 
         </div>
+
         <div class="overlay trend-card" id="young-trend" aria-hidden="true">
-          <h3>Younger anglers trend</h3>
-          <p>Growing participation among Gen Z and Millennials reshapes gear, communities, and trip planning.</p>
+          <h3>Lack of experience</h3>
+          <p>The growing participation among Gen Z usually don't have much experience and need help from friends to guide them on fishing.</p>
         </div>
         <div class="overlay trend-card" id="rely-tech" aria-hidden="true">
           <h3>Rely on technology</h3>
@@ -63,6 +70,14 @@
           <h3>Limited time on fishing</h3>
           <p>Busy schedules push for efficient, outcome-oriented trips and bite-time optimization.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="hmw-section">
+      <div class="hmw-container">
+        <div class="hmw-eyebrow">How might we design a tool</div>
+        <h2 class="hmw-headline">for younger anglers</h2>
+        <div class="hmw-sub">In the digitalized era?</div>
       </div>
     </section>
 
@@ -128,9 +143,9 @@
               <circle class="progress-circle progress-section-3" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
             </svg>
             <div class="parallax-titles">
-              <div class="title-text title-1">2D Map Interface</div>
-              <div class="title-text title-2">2.5D Map Interface — Emotion & Discovery Map</div>
-              <div class="title-text title-3">4D XR Map Interface</div>
+              <div class="title-text title-1"><span>2D Map Interface</span><span class="title-sub">Real-time overlays and navigation</span></div>
+              <div class="title-text title-2"><span>2.5D Map Interface — Emotion & Discovery Map</span><span class="title-sub">Emotion + discovery highlights</span></div>
+              <div class="title-text title-3"><span>4D XR Map Interface</span><span class="title-sub">Immersive XR previews</span></div>
             </div>
           </div>
        </div>
@@ -154,17 +169,18 @@
       }
     }
 
-    // Sticky scroll control for about-landing2 (2000px total pin, 4 stages)
+    // Sticky scroll control for about-landing2 (2500px total pin, 5 stages)
     function initAboutLanding2Scroll() {
       const section = document.querySelector('.about-landing2');
       const pin = document.querySelector('.about-landing2-pin');
       const intro = document.getElementById('market-intro');
+      const midNote = document.getElementById('mid-note');
       const card1 = document.getElementById('young-trend');
       const card2 = document.getElementById('rely-tech');
       const card3 = document.getElementById('limited-time');
-      if (!section || !pin || !intro || !card1 || !card2 || !card3) return;
+      if (!section || !pin || !intro || !midNote || !card1 || !card2 || !card3) return;
 
-      const SCROLL_LENGTH = 2000; // total pinned scroll distance in px
+      const SCROLL_LENGTH = 2500; // total pinned scroll distance in px
 
       // Ensure section height supports sticky duration
       section.style.minHeight = `calc(100vh + ${SCROLL_LENGTH}px)`;
@@ -176,9 +192,11 @@
 
         // Reset all
         intro.classList.remove('visible');
+        midNote.classList.remove('visible');
         card1.classList.remove('visible');
         card2.classList.remove('visible');
         card3.classList.remove('visible');
+        midNote.setAttribute('aria-hidden', 'true');
         card1.setAttribute('aria-hidden', 'true');
         card2.setAttribute('aria-hidden', 'true');
         card3.setAttribute('aria-hidden', 'true');
@@ -186,9 +204,12 @@
         if (delta < 500) {
           intro.classList.add('visible');
         } else if (delta < 1000) {
+          midNote.classList.add('visible');
+          midNote.setAttribute('aria-hidden', 'false');
+        } else if (delta < 1500) {
           card1.classList.add('visible');
           card1.setAttribute('aria-hidden', 'false');
-        } else if (delta < 1500) {
+        } else if (delta < 2000) {
           card2.classList.add('visible');
           card2.setAttribute('aria-hidden', 'false');
         } else {

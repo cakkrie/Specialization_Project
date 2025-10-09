@@ -3,6 +3,7 @@
 
 :root {
   --dark-grey: #333333;
+  --accent-orange: #ff9f1a;
 }
 
 /* Earth Visualization Styles */
@@ -29,10 +30,31 @@
   transform: translateX(0);
 }
 
+@media (min-width: 900px) {
+  .earth-container {
+    margin-left: 100px; /* nudge globe further right on desktop */
+    margin-top: 48px; /* nudge globe further down on desktop */
+  }
+}
+
 .earth-layers {
   position: relative;
   width: 472px;
   height: 472px;
+}
+
+.earth-layers::before {
+  content: "map.";
+  font-family: "BBH Sans Bogle", sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  color: #ffffff;
+  font-size: 140px;
+  font-weight: 600;
+  pointer-events: none;
 }
 
 .earth-layer {
@@ -163,13 +185,28 @@
 
 .title-text {
   position: absolute;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 400;
-  white-space: nowrap;
+  color: var(--accent-orange);
+  font-family: "BBH Sans Bogle", sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  white-space: normal;
+  max-width: 420px;
+  text-shadow: none;
   opacity: 0;
   transition: opacity 0.5s ease;
   z-index: 1002;
+}
+
+.title-text .title-sub {
+  display: block;
+  margin-top: 16px;
+  color: #e6e6e6;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.4;
+  letter-spacing: 0;
 }
 
 .title-text.visible {
@@ -181,6 +218,7 @@
   top: 15%;
   right: 5%;
   transform: translate(50%, -50%);
+  text-align: right;
 }
 
 /* 第二个标题：圆圈的左中 */
@@ -188,6 +226,7 @@
   top: 50%;
   left: 5%;
   transform: translate(-50%, -50%);
+  text-align: left;
 }
 
 /* 第三个标题：圆圈的右下 */
@@ -195,6 +234,7 @@
   bottom: 15%;
   right: 5%;
   transform: translate(50%, 50%);
+  text-align: right;
 }
 
 .parallax-wrapper {
@@ -309,7 +349,14 @@
   }
   
   .title-text {
-    font-size: 14px;
+    font-size: 28px;
+    max-width: 70vw;
+    line-height: 1;
+  }
+
+  .title-text .title-sub {
+    margin-top: 10px;
+    font-size: 16px;
   }
   
   /* 移动端调整标题位置，确保在圆圈外 */
@@ -376,16 +423,16 @@
 .info-item h2 {
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 260px;
+  margin-bottom: 0;
   color: #ffffff;
-  text-align: right;
+  text-align: left;
 }
 
 .info-item ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  text-align: right;
+  text-align: left;
 }
 
 .info-item li {
@@ -830,6 +877,7 @@ main {
   max-width: 840px;
   padding: 20px 24px;
   color: #ffffff;
+  background-color: transparent;
   z-index: 1;
   opacity: 0;
   transform: translateY(10px);
@@ -851,26 +899,128 @@ main {
   text-align: left;
 }
 
-.about-landing2 .trend-card {
-  bottom: 15%;
+.about-landing2 .mid-note {
+  top: 40%;
+  transform: translateY(-50%);
   left: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  backdrop-filter: blur(6px);
+  right: auto;
+  font-size: 40px;
+  line-height: 1.4;
+  font-weight: 400;
+  text-align: left;
+}
+
+/* Ensure background only wraps text content (no full-width block) */
+.about-landing2 .intro-text,
+.about-landing2 .mid-note {
+  display: inline;
+  background-color: #000000;
+  padding: 0;
+}
+
+.about-landing2 .trend-card {
+  bottom: 6%;
+  left: 40px;
+  width: 40%;
+  max-width: none;
+  background: linear-gradient(180deg, rgba(20,20,20,0.75), rgba(12,12,12,0.75));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+  padding: 18px 28px 18px 28px;
+}
+
+.about-landing2 .trend-card::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 0;
+  width: 4px;
+  height: 70%;
+  background: linear-gradient(180deg, #79c2ff, #6ef3d6);
+  border-radius: 3px;
+}
+
+/* Per-card accent colors */
+.about-landing2 #young-trend.trend-card::before {
+  background: linear-gradient(180deg, #ffb661, #ff7f50);
+}
+
+.about-landing2 #rely-tech.trend-card::before {
+  background: linear-gradient(180deg, #79c2ff, #6ef3d6);
+}
+
+.about-landing2 #limited-time.trend-card::before {
+  background: linear-gradient(180deg, #f66, #ffcc70);
 }
 
 .about-landing2 .trend-card h3 {
+  font-family: "BBH Sans Bogle", sans-serif;
   margin: 0 0 8px 0;
-  font-size: clamp(22px, 3vh, 28px);
+  font-size: clamp(22px, 3vh, 36px);
   font-weight: 400;
+padding-bottom: 10px;
 }
 
 .about-landing2 .trend-card p {
   margin: 0;
-  font-size: clamp(16px, 2.2vh, 18px);
+  font-size: clamp(15px, 2vh, 17px);
   color: #ddd;
+  line-height: 1.6;
+}
+
+.about-landing2 .trend-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 50px rgba(0,0,0,0.45);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+@media (max-width: 900px) {
+  .about-landing2 .trend-card {
+    width: 70%;
+  }
+}
+
+/* Big centered question section */
+.hmw-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'BBH Sans Bogle', sans-serif;
+  padding: 200px 20px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.hmw-container { text-align: center; }
+.hmw-eyebrow {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(14px, 2vw, 16px);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #10151a;
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+.hmw-headline {
+  margin: 0;
+  text-align: center;
+  font-weight: 900;
+  font-size: clamp(42px, 12vw, 120px);
+  line-height: 0.9;
+  letter-spacing: 1px;
+  color: #0d1520;
+}
+.hmw-sub {
+  font-family: "Poppins", sans-serif;
+  margin-top: 14px;
+  font-size: clamp(16px, 2.6vw, 28px);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #0d1520;
 }
 
 .about-landing {
@@ -909,7 +1059,8 @@ main {
 }
 
 .about-landing .hmw {
-  font-size: 48px;
+  font-family: "BBH Sans Bogle", sans-serif;
+  font-size: 60px;
   font-weight: 400;
   padding: 0;
   max-width: 1000px;
