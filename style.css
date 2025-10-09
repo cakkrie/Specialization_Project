@@ -503,6 +503,78 @@ main {
   min-height: 100vh;
 }
 
+/* About landing: full-height section with centered labels and content */
+.about-landing {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  padding: 80px 20px 0 20px; /* account for fixed header */
+  box-sizing: border-box;
+}
+
+.about-landing .label-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-landing .context {
+  font-size: 28px;
+  font-weight: 200;
+  padding: 0;
+  max-width: 900px;
+  line-height: 1.2;
+  color: gainsboro;
+}
+
+.about-landing .hmw {
+  font-size: 48px;
+  font-weight: 400;
+  padding: 0;
+  max-width: 1000px;
+  line-height: 1.1;
+  color: gainsboro;
+}
+
+.about-landing .scroll-down {
+  position: absolute;
+  bottom: 24px;
+}
+
+/* About landing scroll arrow: no background/border; white stroke icon */
+.about-landing .title-arrow {
+  background: transparent;
+  border: none;
+  color: #ffffff; /* SVG uses currentColor for stroke */
+  width: auto;
+  height: auto;
+  padding: 0;
+  border-radius: 0;
+}
+
+.about-landing .title-arrow:hover {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .about-landing .context {
+    font-size: 18px;
+  }
+  .about-landing .hmw {
+    font-size: 28px;
+  }
+}
+
 .gallery-subpage {
   padding:50px;
 }
@@ -1108,7 +1180,7 @@ img.content-image {
 .label {
   display: inline-block;
   padding: 4px 8px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -1118,7 +1190,6 @@ img.content-image {
 
 .label.outline {
   background-color: transparent;
-  font-size: 18px;
   color: #ffffff;
   border: 1px solid #666;
   border-radius: 20px;

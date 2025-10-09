@@ -17,30 +17,31 @@
   </header>
 
   <main>
-    <br>
-    <br>
-    <br>
-    <span class="label outline">Multi-sensor Physicalization</span>
-    <span class="label outline">Community</span>
-    <span class="label outline">Play</span>
-    <br>
+    <section class="about-landing">
+      <div class="label-container">
+        <span class="label outline">Multi-sensor Physicalization</span>
+        <span class="label outline">Community</span>
+        <span class="label outline">Play</span>
+      </div>
 
-    <div class="gallery-subpage">
       <div class="context">
         While FishOn already <bold>digitalizes the market for younger users,</bold>it still lacks a natural flow to guide them before, during, and after their trips. Young anglers often face fragmented knowledge and steep learning curves, especially when fishing within limited time. 
         <br>
         <br>
         Our goal is to make the experience more organized, reduce disappointment from empty catches, and ensure fishing remains fun and efficient.
-        <br>
-        <br>
-    </div>
+      </div>
 
       <div class="hmw">
         HMW create a natural, seamless flow that guides users before, during, and after fishing trips?
       </div>
-      <br>
-      <br>
-      <br>
+      <div class="scroll-down">
+        <button class="title-arrow" onclick="scrollToNextSection()" aria-label="Scroll to next section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </section>
 
       <!-- Earth Visualization Section -->
       <div class="earth-section">
@@ -84,7 +85,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Parallax Section -->
       <div class="parallax-container" id="parallax-container">
          <div class="parallax-wrapper">
@@ -110,6 +111,13 @@
       initEarthInteraction();
       initStickyEffect();
     });
+
+    function scrollToNextSection() {
+      const next = document.querySelector('.earth-section');
+      if (next) {
+        next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
 
     // 实现滚动时的视差效果
     function initStickyEffect() {
