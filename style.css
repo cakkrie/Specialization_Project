@@ -603,6 +603,11 @@ main {
   padding: 0 20px 20px 20px;
 }
 
+/* Variant: three columns, single row layout */
+.fc-features.fc-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .fc-feature {
   border-top: 1px solid #e9e9e9;
   padding-top: 18px;
@@ -723,6 +728,21 @@ main {
   padding-left: 100px;
 }
 
+/* Bulleted lists inside expanded fc-row-content */
+.fc-row-content .fc-bullets {
+  width: 60%;
+  font-size: 20px;
+  line-height: 1.4;
+  padding-left: 120px; /* aligns bullets under the paragraph text */
+  margin: 10px 0 0 0;
+  color: #111111;
+}
+
+.fc-row-content .fc-bullets li {
+  font-size: 20px;
+  margin: 8px 0;
+}
+
 .fc-row.open + .fc-row-content {
   display: block;
 }
@@ -769,6 +789,9 @@ main {
 
 @media (max-width: 900px) {
   .fc-features {
+    grid-template-columns: 1fr;
+  }
+  .fc-features.fc-3 {
     grid-template-columns: 1fr;
   }
   .fc-stats {
