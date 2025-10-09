@@ -543,6 +543,12 @@ body.light-theme header .left a,
 body.light-theme header .right a {
   color: #111111;
 }
+
+/* Bubble section wrapper to remove black background behind bubbles */
+.bubble-section {
+  background: #f7f7f7;
+  padding-bottom: 40px; /* ensure gradient covers space below field */
+}
 body.light-theme header .left a:hover,
 body.light-theme header .right a:hover {
   color: #333333;
@@ -885,7 +891,8 @@ main {
   overflow: hidden;
 }
 
-.about-landing2 video {
+.about-landing2 video,
+.about-landing2 .about-bg {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -992,15 +999,15 @@ main {
 
 /* Big centered question section */
 .hmw-section {
-  background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+  background:#f7f7f7;
   color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'BBH Sans Bogle', sans-serif;
   padding: 200px 20px;
-  border-top: 1px solid rgba(0,0,0,0.06);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-top: none;
+  border-bottom: none;
 }
 
 .hmw-container { text-align: center; }
@@ -1046,7 +1053,8 @@ main {
 }
 
 
-.landing-page video {
+.landing-page video,
+.landing-page .landing-bg {
   position: absolute;
   top: 30%;
   left: 0;
@@ -1087,6 +1095,7 @@ main {
   position: absolute;
   bottom: 20px;
   left: 20px;
+  right: 20px; /* stretch to right edge for arrow alignment */
   z-index: 1;
   text-align: left;
 }
@@ -1132,26 +1141,49 @@ main {
   gap: 20px;
 }
 
-.title-arrow {
-  font-size: 24px;
-  color: #ffffff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 8px;
-  border-radius: 50%;
-  border: 1px solid #ffffff;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Push arrow to the far right within the full-width title row */
+.landing-page-title .title-arrow {
+  margin-left: auto;
 }
 
-.title-arrow:hover {
-  background-color: gainsboro;
-  color: gray;
-  transform: scale(1.1);
+.landing-title-text {
+  line-height: 1;
 }
+
+.landing-subtitle {
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+  color: #cccccc;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-top: 16px;
+}
+
+.title-cta {
+  font-family: "BBH Sans Bogle", sans-serif;
+  position: absolute;
+  right: 20px;
+  bottom: 24px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #ffffff;
+  font-size: clamp(18px, 2.8vh, 26px);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.title-cta .cta-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.title-cta:hover, .title-cta:focus { color: #cccccc; text-decoration: none; }
 
 .section-title {
   padding: 20px 0px 0px 0;
@@ -1172,17 +1204,8 @@ main {
   margin-right: auto;
 }
 
-/* Dark block for product list */
 .fc-list-dark {
   background: #000000;
-  color: #ffffff;
-}
-
-.fc-list-dark .section-title {
-  color: #ffffff;
-}
-
-.fc-list-dark .fc-list {
   color: #ffffff;
 }
 
@@ -1386,6 +1409,21 @@ img.content-image {
 .landing-page .label:nth-child(6) {
   top: 60%;
   left: 20px;
+}
+
+/* Labels row over video */
+/* Labels row placed inside title, inline between main title and subtitle */
+.labels-row {
+  display: flex;
+  gap: 10px;
+  white-space: nowrap;
+  margin-left: 0;
+  margin-top: 16px; /* spacing below subtitle */
+}
+
+/* Ensure labels in the row are laid out inline, not absolutely positioned */
+.labels-row .label {
+  position: static;
 }
 
 /* Expandable Title Styles */
@@ -2103,3 +2141,63 @@ a.project-card2 {
     font-size: 13px;
   }
 }
+
+/* Bubble scatter styles (moved from index.html) */
+.bubble-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px 12px 20px;
+}
+
+.bubble-field {
+  position: relative;
+  height: 70vh;
+  margin: 0; /* avoid margin collapse creating black gap */
+  overflow: hidden;
+  border: none;
+  border-radius: 0;
+  background: #f7f7f7;
+}
+
+.action-bubble {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--bubble-size, 140px);
+  aspect-ratio: 1 / 1; /* ensures perfect circle */
+  padding: 12px;
+  box-sizing: border-box;
+  max-width: none;
+  background: #ffffff;
+  color: #111111;
+  border: 1px solid #111111;
+  border-radius: 50%;
+  box-shadow: none;
+  font-size: calc(var(--bubble-size, 140px) / 9.5);
+  line-height: 1.2;
+  white-space: normal;
+  text-align: center;
+  word-break: break-word;
+  overflow: hidden;
+}
+
+/* Bubble size utilities */
+.action-bubble.size-sm { --bubble-size: 100px; }
+.action-bubble.size-md { --bubble-size: 140px; }
+.action-bubble.size-lg { --bubble-size: 180px; }
+.action-bubble.size-xl { --bubble-size: 220px; }
+
+.bubble-cta {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 20px 60px 20px;
+  background: #f7f7f7;
+}
+
+.bubble-cta .title-cta {
+  position: static; /* don't pin to corner here */
+  color: #0d1520;
+}
+.bubble-cta .title-cta:hover { color: #333333; }
