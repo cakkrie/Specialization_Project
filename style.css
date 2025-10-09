@@ -1968,7 +1968,7 @@ img.content-image {
   position: relative;
   border: none;
   background: transparent;
-  cursor: default;
+  cursor: pointer;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   opacity: 0;
   transform: translateY(20px);
@@ -2012,6 +2012,12 @@ img.content-image {
 .project-card2:hover .project-title-line,
 .project-card2:hover .project-caption {
   color: #ffffff !important;
+}
+
+/* Remove default underline when using <a> */
+a.project-card2 {
+  text-decoration: none;
+  color: inherit;
 }
 
 
