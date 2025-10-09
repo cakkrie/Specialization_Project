@@ -16,10 +16,31 @@
       <a href="about.html">About</a>
       <a href="research.html">Research</a>
     </div>
-    <!-- <div class="right"><a href="index.html">← Back to Gallery</a></div> -->
   </header>
 
   <main>
+
+    <section class="landing-page">
+      <video autoplay muted loop>
+        <source src="Photo/fishing-background.mp4" type="video/mp4">
+      </video>
+      <div class="landing-page-question">Blend emotional support, real data, and a gamified journey on every trip.
+
+      </div>
+      
+      <div class="landing-page-title">
+        FISHON-Your Fishing Guide Intelligence
+        <div class="title-arrow" onclick="scrollToAbout()">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+      
+      <!-- Labels positioned over the video -->
+      <span class="label outline info">Multi-sensor Physicalization</span>
+      <span class="label outline info">Community</span>
+      <span class="label outline">Play</span>
+      
+    </section>
 
     <section class="about-landing2">
       <div class="about-landing2-pin">
@@ -57,7 +78,6 @@
       </div>
     </section>
 
-    <!-- Fish Feature Embed -->
     <section class="fish-feature-embed" aria-label="Trip Actions Bubbles">
       <iframe src="fish%20feature.html" title="Fish Feature - Trip Actions" style="width:100%;height:900px;border:0;overflow:hidden;"></iframe>
     </section>
@@ -201,6 +221,43 @@
         next.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
+
+
+    // Scroll-based animation functionality
+    function initScrollAnimations() {
+      const cards = document.querySelectorAll('.project-card');
+      
+      // Intersection Observer for fade-in animation
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const cardIndex = Array.from(cards).indexOf(entry.target);
+            // Stagger animation with increasing delay
+            setTimeout(() => {
+              entry.target.classList.add('animate-in');
+            }, cardIndex * 100);
+          }
+        });
+      }, observerOptions);
+
+      // Observe all cards
+      cards.forEach(card => {
+        observer.observe(card);
+      });
+    }
+
+    // Initialize animations and load header when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof loadHeader === 'function') {
+        loadHeader();
+      }
+      initScrollAnimations();
+    });
 
     // Sticky scroll control for about-landing2 (2500px total pin, 5 stages)
     function initAboutLanding2Scroll() {

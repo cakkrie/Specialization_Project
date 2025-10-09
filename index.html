@@ -49,39 +49,6 @@
   </main>
 
   <script>
-    function openProjectDetail(projectNumber) {
-      const fileNames = {
-        1: 'ideation.html',
-        2: 'research.html', 
-        3: 'aesthetic.html',
-        4: 'development.html'
-      };
-      
-      const fileName = fileNames[projectNumber] || `ideation${projectNumber}.html`;
-      window.open(fileName, '_blank');
-    }
-
-    function scrollToAbout() {
-      const aboutSection = document.querySelector('.About-us');
-      aboutSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-
-    function toggleContent(person) {
-      const content = document.getElementById(person + '-content');
-      const icon = event.target;
-      
-      if (content.style.display === 'none') {
-        content.style.display = 'block';
-        icon.textContent = '−';
-      } else {
-        content.style.display = 'none';
-        icon.textContent = '+';
-      }
-    }
-
 
     // Scroll-based animation functionality
     function initScrollAnimations() {
