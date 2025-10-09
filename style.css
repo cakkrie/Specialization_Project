@@ -2497,37 +2497,62 @@ a.project-card2 {
 
 /* XR Image Gallery */
 .xr-image-gallery {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px 20px 20px;
-  flex-wrap: wrap;
 }
 
-.xr-image-gallery img {
-  height: 200px;
-  width: calc((100% - 60px) / 4);
-  object-fit: cover;
+.xr-image-item {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
   border-radius: 5px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-.xr-image-gallery img:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+.xr-image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.4s ease, transform 0.4s ease;
+  filter: grayscale(0%);
 }
 
-@media (max-width: 1024px) {
-  .xr-image-gallery img {
-    width: calc((100% - 20px) / 2);
-  }
+.xr-image-item:hover img {
+  filter: grayscale(100%);
+  transform: scale(1.05);
+}
+
+.xr-image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.xr-image-item:hover .xr-image-text {
+  opacity: 1;
 }
 
 @media (max-width: 600px) {
-  .xr-image-gallery img {
-    width: 100%;
+  .xr-image-gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .xr-image-text {
+    font-size: 18px;
   }
 }
