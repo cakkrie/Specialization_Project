@@ -1429,6 +1429,76 @@ main {
   border-bottom-color: #ffffff;
 }
 
+/* Matrix section */
+.fc-matrix {
+  background: #000000;
+  color: #2844c2;
+  padding: 40px 20px 120px 20px;
+}
+
+.matrix-wrap {
+  position: relative;
+  max-width: 1000px;
+  height: 800px;
+  margin: 0 auto;
+}
+
+/* Vertical center line */
+.matrix-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #666;
+}
+
+/* Horizontal center line */
+.matrix-wrap::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: #666;
+}
+
+.axis {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 600;
+  color: #888888;
+  text-transform: uppercase;
+}
+
+.axis-top { top: -26px; left: 50%; transform: translateX(-50%); }
+.axis-bottom { bottom: -26px; left: 50%; transform: translateX(-50%); }
+.axis-left { left: -6px; top: 50%; transform: translate(-100%, -50%); }
+.axis-right { right: -6px; top: 50%; transform: translate(100%, -50%); }
+
+.m-item {
+  position: absolute;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.m-logo {
+  position: absolute;
+  width: 90px;
+  height: auto;
+}
+
+.m-bubble {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+}
+
 b {
   font-size: 14px;
   line-height: 1.4;
@@ -1463,6 +1533,17 @@ img.content-image {
   margin: 40px 0;
   display: block;
   border-radius: 4px;
+}
+
+/* Smaller variant without float */
+.content-image-small {
+  width: 60% !important;
+}
+
+@media (max-width: 768px) {
+  .content-image-small {
+    width: 100% !important;
+  }
 }
 
 /* Callout styles */
