@@ -18,28 +18,51 @@
 
   <main>
     <section class="about-landing">
+      <img src="Photo/about/shangyu-logo.png" alt="FishOn Logo" class="about-landing-logo">
       <div class="label-container">
-    <span class="label outline">Multi-sensor Physicalization</span>
-    <span class="label outline">Community</span>
-    <span class="label outline">Play</span>
+        <span class="label outline">Multi-sensor Physicalization</span>
+        <span class="label outline">Community</span>
+        <span class="label outline">Play</span>
+      </div>
+
+
+      <div class="hmw">
+        FishOn — your playful fishing guide intelligence
       </div>
 
       <div class="context">
-        While FishOn already <bold>digitalizes the market for younger users,</bold>it still lacks a natural flow to guide them before, during, and after their trips. Young anglers often face fragmented knowledge and steep learning curves, especially when fishing within limited time. 
-        <br>
-        <br>
-        Our goal is to make the experience more organized, reduce disappointment from empty catches, and ensure fishing remains fun and efficient.
-    </div>
-
-      <div class="hmw">
-        HMW create a natural, seamless flow that guides users before, during, and after fishing trips?
+        Blend emotional support, real data, and a gamified journey on every trip.
       </div>
+
       <div class="scroll-down">
         <button class="title-arrow" onclick="scrollToNextSection()" aria-label="Scroll to next section">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
+      </div>
+    </section>
+
+    <section class="about-landing2">
+      <div class="about-landing2-pin">
+        <video autoplay muted loop>
+          <source src="Photo/fishing-background.mp4" type="video/mp4">
+        </video>
+        <div class="overlay intro-text" id="market-intro">
+          The global fishing market continues to expand steadily, driven by rising seafood demand, growing recreational participation, and advances in aquaculture.
+        </div>
+        <div class="overlay trend-card" id="young-trend" aria-hidden="true">
+          <h3>Younger anglers trend</h3>
+          <p>Growing participation among Gen Z and Millennials reshapes gear, communities, and trip planning.</p>
+        </div>
+        <div class="overlay trend-card" id="rely-tech" aria-hidden="true">
+          <h3>Rely on technology</h3>
+          <p>Mobile apps, sonar, and AI-driven insights increasingly guide spot selection and tactics.</p>
+        </div>
+        <div class="overlay trend-card" id="limited-time" aria-hidden="true">
+          <h3>Limited time on fishing</h3>
+          <p>Busy schedules push for efficient, outcome-oriented trips and bite-time optimization.</p>
+        </div>
       </div>
     </section>
 
@@ -121,6 +144,7 @@
     document.addEventListener('DOMContentLoaded', function() {
       initEarthInteraction();
       initStickyEffect();
+      initAboutLanding2Scroll();
     });
 
     function scrollToNextSection() {
@@ -128,6 +152,54 @@
       if (next) {
         next.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    }
+
+    // Sticky scroll control for about-landing2 (2000px total pin, 4 stages)
+    function initAboutLanding2Scroll() {
+      const section = document.querySelector('.about-landing2');
+      const pin = document.querySelector('.about-landing2-pin');
+      const intro = document.getElementById('market-intro');
+      const card1 = document.getElementById('young-trend');
+      const card2 = document.getElementById('rely-tech');
+      const card3 = document.getElementById('limited-time');
+      if (!section || !pin || !intro || !card1 || !card2 || !card3) return;
+
+      const SCROLL_LENGTH = 2000; // total pinned scroll distance in px
+
+      // Ensure section height supports sticky duration
+      section.style.minHeight = `calc(100vh + ${SCROLL_LENGTH}px)`;
+
+      function render() {
+        const start = section.offsetTop;
+        const y = window.scrollY;
+        const delta = Math.min(Math.max(y - start, 0), SCROLL_LENGTH);
+
+        // Reset all
+        intro.classList.remove('visible');
+        card1.classList.remove('visible');
+        card2.classList.remove('visible');
+        card3.classList.remove('visible');
+        card1.setAttribute('aria-hidden', 'true');
+        card2.setAttribute('aria-hidden', 'true');
+        card3.setAttribute('aria-hidden', 'true');
+
+        if (delta < 500) {
+          intro.classList.add('visible');
+        } else if (delta < 1000) {
+          card1.classList.add('visible');
+          card1.setAttribute('aria-hidden', 'false');
+        } else if (delta < 1500) {
+          card2.classList.add('visible');
+          card2.setAttribute('aria-hidden', 'false');
+        } else {
+          card3.classList.add('visible');
+          card3.setAttribute('aria-hidden', 'false');
+        }
+      }
+
+      window.addEventListener('scroll', render, { passive: true });
+      window.addEventListener('resize', render);
+      render();
     }
 
     // 实现滚动时的视差效果

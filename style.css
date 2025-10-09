@@ -798,8 +798,81 @@ main {
     grid-template-columns: 1fr 1fr;
   }
 }
+/* Landing Page Section */
+.about-landing2 {
+  height: 100vh;
+  position: relative;
+}
 
-/* About landing: full-height section with centered labels and content */
+.about-landing2-pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.about-landing2 video {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+  z-index: -2;
+  filter: grayscale(100%);
+}
+
+.about-landing2 .overlay {
+  position: absolute;
+  max-width: 840px;
+  padding: 20px 24px;
+  color: #ffffff;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.about-landing2 .overlay.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-landing2 .intro-text {
+  top: 100px;
+  left: 20px;
+  right: auto;
+  font-size: 40px;
+  line-height: 1.4;
+  font-weight: 500;
+  text-align: left;
+}
+
+.about-landing2 .trend-card {
+  bottom: 15%;
+  left: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.about-landing2 .trend-card h3 {
+  margin: 0 0 8px 0;
+  font-size: clamp(22px, 3vh, 28px);
+  font-weight: 400;
+}
+
+.about-landing2 .trend-card p {
+  margin: 0;
+  font-size: clamp(16px, 2.2vh, 18px);
+  color: #ddd;
+}
+
 .about-landing {
   height: 100vh;
   display: flex;
@@ -810,6 +883,12 @@ main {
   text-align: center;
   padding: 80px 20px 0 20px; /* account for fixed header */
   box-sizing: border-box;
+}
+
+/* Logo on the About landing hero */
+.about-landing-logo {
+  width: clamp(80px, 18vw, 140px);
+  height: auto;
 }
 
 .about-landing .label-container {
