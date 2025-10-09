@@ -441,11 +441,11 @@
 .earth-info::after {
   content: "";
   position: absolute;
-  top: 0;
+  top: 8px;
   left: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: rgba(255, 255, 255, 0.5);
+  height: 20%;
+  width: 3px; /* bolder */
+  background-color: #ffffff; /* more solid */
 }
 
 .info-item {
@@ -474,7 +474,7 @@
 .info-item ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 10px 0 0 0; /* space between h2 and list */
   text-align: left;
 }
 
@@ -484,13 +484,13 @@
   margin-bottom: 12px;
   color: #ffffff;
   position: relative;
-  padding-left: 0;
+  padding-left: 18px; /* add space between arrow and text */
 }
 
 .info-item li:before {
-  content: "\2192"; /* right arrow */
+  content: "\25B8"; /* simple triangle arrow ▸ */
   position: absolute;
-  left: -14px; /* sits in the earth-info left padding */
+  left: 0; /* align inside the new left padding */
   top: 0;
   color: #ffffff;
   font-size: 1rem;
