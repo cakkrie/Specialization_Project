@@ -143,15 +143,51 @@
               <circle class="progress-circle progress-section-3" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
             </svg>
             <div class="parallax-titles">
-              <div class="title-text title-1"><span>2D Map</span><span class="title-sub">Real-time overlays and navigation</span><span class="title-body">Plan routes, check conditions, and find the best spots.</span></div>
-              <div class="title-text title-2"><span>2.5D Map</span><span class="title-sub">Emotion & Discovery Map</span><span class="title-body">Track species, capture mood, and discover new places.</span></div>
-              <div class="title-text title-3"><span>4D XR Map</span><span class="title-sub">Immersive XR previews</span><span class="title-body">Preview locations and relive highlights in mixed reality.</span></div>
+              <div class="title-text title-1"><span>2D Map</span><span class="title-sub">Real-time overlays and navigation</span><span class="title-body">A data-driven map that visualizes real fishing spots, weather, and location information for quick decision-making</span></div>
+              <div class="title-text title-2"><span>2.5D Map</span><span class="title-sub">Emotion & Discovery Map</span><span class="title-body">A semi-immersive map blending 3D depth and emotional feedback, exploration through ambient visuals.</span></div>
+              <div class="title-text title-3"><span>4D XR Map</span><span class="title-sub">Immersive XR previews</span><span class="title-body">An extended-reality environment that anchors fish and environment in real-world space, merging physical and virtual fishing experiences.</span></div>
             </div>
           </div>
        </div>
        
        <!-- Spacer to allow scrolling through entire parallax section -->
        <div style="height: 100vh; background-color: #000000;"></div>
+       
+       <!-- Grey Card Section (3vh spacing from bottom) -->
+       <section class="bottom-card-section">
+         <h2 class="section-main-title">Radical Prototype</h2>
+         <div class="grey-card" id="tiltCard">
+           <div class="card-text">
+             Letting users to "see" the dynamic fish habitats and real-time encouragement from an AI guide, creating an immersive yet emotionally supportive fishing journey
+           </div>
+         </div>
+       </section>
+       
+       <!-- Small Cards Grid Section -->
+       <section class="small-cards-section">
+         <div class="small-cards-grid">
+           <div class="small-card">
+             <div class="small-card-title">Fishing Tech</div>
+             <div class="small-card-description">Envisions a future where fishing blends data, emotion, and nature to explore new nature–AI relationships.</div>
+           </div>
+           <div class="small-card">
+             <div class="small-card-title">Provocative</div>
+             <div class="small-card-description">Balance tech's focus on efficiency and experience with emphasizing mindfulness, emotion, and play.</div>
+           </div>
+           <div class="small-card">
+             <div class="small-card-title">Narrative-driven</div>
+             <div class="small-card-description">Builds a story between user, environment and community through every fishing journey.</div>
+           </div>
+           <div class="small-card">
+             <div class="small-card-title">Experience over functional</div>
+             <div class="small-card-description">Focuses on illustrating ideas of journey while blending technical completion.</div>
+           </div>
+           <div class="small-card">
+             <div class="small-card-title">Speculative</div>
+             <div class="small-card-description">Connects speculative storytelling with design research to reflect on the fishing community.</div>
+           </div>
+         </div>
+       </section>
   </main>
 
   <script>
@@ -160,7 +196,23 @@
       initEarthInteraction();
       initStickyEffect();
       initAboutLanding2Scroll();
+      initTiltCard();
     });
+    
+    // Tilt card effect
+    function initTiltCard() {
+      const card = document.getElementById('tiltCard');
+      if (!card) return;
+      
+      // On hover: straighten the card
+      card.addEventListener('mouseenter', function() {
+        card.classList.add('hovered');
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        card.classList.remove('hovered');
+      });
+    }
 
     function scrollToNextSection() {
       const next = document.querySelector('.earth-section');
