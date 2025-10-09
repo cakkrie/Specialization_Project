@@ -230,7 +230,7 @@
            // 第一个窗口高度：显示第一个标题 - 蓝色（bottom层）
            titleTexts[0].classList.add('visible');
            phoneScreens[0].classList.add('active'); // 显示第一个屏幕
-           changeImageWithTransition('Photo/buttom.png');
+           changeImageWithTransition('Photo/bottom.png');
            console.log('切换到蓝色图片和屏幕1, progress:', progress);
           } else if (progress >= 0.33 && progress < 0.66) {
             // 第二个窗口高度：显示第二个标题 - 浅紫色（middle层）
@@ -321,7 +321,7 @@
       
       function setupCanvases() {
         const imageFiles = {
-          'bottom': 'Photo/buttom.png',
+          'bottom': 'Photo/bottom.png',
           'middle': 'Photo/middle.png', 
           'top': 'Photo/top.png'
         };

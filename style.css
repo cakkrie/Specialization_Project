@@ -240,7 +240,7 @@
 
 /* Screen 1 - Horizontal orientation */
 .phone-screen.screen-1 {
-  width: 500px;
+  width: 600px;
   height: auto;
   transform: translate(-50%, -50%);
 }
@@ -248,7 +248,7 @@
 /* Screen 2 & 3 - Vertical orientation */
 .phone-screen.screen-2,
 .phone-screen.screen-3 {
-  width: 280px;
+  width: 350px;
   height: auto;
   transform: translate(-50%, -50%);
 }
@@ -329,12 +329,12 @@
   
   /* Mobile phone screen sizes */
   .phone-screen.screen-1 {
-    width: 320px;
+    width: 380px;
   }
   
   .phone-screen.screen-2,
   .phone-screen.screen-3 {
-    width: 180px;
+    width: 220px;
   }
 }
 
