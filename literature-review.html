@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Literature Review</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+  <header>
+    <div class="left"><a href="index.html">FishOn</a></div>
+    <div class="center">
+      <a href="about.html">About</a>
+      <a href="log.html">Log</a>
+    </div>
+    <!-- <div class="right"><a href="index.html">← Back to Gallery</a></div> -->
+  </header>
+  
+
+  <main>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section class="fc-hero">
+      <h1 class="fc-hero-headline">
+        Literature Review
+      </h1>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section class="fc-features">
+      <article class="fc-feature">
+        <div class="fc-feature-meta">(01)</div>
+        <h3>Literature Review</h3>
+        <p>Searched multiple academic databases, including ACM, IEEE, and SpringerLink.</p>
+      </article>
+
+      <article class="fc-feature">
+        <div class="fc-feature-meta">(02)</div>
+        <h3>Screening and Analysis</h3>
+        <p>- **Inclusion Criteria**: Studies that include gamification strategies to motivate software usage or are applied in specific domains.
+            - **Data Extraction**: Collected information on publication details, software types, gamification elements, etc..</p>
+      </article>
+    </section>
+
+
+    <br>
+  
+
+    <section class="fc-list-dark">
+      <h2 class="section-title fc-list-header">Gamification Solutions to Enhance Software User Engagement—A Systematic Review</h2>
+      <br>
+ 
+      <section class="fc-list">
+      <div class="fc-row">
+        <div class="fc-row-index">(01)</div>
+        <div class="fc-row-title">On which types of software and platforms is gamification more commonly applied?</div>
+      </div>
+
+      <div class="fc-row">
+        <div class="fc-row-index">(02)</div>
+        <div class="fc-row-title">What elements are typically involved in gamification processes?</div>
+      </div>
+
+      <div class="fc-row">
+        <div class="fc-row-index">(03)</div>
+        <div class="fc-row-title">What gamification solutions and elements are used across different software categories?</div>
+      </div>
+
+      <div class="fc-row">
+        <div class="fc-row-index">(04)</div>
+        <div class="fc-row-title">What gamification strategies are adopted to address user engagement issues in software?</div>
+      </div>
+
+      <div class="fc-row">
+        <div class="fc-row-index">(05)</div>
+        <div class="fc-row-title">How does gamification impact user engagement and performance?</div>
+      </div>
+      </section>
+
+      <br>
+      
+    </section>
+
+    <section class="fc-list-dark">
+        <h2 class="section-title fc-list-header">Finding</h2>
+        <br>
+   
+        <section class="fc-list">
+        <div class="fc-row">
+          <div class="fc-row-index">(01)</div>
+          <div class="fc-row-title">Gamification Elements</div>
+        </div>
+  
+        <div class="fc-row">
+          <div class="fc-row-index">(02)</div>
+          <div class="fc-row-title">Gamification Solutions</div>
+        </div>
+
+        <br>
+        <br>
+        
+        </section>
+        
+        
+        
+      </section>
+  
+
+  </main>
+
+
+  <script>
+    // Expandable functionality
+    function toggleExpandable(element) {
+      const content = element.nextElementSibling;
+      const isExpanded = element.classList.contains('expanded');
+      
+      if (isExpanded) {
+        element.classList.remove('expanded');
+        content.classList.remove('expanded');
+      } else {
+        element.classList.add('expanded');
+        content.classList.add('expanded');
+      }
+    }
+
+    // Toggle content with add icon
+    function toggleContent(iconElement) {
+      const titleElement = iconElement.parentElement;
+      const content = titleElement.nextElementSibling;
+      const isExpanded = titleElement.classList.contains('expanded');
+      
+      if (isExpanded) {
+        titleElement.classList.remove('expanded');
+        content.classList.remove('expanded');
+        iconElement.textContent = '+';
+      } else {
+        titleElement.classList.add('expanded');
+        content.classList.add('expanded');
+        iconElement.textContent = '−';
+      }
+    }
+
+    // Row toggle for fc-list
+    function toggleRow(btn) {
+      const row = btn.closest('.fc-row');
+      const next = row.nextElementSibling;
+      if (!next || !next.classList.contains('fc-row-content')) return;
+      const isOpen = row.classList.contains('open');
+      if (isOpen) {
+        row.classList.remove('open');
+      } else {
+        row.classList.add('open');
+      }
+    }
+  </script>
+</body>
+</html>
