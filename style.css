@@ -12,7 +12,7 @@
   justify-content: space-between;
   gap: 80px;
   margin: 100px 0 200px 0;
-  padding: 0 40px;
+  padding: 0 80px;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -26,13 +26,13 @@
   position: relative;
   flex-shrink: 0;
   flex: 0 0 auto;
-  transform: translateX(-100px); /* 向左移动100px */
+  transform: translateX(0);
 }
 
 .earth-layers {
   position: relative;
-  width: 675px; /* 300px * 1.5 * 1.5 = 675px */
-  height: 675px; /* 300px * 1.5 * 1.5 = 675px */
+  width: 472px;
+  height: 472px;
 }
 
 .earth-layer {
