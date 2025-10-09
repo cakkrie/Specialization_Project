@@ -19,9 +19,9 @@
   <main>
     <section class="about-landing">
       <div class="label-container">
-        <span class="label outline">Multi-sensor Physicalization</span>
-        <span class="label outline">Community</span>
-        <span class="label outline">Play</span>
+    <span class="label outline">Multi-sensor Physicalization</span>
+    <span class="label outline">Community</span>
+    <span class="label outline">Play</span>
       </div>
 
       <div class="context">
@@ -29,7 +29,7 @@
         <br>
         <br>
         Our goal is to make the experience more organized, reduce disappointment from empty catches, and ensure fishing remains fun and efficient.
-      </div>
+    </div>
 
       <div class="hmw">
         HMW create a natural, seamless flow that guides users before, during, and after fishing trips?
@@ -86,29 +86,37 @@
         </div>
       </div>
 
-      <!-- Parallax Section -->
-      <div class="parallax-container" id="parallax-container">
-         <div class="parallax-wrapper">
-           <img src="Photo/bottom_layer.png" alt="Bottom Layer Parallax" class="parallax-image" id="parallax-image">
-           <svg class="progress-ring" width="675" height="675">
-             <circle class="progress-circle-bg" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#333" stroke-width="2"/>
-             <circle class="progress-circle progress-section-1" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="5" stroke-dasharray="703" stroke-dashoffset="703"/>
-             <circle class="progress-circle progress-section-2" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="5" stroke-dasharray="703" stroke-dashoffset="703"/>
-             <circle class="progress-circle progress-section-3" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="5" stroke-dasharray="703" stroke-dashoffset="703"/>
-           </svg>
-           <div class="parallax-titles">
-             <div class="title-text title-1">2D Map Interface</div>
-             <div class="title-text title-2">2.5D Map Interface — Emotion & Discovery Map</div>
-             <div class="title-text title-3">4D XR Map Interface</div>
-           </div>
-         </div>
+       <!-- Parallax Section -->
+       <div class="parallax-container" id="parallax-container">
+          <div class="parallax-wrapper">
+            <img src="Photo/bottom_layer.png" alt="Bottom Layer Parallax" class="parallax-image" id="parallax-image">
+            
+            <!-- Phone screens in the center -->
+            <div class="screen-container">
+              <img src="Photo/buttom1_screen.png" alt="Screen 1" class="phone-screen screen-1">
+              <img src="Photo/buttom2_screen.png" alt="Screen 2" class="phone-screen screen-2">
+              <img src="Photo/buttom3_screen.png" alt="Screen 3" class="phone-screen screen-3">
+            </div>
+            
+            <svg class="progress-ring" width="675" height="675">
+              <circle class="progress-circle-bg" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#333" stroke-width="2"/>
+              <circle class="progress-circle progress-section-1" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
+              <circle class="progress-circle progress-section-2" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
+              <circle class="progress-circle progress-section-3" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
+            </svg>
+            <div class="parallax-titles">
+              <div class="title-text title-1">2D Map Interface</div>
+              <div class="title-text title-2">2.5D Map Interface — Emotion & Discovery Map</div>
+              <div class="title-text title-3">4D XR Map Interface</div>
+            </div>
+          </div>
        </div>
        
        <!-- Spacer to allow scrolling through entire parallax section -->
        <div style="height: 100vh; background-color: #000000;"></div>
-   </main>
+  </main>
 
-   <script>
+  <script>
     // Initialize when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
       initEarthInteraction();
@@ -124,36 +132,38 @@
 
     // 实现滚动时的视差效果
     function initStickyEffect() {
-      const parallaxWrapper = document.querySelector('.parallax-wrapper');
-      const parallaxContainer = document.getElementById('parallax-container');
+       const parallaxWrapper = document.querySelector('.parallax-wrapper');
+       const parallaxContainer = document.getElementById('parallax-container');
       const earthSection = document.querySelector('.earth-section');
-      const earthLayers = document.querySelector('.earth-layers');
-      const progressRing = document.querySelector('.progress-ring');
-      const progressSections = document.querySelectorAll('.progress-circle');
-      const titleTexts = document.querySelectorAll('.title-text');
-      
-      if (!parallaxWrapper || !parallaxContainer || !earthSection || !earthLayers || !progressRing) return;
-      
-      // 获取earth-section的底部位置
-      const earthSectionBottom = earthSection.offsetTop + earthSection.offsetHeight;
-      const viewportHeight = window.innerHeight;
-      let hasStartedParallax = false;
+       const earthLayers = document.querySelector('.earth-layers');
+       const progressRing = document.querySelector('.progress-ring');
+       const progressSections = document.querySelectorAll('.progress-circle');
+       const titleTexts = document.querySelectorAll('.title-text');
+       const phoneScreens = document.querySelectorAll('.phone-screen');
+       
+       if (!parallaxWrapper || !parallaxContainer || !earthSection || !earthLayers || !progressRing) return;
+       
+       // 获取earth-section的底部位置
+       const earthSectionBottom = earthSection.offsetTop + earthSection.offsetHeight;
+       const viewportHeight = window.innerHeight;
+       let hasStartedParallax = false;
       
       function handleScroll() {
         const scrollY = window.scrollY;
-        const earthSectionTop = earthSection.offsetTop;
-        const earthSectionBottom = earthSectionTop + earthSection.offsetHeight;
-        const parallaxStartY = earthSectionBottom;
-        const parallaxEndY = parallaxStartY + (viewportHeight * 3);
-        
-        // 当earth-section完全进入视窗时，显示图像在初始位置
-        if (scrollY >= earthSectionTop && scrollY < parallaxStartY) {
-          parallaxWrapper.className = 'parallax-wrapper initial';
-          earthLayers.classList.remove('hidden'); // 显示原始圆圈
-          progressRing.classList.remove('visible'); // 隐藏进度条
-          titleTexts.forEach(title => title.classList.remove('visible')); // 隐藏所有标题
-          hasStartedParallax = false;
-        }
+         const earthSectionTop = earthSection.offsetTop;
+         const earthSectionBottom = earthSectionTop + earthSection.offsetHeight;
+         const parallaxStartY = earthSectionBottom;
+         const parallaxEndY = parallaxStartY + (viewportHeight * 3);
+         
+         // 当earth-section完全进入视窗时，显示图像在初始位置
+         if (scrollY >= earthSectionTop && scrollY < parallaxStartY) {
+           parallaxWrapper.className = 'parallax-wrapper initial';
+           earthLayers.classList.remove('hidden'); // 显示原始圆圈
+           progressRing.classList.remove('visible'); // 隐藏进度条
+           titleTexts.forEach(title => title.classList.remove('visible')); // 隐藏所有标题
+           phoneScreens.forEach(screen => screen.classList.remove('active')); // 隐藏所有屏幕
+           hasStartedParallax = false;
+         }
         // 当进入视差区域时，滑动到中心并隐藏原始圆圈
         else if (scrollY >= parallaxStartY && scrollY <= parallaxEndY) {
           parallaxWrapper.className = 'parallax-wrapper center';
@@ -177,52 +187,63 @@
           // 控制标题显示
           updateTitles(progress);
         }
-        // 超过视差区域时，隐藏图像并恢复原始圆圈
-        else if (scrollY > parallaxEndY) {
-          parallaxWrapper.className = 'parallax-wrapper';
-          earthLayers.classList.remove('hidden'); // 恢复显示原始圆圈
-          progressRing.classList.remove('visible'); // 隐藏进度条
-          titleTexts.forEach(title => title.classList.remove('visible')); // 隐藏所有标题
-          hasStartedParallax = false;
-        }
-        // 在earth-section之前，完全隐藏图像
-        else {
-          parallaxWrapper.className = 'parallax-wrapper';
-          earthLayers.classList.remove('hidden'); // 确保原始圆圈可见
-          progressRing.classList.remove('visible'); // 确保进度条隐藏
-          titleTexts.forEach(title => title.classList.remove('visible')); // 隐藏所有标题
-          hasStartedParallax = false;
-        }
+         // 超过视差区域时，隐藏图像并恢复原始圆圈
+         else if (scrollY > parallaxEndY) {
+           parallaxWrapper.className = 'parallax-wrapper';
+           earthLayers.classList.remove('hidden'); // 恢复显示原始圆圈
+           progressRing.classList.remove('visible'); // 隐藏进度条
+           titleTexts.forEach(title => title.classList.remove('visible')); // 隐藏所有标题
+           phoneScreens.forEach(screen => screen.classList.remove('active')); // 隐藏所有屏幕
+           hasStartedParallax = false;
+         }
+         // 在earth-section之前，完全隐藏图像
+         else {
+           parallaxWrapper.className = 'parallax-wrapper';
+           earthLayers.classList.remove('hidden'); // 确保原始圆圈可见
+           progressRing.classList.remove('visible'); // 确保进度条隐藏
+           titleTexts.forEach(title => title.classList.remove('visible')); // 隐藏所有标题
+           phoneScreens.forEach(screen => screen.classList.remove('active')); // 隐藏所有屏幕
+           hasStartedParallax = false;
+         }
       }
       
        // 更新标题显示函数
        function updateTitles(progress) {
          const parallaxImage = document.querySelector('.parallax-image');
+         const phoneScreens = document.querySelectorAll('.phone-screen');
          
          // 隐藏所有标题
          titleTexts.forEach(title => {
            title.classList.remove('visible');
          });
          
+         // 隐藏所有屏幕
+         phoneScreens.forEach(screen => {
+           screen.classList.remove('active');
+         });
+         
          // 移除所有颜色类
          parallaxImage.classList.remove('color-bottom', 'color-middle', 'color-top');
          
-         // 根据滚动进度显示对应的标题和颜色
+         // 根据滚动进度显示对应的标题、颜色和屏幕
          if (progress >= 0 && progress < 0.33) {
            // 第一个窗口高度：显示第一个标题 - 蓝色（bottom层）
            titleTexts[0].classList.add('visible');
-           changeImageWithTransition('../Photo/bottom_layer.png');
-           console.log('切换到蓝色图片, progress:', progress);
-         } else if (progress >= 0.33 && progress < 0.66) {
-           // 第二个窗口高度：显示第二个标题 - 浅紫色（middle层）
-           titleTexts[1].classList.add('visible');
-           changeImageWithTransition('../Photo/buttom2.png');
-           console.log('切换到buttom2图片, progress:', progress);
-         } else if (progress >= 0.66) {
-           // 第三个窗口高度：显示第三个标题 - 绿色（top层）
-           titleTexts[2].classList.add('visible');
-           changeImageWithTransition('../Photo/buttom3.png');
-           console.log('切换到buttom3图片, progress:', progress);
+           phoneScreens[0].classList.add('active'); // 显示第一个屏幕
+           changeImageWithTransition('Photo/buttom1.png', 1.2);
+           console.log('切换到buttom1图片和屏幕1, progress:', progress);
+          } else if (progress >= 0.33 && progress < 0.66) {
+            // 第二个窗口高度：显示第二个标题 - 浅紫色（middle层）
+            titleTexts[1].classList.add('visible');
+            phoneScreens[1].classList.add('active'); // 显示第二个屏幕
+            changeImageWithTransition('Photo/buttom2.png', 1.2);
+            console.log('切换到buttom2图片和屏幕2, progress:', progress);
+          } else if (progress >= 0.66) {
+            // 第三个窗口高度：显示第三个标题 - 绿色（top层）
+            titleTexts[2].classList.add('visible');
+            phoneScreens[2].classList.add('active'); // 显示第三个屏幕
+            changeImageWithTransition('Photo/buttom3.png', 1.2);
+            console.log('切换到buttom3图片和屏幕3, progress:', progress);
          }
          
          // 调试信息
@@ -230,9 +251,9 @@
        }
        
        // 带过渡效果的图片切换函数
-       function changeImageWithTransition(newSrc) {
+       function changeImageWithTransition(newSrc, scaleSize = 1) {
          const parallaxImage = document.querySelector('.parallax-image');
-         if (parallaxImage.src.includes(newSrc)) return; // 如果已经是目标图片，不重复切换
+         if (parallaxImage.src.includes(newSrc) && parallaxImage.style.transform.includes(`scale(${scaleSize})`)) return; // 如果已经是目标图片和缩放，不重复切换
          
          // 淡出
          parallaxImage.style.opacity = '0.3';
@@ -242,9 +263,9 @@
            // 切换图片
            parallaxImage.src = newSrc;
            
-           // 淡入
+           // 淡入并应用缩放
            parallaxImage.style.opacity = '1';
-           parallaxImage.style.transform = 'scale(1)';
+           parallaxImage.style.transform = `scale(${scaleSize})`;
          }, 300); // 300ms后切换图片
        }
       
@@ -300,7 +321,7 @@
       
       function setupCanvases() {
         const imageFiles = {
-          'bottom': 'Photo/buttom.png',
+          'bottom': 'Photo/bottom.png',
           'middle': 'Photo/middle.png', 
           'top': 'Photo/top.png'
         };
