@@ -133,6 +133,10 @@
           </marker>
           <style>
             .card { fill:#111111; stroke:none; stroke-width:0; rx:0; filter:url(#cardShadow); }
+            .card-light-gray { fill:#d3d3d3; stroke:none; stroke-width:0; rx:0; filter:url(#cardShadow); }
+            .title-light-gray { font: 700 18px Raleway, Helvetica, Arial, sans-serif; fill:#000000; }
+            .kv-light-gray { font: 400 12px Raleway, Helvetica, Arial, sans-serif; fill:#000000; }
+            .sep-light-gray { stroke:#000000; stroke-width:1; }
             .user-card { fill:#ffffff; stroke:#e5e5e5; stroke-width:1; rx:0; filter:url(#cardShadow); }
             .customer-card { fill:#ffffff; stroke:#e5e5e5; stroke-width:1; rx:0; filter:url(#cardShadow); }
             .title { font: 700 18px Raleway, Helvetica, Arial, sans-serif; fill:#ffffff; }
@@ -177,7 +181,7 @@
           <text class="user-kv"  x="16" y="366">+ shareCatch(id)</text>
         </g>
 
-        <g transform="translate(540,20)">
+        <g transform="translate(560,20)">
           <rect class="card" width="300" height="360"/>
           <text class="title" x="16" y="34">FishingSession</text>
           <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
@@ -196,7 +200,7 @@
           <text class="kv"  x="16" y="306">+ analyzePerformance()</text>
         </g>
 
-        <g transform="translate(900,20)">
+        <g transform="translate(940,20)">
           <rect class="card" width="300" height="360"/>
           <text class="title" x="16" y="34">Spot</text>
           <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
@@ -216,24 +220,24 @@
           <text class="kv"  x="16" y="326">+ calculateScore(user)</text>
           <text class="kv"  x="16" y="346">+ updatePopularity()</text>
         </g>
-        <g transform="translate(1260,-20)">
-          <rect class="card" width="300" height="400"/>
-          <text class="title" x="16" y="34">RecommendationEngine</text>
-          <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
-          <text class="kv"  x="16" y="68">modelType: String</text>
-          <text class="kv"  x="16" y="88">trainingData: Dataset</text>
-          <text class="kv"  x="16" y="108">weighting: Map</text>
-          <text class="kv"  x="16" y="128">recentSpots: List</text>
-          <text class="kv"  x="16" y="148">fishActivityModel: MLModel</text>
-          <line class="sep" x1="16" y1="162" x2="264" y2="162"/>
-          <text class="kv"  x="16" y="186">+ generateSpotsRecommendation(user, weather)</text>
-          <text class="kv"  x="16" y="206">+ updateModel(data)</text>
-          <text class="kv"  x="16" y="226">+ predictBiteProbability(spot,time)</text>
-          <text class="kv"  x="16" y="246">+ rankSpots(spots)</text>
+        <g transform="translate(1320,-20)">
+          <rect class="card-light-gray" width="300" height="400"/>
+          <text class="title-light-gray" x="16" y="34">RecommendationEngine</text>
+          <line class="sep-light-gray" x1="16" y1="44" x2="264" y2="44"/>
+          <text class="kv-light-gray"  x="16" y="68">modelType: String</text>
+          <text class="kv-light-gray"  x="16" y="88">trainingData: Dataset</text>
+          <text class="kv-light-gray"  x="16" y="108">weighting: Map</text>
+          <text class="kv-light-gray"  x="16" y="128">recentSpots: List</text>
+          <text class="kv-light-gray"  x="16" y="148">fishActivityModel: MLModel</text>
+          <line class="sep-light-gray" x1="16" y1="162" x2="264" y2="162"/>
+          <text class="kv-light-gray"  x="16" y="186">+ generateSpotsRecommendation(user, weather)</text>
+          <text class="kv-light-gray"  x="16" y="206">+ updateModel(data)</text>
+          <text class="kv-light-gray"  x="16" y="226">+ predictBiteProbability(spot,time)</text>
+          <text class="kv-light-gray"  x="16" y="246">+ rankSpots(spots)</text>
         </g>
 
         <!-- Row 2 -->
-        <g transform="translate(180,440)">
+        <g transform="translate(180,460)">
           <rect class="card" width="300" height="320"/>
           <text class="title" x="16" y="34">Challenge</text>
           <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
@@ -251,7 +255,7 @@
           <text class="kv"  x="16" y="286">+ annouceWinner()</text>
         </g>
 
-        <g transform="translate(540,440)">
+        <g transform="translate(560,460)">
           <rect class="card" width="300" height="320"/>
           <text class="title" x="16" y="34">Catch</text>
           <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
@@ -269,40 +273,40 @@
           <text class="kv"  x="16" y="286">+ addEmotionTag(tag)</text>
         </g>
 
-        <g transform="translate(900,440)">
-          <rect class="card" width="300" height="320"/>
-          <text class="title" x="16" y="34">WeatherData</text>
-          <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
-          <text class="kv"  x="16" y="68">temperature: Float</text>
-          <text class="kv"  x="16" y="88">humidity: Float</text>
-          <text class="kv"  x="16" y="108">airPressure: Float</text>
-          <text class="kv"  x="16" y="128">windSpeed: Float</text>          <text class="kv"  x="16" y="68">temperature: Float</text>
-          <text class="kv"  x="16" y="148">moonPhase: Float</text>
-          <text class="kv"  x="16" y="168">tidelevel: String</text>
-          <text class="kv"  x="16" y="188">moonPhase: Float</text>
-          <text class="kv"  x="16" y="208">sunrise/sunset: DateTime</text>
-          <line class="sep" x1="16" y1="222" x2="264" y2="222"/>
-          <text class="kv"  x="16" y="246">+ fetchFromAPI(lat, lon)</text>
-          <text class="kv"  x="16" y="266">+ analyzeFishingWindow()</text>
-          <text class="kv"  x="16" y="286">+ compareWithIdealConditions()</text>
+        <g transform="translate(940,460)">
+          <rect class="card-light-gray" width="300" height="320"/>
+          <text class="title-light-gray" x="16" y="34">WeatherData</text>
+          <line class="sep-light-gray" x1="16" y1="44" x2="264" y2="44"/>
+          <text class="kv-light-gray"  x="16" y="68">temperature: Float</text>
+          <text class="kv-light-gray"  x="16" y="88">humidity: Float</text>
+          <text class="kv-light-gray"  x="16" y="108">airPressure: Float</text>
+          <text class="kv-light-gray"  x="16" y="128">windSpeed: Float</text>          <text class="kv-light-gray"  x="16" y="68">temperature: Float</text>
+          <text class="kv-light-gray"  x="16" y="148">moonPhase: Float</text>
+          <text class="kv-light-gray"  x="16" y="168">tidelevel: String</text>
+          <text class="kv-light-gray"  x="16" y="188">moonPhase: Float</text>
+          <text class="kv-light-gray"  x="16" y="208">sunrise/sunset: DateTime</text>
+          <line class="sep-light-gray" x1="16" y1="222" x2="264" y2="222"/>
+          <text class="kv-light-gray"  x="16" y="246">+ fetchFromAPI(lat, lon)</text>
+          <text class="kv-light-gray"  x="16" y="266">+ analyzeFishingWindow()</text>
+          <text class="kv-light-gray"  x="16" y="286">+ compareWithIdealConditions()</text>
         </g>
-        <g transform="translate(1260,440)">
-          <rect class="card" width="300" height="320"/>
-          <text class="title" x="16" y="34">EmotionAI</text>
-          <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
-          <text class="kv"  x="16" y="68">emotionModel: ML</text>
-          <text class="kv"  x="16" y="88">rewardStrategy: Map</text>
-          <text class="kv"  x="16" y="108">sentimentHistory: List</text>
-          <line class="sep" x1="16" y1="122" x2="264" y2="122"/>
-          <text class="kv"  x="16" y="146">+ detectMood(mood)</text>
-          <text class="kv"  x="16" y="166">+ logMoodChanges(mood, perfd)</text>
-          <text class="kv"  x="16" y="186">+ generateEncouragement(mood)</text>
-          <text class="kv"  x="16" y="206">+ updateRewardSystem()</text>
+        <g transform="translate(1320,460)">
+          <rect class="card-light-gray" width="300" height="320"/>
+          <text class="title-light-gray" x="16" y="34">EmotionAI</text>
+          <line class="sep-light-gray" x1="16" y1="44" x2="264" y2="44"/>
+          <text class="kv-light-gray"  x="16" y="68">emotionModel: ML</text>
+          <text class="kv-light-gray"  x="16" y="88">rewardStrategy: Map</text>
+          <text class="kv-light-gray"  x="16" y="108">sentimentHistory: List</text>
+          <line class="sep-light-gray" x1="16" y1="122" x2="264" y2="122"/>
+          <text class="kv-light-gray"  x="16" y="146">+ detectMood(mood)</text>
+          <text class="kv-light-gray"  x="16" y="166">+ logMoodChanges(mood, perfd)</text>
+          <text class="kv-light-gray"  x="16" y="186">+ generateEncouragement(mood)</text>
+          <text class="kv-light-gray"  x="16" y="206">+ updateRewardSystem()</text>
         </g>
 
         <!-- Row 3 -->
         <text class="label" x="120" y="980">has (0..*)</text>
-        <g transform="translate(180,820)">
+        <g transform="translate(180,860)">
           <rect class="card" width="300" height="300"/>
           <text class="title" x="16" y="34">Badge</text>
           <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
@@ -317,7 +321,7 @@
           <text class="kv"  x="16" y="226">+ displayBadge()</text>
         </g>
 
-        <g transform="translate(1260,1180)">
+        <g transform="translate(1320,1240)">
           <rect class="customer-card" width="300" height="300"/>
           <text class="customer-title" x="16" y="34">CustomerModel</text>
           <line class="customer-sep" x1="16" y1="44" x2="264" y2="44"/>
@@ -332,7 +336,7 @@
           <text class="customer-kv"  x="16" y="226">+ generateRecommendations(user)</text>
         </g>
 
-        <g transform="translate(180,1180)">
+        <g transform="translate(180,1240)">
           <rect class="card" width="300" height="300"/>
           <text class="title" x="16" y="34">DataLogger</text>
           <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
@@ -346,8 +350,8 @@
           <text class="kv"  x="16" y="206">+ loadHistory(userID)</text>
         </g>
                 <!-- Row 4 -->
-        <g transform="translate(180,1540)">
-          <rect class="card" width="300" height="300"/>
+        <g transform="translate(180,1620)">
+          <rect class="card" width="300" height="100"/>
           <text class="title" x="16" y="34">CloudDB</text>
           <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
           <text class="kv"  x="16" y="68">provider: String</text>
@@ -355,7 +359,7 @@
         </g>
 
 
-        <g transform="translate(900,820)">
+        <g transform="translate(940,860)">
           <rect class="card" width="300" height="300"/>
           <text class="title" x="16" y="34">MapUI</text>
           <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
@@ -368,34 +372,34 @@
           <text class="kv"  x="16" y="186">+ toggleWeatherOverlay()</text>
         </g>
 
-        <g transform="translate(1260,820)">
-          <rect class="card" width="300" height="300"/>
-          <text class="title" x="16" y="34">ARSession</text>
-          <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
-          <text class="kv"  x="16" y="68">sessionID: String</text>
-          <text class="kv"  x="16" y="88">cameraConfig: Struct</text>
-          <text class="kv"  x="16" y="108">recognizedObjects: List</text>
-          <text class="kv"  x="16" y="128">anchorPoints: List</text>
-          <text class="kv"  x="16" y="148">activeOverlay: Boolean</text>
-          <line class="sep" x1="16" y1="162" x2="264" y2="162"/>
-          <text class="kv"  x="16" y="186">+ activateOverlay()</text>
+        <g transform="translate(1320,860)">
+          <rect class="card-light-gray" width="300" height="300"/>
+          <text class="title-light-gray" x="16" y="34">ARSession</text>
+          <line class="sep-light-gray" x1="16" y1="44" x2="264" y2="44"/>
+          <text class="kv-light-gray"  x="16" y="68">sessionID: String</text>
+          <text class="kv-light-gray"  x="16" y="88">cameraConfig: Struct</text>
+          <text class="kv-light-gray"  x="16" y="108">recognizedObjects: List</text>
+          <text class="kv-light-gray"  x="16" y="128">anchorPoints: List</text>
+          <text class="kv-light-gray"  x="16" y="148">activeOverlay: Boolean</text>
+          <line class="sep-light-gray" x1="16" y1="162" x2="264" y2="162"/>
+          <text class="kv-light-gray"  x="16" y="186">+ activateOverlay()</text>
         </g>
          
         <!-- Row 5 - Detailed RecommendationEngine (below CloudDB) -->
         <g transform="translate(180,2120)">
-          <rect class="card" width="300" height="400"/>
-          <text class="title" x="16" y="34">RecommendationEngine</text>
-          <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
-          <text class="kv"  x="16" y="68">modelType: String</text>
-          <text class="kv"  x="16" y="88">trainingData: Dataset</text>
-          <text class="kv"  x="16" y="108">weightingFactors: Map</text>
-          <text class="kv"  x="16" y="128">recentSpots: List</text>
-          <text class="kv"  x="16" y="148">fishActivityModel: MLModel</text>
-          <line class="sep" x1="16" y1="162" x2="264" y2="162"/>
-          <text class="kv"  x="16" y="186">+ generateSpotRecommendation(user, weather)</text>
-          <text class="kv"  x="16" y="206">+ updateModel(data)</text>
-          <text class="kv"  x="16" y="226">+ predictCatchProbability(spot, time)</text>
-          <text class="kv"  x="16" y="246">+ rankSpots(spots)</text>
+          <rect class="card-light-gray" width="300" height="400"/>
+          <text class="title-light-gray" x="16" y="34">RecommendationEngine</text>
+          <line class="sep-light-gray" x1="16" y1="44" x2="264" y2="44"/>
+          <text class="kv-light-gray"  x="16" y="68">modelType: String</text>
+          <text class="kv-light-gray"  x="16" y="88">trainingData: Dataset</text>
+          <text class="kv-light-gray"  x="16" y="108">weightingFactors: Map</text>
+          <text class="kv-light-gray"  x="16" y="128">recentSpots: List</text>
+          <text class="kv-light-gray"  x="16" y="148">fishActivityModel: MLModel</text>
+          <line class="sep-light-gray" x1="16" y1="162" x2="264" y2="162"/>
+          <text class="kv-light-gray"  x="16" y="186">+ generateSpotRecommendation(user, weather)</text>
+          <text class="kv-light-gray"  x="16" y="206">+ updateModel(data)</text>
+          <text class="kv-light-gray"  x="16" y="226">+ predictCatchProbability(spot, time)</text>
+          <text class="kv-light-gray"  x="16" y="246">+ rankSpots(spots)</text>
         </g>
 
         <!-- Multi-factor weighted prediction model text (right of RecommendationEngine) -->
@@ -408,24 +412,6 @@
           <text x="0" y="195" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">fishing spots.</text>
         </g>
 
-        <!-- Row 5 - Detailed WeatherData (below RecommendationEngine) -->
-        <g transform="translate(180,2560)">
-          <rect class="card" width="300" height="400"/>
-          <text class="title" x="16" y="34">WeatherData</text>
-          <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
-          <text class="kv"  x="16" y="68">temperature: Float</text>
-          <text class="kv"  x="16" y="88">humidity: Float</text>
-          <text class="kv"  x="16" y="108">airPressure: Float</text>
-          <text class="kv"  x="16" y="128">windSpeed: Float</text>
-          <text class="kv"  x="16" y="148">moonPhase: String</text>
-          <text class="kv"  x="16" y="168">tideLevel: Float</text>
-          <text class="kv"  x="16" y="188">sunrise: DateTime</text>
-          <text class="kv"  x="16" y="208">sunset: DateTime</text>
-          <line class="sep" x1="16" y1="222" x2="264" y2="222"/>
-          <text class="kv"  x="16" y="246">+ fetchFromAPI(lat, lon)</text>
-          <text class="kv"  x="16" y="266">+ analyzeFishingWindow()</text>
-          <text class="kv"  x="16" y="286">+ compareWithIdealConditions()</text>
-        </g>
 
         <!-- Time-series forecasting text (right of WeatherData) -->
         <g transform="translate(540,2580)">
@@ -440,39 +426,39 @@
 
                 <!-- Row 5 - Detailed WeatherData (below RecommendationEngine) -->
         <g transform="translate(180,2580)">
-          <rect class="card" width="300" height="400"/>
-          <text class="title" x="16" y="34">WeatherData</text>
-          <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
-          <text class="kv"  x="16" y="68">temperature: Float</text>
-          <text class="kv"  x="16" y="88">humidity: Float</text>
-          <text class="kv"  x="16" y="108">airPressure: Float</text>
-          <text class="kv"  x="16" y="128">windSpeed: Float</text>
-          <text class="kv"  x="16" y="148">moonPhase: String</text>
-          <text class="kv"  x="16" y="168">tideLevel: Float</text>
-          <text class="kv"  x="16" y="188">sunrise: DateTime</text>
-          <text class="kv"  x="16" y="208">sunset: DateTime</text>
-          <line class="sep" x1="16" y1="222" x2="264" y2="222"/>
-          <text class="kv"  x="16" y="246">+ fetchFromAPI(lat, lon)</text>
-          <text class="kv"  x="16" y="266">+ analyzeFishingWindow()</text>
-          <text class="kv"  x="16" y="286">+ compareWithIdealConditions()</text>
+          <rect class="card-light-gray" width="300" height="400"/>
+          <text class="title-light-gray" x="16" y="34">WeatherData</text>
+          <line class="sep-light-gray" x1="16" y1="44" x2="264" y2="44"/>
+          <text class="kv-light-gray"  x="16" y="68">temperature: Float</text>
+          <text class="kv-light-gray"  x="16" y="88">humidity: Float</text>
+          <text class="kv-light-gray"  x="16" y="108">airPressure: Float</text>
+          <text class="kv-light-gray"  x="16" y="128">windSpeed: Float</text>
+          <text class="kv-light-gray"  x="16" y="148">moonPhase: String</text>
+          <text class="kv-light-gray"  x="16" y="168">tideLevel: Float</text>
+          <text class="kv-light-gray"  x="16" y="188">sunrise: DateTime</text>
+          <text class="kv-light-gray"  x="16" y="208">sunset: DateTime</text>
+          <line class="sep-light-gray" x1="16" y1="222" x2="264" y2="222"/>
+          <text class="kv-light-gray"  x="16" y="246">+ fetchFromAPI(lat, lon)</text>
+          <text class="kv-light-gray"  x="16" y="266">+ analyzeFishingWindow()</text>
+          <text class="kv-light-gray"  x="16" y="286">+ compareWithIdealConditions()</text>
         </g>
 
 
                 <!-- Row 5 - Detailed WeatherData (below RecommendationEngine) -->
         <g transform="translate(180,3040)">
-          <rect class="card" width="300" height="400"/>
-          <text class="title" x="16" y="34">ARSession</text>
-          <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
-          <text class="kv"  x="16" y="68">sessionID: String</text>
-          <text class="kv"  x="16" y="88">cameraInput: Stream</text>
-          <text class="kv"  x="16" y="108">recognizedObjects: List</text>
-          <text class="kv"  x="16" y="128">anchorPoints: List</text>
-          <text class="kv"  x="16" y="148">activeCatchOverlay: Boolean</text>
-          <line class="sep" x1="16" y1="162" x2="264" y2="162"/>
-          <text class="kv"  x="16" y="186">+ initializeAR()</text>
-          <text class="kv"  x="16" y="206">+ detechFish()</text>
-          <text class="kv"  x="16" y="226">+ display3Doverlay()</text>                
-          <text class="kv"  x="16" y="246">+ record3DCatch()</text>
+          <rect class="card-light-gray" width="300" height="400"/>
+          <text class="title-light-gray" x="16" y="34">ARSession</text>
+          <line class="sep-light-gray" x1="16" y1="44" x2="264" y2="44"/>
+          <text class="kv-light-gray"  x="16" y="68">sessionID: String</text>
+          <text class="kv-light-gray"  x="16" y="88">cameraInput: Stream</text>
+          <text class="kv-light-gray"  x="16" y="108">recognizedObjects: List</text>
+          <text class="kv-light-gray"  x="16" y="128">anchorPoints: List</text>
+          <text class="kv-light-gray"  x="16" y="148">activeCatchOverlay: Boolean</text>
+          <line class="sep-light-gray" x1="16" y1="162" x2="264" y2="162"/>
+          <text class="kv-light-gray"  x="16" y="186">+ initializeAR()</text>
+          <text class="kv-light-gray"  x="16" y="206">+ detechFish()</text>
+          <text class="kv-light-gray"  x="16" y="226">+ display3Doverlay()</text>                
+          <text class="kv-light-gray"  x="16" y="246">+ record3DCatch()</text>
         </g>
 
         <!-- Geometric Projection Text (right of ARSession) -->
@@ -487,17 +473,17 @@
 
                 <!-- Row 5 - Detailed WeatherData (below RecommendationEngine) -->
         <g transform="translate(180,3500)">
-          <rect class="card" width="300" height="400"/>
-          <text class="title" x="16" y="34">EmotionAI</text>
-          <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
-          <text class="kv"  x="16" y="68">emotionModel: MLModel</text>              
-          <text class="kv"  x="16" y="88">userMoodHistory: List</text>
-          <text class="kv"  x="16" y="108">rewardMessage: Map</text>
-          <line class="sep" x1="16" y1="122" x2="264" y2="122"/>
-          <text class="kv"  x="16" y="146">+ detectMood()</text>
-          <text class="kv"  x="16" y="166">+ generateEncouragement(mood,perf)</text>
-          <text class="kv"  x="16" y="186">+ loogMoodChanges(user,mood)</text>
-          <text class="kv"  x="16" y="206">+ updateRewardSystem()</text>
+          <rect class="card-light-gray" width="300" height="400"/>
+          <text class="title-light-gray" x="16" y="34">EmotionAI</text>
+          <line class="sep-light-gray" x1="16" y1="44" x2="264" y2="44"/>
+          <text class="kv-light-gray"  x="16" y="68">emotionModel: MLModel</text>              
+          <text class="kv-light-gray"  x="16" y="88">userMoodHistory: List</text>
+          <text class="kv-light-gray"  x="16" y="108">rewardMessage: Map</text>
+          <line class="sep-light-gray" x1="16" y1="122" x2="264" y2="122"/>
+          <text class="kv-light-gray"  x="16" y="146">+ detectMood()</text>
+          <text class="kv-light-gray"  x="16" y="166">+ generateEncouragement(mood,perf)</text>
+          <text class="kv-light-gray"  x="16" y="186">+ loogMoodChanges(user,mood)</text>
+          <text class="kv-light-gray"  x="16" y="206">+ updateRewardSystem()</text>
         </g>
 
         <!-- Numerical feature extraction text (right of EmotionAI) -->
@@ -512,14 +498,14 @@
 
         <!-- Wires -->
         <!-- User connections -->
-        <path class="wire" d="M330,460 L330,380"/><!-- Challenge top edge -> User bottom edge -->
+        <path class="wire" d="M330,440 L330,380"/><!-- Challenge top edge -> User bottom edge -->
         <text class="label" x="342" y="410">aggregates</text>
-        <path class="wire" d="M480,380 L540,460"/><!-- User bottom edge -> Catch top edge -->
+        <path class="wire" d="M480,380 L560,460"/><!-- User bottom edge -> Catch top edge -->
         <text class="label" x="510" y="410">creates</text>
-        <path class="wire" d="M480,230 L1260,610"/><!-- User right edge -> EmotionAI left edge -->
-        <text class="label" x="870" y="410">uses</text>
-        <path class="wire" d="M480,20 L1260,20" stroke-dasharray="5,5"/><!-- User top edge -> RecommendationEngine top edge (dashed) -->
-        <text class="label" x="870" y="10">uses</text>
+        <!-- <path class="wire" d="M480,230 L1320,630"/><!-- User right edge -> EmotionAI left edge -->
+        <text class="label" x="900" y="410">uses</text> 
+        <path class="wire" d="M480,10 L1320,10" stroke-dasharray="5,5"/><!-- User top edge -> RecommendationEngine top edge (dashed) -->
+        <text class="label" x="900" y="0">uses</text>
         
         <!-- FishingSession connections -->
         <path class="wire" d="M700,380 L700,460" stroke-dasharray="5,5"/><!-- FishingSession bottom edge -> Catch top edge (dashed) -->
@@ -529,23 +515,23 @@
         
         
         <!-- Catch connections -->
-        <path class="wire" d="M840,760 L900,820"/><!-- Catch bottom edge -> MapUI left edge -->
-        <text class="label" x="870" y="770">uses</text>
+        <path class="wire" d="M860,780 L940,860"/><!-- Catch bottom edge -> MapUI left edge -->
+        <text class="label" x="890" y="820">uses</text>
         
         <!-- Catch to Spot connection -->
-        <path class="wire" d="M840,610 L900,400"/><!-- Catch right edge -> Spot bottom left edge -->
-        <text class="label" x="820" y="545">record at (1)</text>
+        <path class="wire" d="M860,580 L940,580"/><!-- Catch right edge -> Spot bottom left edge -->
+        <text class="label" x="860" y="545">record at (1..)</text>
         
         <!-- WeatherData connections -->
-        <path class="wire" d="M1200,610 L1260,610"/><!-- WeatherData right edge -> EmotionAI left edge -->
+        <path class="wire" d="M1240,630 L1320,630"/><!-- WeatherData right edge -> EmotionAI left edge -->
         
         <!-- DataLogger connections -->
-        <path class="wire" d="M330,1480 L330,1540"/><!-- DataLogger bottom edge -> CloudDB top edge -->
-        <text class="label" x="342" y="1490">syncs</text>
+        <path class="wire" d="M330,1540 L330,1620"/><!-- DataLogger bottom edge -> CloudDB top edge -->
+        <text class="label" x="342" y="1590">syncs</text>
         
         <!-- MapUI connections -->
-        <path class="wire" d="M1200,950 L1260,950"/><!-- MapUI right edge -> ARSession left edge -->
-        <text class="label" x="1230" y="938">uses</text>
+        <path class="wire" d="M1240,970 L1320,970"/><!-- MapUI right edge -> ARSession left edge -->
+        <text class="label" x="1280" y="970">uses</text>
       </svg>
     </section>
 
