@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fishing Activity Tracking System - Sequence Diagram</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bogle&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="left"><a href="index.html">FishOn</a></div>
+    <div class="center">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+    </div>
+    <div class="right">
+      <a href="index.html"><i class="fas fa-arrow-left"></i> Back</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="landing-page">
+      <div class="landing-page-question">
+        Explore the complete system interaction flow through our UML sequence diagram.
+      </div>
+      
+      <div class="landing-page-title">
+        <div class="landing-title-text">SYSTEM ARCHITECTURE
+          <span class="landing-subtitle">UML Sequence Diagram</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-landing2">
+      <div class="about-landing2-pin">
+        <div class="overlay intro-text visible">
+          <h2>System Overview</h2>
+          <p>This sequence diagram illustrates the interactions between different components in a fishing activity tracking and recommendation system. The system combines emotional AI support, real-time data processing, and intelligent recommendations to enhance the fishing experience.</p>
+          
+          <h3>Key Components:</h3>
+          <ul>
+            <li><strong>User:</strong> The end-user engaging with the fishing activity</li>
+            <li><strong>FishingSession:</strong> Manages the details and state of fishing activities</li>
+            <li><strong>Spot:</strong> Database of fishing locations and environmental data</li>
+            <li><strong>WeatherData:</strong> Provides real-time weather context</li>
+            <li><strong>RecommendationEngine:</strong> Generates intelligent spot recommendations</li>
+            <li><strong>EmotionAI:</strong> Processes results and provides emotional feedback</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="uml-section">
+      <div class="mermaid">
+sequenceDiagram
+    participant User
+    participant FishingSession
+    participant Spot
+    participant WeatherData
+    participant RecommendationEngine
+    participant EmotionAI
+
+    User->>FishingSession: Begin fishing activity
+    FishingSession->>Spot: Request nearby spots
+    FishingSession->>EmotionAI: Send catch result + performance
+    WeatherData->>RecommendationEngine: Provide weather context
+    EmotionAI->>User: Provide feedback & reward
+    RecommendationEngine->>FishingSession: Recommend optimal spot
+    Spot->>FishingSession: Get environmental data
+      </div>
+    </section>
+
+    <section class="about-landing2">
+      <div class="about-landing2-pin">
+        <div class="overlay mid-note visible">
+          <h3>Process Flow:</h3>
+          <ol>
+            <li><strong>Activity Initiation:</strong> User begins a fishing activity, triggering the system</li>
+            <li><strong>Location Discovery:</strong> System requests nearby fishing spots from the database</li>
+            <li><strong>Performance Tracking:</strong> Catch results and performance data are sent to the AI system</li>
+            <li><strong>Weather Integration:</strong> Weather data provides context for recommendations</li>
+            <li><strong>Emotional Support:</strong> AI provides feedback and rewards to motivate the user</li>
+            <li><strong>Smart Recommendations:</strong> System recommends the optimal fishing spot</li>
+            <li><strong>Environmental Data:</strong> Detailed environmental information is retrieved for the recommended spot</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default',
+      themeVariables: {
+        primaryColor: '#111111',
+        primaryTextColor: '#ffffff',
+        primaryBorderColor: '#333333',
+        lineColor: '#ffffff',
+        sectionBkgColor: '#111111',
+        altSectionBkgColor: '#111111',
+        gridColor: '#ffffff',
+        secondaryColor: '#111111',
+        tertiaryColor: '#ffffff',
+        fontSize: '40px',
+        fontFamily: 'Arial, sans-serif'
+      },
+      flowchart: {
+        htmlLabels: true,
+        curve: 'basis'
+      },
+      sequence: {
+        diagramMarginX: 200,
+        diagramMarginY: 40,
+        actorMargin: 200,
+        width: 600,
+        height: 150,
+        boxMargin: 40,
+        boxTextMargin: 20,
+        noteMargin: 40,
+        messageMargin: 140,
+        mirrorActors: true,
+        bottomMarginAdj: 1,
+        useMaxWidth: true,
+        rightAngles: false,
+        showSequenceNumbers: false
+      }
+    });
+  </script>
+</body>
+</html>
