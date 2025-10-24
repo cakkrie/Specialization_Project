@@ -11,23 +11,21 @@
 </head>
 <body>
   <header>
-    <div class="left"><a href="index.html">FishOn</a></div>
+    <div class="left"><a href="index.html" class="body-sm">FishOn</a></div>
     <div class="center">
-      <a href="about.html">About</a>
-      <a href="research.html">Research</a>
+      <a href="about.html" class="body-sm">About</a>
+      <a href="research.html" class="body-sm">Research</a>
     </div>
   </header>
 
   <main>
     
     <section class="landing-page">
-      <div class="landing-page-question">Blend emotional support, real data, and a gamified journey on every trip.
-
-      </div>
+      <div class="header-sm">Blend emotional support, real data, and a gamified journey on every trip.</div>
       
       <div class="landing-page-title">
-        <div class="landing-title-text">FISHON
-          <span class="landing-subtitle">Your Fishing Guide Intelligence</span>
+        <div class="header-xl">FISHON
+          <span class="header-4xl">Your Fishing Guide Intelligence</span>
           <div class="labels-row">
             <span class="label outline info">Multi-sensor Physicalization</span>
             <span class="label outline info">Community</span>
@@ -35,25 +33,17 @@
           </div>
         </div>
       </div>
-
-      <button class="title-cta" onclick="scrollToAbout()" aria-label="What we do">
-        <span class="cta-icon" aria-hidden="true">↳</span>
-        <span class="cta-text">WHAT WE DO</span>
-      </button>
-      
-      <!-- Labels moved into title above subtitle -->
-      
     </section>
 
-    <section class="about-landing2">
-      <div class="about-landing2-pin">
+    <section class="landing-context">
+      <div class="landing-context-pin">
         <img src="Photo/main-page/fish-background.jpg" alt="Fishing background" class="about-bg">
-          <div class="overlay intro-text" id="market-intro">
+          <div class="overlay header-2xl" id="market-intro">
             The global fishing market continues to expand steadily, driven by rising seafood demand, growing recreational participation, and advances in aquaculture.
           </div>
 
-        <div class="overlay mid-note" id="mid-note" aria-hidden="true">
-          In the recreation fishing, more and more yonger anglers are entering the market due to the change of lifestyle. 
+        <div class="overlay header-2xl" id="mid-note" aria-hidden="true">
+            In the recreation fishing, more and more yonger anglers are entering the market due to the change of lifestyle. 
         </div>
 
         <div class="overlay trend-row" id="trend-row" aria-hidden="true">
@@ -75,9 +65,9 @@
 
     <section class="hmw-section">
       <div class="hmw-container">
-        <div class="hmw-eyebrow">How might we design a tool</div>
-        <h2 class="hmw-headline">for younger anglers</h2>
-        <div class="hmw-sub">In the digitalized era?</div>
+        <div class="header-xl">How might we design a tool</div>
+        <div class="header-6xl">for younger anglers</div>
+        <div class="header-3xl">In the digitalized era?</div>
       </div>
     </section>
 
@@ -85,136 +75,81 @@
     <section class="bubble-section">
       <div id="bubble-field" class="bubble-field" aria-live="polite"></div>
 
-      <div class="bubble-cta">
+      <div class="cta">
         <a href="fishing-community.html" class="title-cta" aria-label="Explore Fishing Community">
           <span class="cta-icon" aria-hidden="true">↳</span>
           <span class="cta-text">EXPLORE FISHING COMMUNITY</span>
         </a>
       </div>
-
-      <!-- <section class="fc-stats">
-        <div class="fc-stat">
-          <div class="num"><span class="value">280M</span><span class="plus">+</span></div>
-          <div class="label">Global Angers</div>
-        </div>
-        <div class="fc-stat">
-          <div class="num"><span class="value">5%</span><span class="plus">+</span></div>
-          <div class="label">Annual Growth Rate</div>
-        </div>
-        <div class="fc-stat">
-          <div class="num"><span class="value">567B</span><span class="plus">+</span></div>
-          <div class="label">Fishing Market in 2024</div>
-        </div>
-      </section> -->
-
-      <section class="fc-list-dark">
-        <h2 class="section-title fc-list-header">Map of Community</h2>
-        <br>
-   
-        <section class="fc-list">
-        <div class="fc-row">
-          <div class="fc-row-index">(00)</div>
-          <div class="fc-row-title">Shang Yu</div>
-          <div class="fc-row-labels"><span class="fc-label">Software</span></div>
-          <button class="fc-toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-        </div>
-        <div class="fc-row-content">
-          <p>As China’s leading fishing technology brand, Shangyu is dedicated to delivering localized tech solutions for the recreational fishing community, catering to anglers of all skill levels. By integrating AI technology with educational and interactive features, the platform creates an easy-to-use and engaging fishing experience, becoming a knowledgeable companion for every fishing trip.</p>
-          <img src="Photo/research-photo/fishing-com/shang-yu-intro.png" alt="Shang Yu app intro screens" class="content-image content-image-small">
-        </div>
-  
-        <div class="fc-row">
-          <div class="fc-row-index">(01)</div>
-          <div class="fc-row-title">LakeMonster</div>
-          <div class="fc-row-labels"><span class="fc-label">Software</span></div>
-          <button class="fc-toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-        </div>
-        <div class="fc-row-content">
-          <p>An app that analyzes data points — including satellite imagery, weather patterns, water depth data, and historical fishing records to generate fish activity forecasts, hotspot maps, and water clarity maps.</p>
-        </div>
-  
-        <div class="fc-row">
-          <div class="fc-row-index">(02)</div>
-          <div class="fc-row-title">Fishbuddy</div>
-          <div class="fc-row-labels"><span class="fc-label">Software</span></div>
-          <button class="fc-toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-        </div>
-        <div class="fc-row-content">
-          <p>Smart decisions: uses 10+ weather factors (temp, pressure, humidity) to flag prime times, recommend bait, and navigate nearby spots. Social: in-app forum to share catches and techniques.</p>
-        </div>
-  
-        <div class="fc-row">
-          <div class="fc-row-index">(03)</div>
-          <div class="fc-row-title">墨迹天气</div>
-          <div class="fc-row-labels"><span class="fc-label">Software</span></div>
-          <button class="fc-toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-        </div>
-        <div class="fc-row-content">
-          <p>Expert-verified with hi-res satellite and depth maps. AR+AI logging: snap a fish to auto-record species, size/weight, location, and weather. AR contests: create/join casual challenges with live leaderboards.</p>
-        </div>
-  
-        <div class="fc-row">
-          <div class="fc-row-index">(04)</div>
-          <div class="fc-row-title">Sea.ai</div>
-          <div class="fc-row-labels"><span class="fc-label">Hardware</span></div>
-          <button class="fc-toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-        </div>
-        <div class="fc-row-content">
-          <p>Smart camera: combines optical and infrared sensors, utilizes AI and ML algorithms to detect objects on the water surface.</p>
-        </div>
-  
-        <div class="fc-row">
-          <div class="fc-row-index">(05)</div>
-          <div class="fc-row-title">Chasing F1 Pro</div>
-          <div class="fc-row-labels"><span class="fc-label">Hardware</span></div>
-          <button class="fc-toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-        </div>
-        <div class="fc-row-content">
-          <p>Remote/autonomous lateral movement, station-hold, multi-spot waypoints. Depth &amp; temperature sensors; Wi‑Fi streams live video + depth/temp to the app. Bait-boat mount with one-tap in-app bait release.</p>
-        </div>
-  
-  
-        <div class="fc-row">
-          <div class="fc-row-index">(06)</div>
-          <div class="fc-row-title">Compare with competitors</div>
-          <div class="fc-row-labels"><span class="fc-label">Matrix</span></div>
-          <button class="fc-toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-        </div>
-        <div class="fc-row-content">
-      <!-- Matrix: AI-Powered vs Human Expertise, Informational vs Emotional -->
-          <br>
-          <section class="fc-matrix">
-            <div class="matrix-wrap">
-              <!-- Axes labels -->
-              <div class="axis axis-top">AI-Powered</div>
-              <div class="axis axis-bottom">Human Expertise</div>
-              <div class="axis axis-left">Informational</div>
-              <div class="axis axis-right">Emotional</div>
-  
-              <!-- Items (absolute positioned) -->
-              <!-- Top-left -->
-              <div class="m-item m-tl" style="top: 16%; left: 14%">Sea.ai</div>
-              <div class="m-item m-tl" style="top: 26%; left: 14%">Weather/Hydrographic APIs</div>
-              <div class="m-item m-tl" style="top: 46%; left: 34%">E‑commerce gear suggestions</div>
-  
-              <!-- Top-right with bubble -->
-              <div class="m-bubble" style="top: 18%; right: 16%"></div>
-              <div class="m-item m-tr" style="top: 18%; right: 10%">Encouragement System</div>
-              <div class="m-item m-tr" style="top: 30%; right: 38%">End‑to‑end guidance</div>
-  
-              <!-- Bottom-left -->
-              <img class="m-logo m-bl" style="bottom: 18%; left: 20%" src="Photo/research-photo/fishing-com/lakemonster.png" alt="LakeMonster">
-              <img class="m-logo m-bl" style="bottom: 18%; left: 34%" src="Photo/research-photo/fishing-com/fishbuddy.png" alt="Fishbuddy">
-  
-              <!-- Bottom-right -->
-              <img class="m-logo m-br" style="bottom: 18%; right: 28%" src="Photo/research-photo/fishing-com/tiktok.png" alt="TikTok">
-              <div class="m-item m-br" style="bottom: 18%; right: 18%">Short Video Apps</div>
-              <img class="m-logo m-br" style="bottom: 30%; right: 20%" src="Photo/research-photo/fishing-com/xiaohongshu.png" alt="Xiaohongshu">
-            </div>
-          </section>
-        </div>
       
     </section>
+
+    <section class="list-light">
+      <div class="header-3xl">Map of <br>Community</div>
+      <br>
+ 
+      <section class="list">
+
+      <div class="list-row">
+        <div class="caption-base">(01)</div>
+        <div class="body-lg">LakeMonster</div>
+        <div class="row-labels"><span class="label">Software</span></div>
+        <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+      </div>
+      <div class="list-row-content">
+        <p>An app that analyzes data points — including satellite imagery, weather patterns, water depth data, and historical fishing records to generate fish activity forecasts, hotspot maps, and water clarity maps.</p>
+      </div>
+
+      <div class="list-row">
+        <div class="caption-base">(02)</div>
+        <div class="body-sm">Fishbuddy</div>
+        <div class="row-labels"><span class="label">Software</span></div>
+        <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+      </div>
+      <div class="list-row-content">
+        <p>Smart decisions: uses 10+ weather factors (temp, pressure, humidity) to flag prime times, recommend bait, and navigate nearby spots. Social: in-app forum to share catches and techniques.</p>
+      </div>
+
+      <div class="list-row">
+        <div class="caption-base">(03)</div>
+        <div class="body-sm">墨迹天气</div>
+        <div class="row-labels"><span class="label">Software</span></div>
+        <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+      </div>
+      <div class="list-row-content">
+        <p>Expert-verified with hi-res satellite and depth maps. AR+AI logging: snap a fish to auto-record species, size/weight, location, and weather. AR contests: create/join casual challenges with live leaderboards.</p>
+      </div>
+
+      <div class="list-row">
+        <div class="caption-base">(04)</div>
+        <div class="body-sm">Sea.ai</div>
+        <div class="row-labels"><span class="label">Hardware</span></div>
+        <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+      </div>
+      <div class="list-row-content">
+        <p>Smart camera: combines optical and infrared sensors, utilizes AI and ML algorithms to detect objects on the water surface.</p>
+      </div>
+
+      <div class="list-row">
+        <div class="caption-base">(05)</div>
+        <div class="body-sm">Chasing F1 Pro</div>
+        <div class="row-labels"><span class="label">Hardware</span></div>
+        <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+      </div>
+      <div class="list-row-content">
+        <p>Remote/autonomous lateral movement, station-hold, multi-spot waypoints. Depth &amp; temperature sensors; Wi‑Fi streams live video + depth/temp to the app. Bait-boat mount with one-tap in-app bait release.</p>
+      </div>
+
+
+      <div class="list-row">
+        <div class="caption-base">(06)</div>
+        <div class="body-sm">Compare with competitors</div>
+        <div class="row-labels"><span class="label">Matrix</span></div>
+        <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+      </div>
+
+        </section>
+      </div>
 
     <br>
     <br>
@@ -222,7 +157,7 @@
 
 
     <div class="landing-page-title">
-      <div class="landing-title-text">UML Sequence Diagram
+      <div class="header-xl">UML Sequence Diagram
       </div>
     </div>
 
@@ -243,7 +178,7 @@
         
         <!-- Row 1 -->
         <g transform="translate(180,-20)">
-          <rect class="user-card" width="300" height="400"/>
+          <rect class="uml-user-card" width="300" height="400"/>
           <text class="user-title" x="16" y="34">User</text>
           <text class="user-kv"  x="16" y="78">userID: String</text>
           <text class="user-kv"  x="16" y="98">username: String</text>
@@ -264,7 +199,7 @@
         </g>
 
         <g transform="translate(560,20)">
-          <rect class="card" width="300" height="360"/>
+          <rect class="uml-card" width="300" height="360"/>
           <text class="title" x="16" y="34">FishingSession</text>
           <text class="kv"  x="16" y="78">sessionID: String</text>
           <text class="kv"  x="16" y="98">userID: String</text>
@@ -282,7 +217,7 @@
         </g>
 
         <g transform="translate(940,20)">
-          <rect class="card" width="300" height="360"/>
+          <rect class="uml-card" width="300" height="360"/>
           <text class="title" x="16" y="34">Spot</text>
           <text class="kv"  x="16" y="68">sessionID: String</text>
           <text class="kv"  x="16" y="88">userID: String</text>
@@ -301,7 +236,7 @@
           <text class="kv"  x="16" y="346">+ updatePopularity()</text>
         </g>
         <g transform="translate(1320,-20)">
-          <rect class="card-light-gray" width="300" height="400"/>
+          <rect class="uml-card-light-gray" width="300" height="400"/>
           <text class="title-light-gray" x="16" y="34">RecommendationEngine</text>
           <text class="kv-light-gray"  x="16" y="68">modelType: String</text>
           <text class="kv-light-gray"  x="16" y="88">trainingData: Dataset</text>
@@ -317,7 +252,7 @@
 
         <!-- Row 2 -->
         <g transform="translate(180,460)">
-          <rect class="card" width="300" height="320"/>
+          <rect class="uml-card" width="300" height="320"/>
           <text class="title" x="16" y="34">Challenge</text>
           <text class="kv"  x="16" y="68">challengeID: String</text>
           <text class="kv"  x="16" y="88">title: String</text>
@@ -334,7 +269,7 @@
         </g>
 
         <g transform="translate(560,460)">
-          <rect class="card" width="300" height="320"/>
+          <rect class="uml-card" width="300" height="320"/>
           <text class="title" x="16" y="34">Catch</text>
           <text class="kv"  x="16" y="68">catchID: String</text>
           <text class="kv"  x="16" y="88">fishSpecies: String</text>
@@ -382,7 +317,7 @@
         <!-- Row 3 -->
         <text class="label" x="120" y="980">has (0..*)</text>
         <g transform="translate(180,860)">
-          <rect class="card" width="300" height="240"/>
+          <rect class="uml-card" width="300" height="240"/>
           <text class="title" x="16" y="34">Badge</text>
           <text class="kv"  x="16" y="68">badgeID: String</text>
           <text class="kv"  x="16" y="88">name: String</text>
@@ -396,7 +331,7 @@
         </g>
 
         <g transform="translate(180,1240)">
-          <rect class="card" width="300" height="300"/>
+          <rect class="uml-card" width="300" height="300"/>
           <text class="title" x="16" y="34">DataLogger</text>
           <text class="kv"  x="16" y="68">storagePath: String</text>
           <text class="kv"  x="16" y="88">sessionHistory: List</text>
@@ -409,7 +344,7 @@
         </g>
                 <!-- Row 4 -->
         <g transform="translate(180,1620)">
-          <rect class="card" width="300" height="100"/>
+          <rect class="uml-card" width="300" height="100"/>
           <text class="title" x="16" y="34">CloudDB</text>
           <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
           <text class="kv"  x="16" y="68">provider: String</text>
@@ -418,7 +353,7 @@
 
 
         <g transform="translate(940,860)">
-          <rect class="card" width="300" height="300"/>
+          <rect class="uml-card" width="300" height="300"/>
           <text class="title" x="16" y="34">MapUI</text>
           <text class="kv"  x="16" y="68">mapLayer: Map</text>
           <text class="kv"  x="16" y="88">uiState: Object</text>
@@ -606,7 +541,7 @@
         <div class="earth-content">
           <div class="earth-info" id="earth-info">
             <div class="info-item active" data-layer="bottom">
-              <h2>2D Map Interface</h2>
+              <h2 class="header-md">2D Map Interface</h2>
               <ul>
                 <li>Recommendation engine</li>
                 <li>Community-marked fishing spots</li>
@@ -615,7 +550,7 @@
               </ul>
             </div>
             <div class="info-item" data-layer="middle">
-              <h2>2.5D Map Interface</h2>
+              <h2 class="header-md">2.5D Map Interface</h2>
               <ul>
                 <li>Unlock & track regional fish species</li>
                 <li>Check-in system with badges & rewards</li>
@@ -624,7 +559,7 @@
               </ul>
             </div>
             <div class="info-item" data-layer="top">
-              <h2>4D XR Map Interface</h2>
+              <h2 class="header-md">4D XR Map Interface</h2>
               <ul>
                 <li>Visual reconstruction of fish spots via 3D scanning</li>
                 <li>AR-based immersive previews</li>
@@ -665,7 +600,7 @@
        
        <!-- Grey Card Section (3vh spacing from bottom) -->
        <section class="bottom-card-section">
-         <h2 class="section-main-title">Radical Prototype</h2>
+         <h2 class="header-xl">Radical Prototype</h2>
          <div class="grey-card" id="tiltCard">
            <div class="card-text">
              Letting users to "see" the dynamic fish habitats and real-time encouragement from an AI multidimensional agent, creating an immersive yet emotionally supportive fishing journey
@@ -673,28 +608,28 @@
          </div>
        </section>
        
-       <!-- Small Cards Grid Section -->
-       <section class="small-cards-section">
-         <div class="small-cards-grid">
-           <div class="small-card">
-             <div class="small-card-title">Fishing Tech</div>
-             <div class="small-card-description">Envisions a future where fishing blends data, emotion, and nature to explore new nature–AI relationships.</div>
+       <!-- Responsive Cards Grid Section -->
+       <section class="responsive-cards-section">
+         <div class="responsive-cards-grid">
+           <div class="responsive-card">
+             <div class="header-xl">Fishing Tech</div>
+             <div class="responsive-card-description">Envisions a future where fishing blends data, emotion, and nature to explore new nature–AI relationships.</div>
            </div>
-           <div class="small-card">
-             <div class="small-card-title">Provocative</div>
-             <div class="small-card-description">Balance tech's focus on efficiency and experience with emphasizing mindfulness, emotion, and play.</div>
+           <div class="responsive-card">
+             <div class="header-xl">Provocative</div>
+             <div class="responsive-card-description">Balance tech's focus on efficiency and experience with emphasizing mindfulness, emotion, and play.</div>
            </div>
-           <div class="small-card">
-             <div class="small-card-title">Narrative-driven</div>
-             <div class="small-card-description">Builds a story between user, environment and community through every fishing journey.</div>
+           <div class="responsive-card">
+             <div class="header-xl">Narrative-driven</div>
+             <div class="responsive-card-description">Builds a story between user, environment and community through every fishing journey.</div>
            </div>
-           <div class="small-card">
-             <div class="small-card-title">Experience over functional</div>
-             <div class="small-card-description">Focuses on illustrating ideas of journey while blending technical completion.</div>
+           <div class="responsive-card">
+             <div class="header-xl">Experience over functional</div>
+             <div class="responsive-card-description">Focuses on illustrating ideas of journey while blending technical completion.</div>
            </div>
-           <div class="small-card">
-             <div class="small-card-title">Speculative</div>
-             <div class="small-card-description">Connects speculative storytelling with design research to reflect on the fishing community.</div>
+           <div class="responsive-card">
+             <div class="header-xl">Speculative</div>
+             <div class="responsive-card-description">Connects speculative storytelling with design research to reflect on the fishing community.</div>
            </div>
          </div>
        </section>
@@ -725,7 +660,7 @@
     }
 
     function scrollToAbout() {
-      const target = document.querySelector('.about-landing2');
+      const target = document.querySelector('.landing-context');
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
@@ -768,10 +703,10 @@
       initScrollAnimations();
     });
 
-    // Sticky scroll control for about-landing2 (2500px total pin, 5 stages)
+    // Sticky scroll control for landing-context (2500px total pin, 5 stages)
     function initAboutLanding2Scroll() {
-      const section = document.querySelector('.about-landing2');
-      const pin = document.querySelector('.about-landing2-pin');
+      const section = document.querySelector('.landing-context');
+      const pin = document.querySelector('.landing-context-pin');
       const intro = document.getElementById('market-intro');
       const midNote = document.getElementById('mid-note');
       const trendRow = document.getElementById('trend-row');
@@ -1152,11 +1087,11 @@
       }
     }
 
-    // Row toggle for fc-list
+    // Row toggle for list
     function toggleRow(btn) {
-      const row = btn.closest('.fc-row');
+      const row = btn.closest('.list-row');
       const next = row.nextElementSibling;
-      if (!next || !next.classList.contains('fc-row-content')) return;
+      if (!next || !next.classList.contains('list-row-content')) return;
       const isOpen = row.classList.contains('open');
       if (isOpen) {
         row.classList.remove('open');
@@ -1225,12 +1160,22 @@
 
     function renderBubbles(count = 12, presetItems = null) {
       const field = document.getElementById('bubble-field');
-      if (!field) return;
+      if (!field) {
+        console.error('Bubble field not found!');
+        return;
+      }
       field.innerHTML = '';
       const items = presetItems && presetItems.length ? presetItems : sampleActions(ANGLER_ACTIONS, count);
       CURRENT_ITEMS = items;
       const fieldWidth = field.clientWidth;
       const fieldHeight = field.clientHeight;
+      console.log('Field dimensions:', fieldWidth, 'x', fieldHeight);
+      
+      // Ensure field has valid dimensions
+      if (fieldWidth <= 0 || fieldHeight <= 0) {
+        console.error('Invalid field dimensions:', fieldWidth, 'x', fieldHeight);
+        return;
+      }
       const placed = [];
       items.forEach(text => {
         const b = document.createElement('div');
@@ -1247,10 +1192,17 @@
         if (pos) {
           b.style.left = pos.x + 'px';
           b.style.top = pos.y + 'px';
+          console.log('Positioned bubble at:', pos.x, pos.y);
           placed.push({ x: pos.x, y: pos.y, w: bw, h: bh });
         } else {
-          // If no space found, remove to guarantee no overlap
-          field.removeChild(b);
+          console.log('No position found for bubble:', text);
+          // Fallback: use simple random positioning
+          const fallbackX = Math.random() * Math.max(0, fieldWidth - bw);
+          const fallbackY = Math.random() * Math.max(0, fieldHeight - bh);
+          b.style.left = fallbackX + 'px';
+          b.style.top = fallbackY + 'px';
+          console.log('Using fallback position:', fallbackX, fallbackY);
+          placed.push({ x: fallbackX, y: fallbackY, w: bw, h: bh });
         }
       });
     }
@@ -1262,7 +1214,11 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      renderBubbles();
+      // Add a small delay to ensure the field has proper dimensions
+      setTimeout(() => {
+        renderBubbles();
+      }, 100);
+      
       const regen = document.getElementById('regenerate-bubbles');
       if (regen) {
         regen.addEventListener('click', (e) => {

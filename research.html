@@ -24,7 +24,7 @@
     <!-- Left Fixed Section -->
     <div class="left-fixed-section">
       <div class="fixed-content">
-        <p class="fixed-sentence">Blends <spam class="highlight">emotional support</spam>, <spam class="highlight">real-time data</spam></spam>, and the <spam class="highlight">gamified journey</spam> on every trip.</p>
+        <p class="header-sm">Blends <spam class="highlight">emotional support</spam>, <spam class="highlight">real-time data</spam></spam>, and the <spam class="highlight">gamified journey</spam> on every trip.</p>
       </div>
     </div>
 
@@ -35,19 +35,19 @@
       <br>
 
       <div class="gallery-container">
-        <div class="project-card2 animate-in" onclick="window.location.href='fishing-community.html'" style="cursor: pointer;">
-          <img class="project-thumb" src="Photo/research-photo/fishing-community.jpg" alt="Fishing Community thumbnail">
-          <div class="project-info">
-            <div class="project-title-line">Fishing Community</div>
-            <div class="project-caption">Sep 2025</div>
+        <div class="gallery-card animate-in" onclick="window.location.href='fishing-community.html'" style="cursor: pointer;">
+          <img class="gallery-thumb" src="Photo/research-photo/fishing-community.jpg" alt="Fishing Community thumbnail">
+          <div class="gallery-info">
+            <div class="body-base">Fishing Community</div>
+            <div class="caption-base">Sep 2025</div>
           </div>
         </div>
 
-        <div class="project-card2 animate-in" onclick="window.location.href='literature-review.html'" style="cursor: pointer;">
-          <img class="project-thumb" src="Photo/research-photo/book.jpg" alt="Literature Review thumbnail">
-          <div class="project-info">
-            <div class="project-title-line">Literature Review</div>
-            <div class="project-caption">Sep 2025</div>
+        <div class="gallery-card animate-in" onclick="window.location.href='literature-review.html'" style="cursor: pointer;">
+          <img class="gallery-thumb" src="Photo/research-photo/book.jpg" alt="Literature Review thumbnail">
+          <div class="gallery-info">
+            <div class="body-base">Literature Review</div>
+            <div class="caption-base">Sep 2025</div>
           </div>
         </div>
 
@@ -55,35 +55,34 @@
 
       <br>
       <br>
-
       Technology Ecosystem
       <br>
       <br>
 
 
       <div class="gallery-container">
-        <div class="project-card2 animate-in" onclick="window.location.href='technology-ecosystem.html'" style="cursor: pointer;">
-          <img class="project-thumb" src="Photo/research-photo/technology.jpg" alt="technology thumbnail">
-          <div class="project-info">
-            <div class="project-title-line">Technology Ecosystem</div>
-            <div class="project-caption">Oct 2025</div>
+        <div class="gallery-card animate-in" onclick="window.location.href='technology-ecosystem.html'" style="cursor: pointer;">
+          <img class="gallery-thumb" src="Photo/research-photo/technology.jpg" alt="technology thumbnail">
+          <div class="gallery-info">
+            <div class="body-base">Technology Ecosystem</div>
+            <div class="caption-base">Oct 2025</div>
           </div>
         </div>
 
-        <a href="extended-reality.html" class="project-card2">
-          <img class="project-thumb" src="Photo/research-photo/ar.jpg" alt="AR thumbnail">
-          <div class="project-info">
-            <div class="project-title-line">Extended Reality</div>
-            <div class="project-caption">Oct 2025</div>
+        <a href="extended-reality.html" class="gallery-card">
+          <img class="gallery-thumb" src="Photo/research-photo/ar.jpg" alt="AR thumbnail">
+          <div class="gallery-info">
+            <div class="body-base">Extended Reality</div>
+            <div class="caption-base">Oct 2025</div>
           </div>
         </a>
 
   
-        <div class="project-card2">
-          <img class="project-thumb" src="Photo/research-photo/ai.jpg" alt="AI thumbnail">
-          <div class="project-info">
-            <div class="project-title-line">AI Feature Extraction</div>
-            <div class="project-caption">Oct 2025</div>
+        <div class="gallery-card">
+          <img class="gallery-thumb" src="Photo/research-photo/ai.jpg" alt="AI thumbnail">
+          <div class="gallery-info">
+            <div class="body-base">AI Feature Extraction</div>
+            <div class="caption-base">Oct 2025</div>
           </div>
         </div>
       </div>
@@ -101,9 +100,9 @@
 
     // Gallery card functionality
     document.addEventListener('DOMContentLoaded', function() {
-      const projectCards = document.querySelectorAll('.project-card, .project-card2');
+      const projectCards = document.querySelectorAll('.project-card, .gallery-card');
       
-      // No navigation for project-card2 (links removed)
+      // No navigation for gallery-card (links removed)
 
       // Animate cards on scroll
       const observerOptions = {

@@ -88,11 +88,11 @@
       }
     }
 
-    // Row toggle for fc-list
+    // Row toggle for list
     function toggleRow(btn) {
-      const row = btn.closest('.fc-row');
+      const row = btn.closest('.list-row');
       const next = row.nextElementSibling;
-      if (!next || !next.classList.contains('fc-row-content')) return;
+      if (!next || !next.classList.contains('list-row-content')) return;
       const isOpen = row.classList.contains('open');
       if (isOpen) {
         row.classList.remove('open');
@@ -161,12 +161,22 @@
 
     function renderBubbles(count = 12, presetItems = null) {
       const field = document.getElementById('bubble-field');
-      if (!field) return;
+      if (!field) {
+        console.error('Bubble field not found!');
+        return;
+      }
       field.innerHTML = '';
       const items = presetItems && presetItems.length ? presetItems : sampleActions(ANGLER_ACTIONS, count);
       CURRENT_ITEMS = items;
       const fieldWidth = field.clientWidth;
       const fieldHeight = field.clientHeight;
+      console.log('Field dimensions:', fieldWidth, 'x', fieldHeight);
+      
+      // Ensure field has valid dimensions
+      if (fieldWidth <= 0 || fieldHeight <= 0) {
+        console.error('Invalid field dimensions:', fieldWidth, 'x', fieldHeight);
+        return;
+      }
       const placed = [];
       items.forEach(text => {
         const b = document.createElement('div');
@@ -180,10 +190,17 @@
         if (pos) {
           b.style.left = pos.x + 'px';
           b.style.top = pos.y + 'px';
+          console.log('Positioned bubble at:', pos.x, pos.y);
           placed.push({ x: pos.x, y: pos.y, w: bw, h: bh });
         } else {
-          // If no space found, remove to guarantee no overlap
-          field.removeChild(b);
+          console.log('No position found for bubble:', text);
+          // Fallback: use simple random positioning
+          const fallbackX = Math.random() * Math.max(0, fieldWidth - bw);
+          const fallbackY = Math.random() * Math.max(0, fieldHeight - bh);
+          b.style.left = fallbackX + 'px';
+          b.style.top = fallbackY + 'px';
+          console.log('Using fallback position:', fallbackX, fallbackY);
+          placed.push({ x: fallbackX, y: fallbackY, w: bw, h: bh });
         }
       });
     }
@@ -195,7 +212,11 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      renderBubbles();
+      // Add a small delay to ensure the field has proper dimensions
+      setTimeout(() => {
+        renderBubbles();
+      }, 100);
+      
       const regen = document.getElementById('regenerate-bubbles');
       if (regen) {
         regen.addEventListener('click', (e) => {

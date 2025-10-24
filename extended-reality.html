@@ -27,18 +27,18 @@
     <br>
     <br>
 
-    <section class="fc-hero">
-      <h1 class="fc-hero-headline">
+    <section class="hero">
+      <h1 class="header-xl">
         Extended Reality
       </h1>
     </section>
     <br>
     <br>
 
-    <!-- XR Card -->
-    <div class="xr-card-container">
-      <div class="xr-card">
-        <div class="xr-card-background"></div>
+    <!-- Photo Card -->
+    <div class="photo-card-container">
+      <div class="photo-card">
+        <div class="photo-card-background"></div>
       </div>
     </div>
 
@@ -46,40 +46,40 @@
     <br>
     <br>
 
-    <section class="fc-features">
-      <article class="fc-feature">
-        <div class="fc-feature-meta">(01)</div>
-        <h3>Map Layer (2D)</h3>
+    <section class="features">
+      <article class="feature">
+        <div class="caption-base">(01)</div>
+        <h3 class="header-xl">Map Layer (2D)</h3>
         <p>Displays base map information such as user location, weather data, and verified fishing spots. Serves as the foundation for data visualization and navigation.</p>
       </article>
 
-      <article class="fc-feature">
-        <div class="fc-feature-meta">(02)</div>
-        <h3>Semi-Spatial Layer (2.5D)</h3>
+      <article class="feature">
+        <div class="caption-base">(02)</div>
+        <h3 class="header-xl">Semi-Spatial Layer (2.5D)</h3>
         <p>Creates a pseudo-3D perspective with depth and gradient effects. Used to visualize fish species distribution and encourage exploration through immersive visuals.</p>
       </article>
 
-      <article class="fc-feature">
-        <div class="fc-feature-meta">(03)</div>
-        <h3>AR Capture Layer (XR)</h3>
+      <article class="feature">
+        <div class="caption-base">(03)</div>
+        <h3 class="header-xl">AR Capture Layer (XR)</h3>
         <p>Enables AR-based fish capture and object placement similar to Pokémon Go, allowing real-world alignment and interactive scenes.</p>
       </article>
 
-      <article class="fc-feature">
-        <div class="fc-feature-meta">(04)</div>
-        <h3>AI Recognition Layer</h3>
+      <article class="feature">
+        <div class="caption-base">(04)</div>
+        <h3 class="header-xl">AI Recognition Layer</h3>
         <p>Recognizes fish from camera input and provides instant identification, metadata (length, weight, location), and emotional feedback.</p>
       </article>
 
-      <article class="fc-feature">
-        <div class="fc-feature-meta">(05)</div>
-        <h3>Emotional AI / Dialogue Layer</h3>
+      <article class="feature">
+        <div class="caption-base">(05)</div>
+        <h3 class="header-xl">Emotional AI / Dialogue Layer</h3>
         <p>Provides emotional companionship, motivational dialogue, and AI-driven fishing guidance during the user's journey.</p>
       </article>
 
-      <article class="fc-feature">
-        <div class="fc-feature-meta">(06)</div>
-        <h3>Social & Reward System</h3>
+      <article class="feature">
+        <div class="caption-base">(06)</div>
+        <h3 class="header-xl">Social & Reward System</h3>
         <p>Stores user collections, manages community posts, and tracks rewards, achievements, and leaderboards to foster engagement.</p>
       </article>
     </section>
@@ -90,22 +90,22 @@
     <br>
 
     <!-- Image Gallery -->
-    <section class="xr-image-gallery">
-      <div class="xr-image-item">
+    <section class="image-gallery">
+      <div class="image-item">
         <img src="Photo/Extended_Reality/1.jpg" alt="XR Image 1">
-        <div class="xr-image-text">Map Layer (2D) </div>
+        <div class="header-sm">Map Layer (2D) </div>
       </div>
-      <div class="xr-image-item">
+      <div class="image-item">
         <img src="Photo/Extended_Reality/2.jpg" alt="XR Image 2">
-        <div class="xr-image-text">Semi-Spatial Layer (2.5D)</div>
+        <div class="header-sm">Semi-Spatial Layer (2.5D)</div>
       </div>
-      <div class="xr-image-item">
+      <div class="image-item">
         <img src="Photo/Extended_Reality/3.png" alt="XR Image 3">
-        <div class="xr-image-text">AR Capture Layer (XR)</div>
+        <div class="header-sm">AR Capture Layer (XR)</div>
       </div>
-      <div class="xr-image-item">
+      <div class="image-item">
         <img src="Photo/Extended_Reality/5.png" alt="XR Image 5">
-        <div class="xr-image-text">Dialogue / Social Reward System
+        <div class="header-sm">Dialogue / Social Reward System
         </div>
       </div>
     </section>
@@ -150,11 +150,11 @@
       }
     }
 
-    // Row toggle for fc-list
+    // Row toggle for list
     function toggleRow(btn) {
-      const row = btn.closest('.fc-row');
+      const row = btn.closest('.list-row');
       const next = row.nextElementSibling;
-      if (!next || !next.classList.contains('fc-row-content')) return;
+      if (!next || !next.classList.contains('list-row-content')) return;
       const isOpen = row.classList.contains('open');
       if (isOpen) {
         row.classList.remove('open');
