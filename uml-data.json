@@ -4,8 +4,7 @@
       "id": "user-01",
       "name": "User",
       "type": "user-card",
-      "gridPosition": "row-1 col-1",
-      "number": "01",
+      "gridPosition": "row-2 col-1",
       "attributes": [
         "userID: String",
         "username: String",
@@ -30,7 +29,7 @@
       "id": "fishing-session-01",
       "name": "FishingSession",
       "type": "uml-card",
-      "gridPosition": "row-1 col-2",
+      "gridPosition": "row-1 col-3",
       "attributes": [
         "sessionID: String",
         "userID: String",
@@ -52,7 +51,7 @@
       "id": "spot-01",
       "name": "Spot",
       "type": "uml-card",
-      "gridPosition": "row-1 col-3",
+      "gridPosition": "row-2 col-3",
       "attributes": [
         "spotID: String",
         "location: GeoPoint",
@@ -73,8 +72,8 @@
     {
       "id": "recommendation-engine-01",
       "name": "RecommendationEngine",
-      "type": "uml-card-light-gray",
-      "gridPosition": "row-1 col-4",
+      "type": "uml-card-important",
+      "gridPosition": "row-1 col-2",
       "attributes": [
         "modelType: String",
         "trainingData: Dataset",
@@ -90,35 +89,15 @@
       ]
     },
     {
-      "id": "challenge-01",
-      "name": "Challenge",
-      "type": "uml-card",
-      "gridPosition": "row-2 col-1",
-      "attributes": [
-        "challengeID: String",
-        "title: String",
-        "type: String",
-        "startDate/endDate: DateTime",
-        "participants: List",
-        "price: List",
-        "leaderboard: Map"
-      ],
-      "methods": [
-        "+ join(userId)",
-        "+ submitResult(catch)",
-        "+ updateLeaderboard()",
-        "+ annouceWinner()"
-      ]
-    },
-    {
       "id": "catch-01",
       "name": "Catch",
       "type": "uml-card",
-      "gridPosition": "row-2 col-2",
+      "gridPosition": "row-3 col-3",
       "attributes": [
         "catchID: String",
         "fishSpecies: String",
-        "length/weight: Float",
+        "length: Float",
+        "weight: Float",
         "timeCaught: DateTime",
         "location: GeoPoint",
         "photoURL: String",
@@ -134,8 +113,8 @@
     {
       "id": "weather-data-01",
       "name": "WeatherData",
-      "type": "uml-card-light-gray",
-      "gridPosition": "row-2 col-3",
+      "type": "uml-card",
+      "gridPosition": "row-2 col-4",
       "attributes": [
         "temperature: Float",
         "humidity: Float",
@@ -154,12 +133,11 @@
     {
       "id": "emotion-ai-01",
       "name": "EmotionAI",
-      "type": "uml-card-light-gray",
-      "gridPosition": "row-2 col-4",
+      "type": "uml-card-important",
+      "gridPosition": "row-2 col-2",
       "attributes": [
         "emotionModel: ML",
-        "rewardStrategy: Map",
-        "sentimentHistory: List"
+        "emotionHistory: List"
       ],
       "methods": [
         "+ detectEmotion(emotion)",
@@ -168,57 +146,12 @@
         "+ updateRewardSystem()"
       ]
     },
-    {
-      "id": "badge-01",
-      "name": "Badge",
-      "type": "uml-card",
-      "gridPosition": "row-3 col-1",
-      "attributes": [
-        "badgeID: String",
-        "name: String",
-        "description: String",
-        "icon: String",
-        "condition: String"
-      ],
-      "methods": [
-        "+ checkEligibility(user)",
-        "+ assignToUser(userId)",
-        "+ displayBadge()"
-      ]
-    },
-    {
-      "id": "data-logger-01",
-      "name": "DataLogger",
-      "type": "uml-card",
-      "gridPosition": "row-4 col-1",
-      "attributes": [
-        "storagePath: String",
-        "sessionHistory: List",
-        "catchLimit: Int"
-      ],
-      "methods": [
-        "+ saveSession(data)",
-        "+ exportCSV()",
-        "+ syncWithCloud()",
-        "+ loadHistory(userID)"
-      ]
-    },
-    {
-      "id": "cloud-db-01",
-      "name": "CloudDB",
-      "type": "uml-card",
-      "gridPosition": "row-5 col-1",
-      "attributes": [
-        "provider: String",
-        "region: String"
-      ],
-      "methods": []
-    },
+
     {
       "id": "map-ui-01",
       "name": "MapUI",
       "type": "uml-card",
-      "gridPosition": "row-6 col-3",
+      "gridPosition": "row-3 col-4",
       "attributes": [
         "mapLayer: Map",
         "uiState: Object",
@@ -233,8 +166,8 @@
     {
       "id": "ar-session-01",
       "name": "ARSession",
-      "type": "uml-card-light-gray",
-      "gridPosition": "row-6 col-4",
+      "type": "uml-card-important",
+      "gridPosition": "row-3 col-2",
       "attributes": [
         "sessionID: String",
         "cameraConfig: Struct",
@@ -243,7 +176,12 @@
         "activeOverlay: Boolean"
       ],
       "methods": [
-        "+ activateOverlay()"
+        "+ activateOverlay()",
+        "+ initializeAR()", 
+        "+ detectSurrounding(photo)",
+        "+ detectFish(photo)",
+        "+ display3DOverlay(data)",
+        "+ recordARCatch()"
       ]
     }
   ],
@@ -306,7 +244,7 @@
   ],
   "infoCards": [
     {
-      "id": "info-1",
+      "id": "math-challenge-1",
       "gridPosition": "info-row-1",
       "title": [
         "Multi-factor weighted prediction",
@@ -315,17 +253,8 @@
       "description": "Involves data normalization, feature weighting, and regression analysis to rank fishing spots."
     },
     {
-      "id": "info-2",
+      "id": "math-challenge-2",
       "gridPosition": "info-row-2",
-      "title": [
-        "Time-series forecasting and",
-        "correlation analysis"
-      ],
-      "description": "Predicting fish activity based on meteorological changes (temperature, pressure, tide). Requires trend detection and curve fitting."
-    },
-    {
-      "id": "info-3",
-      "gridPosition": "info-row-3",
       "title": [
         "Geometric projection & spatial",
         "measurement from images"
@@ -333,8 +262,8 @@
       "description": "Computing object size and position from camera images using projection matrices and pixel-to-real length conversion."
     },
     {
-      "id": "info-4",
-      "gridPosition": "info-row-4",
+      "id": "math-challenge-3",
+      "gridPosition": "info-row-3",
       "title": [
         "Numerical feature extraction and",
         "sentiment scoring"

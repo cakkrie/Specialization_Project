@@ -1819,70 +1819,15 @@ a.gallery-card {
   rx: 0; 
 }
 
-.uml-card-light-gray { 
-  fill: var(--gray-100); 
-  stroke: none; 
-  stroke-width: 0; 
-  rx: 0; 
-}
-
-.uml-user-card { 
-  
-  fill: var(--white); 
-  stroke: none; 
-  stroke-width: 0; 
-  rx: 0; 
-}
-
-.uml-user-number { 
-  font: 300 18px Raleway, Helvetica, Arial, sans-serif; 
-  fill: var(--gray-400); 
-}
 
 .uml-title { 
   font: (--font-size-md); 
   fill: var(--gray-400); 
-  text-transform: uppercase;
 }
 
 .uml-user-title { 
-  font: 700 18px Raleway, Helvetica, Arial, sans-serif; 
+  font-size: var(--font-size-md);
   fill: var(--gray-400);
-}
-
-.uml-meta { 
-  font: 500 13px Raleway, Helvetica, Arial, sans-serif; 
-  fill: var(--gray-300); 
-}
-
-.uml-kv { 
-  font: 400 12px Raleway, Helvetica, Arial, sans-serif; 
-  fill: var(--black); 
-}
-
-.uml-user-kv { 
-  font: var(--font-size-xs);
-  fill: var(--black); 
-}
-
-.uml-customer-kv { 
-  font: 400 12px Raleway, Helvetica, Arial, sans-serif; 
-  fill: var(--gray-400); 
-}
-
-.uml-sep { 
-  stroke: var(--white); 
-  stroke-width: 1; 
-}
-
-.uml-user-sep { 
-  stroke: var(--gray-200); 
-  stroke-width: 1; 
-}
-
-.uml-label { 
-  font: 500 12px Raleway, Helvetica, Arial, sans-serif; 
-  fill: var(--gray-200); 
 }
 
 .uml-wire { 
@@ -1896,51 +1841,6 @@ a.gallery-card {
 
 .uml-wire[stroke-dasharray] { 
   stroke-dasharray: 5,5; 
-}
-
-.uml-attribute {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  font-family: var(--font-secondary);
-  letter-spacing: var(--letter-spacing-normal);
-  line-height: var(--line-height-normal);
-  fill: var(--gray-300);
-  text-align: left;
-  text-anchor: start;
-}
-
-.uml-method {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  font-family: var(--font-secondary);
-  letter-spacing: var(--letter-spacing-normal);
-  line-height: var(--line-height-normal);
-  text-align: left;
-  text-anchor: start;
-  color: var(--gray-100);
-}
-
-.uml-diagram-link {
-  display: block;
-  position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transition: all var(--transition-normal);
-  text-decoration: none;
-  margin: var(--spacing-4xl) auto;
-  max-width: 800px;
-}
-
-.uml-diagram-link:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-.uml-diagram {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 .diagram-overlay {
@@ -2011,10 +1911,6 @@ a.gallery-card {
   fill: var(--white) !important;
   color: var(--white) !important;
 }
-
-/* ===========================================
-   ADDITIONAL STYLES
-   =========================================== */
 
 /* Gallery Container */
 .gallery-container {
@@ -2169,6 +2065,239 @@ img.content-image {
   position: relative;
 }
 
+/* jsPlumb UML Diagram Interactive Styles */
+.uml-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uml-diagram-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background: transparent;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(10, auto);
+  row-gap: var(--spacing-3xl);
+  column-gap: var(--spacing-3xl);
+  padding: var(--spacing-xl);
+  min-height: 100vh;
+}
+
+
+.uml-card {
+  position: relative;
+  width: 260px; /* fixed width for consistent spacing */
+  min-width: 260px;
+  max-width: 260px;
+  min-height: 200px;
+  background: var(--white);
+  border: none;
+  border-radius: 1px;
+  padding: 16px;
+  font-family: var(--font-secondary);
+  cursor: move;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+  z-index: 10;
+  justify-self: center;
+  color: var(--black);
+}
+
+.uml-card-important {
+  background: #fffef8; /* yellow background */
+  color: #8d6e63; /* brown text */
+  transform-origin: center;
+}
+
+/* Tooltip for all cards with data-tooltip attribute */
+.uml-card[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -20%;
+  background: var(--gray-400);
+  color: var(--white);
+  padding: 8px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-normal);
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-align: left;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.uml-card[data-tooltip]:hover::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--gray-400);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.uml-card-header {
+  margin-bottom: 12px;
+  border-bottom: none;
+  padding-bottom: 8px;
+}
+
+.uml-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+
+  color: var(--black);
+  margin: 0;
+  display: inline-block;
+  background-color: var(--gray-100);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.uml-card-important .uml-title {
+  background-color: #f9efc2; /* brown background for important cards */
+  color: #5d4037; /* darker brown text */
+}
+
+.user-card .uml-title {
+  background-color: #e9faff; /* brown background for important cards */
+  color: var(--primary); /* darker brown text */
+}
+
+.uml-attributes {
+  margin-bottom: 12px;
+}
+
+.uml-attribute {
+  font-size: var(--font-size-xs);
+  margin-bottom: 4px;
+  margin-top: 0;
+  color: var(--gray-400);
+}
+
+.uml-method {
+  font-size: var(--font-size-xs);
+  margin-bottom: 4px;
+  margin-top: 0;
+  color: var(--gray-300);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Grid Position Classes */
+.row-1.col-1 { grid-row: 1; grid-column: 1; }
+.row-1.col-2 { grid-row: 1; grid-column: 2; }
+.row-1.col-3 { grid-row: 1; grid-column: 3; }
+.row-1.col-4 { grid-row: 1; grid-column: 4; }
+.row-2.col-1 { grid-row: 2; grid-column: 1; }
+.row-2.col-2 { grid-row: 2; grid-column: 2; }
+.row-2.col-3 { grid-row: 2; grid-column: 3; }
+.row-2.col-4 { grid-row: 2; grid-column: 4; }
+.row-3.col-1 { grid-row: 3; grid-column: 1; }
+.row-3.col-2 { grid-row: 3; grid-column: 2; }
+.row-3.col-3 { grid-row: 3; grid-column: 3; }
+.row-3.col-4 { grid-row: 3; grid-column: 4; }
+.row-4.col-1 { grid-row: 4; grid-column: 1; }
+.row-5.col-1 { grid-row: 5; grid-column: 1; }
+.row-6.col-3 { grid-row: 6; grid-column: 3; }
+.row-6.col-4 { grid-row: 6; grid-column: 4; }
+
+/* Information Cards - removed, now only shown in tooltips */
+
+/* Tooltip for all cards with data-tooltip attribute */
+.uml-card[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -20%;
+  background: var(--gray-400);
+  color: var(--white);
+  padding: 8px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-normal);
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-align: left;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  max-width: 280px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* Style for the Math challenge label */
+.uml-card[data-tooltip]:hover::after {
+  font-family: var(--font-secondary);
+}
+
+.uml-card[data-tooltip]:hover::after::first-line {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  color: #ffd700;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.uml-card[data-tooltip]:hover::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--gray-400);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Math challenge indicator for specific cards */
+.uml-card[data-uml-id="recommendation-engine-01"]::after,
+.uml-card[data-uml-id="emotion-ai-01"]::after,
+.uml-card[data-uml-id="ar-session-01"]::after {
+  content: "math challenge →";
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 10px;
+  color: var(--gray-300);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Connection labels */
+.connection-label {
+  font-family: var(--font-secondary);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  fill: var(--gray-400);
+  background: var(--white);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--gray-200);
+}
+
+/* jsPlumb endpoint styles */
+.jtk-endpoint {
+  cursor: pointer;
+}
+
+/* jsPlumb connection styles */
+.jtk-connector {
+  stroke: var(--gray-300);
+  stroke-width: 2;
+}
+
+.jtk-overlay {
+  fill: var(--gray-300);
+}
+
 
 
 @media (min-width: 900px) {
@@ -2180,7 +2309,8 @@ img.content-image {
   /* UML Diagram responsive layout for large screens */
   .uml-diagram-container {
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-3xl);
+    row-gap: var(--spacing-3xl);
+    column-gap: var(--spacing-3xl);
   }
 }
 
@@ -2214,7 +2344,8 @@ img.content-image {
   /* UML Diagram responsive layout for medium screens */
   .uml-diagram-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-2xl);
+    row-gap: var(--spacing-2xl);
+    column-gap: var(--spacing-2xl);
   }
 }
 
@@ -2414,257 +2545,4 @@ img.content-image {
     gap: var(--spacing-xl);
     padding: var(--spacing-md);
   }
-}
-
-/* jsPlumb UML Diagram Interactive Styles */
-.uml-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.uml-diagram-container {
-  position: relative;
-  width: 100%;
-  height: auto;
-  background: transparent;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(10, auto);
-  gap: var(--spacing-3xl);
-  padding: var(--spacing-xl);
-  min-height: 100vh;
-}
-
-/* HTML UML Cards */
-.uml-card {
-  position: relative;
-  min-width: 200px;
-  max-width: 400px;
-  min-height: 200px;
-  background: var(--white);
-  border: none;
-  border-radius: 1px;
-  padding: 16px;
-  font-family: var(--font-secondary);
-  cursor: move;
-  transition: all 0.2s ease;
-  z-index: 10;
-  justify-self: start;
-}
-
-
-.uml-user-card {
-  background: var(--white);
-  color: var(--black);
-  border: none;
-}
-
-.uml-card-light-gray {
-  background: var(--gray-50);
-  border: none;
-  color: var(--gray-400);
-}
-
-.uml-card-header {
-  margin-bottom: 12px;
-  border-bottom: none;
-  padding-bottom: 8px;
-}
-
-.uml-user-card .uml-card-header {
-  border-bottom: none;
-}
-
-.uml-number {
-  display: inline-block;
-  background: var(--black);
-  color: var(--primary);
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 24px;
-  font-weight: var(--font-weight-bold);
-  font-size: 12px;
-  margin-right: 8px;
-}
-
-.uml-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  margin: 0;
-  display: inline-block;
-}
-
-.uml-attributes {
-  margin-bottom: 12px;
-}
-
-.uml-attribute {
-  font-size: var(--font-size-xs);
-  margin-bottom: 4px;
-  color: var(--gray-400);
-}
-
-.uml-user-card .uml-attribute {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.uml-separator {
-  height: 1px;
-  background: var(--gray-200);
-  margin: 12px 0;
-}
-
-.uml-user-card .uml-separator {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.uml-methods {
-  margin-top: 12px;
-}
-
-.uml-method {
-  font-size: var(--font-size-xs);
-  margin-bottom: 4px;
-  color: var(--gray-400);
-  font-weight: var(--font-weight-medium);
-}
-
-.uml-user-card .uml-method {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Grid Position Classes */
-.row-1.col-1 { grid-row: 1; grid-column: 1; }
-.row-1.col-2 { grid-row: 1; grid-column: 2; }
-.row-1.col-3 { grid-row: 1; grid-column: 3; }
-.row-1.col-4 { grid-row: 1; grid-column: 4; }
-.row-2.col-1 { grid-row: 2; grid-column: 1; }
-.row-2.col-2 { grid-row: 2; grid-column: 2; }
-.row-2.col-3 { grid-row: 2; grid-column: 3; }
-.row-2.col-4 { grid-row: 2; grid-column: 4; }
-.row-3.col-1 { grid-row: 3; grid-column: 1; }
-.row-4.col-1 { grid-row: 4; grid-column: 1; }
-.row-5.col-1 { grid-row: 5; grid-column: 1; }
-.row-6.col-3 { grid-row: 6; grid-column: 3; }
-.row-6.col-4 { grid-row: 6; grid-column: 4; }
-
-/* Information Cards */
-.uml-info-card {
-  position: relative;
-  min-width: 250px;
-  max-width: 350px;
-  background: var(--gray-50);
-  border: 1px solid var(--gray-200);
-  border-radius: 8px;
-  padding: 16px;
-  font-family: var(--font-secondary);
-  justify-self: start;
-}
-
-.info-row-1 { grid-row: 7; grid-column: 2; }
-.info-row-2 { grid-row: 8; grid-column: 2; }
-.info-row-3 { grid-row: 9; grid-column: 2; }
-.info-row-4 { grid-row: 10; grid-column: 2; }
-
-.uml-info-card h4 {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
-  color: var(--gray-400);
-  margin: 0 0 8px 0;
-}
-
-.uml-info-card p {
-  font-size: var(--font-size-xs);
-  color: var(--gray-300);
-  margin: 0;
-  line-height: var(--line-height-loose);
-}
-
-/* Highlighted UML elements */
-.uml-card.highlighted,
-.uml-user-card.highlighted,
-.uml-card-light-gray.highlighted {
-  filter: drop-shadow(0 0 10px var(--primary));
-  border-color: var(--primary) !important;
-  border-width: 3px !important;
-  box-shadow: 0 0 20px rgba(74, 158, 255, 0.5) !important;
-}
-
-/* Connection labels */
-.connection-label {
-  font-family: var(--font-secondary);
-  font-size: 12px;
-  font-weight: var(--font-weight-medium);
-  fill: var(--gray-400);
-  background: var(--white);
-  padding: 2px 6px;
-  border-radius: 4px;
-  border: 1px solid var(--gray-200);
-}
-
-/* jsPlumb endpoint styles */
-.jtk-endpoint {
-  cursor: pointer;
-}
-
-.jtk-endpoint:hover {
-  transform: scale(1.2);
-}
-
-/* Draggable UML elements */
-.uml-card,
-.uml-user-card,
-.uml-card-light-gray {
-  cursor: move;
-  transition: all 0.2s ease;
-}
-
-
-/* jsPlumb connection styles */
-.jtk-connector {
-  stroke: var(--gray-300);
-  stroke-width: 2;
-}
-
-.jtk-connector:hover {
-  stroke: var(--primary);
-  stroke-width: 3;
-}
-
-.jtk-overlay {
-  fill: var(--gray-300);
-}
-
-.jtk-overlay:hover {
-  fill: var(--primary);
-}
-
-/* Interactive controls */
-.uml-controls {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  gap: 10px;
-  z-index: 10;
-}
-
-.uml-control-btn {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: var(--font-secondary);
-  font-size: var(--font-size-xs);
-  transition: all 0.2s ease;
-}
-
-.uml-control-btn:hover {
-  background: var(--primary);
-  color: var(--white);
-  border-color: var(--primary);
 }

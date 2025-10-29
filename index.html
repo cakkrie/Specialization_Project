@@ -176,14 +176,6 @@
       </div>
     </section>
 
-      <a href="sequence-diagram.html" class="uml-diagram-link">
-        <img src="Photo/UML.png" alt="UML Diagram" class="uml-diagram">
-        <div class="diagram-overlay">
-          <h3>View Interactive Sequence Diagram</h3>
-          <p>Click to explore the complete system flow</p>
-        </div>
-      </a>
-
       <!-- Earth Visualization Section -->
       <div class="earth-section">
         <div class="earth-container">
@@ -951,10 +943,39 @@
         container.insertAdjacentHTML('beforeend', generateUMLCard(cardData));
       });
 
-      // Generate info cards
-      data.infoCards.forEach(infoData => {
-        container.insertAdjacentHTML('beforeend', generateInfoCard(infoData));
-      });
+      // Info cards are now only shown in tooltips, not rendered in grid
+
+      // Attach tooltips from info cards to corresponding UML cards
+      try {
+        // math-challenge-1 to RecommendationEngine
+        const info1 = (data.infoCards || []).find(i => i.id === 'math-challenge-1');
+        const recEl = document.querySelector('[data-uml-id="recommendation-engine-01"]');
+        if (recEl && info1) {
+          const titleText = Array.isArray(info1.title) ? info1.title.join(' ') : (info1.title || '');
+          const fullText = `${info1.id}\n\n${titleText}\n\n${info1.description || ''}`.trim();
+          recEl.setAttribute('data-tooltip', fullText);
+        }
+
+        // math-challenge-2 to ARSession
+        const info2 = (data.infoCards || []).find(i => i.id === 'math-challenge-2');
+        const arEl = document.querySelector('[data-uml-id="ar-session-01"]');
+        if (arEl && info2) {
+          const titleText = Array.isArray(info2.title) ? info2.title.join(' ') : (info2.title || '');
+          const fullText = `${info2.id}\n\n${titleText}\n\n${info2.description || ''}`.trim();
+          arEl.setAttribute('data-tooltip', fullText);
+        }
+
+        // math-challenge-3 to EmotionAI
+        const info3 = (data.infoCards || []).find(i => i.id === 'math-challenge-3');
+        const emotionEl = document.querySelector('[data-uml-id="emotion-ai-01"]');
+        if (emotionEl && info3) {
+          const titleText = Array.isArray(info3.title) ? info3.title.join(' ') : (info3.title || '');
+          const fullText = `${info3.id}\n\n${titleText}\n\n${info3.description || ''}`.trim();
+          emotionEl.setAttribute('data-tooltip', fullText);
+        }
+      } catch (e) {
+        console.warn('Failed to attach tooltips from info cards', e);
+      }
     }
 
     // Initialize jsPlumb for interactive UML diagram
@@ -999,7 +1020,7 @@
       window.jsPlumbInstance = instance;
 
       // Make UML elements draggable
-      const umlElements = document.querySelectorAll('.uml-card, .uml-user-card, .uml-card-light-gray');
+      const umlElements = document.querySelectorAll('.uml-card');
       
       umlElements.forEach(element => {
         // Store original position
@@ -1039,6 +1060,7 @@
       }, 100);
 
       // Add endpoints and create connections
+      /*
       data.connections.forEach(conn => {
         const sourceElement = document.querySelector(`[data-uml-id="${conn.source}"]`);
         const targetElement = document.querySelector(`[data-uml-id="${conn.target}"]`);
@@ -1068,6 +1090,7 @@
           });
         }
       });
+      */
 
       // Add click handlers for interactive features
       umlElements.forEach(element => {
@@ -1103,7 +1126,7 @@
     }
 
     function resetUMLDiagram() {
-      const umlElements = document.querySelectorAll('.uml-card, .uml-user-card, .uml-card-light-gray');
+      const umlElements = document.querySelectorAll('.uml-card');
       umlElements.forEach(element => {
         // Reset position to original coordinates
         const originalLeft = element.getAttribute('data-original-left') || element.style.left;
