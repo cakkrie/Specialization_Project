@@ -6,6 +6,7 @@
   
   /* Gray Scale (6 levels: 3 light + 3 dark) */
   --gray-50: #f5f5f5;   /* lightest backgrounds */
+  --gray-75: #eaeaea;   /* lightest backgrounds */
   --gray-100: #e0e0e0;  /* borders, dividers */
   --gray-200: #cccccc;  /* disabled states, light text */
   --gray-300: #666666;  /* secondary text, medium contrast */
@@ -181,23 +182,19 @@
   border-radius: 20px;
 }
 
-/* Links */
 
-.link-cta {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-medium);
-  text-decoration: none;
-  transition: color var(--transition-normal);
-}
-
-
-html, body {
+html {
+  scroll-behavior: smooth;
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
+
 body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   font-family: var(--font-secondary);
   background-color: var(--black);
   color: var(--white);
@@ -448,36 +445,53 @@ header .left i {
   bottom: 0;
 }
 
-.title-cta {
-  font-family: var(--font-primary);
+/* CTA Button */
+.cta {
+  color: var(--black);
   position: absolute;
+  bottom: var(--spacing-xl);
   right: var(--spacing-xl);
-  bottom: var(--spacing-2xl);
-  z-index: 3;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-md);
-  background: transparent;
-  border: none;
-  padding: 0;
-  color: var(--white);
-  font-size: clamp(18px, 2.8vh, 26px);
-  cursor: pointer;
-  text-decoration: none;
+  z-index: 10;
+  padding: var(--spacing-md) var(--spacing-lg);
+
 }
 
-.title-cta .cta-icon {
+.cta-icon {
   font-size: var(--spacing-2xl);
   line-height: 1;
 }
 
-.title-cta .cta-text {
+.cta-text {
   font-size: var(--font-size-sm);
 }
 
-.title-cta:hover, .title-cta:focus { 
-  color: var(--gray-200); 
+.cta:hover, .cta:focus { 
+  color: var(--gray-400); 
   text-decoration: none; 
+}
+
+ .landing-page .cta {
+   color: var(--white);
+  }
+  
+  .landing-page .cta .title-cta {
+    color: var(--white);
+  }
+  
+  .landing-page .cta .cta-text {
+    color: var(--white);
+  }
+
+.title-cta {
+  justify-content: flex-end;
+  font-family: var(--font-primary);
+  color: var(--black); 
+  right: var(--spacing-xl);
+  bottom: var(--spacing-2xl);
+  padding: 0;
+  font-size: clamp(18px, 2.8vh, 26px);
+  cursor: pointer;
+  text-decoration: none;
 }
 
 /* Landing Context Section */
@@ -1723,28 +1737,6 @@ a.gallery-card {
 .action-bubble.size-lg { --bubble-size: 180px; }
 .action-bubble.size-xl { --bubble-size: 220px; }
 
-
-.cta {
-  position: absolute;
-  bottom: var(--spacing-xl);
-  right: var(--spacing-xl);
-  z-index: 10;
-  background: var(--black);
-  padding: var(--spacing-md) var(--spacing-lg);
-  border-radius: var(--radius-md);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.cta .title-cta {
-  position: static;
-  color: var(--white);
-  background: transparent;
-}
-
-.cta .title-cta:hover { 
-  color: var(--gray-200); 
-}
-
 /* Matrix Section */
 .fc-matrix {
   background: var(--black);
@@ -1778,7 +1770,6 @@ a.gallery-card {
   height: 1px;
   background: var(--gray-300);
 }
-
 
 
 .m-item {
@@ -1817,100 +1808,116 @@ a.gallery-card {
 
 .uml-diagram { 
   width: 100%; 
-  max-width: 1400px; 
+  max-width: 1500px; 
   height: auto; 
 }
 
-.uml-diagram .uml-card { 
-  fill: var(--gray-50); 
+.uml-card { 
+  fill: var(--gray-75); 
   stroke: none; 
   stroke-width: 0; 
   rx: 0; 
 }
 
-.uml-diagram .uml-card-light-gray { 
+.uml-card-light-gray { 
   fill: var(--gray-100); 
   stroke: none; 
   stroke-width: 0; 
   rx: 0; 
 }
 
-.uml-diagram .title-light-gray { 
-  font: 700 18px Raleway, Helvetica, Arial, sans-serif; 
-  fill: var(--black); 
-}
-
-.uml-diagram .kv-light-gray { 
-  font: 400 12px Raleway, Helvetica, Arial, sans-serif; 
-  fill: var(--black); 
-}
-
-.uml-diagram .sep-light-gray { 
-  stroke: var(--black); 
-  stroke-width: 1; 
-}
-
-.uml-diagram .uml-user-card { 
+.uml-user-card { 
+  
   fill: var(--white); 
   stroke: none; 
   stroke-width: 0; 
   rx: 0; 
 }
 
-.uml-diagram .title { 
-  font: 700 18px Raleway, Helvetica, Arial, sans-serif; 
+.uml-user-number { 
+  font: 300 18px Raleway, Helvetica, Arial, sans-serif; 
   fill: var(--gray-400); 
 }
 
-.uml-diagram .user-title { 
-  font: 700 18px Raleway, Helvetica, Arial, sans-serif; 
-  fill: var(--white); 
+.uml-title { 
+  font: (--font-size-md); 
+  fill: var(--gray-400); 
+  text-transform: uppercase;
 }
 
-.uml-diagram .meta { 
+.uml-user-title { 
+  font: 700 18px Raleway, Helvetica, Arial, sans-serif; 
+  fill: var(--gray-400);
+}
+
+.uml-meta { 
   font: 500 13px Raleway, Helvetica, Arial, sans-serif; 
   fill: var(--gray-300); 
 }
 
-.uml-diagram .kv { 
+.uml-kv { 
   font: 400 12px Raleway, Helvetica, Arial, sans-serif; 
   fill: var(--black); 
 }
 
-.uml-diagram .user-kv { 
-  font: 400 12px Raleway, Helvetica, Arial, sans-serif; 
-  fill: var(--white); 
+.uml-user-kv { 
+  font: var(--font-size-xs);
+  fill: var(--black); 
 }
 
-.uml-diagram .customer-kv { 
+.uml-customer-kv { 
   font: 400 12px Raleway, Helvetica, Arial, sans-serif; 
   fill: var(--gray-400); 
 }
 
-.uml-diagram .sep { 
+.uml-sep { 
   stroke: var(--white); 
   stroke-width: 1; 
 }
 
-.uml-diagram .user-sep { 
-  stroke: var(--white); 
+.uml-user-sep { 
+  stroke: var(--gray-200); 
   stroke-width: 1; 
 }
 
-.uml-diagram .label { 
+.uml-label { 
   font: 500 12px Raleway, Helvetica, Arial, sans-serif; 
   fill: var(--gray-200); 
 }
 
-.uml-diagram .wire { 
+.uml-wire { 
   stroke: var(--gray-300); 
   stroke-width: 2; 
   fill: none; 
   marker-end: url(#arrow); 
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
 
-.uml-diagram .wire[stroke-dasharray] { 
+.uml-wire[stroke-dasharray] { 
   stroke-dasharray: 5,5; 
+}
+
+.uml-attribute {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-secondary);
+  letter-spacing: var(--letter-spacing-normal);
+  line-height: var(--line-height-normal);
+  fill: var(--gray-300);
+  text-align: left;
+  text-anchor: start;
+}
+
+.uml-method {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-secondary);
+  letter-spacing: var(--letter-spacing-normal);
+  line-height: var(--line-height-normal);
+  text-align: left;
+  text-anchor: start;
+  color: var(--gray-100);
 }
 
 .uml-diagram-link {
@@ -2159,16 +2166,21 @@ img.content-image {
 .bubble-section {
   background: var(--gray-50);
   padding-bottom: var(--spacing-4xl);
+  position: relative;
 }
 
-/* ===========================================
-   MEDIA QUERIES
-   =========================================== */
+
 
 @media (min-width: 900px) {
   .earth-container {
     margin-left: 100px;
     margin-top: 48px;
+  }
+  
+  /* UML Diagram responsive layout for large screens */
+  .uml-diagram-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-3xl);
   }
 }
 
@@ -2197,6 +2209,12 @@ img.content-image {
   
   .responsive-card-description {
     font-size: var(--font-size-base);
+  }
+  
+  /* UML Diagram responsive layout for medium screens */
+  .uml-diagram-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-2xl);
   }
 }
 
@@ -2389,4 +2407,264 @@ img.content-image {
   .card-text {
     font-size: var(--font-size-md);
   }
+  
+  /* UML Diagram responsive layout for small screens */
+  .uml-diagram-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-md);
+  }
+}
+
+/* jsPlumb UML Diagram Interactive Styles */
+.uml-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uml-diagram-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background: transparent;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(10, auto);
+  gap: var(--spacing-3xl);
+  padding: var(--spacing-xl);
+  min-height: 100vh;
+}
+
+/* HTML UML Cards */
+.uml-card {
+  position: relative;
+  min-width: 200px;
+  max-width: 400px;
+  min-height: 200px;
+  background: var(--white);
+  border: none;
+  border-radius: 1px;
+  padding: 16px;
+  font-family: var(--font-secondary);
+  cursor: move;
+  transition: all 0.2s ease;
+  z-index: 10;
+  justify-self: start;
+}
+
+
+.uml-user-card {
+  background: var(--white);
+  color: var(--black);
+  border: none;
+}
+
+.uml-card-light-gray {
+  background: var(--gray-50);
+  border: none;
+  color: var(--gray-400);
+}
+
+.uml-card-header {
+  margin-bottom: 12px;
+  border-bottom: none;
+  padding-bottom: 8px;
+}
+
+.uml-user-card .uml-card-header {
+  border-bottom: none;
+}
+
+.uml-number {
+  display: inline-block;
+  background: var(--black);
+  color: var(--primary);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  font-weight: var(--font-weight-bold);
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.uml-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+  display: inline-block;
+}
+
+.uml-attributes {
+  margin-bottom: 12px;
+}
+
+.uml-attribute {
+  font-size: var(--font-size-xs);
+  margin-bottom: 4px;
+  color: var(--gray-400);
+}
+
+.uml-user-card .uml-attribute {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.uml-separator {
+  height: 1px;
+  background: var(--gray-200);
+  margin: 12px 0;
+}
+
+.uml-user-card .uml-separator {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.uml-methods {
+  margin-top: 12px;
+}
+
+.uml-method {
+  font-size: var(--font-size-xs);
+  margin-bottom: 4px;
+  color: var(--gray-400);
+  font-weight: var(--font-weight-medium);
+}
+
+.uml-user-card .uml-method {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Grid Position Classes */
+.row-1.col-1 { grid-row: 1; grid-column: 1; }
+.row-1.col-2 { grid-row: 1; grid-column: 2; }
+.row-1.col-3 { grid-row: 1; grid-column: 3; }
+.row-1.col-4 { grid-row: 1; grid-column: 4; }
+.row-2.col-1 { grid-row: 2; grid-column: 1; }
+.row-2.col-2 { grid-row: 2; grid-column: 2; }
+.row-2.col-3 { grid-row: 2; grid-column: 3; }
+.row-2.col-4 { grid-row: 2; grid-column: 4; }
+.row-3.col-1 { grid-row: 3; grid-column: 1; }
+.row-4.col-1 { grid-row: 4; grid-column: 1; }
+.row-5.col-1 { grid-row: 5; grid-column: 1; }
+.row-6.col-3 { grid-row: 6; grid-column: 3; }
+.row-6.col-4 { grid-row: 6; grid-column: 4; }
+
+/* Information Cards */
+.uml-info-card {
+  position: relative;
+  min-width: 250px;
+  max-width: 350px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  padding: 16px;
+  font-family: var(--font-secondary);
+  justify-self: start;
+}
+
+.info-row-1 { grid-row: 7; grid-column: 2; }
+.info-row-2 { grid-row: 8; grid-column: 2; }
+.info-row-3 { grid-row: 9; grid-column: 2; }
+.info-row-4 { grid-row: 10; grid-column: 2; }
+
+.uml-info-card h4 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--gray-400);
+  margin: 0 0 8px 0;
+}
+
+.uml-info-card p {
+  font-size: var(--font-size-xs);
+  color: var(--gray-300);
+  margin: 0;
+  line-height: var(--line-height-loose);
+}
+
+/* Highlighted UML elements */
+.uml-card.highlighted,
+.uml-user-card.highlighted,
+.uml-card-light-gray.highlighted {
+  filter: drop-shadow(0 0 10px var(--primary));
+  border-color: var(--primary) !important;
+  border-width: 3px !important;
+  box-shadow: 0 0 20px rgba(74, 158, 255, 0.5) !important;
+}
+
+/* Connection labels */
+.connection-label {
+  font-family: var(--font-secondary);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  fill: var(--gray-400);
+  background: var(--white);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--gray-200);
+}
+
+/* jsPlumb endpoint styles */
+.jtk-endpoint {
+  cursor: pointer;
+}
+
+.jtk-endpoint:hover {
+  transform: scale(1.2);
+}
+
+/* Draggable UML elements */
+.uml-card,
+.uml-user-card,
+.uml-card-light-gray {
+  cursor: move;
+  transition: all 0.2s ease;
+}
+
+
+/* jsPlumb connection styles */
+.jtk-connector {
+  stroke: var(--gray-300);
+  stroke-width: 2;
+}
+
+.jtk-connector:hover {
+  stroke: var(--primary);
+  stroke-width: 3;
+}
+
+.jtk-overlay {
+  fill: var(--gray-300);
+}
+
+.jtk-overlay:hover {
+  fill: var(--primary);
+}
+
+/* Interactive controls */
+.uml-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.uml-control-btn {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-xs);
+  transition: all 0.2s ease;
+}
+
+.uml-control-btn:hover {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
 }

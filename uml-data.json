@@ -1,0 +1,357 @@
+{
+  "umlClasses": [
+    {
+      "id": "user-01",
+      "name": "User",
+      "type": "user-card",
+      "gridPosition": "row-1 col-1",
+      "number": "01",
+      "attributes": [
+        "userID: String",
+        "username: String",
+        "email: String",
+        "passwordHash: String",
+        "level: Int",
+        "badges: List",
+        "preferredFishSpecies: List",
+        "homeLocation: GeoPoint",
+        "emotion: List"
+      ],
+      "methods": [
+        "+ login(email,pwd)",
+        "+ updatedProfile(info)",
+        "+ updatePreferences(prefs)",
+        "+ trackEmotion(emotion)",
+        "+ joinChallenge(id)",
+        "+ shareCatch(id)"
+      ]
+    },
+    {
+      "id": "fishing-session-01",
+      "name": "FishingSession",
+      "type": "uml-card",
+      "gridPosition": "row-1 col-2",
+      "attributes": [
+        "sessionID: String",
+        "userID: String",
+        "startTime/endTime: DateTime",
+        "location: GeoPoint",
+        "weather: WeatherData",
+        "catchFish: List",
+        "emotion: List"
+      ],
+      "methods": [
+        "+ startSession()",
+        "+ endSession()",
+        "+ recordCatch(data)",
+        "+ updateWeather(weather)",
+        "+ analyzePerformance()"
+      ]
+    },
+    {
+      "id": "spot-01",
+      "name": "Spot",
+      "type": "uml-card",
+      "gridPosition": "row-1 col-3",
+      "attributes": [
+        "spotID: String",
+        "location: GeoPoint",
+        "region: String",
+        "averageScore: Float",
+        "fishSpecies: List",
+        "weatherPattern: WeatherData",
+        "popularity: Float",
+        "accessibility: String"
+      ],
+      "methods": [
+        "+ getCurrentWeather()",
+        "+ getRecommendedTimeWindow()",
+        "+ calculateScore(user)",
+        "+ updatePopularity()"
+      ]
+    },
+    {
+      "id": "recommendation-engine-01",
+      "name": "RecommendationEngine",
+      "type": "uml-card-light-gray",
+      "gridPosition": "row-1 col-4",
+      "attributes": [
+        "modelType: String",
+        "trainingData: Dataset",
+        "weighting: Map",
+        "recentSpots: List",
+        "fishActivityModel: MLModel"
+      ],
+      "methods": [
+        "+ generateSpotsRecommendation(user, weather)",
+        "+ updateModel(data)",
+        "+ predictBiteProbability(spot,time)",
+        "+ rankSpots(spots)"
+      ]
+    },
+    {
+      "id": "challenge-01",
+      "name": "Challenge",
+      "type": "uml-card",
+      "gridPosition": "row-2 col-1",
+      "attributes": [
+        "challengeID: String",
+        "title: String",
+        "type: String",
+        "startDate/endDate: DateTime",
+        "participants: List",
+        "price: List",
+        "leaderboard: Map"
+      ],
+      "methods": [
+        "+ join(userId)",
+        "+ submitResult(catch)",
+        "+ updateLeaderboard()",
+        "+ annouceWinner()"
+      ]
+    },
+    {
+      "id": "catch-01",
+      "name": "Catch",
+      "type": "uml-card",
+      "gridPosition": "row-2 col-2",
+      "attributes": [
+        "catchID: String",
+        "fishSpecies: String",
+        "length/weight: Float",
+        "timeCaught: DateTime",
+        "location: GeoPoint",
+        "photoURL: String",
+        "emotion: List",
+        "WeatherAtCatch: WeatherData"
+      ],
+      "methods": [
+        "+ updatePhoto(photo)",
+        "+ identifySpecies(photo)",
+        "+ addEmotionTag(tag)"
+      ]
+    },
+    {
+      "id": "weather-data-01",
+      "name": "WeatherData",
+      "type": "uml-card-light-gray",
+      "gridPosition": "row-2 col-3",
+      "attributes": [
+        "temperature: Float",
+        "humidity: Float",
+        "airPressure: Float",
+        "windSpeed: Float",
+        "moonPhase: Float",
+        "tidelevel: String",
+        "sunrise/sunset: DateTime"
+      ],
+      "methods": [
+        "+ fetchFromAPI(lat, lon)",
+        "+ analyzeFishingWindow()",
+        "+ compareWithIdealConditions()"
+      ]
+    },
+    {
+      "id": "emotion-ai-01",
+      "name": "EmotionAI",
+      "type": "uml-card-light-gray",
+      "gridPosition": "row-2 col-4",
+      "attributes": [
+        "emotionModel: ML",
+        "rewardStrategy: Map",
+        "sentimentHistory: List"
+      ],
+      "methods": [
+        "+ detectEmotion(emotion)",
+        "+ logEmotionChanges(emotion, perf)",
+        "+ generateEncouragement(emotion)",
+        "+ updateRewardSystem()"
+      ]
+    },
+    {
+      "id": "badge-01",
+      "name": "Badge",
+      "type": "uml-card",
+      "gridPosition": "row-3 col-1",
+      "attributes": [
+        "badgeID: String",
+        "name: String",
+        "description: String",
+        "icon: String",
+        "condition: String"
+      ],
+      "methods": [
+        "+ checkEligibility(user)",
+        "+ assignToUser(userId)",
+        "+ displayBadge()"
+      ]
+    },
+    {
+      "id": "data-logger-01",
+      "name": "DataLogger",
+      "type": "uml-card",
+      "gridPosition": "row-4 col-1",
+      "attributes": [
+        "storagePath: String",
+        "sessionHistory: List",
+        "catchLimit: Int"
+      ],
+      "methods": [
+        "+ saveSession(data)",
+        "+ exportCSV()",
+        "+ syncWithCloud()",
+        "+ loadHistory(userID)"
+      ]
+    },
+    {
+      "id": "cloud-db-01",
+      "name": "CloudDB",
+      "type": "uml-card",
+      "gridPosition": "row-5 col-1",
+      "attributes": [
+        "provider: String",
+        "region: String"
+      ],
+      "methods": []
+    },
+    {
+      "id": "map-ui-01",
+      "name": "MapUI",
+      "type": "uml-card",
+      "gridPosition": "row-6 col-3",
+      "attributes": [
+        "mapLayer: Map",
+        "uiState: Object",
+        "selectedSpot: Spot",
+        "weatherOverlay: Boolean"
+      ],
+      "methods": [
+        "+ displaySpots()",
+        "+ toggleWeatherOverlay()"
+      ]
+    },
+    {
+      "id": "ar-session-01",
+      "name": "ARSession",
+      "type": "uml-card-light-gray",
+      "gridPosition": "row-6 col-4",
+      "attributes": [
+        "sessionID: String",
+        "cameraConfig: Struct",
+        "recognizedObjects: List",
+        "anchorPoints: List",
+        "activeOverlay: Boolean"
+      ],
+      "methods": [
+        "+ activateOverlay()"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "source": "user-01",
+      "target": "fishing-session-01",
+      "label": "has (0..*)"
+    },
+    {
+      "source": "user-01",
+      "target": "challenge-01",
+      "label": "aggregates"
+    },
+    {
+      "source": "user-01",
+      "target": "catch-01",
+      "label": "creates"
+    },
+    {
+      "source": "user-01",
+      "target": "recommendation-engine-01",
+      "label": "uses"
+    },
+    {
+      "source": "fishing-session-01",
+      "target": "catch-01",
+      "label": "contains (0..*)"
+    },
+    {
+      "source": "catch-01",
+      "target": "spot-01",
+      "label": "record at (1..)"
+    },
+    {
+      "source": "catch-01",
+      "target": "map-ui-01",
+      "label": "uses"
+    },
+    {
+      "source": "data-logger-01",
+      "target": "cloud-db-01",
+      "label": "syncs"
+    },
+    {
+      "source": "map-ui-01",
+      "target": "ar-session-01",
+      "label": "uses"
+    },
+    {
+      "source": "weather-data-01",
+      "target": "emotion-ai-01",
+      "label": "feeds"
+    },
+    {
+      "source": "user-01",
+      "target": "badge-01",
+      "label": "earns"
+    }
+  ],
+  "infoCards": [
+    {
+      "id": "info-1",
+      "gridPosition": "info-row-1",
+      "title": [
+        "Multi-factor weighted prediction",
+        "model (regression / probabilistic ranking)"
+      ],
+      "description": "Involves data normalization, feature weighting, and regression analysis to rank fishing spots."
+    },
+    {
+      "id": "info-2",
+      "gridPosition": "info-row-2",
+      "title": [
+        "Time-series forecasting and",
+        "correlation analysis"
+      ],
+      "description": "Predicting fish activity based on meteorological changes (temperature, pressure, tide). Requires trend detection and curve fitting."
+    },
+    {
+      "id": "info-3",
+      "gridPosition": "info-row-3",
+      "title": [
+        "Geometric projection & spatial",
+        "measurement from images"
+      ],
+      "description": "Computing object size and position from camera images using projection matrices and pixel-to-real length conversion."
+    },
+    {
+      "id": "info-4",
+      "gridPosition": "info-row-4",
+      "title": [
+        "Numerical feature extraction and",
+        "sentiment scoring"
+      ],
+      "description": "Transforming facial or text input into vector representations and computing weighted emotion scores via classification or similarity functions."
+    }
+  ],
+  "settings": {
+    "containerHeight": "4000px",
+    "cardWidth": "260px",
+    "cardMinHeight": "200px",
+    "gridSize": 20,
+    "connectionStyle": {
+      "stroke": "#8a8a8a",
+      "strokeWidth": 2,
+      "hoverStroke": "#4a4a4a",
+      "hoverStrokeWidth": 3
+    }
+  }
+}

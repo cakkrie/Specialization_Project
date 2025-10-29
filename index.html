@@ -8,7 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
-</head>
+
+
+  <!-- jsPlumb Toolkit CSS -->
+  <script src="node_modules/@jsplumbtoolkit/browser-ui/js/jsplumbtoolkit.browser-ui.umd.js"></script>
+  <link rel="stylesheet" href="node_modules/@jsplumbtoolkit/browser-ui/css/jsplumbtoolkit.css">
+  <link rel="stylesheet" href="app.css">
+ </head>
 <body>
   <header>
     <div class="left"><a href="index.html" class="body-sm">FishOn</a></div>
@@ -31,9 +37,9 @@
           and a gamified journey on every trip.</div>
       </div>
       <div class="cta">
-        <a href="#landing-context" class="title-cta" aria-label="Explore Fishing Community">
+        <a href="#landing-context" class="title-cta">
           <span class="cta-icon" aria-hidden="true">↳</span>
-          <span class="cta-text">SEE WHAT WE DONE</span>
+          <span class="cta-text">SEE WHAT WE DO</span>
         </a>
       </div>
     </section>
@@ -70,14 +76,16 @@
       <div class="hmw-container">
         <div class="header-xl">How might we design a tool</div>
         <div class="header-6xl">for younger anglers</div>
-        <div class="header-3xl">In the digitalized era?</div>
+        <div class="header-2xl">In the digitalized era?</div>
       </div>
     </section>
 
     
     <section class="bubble-section">
       <div id="bubble-field" class="bubble-field" aria-live="polite"></div>
-
+      <br>
+      <br>
+      <br>
       <div class="cta">
         <a href="fishing-community.html" class="title-cta" aria-label="Explore Fishing Community">
           <span class="cta-icon" aria-hidden="true">↳</span>
@@ -159,368 +167,13 @@
     <br>
 
 
-    <div class="landing-page-title">
-      <div class="header-xl">UML Sequence Diagram
-      </div>
-    </div>
+    <div class="header-3xl">UML Diagram</div>
+    
 
-    <!-- Architecture Diagram (code-drawn) inserted before earth-section -->
     <section class="uml-section">
-      <svg class="uml-diagram" viewBox="0 -100 1700 4000" role="img" aria-label="System architecture diagram">
-        <defs>
-          <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.35"/>
-          </filter>
-          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a8a8a"/>
-          </marker>
-        </defs>
-        
-        <!-- Left side label -->
-        <text class="label" x="120" y="240">has (0..*)</text>
-        
-        <!-- Row 1 -->
-        <g transform="translate(180,-20)">
-          <rect class="uml-user-card" width="300" height="400"/>
-          <text class="user-title" x="16" y="34">User</text>
-          <text class="user-kv"  x="16" y="78">userID: String</text>
-          <text class="user-kv"  x="16" y="98">username: String</text>
-          <text class="user-kv"  x="16" y="118">email: String</text>
-          <text class="user-kv"  x="16" y="138">passwordHash: String</text>
-          <text class="user-kv"  x="16" y="158">level: Int, exp: Int</text>
-          <text class="user-kv"  x="16" y="178">badges: List</text>
-          <text class="user-kv"  x="16" y="198">preferredFishSpecies: List</text>
-          <text class="user-kv"  x="16" y="218">homeLocation: GeoPoint</text>
-          <text class="user-kv"  x="16" y="238">emotionState: String</text>
-          <line class="user-sep" x1="16" y1="252" x2="264" y2="252"/>
-          <text class="user-kv"  x="16" y="276">+ login(email,pwd)</text>
-          <text class="user-kv"  x="16" y="296">+ updatedProfile(info)</text>
-          <text class="user-kv"  x="16" y="316">+ updatePreferences(prefs)</text>
-          <text class="user-kv"  x="16" y="336">+ trackEmotion(mood)</text>
-          <text class="user-kv"  x="16" y="356">+ joinChallenge(id)</text>
-          <text class="user-kv"  x="16" y="376">+ shareCatch(id)</text>
-        </g>
-
-        <g transform="translate(560,20)">
-          <rect class="uml-card" width="300" height="360"/>
-          <text class="title" x="16" y="34">FishingSession</text>
-          <text class="kv"  x="16" y="78">sessionID: String</text>
-          <text class="kv"  x="16" y="98">userID: String</text>
-          <text class="kv"  x="16" y="118">startTime/endTime: DateTime</text>
-          <text class="kv"  x="16" y="138">location: GeoPoint</text>
-          <text class="kv"  x="16" y="158">weather: WeatherData</text>
-          <text class="kv"  x="16" y="178">catchFish: List;</text>
-          <text class="kv"  x="16" y="198">moodLog: List;</text>
-          <line class="sep" x1="16" y1="212" x2="264" y2="212"/>
-          <text class="kv"  x="16" y="236">+ startSession()</text>
-          <text class="kv"  x="16" y="256">+ endSession()</text>
-          <text class="kv"  x="16" y="276">+ recordCatch(data)</text>
-          <text class="kv"  x="16" y="296">+ updateWeather(weather)</text>
-          <text class="kv"  x="16" y="316">+ analyzePerformance()</text>
-        </g>
-
-        <g transform="translate(940,20)">
-          <rect class="uml-card" width="300" height="360"/>
-          <text class="title" x="16" y="34">Spot</text>
-          <text class="kv"  x="16" y="68">sessionID: String</text>
-          <text class="kv"  x="16" y="88">userID: String</text>
-          <text class="kv"  x="16" y="108">startTime/endTime: DateTime</text>
-          <text class="kv"  x="16" y="128">location: GeoPoint</text>
-          <text class="kv"  x="16" y="148">region: String</text>
-          <text class="kv"  x="16" y="168">averageScore: Float</text>
-          <text class="kv"  x="16" y="188">fishSpecies: List</text>
-          <text class="kv"  x="16" y="208">weatherPattern: WeatherData</text>
-          <text class="kv"  x="16" y="228">popularity: Float</text>
-          <text class="kv"  x="16" y="248">accessibility: String</text>
-          <line class="sep" x1="16" y1="262" x2="264" y2="262"/>
-          <text class="kv"  x="16" y="286">+ getCurrentWeather()</text>
-          <text class="kv"  x="16" y="306">+ getRecommendedTimeWindow()</text>
-          <text class="kv"  x="16" y="326">+ calculateScore(user)</text>
-          <text class="kv"  x="16" y="346">+ updatePopularity()</text>
-        </g>
-        <g transform="translate(1320,-20)">
-          <rect class="uml-card-light-gray" width="300" height="400"/>
-          <text class="title-light-gray" x="16" y="34">RecommendationEngine</text>
-          <text class="kv-light-gray"  x="16" y="68">modelType: String</text>
-          <text class="kv-light-gray"  x="16" y="88">trainingData: Dataset</text>
-          <text class="kv-light-gray"  x="16" y="108">weighting: Map</text>
-          <text class="kv-light-gray"  x="16" y="128">recentSpots: List</text>
-          <text class="kv-light-gray"  x="16" y="148">fishActivityModel: MLModel</text>
-          <line class="sep-light-gray" x1="16" y1="162" x2="264" y2="162"/>
-          <text class="kv-light-gray"  x="16" y="186">+ generateSpotsRecommendation(user, weather)</text>
-          <text class="kv-light-gray"  x="16" y="206">+ updateModel(data)</text>
-          <text class="kv-light-gray"  x="16" y="226">+ predictBiteProbability(spot,time)</text>
-          <text class="kv-light-gray"  x="16" y="246">+ rankSpots(spots)</text>
-        </g>
-
-        <!-- Row 2 -->
-        <g transform="translate(180,460)">
-          <rect class="uml-card" width="300" height="320"/>
-          <text class="title" x="16" y="34">Challenge</text>
-          <text class="kv"  x="16" y="68">challengeID: String</text>
-          <text class="kv"  x="16" y="88">title: String</text>
-          <text class="kv"  x="16" y="108">type: String</text>
-          <text class="kv"  x="16" y="128">startDate/endDate: DateTime</text>
-          <text class="kv"  x="16" y="148">participants: List</text>
-          <text class="kv"  x="16" y="168">price: List</text>
-          <text class="kv"  x="16" y="188">leaderboard: Map</text>
-          <line class="sep" x1="16" y1="202" x2="264" y2="202"/>
-          <text class="kv"  x="16" y="226">+ join(userId)</text>
-          <text class="kv"  x="16" y="246">+ submitResult(catch)</text>
-          <text class="kv"  x="16" y="266">+ updateLeaderboard()</text>
-          <text class="kv"  x="16" y="286">+ annouceWinner()</text>
-        </g>
-
-        <g transform="translate(560,460)">
-          <rect class="uml-card" width="300" height="320"/>
-          <text class="title" x="16" y="34">Catch</text>
-          <text class="kv"  x="16" y="68">catchID: String</text>
-          <text class="kv"  x="16" y="88">fishSpecies: String</text>
-          <text class="kv"  x="16" y="108">length/weight: Float</text>
-          <text class="kv"  x="16" y="128">timeCaught: DateTime</text>
-          <text class="kv"  x="16" y="148">location: GeoPoint</text>
-          <text class="kv"  x="16" y="168">photoURL: String</text>
-          <text class="kv"  x="16" y="188">EmotionTag: String</text>
-          <text class="kv"  x="16" y="208">WeatherAtCatch: WeatherData</text>
-          <line class="sep" x1="16" y1="222" x2="264" y2="222"/>
-          <text class="kv"  x="16" y="246">+ updatePhoto(photo)</text>
-          <text class="kv"  x="16" y="266">+ identifySpecies(photo)</text>
-          <text class="kv"  x="16" y="286">+ addEmotionTag(tag)</text>
-        </g>
-
-        <g transform="translate(940,460)">
-          <rect class="card-light-gray" width="300" height="320"/>
-          <text class="title-light-gray" x="16" y="34">WeatherData</text>
-          <text class="kv-light-gray"  x="16" y="68">temperature: Float</text>
-          <text class="kv-light-gray"  x="16" y="88">humidity: Float</text>
-          <text class="kv-light-gray"  x="16" y="108">airPressure: Float</text>
-          <text class="kv-light-gray"  x="16" y="128">windSpeed: Float</text>          <text class="kv-light-gray"  x="16" y="68">temperature: Float</text>
-          <text class="kv-light-gray"  x="16" y="148">moonPhase: Float</text>
-          <text class="kv-light-gray"  x="16" y="168">tidelevel: String</text>
-          <text class="kv-light-gray"  x="16" y="188">moonPhase: Float</text>
-          <text class="kv-light-gray"  x="16" y="208">sunrise/sunset: DateTime</text>
-          <line class="sep-light-gray" x1="16" y1="222" x2="264" y2="222"/>
-          <text class="kv-light-gray"  x="16" y="246">+ fetchFromAPI(lat, lon)</text>
-          <text class="kv-light-gray"  x="16" y="266">+ analyzeFishingWindow()</text>
-          <text class="kv-light-gray"  x="16" y="286">+ compareWithIdealConditions()</text>
-        </g>
-        <g transform="translate(1320,460)">
-          <rect class="card-light-gray" width="300" height="320"/>
-          <text class="title-light-gray" x="16" y="34">EmotionAI</text>
-          <text class="kv-light-gray"  x="16" y="68">emotionModel: ML</text>
-          <text class="kv-light-gray"  x="16" y="88">rewardStrategy: Map</text>
-          <text class="kv-light-gray"  x="16" y="108">sentimentHistory: List</text>
-          <line class="sep-light-gray" x1="16" y1="122" x2="264" y2="122"/>
-          <text class="kv-light-gray"  x="16" y="146">+ detectMood(mood)</text>
-          <text class="kv-light-gray"  x="16" y="166">+ logMoodChanges(mood, perfd)</text>
-          <text class="kv-light-gray"  x="16" y="186">+ generateEncouragement(mood)</text>
-          <text class="kv-light-gray"  x="16" y="206">+ updateRewardSystem()</text>
-        </g>
-
-        <!-- Row 3 -->
-        <text class="label" x="120" y="980">has (0..*)</text>
-        <g transform="translate(180,860)">
-          <rect class="uml-card" width="300" height="240"/>
-          <text class="title" x="16" y="34">Badge</text>
-          <text class="kv"  x="16" y="68">badgeID: String</text>
-          <text class="kv"  x="16" y="88">name: String</text>
-          <text class="kv"  x="16" y="108">description: String</text>
-          <text class="kv"  x="16" y="128">icon: String</text>
-          <text class="kv"  x="16" y="148">condition: String</text>
-          <line class="sep" x1="16" y1="162" x2="264" y2="162"/>
-          <text class="kv"  x="16" y="186">+ checkEligibility(user)</text>
-          <text class="kv"  x="16" y="206">+ assignToUser(userId)</text>
-          <text class="kv"  x="16" y="226">+ displayBadge()</text>
-        </g>
-
-        <g transform="translate(180,1240)">
-          <rect class="uml-card" width="300" height="300"/>
-          <text class="title" x="16" y="34">DataLogger</text>
-          <text class="kv"  x="16" y="68">storagePath: String</text>
-          <text class="kv"  x="16" y="88">sessionHistory: List</text>
-          <text class="kv"  x="16" y="108">catchIimit: Int</text>
-          <line class="sep" x1="16" y1="122" x2="264" y2="122"/>
-          <text class="kv"  x="16" y="146">+ saveSession(data)</text>
-          <text class="kv"  x="16" y="166">+ exportCSV()</text>
-          <text class="kv"  x="16" y="186">+ syncWithCloud()</text>
-          <text class="kv"  x="16" y="206">+ loadHistory(userID)</text>
-        </g>
-                <!-- Row 4 -->
-        <g transform="translate(180,1620)">
-          <rect class="uml-card" width="300" height="100"/>
-          <text class="title" x="16" y="34">CloudDB</text>
-          <line class="sep" x1="16" y1="44" x2="264" y2="44"/>
-          <text class="kv"  x="16" y="68">provider: String</text>
-          <text class="kv"  x="16" y="88">region: String</text>
-        </g>
-
-
-        <g transform="translate(940,860)">
-          <rect class="uml-card" width="300" height="300"/>
-          <text class="title" x="16" y="34">MapUI</text>
-          <text class="kv"  x="16" y="68">mapLayer: Map</text>
-          <text class="kv"  x="16" y="88">uiState: Object</text>
-          <text class="kv"  x="16" y="108">selectedSpot: Spot</text>
-          <text class="kv"  x="16" y="128">weatherOverlay: Boolean</text>
-          <line class="sep" x1="16" y1="142" x2="264" y2="142"/>
-          <text class="kv"  x="16" y="166">+ displaySpots()</text>
-          <text class="kv"  x="16" y="186">+ toggleWeatherOverlay()</text>
-        </g>
-
-        <g transform="translate(1320,860)">
-          <rect class="card-light-gray" width="300" height="300"/>
-          <text class="title-light-gray" x="16" y="34">ARSession</text>
-          <text class="kv-light-gray"  x="16" y="68">sessionID: String</text>
-          <text class="kv-light-gray"  x="16" y="88">cameraConfig: Struct</text>
-          <text class="kv-light-gray"  x="16" y="108">recognizedObjects: List</text>
-          <text class="kv-light-gray"  x="16" y="128">anchorPoints: List</text>
-          <text class="kv-light-gray"  x="16" y="148">activeOverlay: Boolean</text>
-          <line class="sep-light-gray" x1="16" y1="162" x2="264" y2="162"/>
-          <text class="kv-light-gray"  x="16" y="186">+ activateOverlay()</text>
-        </g>
-         
-        <!-- Multi-factor weighted prediction model text (right of RecommendationEngine) -->
-        <g transform="translate(540,2120)">
-          <text x="0" y="40" style="font-size: 20px; font-weight: bold; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">Multi-factor weighted prediction</text>
-          <text x="0" y="65" style="font-size: 20px; font-weight: bold; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">model (regression / probabilistic ranking)</text>
-          <text x="0" y="120" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">Involves data normalization,</text>
-          <text x="0" y="145" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">feature weighting, and</text>
-          <text x="0" y="170" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">regression analysis to rank</text>
-          <text x="0" y="195" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">fishing spots.</text>
-        </g>
-
-
-        <!-- Time-series forecasting text (right of WeatherData) -->
-        <g transform="translate(540,2580)">
-          <text x="0" y="40" style="font-size: 20px; font-weight: bold; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">Time-series forecasting and</text>
-          <text x="0" y="65" style="font-size: 20px; font-weight: bold; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">correlation analysis</text>
-          <text x="0" y="120" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">Predicting fish activity based on</text>
-          <text x="0" y="145" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">meteorological changes</text>
-          <text x="0" y="170" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">(temperature, pressure, tide).</text>
-          <text x="0" y="205" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">Requires trend detection and curve</text>
-          <text x="0" y="230" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">fitting.</text>
-        </g>
-
-        <!-- Row 5 - Detailed RecommendationEngine (below CloudDB) -->
-        <g transform="translate(180,2120)">
-          <rect class="card-light-gray" width="300" height="300"/>
-          <text class="title-light-gray" x="16" y="34">RecommendationEngine</text>
-          <line class="sep-light-gray" x1="16" y1="44" x2="264" y2="44"/>
-          <text class="kv-light-gray"  x="16" y="68">modelType: String</text>
-          <text class="kv-light-gray"  x="16" y="88">trainingData: Dataset</text>
-          <text class="kv-light-gray"  x="16" y="108">weightingFactors: Map</text>
-          <text class="kv-light-gray"  x="16" y="128">recentSpots: List</text>
-          <text class="kv-light-gray"  x="16" y="148">fishActivityModel: MLModel</text>
-          <line class="sep-light-gray" x1="16" y1="162" x2="264" y2="162"/>
-          <text class="kv-light-gray"  x="16" y="186">+ generateSpotRecommendation(user, weather)</text>
-          <text class="kv-light-gray"  x="16" y="206">+ updateModel(data)</text>
-          <text class="kv-light-gray"  x="16" y="226">+ predictCatchProbability(spot, time)</text>
-          <text class="kv-light-gray"  x="16" y="246">+ rankSpots(spots)</text>
-        </g>
-        
-        <g transform="translate(180,2580)">
-          <rect class="card-light-gray" width="300" height="300"/>
-          <text class="title-light-gray" x="16" y="34">WeatherData</text>
-          <line class="sep-light-gray" x1="16" y1="44" x2="264" y2="44"/>
-          <text class="kv-light-gray"  x="16" y="68">temperature: Float</text>
-          <text class="kv-light-gray"  x="16" y="88">humidity: Float</text>
-          <text class="kv-light-gray"  x="16" y="108">airPressure: Float</text>
-          <text class="kv-light-gray"  x="16" y="128">windSpeed: Float</text>
-          <text class="kv-light-gray"  x="16" y="148">moonPhase: String</text>
-          <text class="kv-light-gray"  x="16" y="168">tideLevel: Float</text>
-          <text class="kv-light-gray"  x="16" y="188">sunrise: DateTime</text>
-          <text class="kv-light-gray"  x="16" y="208">sunset: DateTime</text>
-          <line class="sep-light-gray" x1="16" y1="222" x2="264" y2="222"/>
-          <text class="kv-light-gray"  x="16" y="246">+ fetchFromAPI(lat, lon)</text>
-          <text class="kv-light-gray"  x="16" y="266">+ analyzeFishingWindow()</text>
-          <text class="kv-light-gray"  x="16" y="286">+ compareWithIdealConditions()</text>
-        </g>
-
-
-                <!-- Row 5 - Detailed WeatherData (below RecommendationEngine) -->
-        <g transform="translate(180,3040)">
-          <rect class="card-light-gray" width="300" height="300"/>
-          <text class="title-light-gray" x="16" y="34">ARSession</text>
-          <line class="sep-light-gray" x1="16" y1="44" x2="264" y2="44"/>
-          <text class="kv-light-gray"  x="16" y="68">sessionID: String</text>
-          <text class="kv-light-gray"  x="16" y="88">cameraInput: Stream</text>
-          <text class="kv-light-gray"  x="16" y="108">recognizedObjects: List</text>
-          <text class="kv-light-gray"  x="16" y="128">anchorPoints: List</text>
-          <text class="kv-light-gray"  x="16" y="148">activeCatchOverlay: Boolean</text>
-          <line class="sep-light-gray" x1="16" y1="162" x2="264" y2="162"/>
-          <text class="kv-light-gray"  x="16" y="186">+ initializeAR()</text>
-          <text class="kv-light-gray"  x="16" y="206">+ detechFish()</text>
-          <text class="kv-light-gray"  x="16" y="226">+ display3Doverlay()</text>                
-          <text class="kv-light-gray"  x="16" y="246">+ record3DCatch()</text>
-        </g>
-
-        <g transform="translate(180,3500)">
-          <rect class="card-light-gray" width="300" height="300"/>
-          <text class="title-light-gray" x="16" y="34">EmotionAI</text>
-          <text class="kv-light-gray"  x="16" y="68">emotionModel: MLModel</text>              
-          <text class="kv-light-gray"  x="16" y="88">userMoodHistory: List</text>
-          <text class="kv-light-gray"  x="16" y="108">rewardMessage: Map</text>
-          <line class="sep-light-gray" x1="16" y1="122" x2="264" y2="122"/>
-          <text class="kv-light-gray"  x="16" y="146">+ detectMood()</text>
-          <text class="kv-light-gray"  x="16" y="166">+ generateEncouragement(mood,perf)</text>
-          <text class="kv-light-gray"  x="16" y="186">+ loogMoodChanges(user,mood)</text>
-          <text class="kv-light-gray"  x="16" y="206">+ updateRewardSystem()</text>
-        </g>
-
-        <!-- Geometric Projection Text (right of ARSession) -->
-        <g transform="translate(540,3040)">
-          <text x="0" y="40" style="font-size: 20px; font-weight: bold; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">Geometric projection &amp; spatial</text>
-          <text x="0" y="65" style="font-size: 20px; font-weight: bold; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">measurement from images</text>
-          <text x="0" y="120" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">Computing object size and</text>
-          <text x="0" y="145" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">position from camera images</text>
-          <text x="0" y="170" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">using projection matrices and</text>
-          <text x="0" y="195" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">pixel-to-real length conversion.</text>
-        </g>
-
-        <!-- Numerical feature extraction text (right of EmotionAI) -->
-        <g transform="translate(540,3500)">
-          <text x="0" y="40" style="font-size: 20px; font-weight: bold; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">Numerical feature extraction and</text>
-          <text x="0" y="65" style="font-size: 20px; font-weight: bold; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">sentiment scoring</text>
-          <text x="0" y="120" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">Transforming facial or text input into</text>
-          <text x="0" y="145" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">vector representations and computing</text>
-          <text x="0" y="170" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">weighted mood scores via classification</text>
-          <text x="0" y="195" style="font-size: 16px; fill: #9ca3af; font-family: Raleway, Helvetica, Arial, sans-serif;">or similarity functions.</text>
-        </g>
-
-        <!-- Wires -->
-        <!-- User connections -->
-        <path class="wire" d="M330,440 L330,380"/><!-- Challenge top edge -> User bottom edge -->
-        <text class="label" x="342" y="410">aggregates</text>
-        <path class="wire" d="M480,380 L560,460"/><!-- User bottom edge -> Catch top edge -->
-        <text class="label" x="510" y="410">creates</text>
-        <!-- <path class="wire" d="M480,230 L1320,630"/><!-- User right edge -> EmotionAI left edge -->
-        <text class="label" x="900" y="410">uses</text> 
-        <path class="wire" d="M480,10 L1320,10" stroke-dasharray="5,5"/><!-- User top edge -> RecommendationEngine top edge (dashed) -->
-        <text class="label" x="900" y="0">uses</text>
-        
-        <!-- FishingSession connections -->
-        <path class="wire" d="M700,380 L700,460" stroke-dasharray="5,5"/><!-- FishingSession bottom edge -> Catch top edge (dashed) -->
-        <text class="label" x="700" y="410">contains (0..*)</text>
-        
-        <!-- Catch connections -->
-        <path class="wire" d="M860,780 L940,860"/><!-- Catch bottom edge -> MapUI left edge -->
-        <text class="label" x="890" y="820">uses</text>
-        
-        <!-- Catch to Spot connection -->
-        <path class="wire" d="M860,580 L940,580"/><!-- Catch right edge -> Spot bottom left edge -->
-        <text class="label" x="860" y="545">record at (1..)</text>
-        
-        <!-- WeatherData connections -->
-        <path class="wire" d="M1240,630 L1320,630"/><!-- WeatherData right edge -> EmotionAI left edge -->
-        
-        <!-- DataLogger connections -->
-        <path class="wire" d="M330,1540 L330,1620"/><!-- DataLogger bottom edge -> CloudDB top edge -->
-        <text class="label" x="342" y="1590">syncs</text>
-        
-        <!-- MapUI connections -->
-        <path class="wire" d="M1240,970 L1320,970"/><!-- MapUI right edge -> ARSession left edge -->
-        <text class="label" x="1280" y="970">uses</text>
-      </svg>
+      <div class="uml-diagram-container" id="uml-diagram">
+        <!-- UML cards will be dynamically generated from JSON data -->
+      </div>
     </section>
 
       <a href="sequence-diagram.html" class="uml-diagram-link">
@@ -1234,7 +887,300 @@
         clearTimeout(window.__bubbleResizeTimer);
         window.__bubbleResizeTimer = setTimeout(repositionBubbles, 150);
       });
+      
+      // Initialize jsPlumb for UML diagram
+      initJsPlumbUML();
     });
+
+    // Global variable to store UML data
+    let umlData = null;
+
+    // Load UML data from JSON file
+    async function loadUMLData() {
+      try {
+        const response = await fetch('uml-data.json');
+        umlData = await response.json();
+        return umlData;
+      } catch (error) {
+        console.error('Error loading UML data:', error);
+        return null;
+      }
+    }
+
+    // Generate UML card HTML from data
+    function generateUMLCard(cardData) {
+      const cardHtml = `
+        <div class="uml-card ${cardData.type} ${cardData.gridPosition}" data-uml-id="${cardData.id}">
+          <div class="uml-card-header">
+            ${cardData.number ? `<span class="uml-number">${cardData.number}</span>` : ''}
+            <h3 class="uml-title">${cardData.name}</h3>
+          </div>
+          <div class="uml-attributes">
+            ${cardData.attributes.map(attr => `<div class="uml-attribute">${attr}</div>`).join('')}
+          </div>
+          <div class="uml-separator"></div>
+          <div class="uml-methods">
+            ${cardData.methods.map(method => `<div class="uml-method">${method}</div>`).join('')}
+          </div>
+        </div>
+      `;
+      return cardHtml;
+    }
+
+    // Generate info card HTML from data
+    function generateInfoCard(infoData) {
+      const cardHtml = `
+        <div class="uml-info-card ${infoData.gridPosition}">
+          ${infoData.title.map(title => `<h4>${title}</h4>`).join('')}
+          <p>${infoData.description}</p>
+        </div>
+      `;
+      return cardHtml;
+    }
+
+    // Render UML diagram from JSON data
+    function renderUMLDiagram(data) {
+      const container = document.getElementById('uml-diagram');
+      if (!container || !data) return;
+
+      // Clear existing content
+      container.innerHTML = '';
+
+      // Generate UML cards
+      data.umlClasses.forEach(cardData => {
+        container.insertAdjacentHTML('beforeend', generateUMLCard(cardData));
+      });
+
+      // Generate info cards
+      data.infoCards.forEach(infoData => {
+        container.insertAdjacentHTML('beforeend', generateInfoCard(infoData));
+      });
+    }
+
+    // Initialize jsPlumb for interactive UML diagram
+    async function initJsPlumbUML() {
+      // Load UML data first
+      const data = await loadUMLData();
+      if (!data) {
+        console.error('Failed to load UML data');
+        return;
+      }
+
+      // Render the diagram
+      renderUMLDiagram(data);
+
+      // Wait for jsPlumb to be available
+      if (typeof jsPlumb === 'undefined') {
+        console.warn('jsPlumb not loaded yet, retrying...');
+        setTimeout(initJsPlumbUML, 100);
+        return;
+      }
+
+      // Initialize jsPlumb instance
+      const instance = jsPlumb.newInstance({
+        container: "uml-diagram",
+        paintStyle: data.settings.connectionStyle,
+        hoverPaintStyle: { 
+          stroke: data.settings.connectionStyle.hoverStroke, 
+          strokeWidth: data.settings.connectionStyle.hoverStrokeWidth 
+        },
+        connector: ["Flowchart", { curviness: 20 }],
+        endpoint: "Blank",
+        anchor: "Center",
+        overlays: [
+          ["Arrow", { width: 10, length: 10, location: 1 }]
+        ]
+      });
+      
+      // Enable autosize for all UML elements
+      instance.setSuspendDrawing(true);
+      
+      // Store instance globally for control functions
+      window.jsPlumbInstance = instance;
+
+      // Make UML elements draggable
+      const umlElements = document.querySelectorAll('.uml-card, .uml-user-card, .uml-card-light-gray');
+      
+      umlElements.forEach(element => {
+        // Store original position
+        if (!element.getAttribute('data-original-left')) {
+          element.setAttribute('data-original-left', element.style.left);
+          element.setAttribute('data-original-top', element.style.top);
+        }
+        
+        instance.draggable(element, {
+          containment: "parent",
+          grid: [data.settings.gridSize, data.settings.gridSize],
+          drag: function(event) {
+            // Update position during drag
+            element.style.left = event.pos[0] + 'px';
+            element.style.top = event.pos[1] + 'px';
+          }
+        });
+        
+        // Enable autosize for this element
+        instance.addToGroup("autosize", element);
+      });
+      
+      // Configure autosize group
+      instance.setGroupDefaults("autosize", {
+        autoSize: true,
+        autoSizePadding: 20
+      });
+      
+      // Resume drawing after autosize setup
+      instance.setSuspendDrawing(false);
+      
+      // Trigger autosize for all elements after content is loaded
+      setTimeout(() => {
+        umlElements.forEach(element => {
+          instance.repaint(element);
+        });
+      }, 100);
+
+      // Add endpoints and create connections
+      data.connections.forEach(conn => {
+        const sourceElement = document.querySelector(`[data-uml-id="${conn.source}"]`);
+        const targetElement = document.querySelector(`[data-uml-id="${conn.target}"]`);
+        
+        if (sourceElement && targetElement) {
+          instance.addEndpoint(sourceElement, {
+            anchor: "Right",
+            isSource: true,
+            maxConnections: -1
+          });
+          
+          instance.addEndpoint(targetElement, {
+            anchor: "Left", 
+            isTarget: true,
+            maxConnections: -1
+          });
+          
+          instance.connect({
+            source: sourceElement,
+            target: targetElement,
+            label: conn.label,
+            paintStyle: data.settings.connectionStyle,
+            overlays: [
+              ["Arrow", { width: 10, length: 10, location: 1 }],
+              ["Label", { label: conn.label, location: 0.5, cssClass: "connection-label" }]
+            ]
+          });
+        }
+      });
+
+      // Add click handlers for interactive features
+      umlElements.forEach(element => {
+        element.addEventListener('click', function() {
+          // Highlight connected elements
+          const connections = instance.getConnections({ source: this });
+          const targetConnections = instance.getConnections({ target: this });
+          
+          // Reset all elements
+          umlElements.forEach(el => el.classList.remove('highlighted'));
+          
+          // Highlight current element
+          this.classList.add('highlighted');
+          
+          // Highlight connected elements
+          [...connections, ...targetConnections].forEach(conn => {
+            if (conn.source === this) {
+              conn.target.classList.add('highlighted');
+            } else {
+              conn.source.classList.add('highlighted');
+            }
+          });
+        });
+      });
+
+      console.log('jsPlumb UML diagram initialized successfully from JSON data');
+    }
+
+    // UML Control Functions
+    async function reloadUMLData() {
+      console.log('Reloading UML data...');
+      await initJsPlumbUML();
+    }
+
+    function resetUMLDiagram() {
+      const umlElements = document.querySelectorAll('.uml-card, .uml-user-card, .uml-card-light-gray');
+      umlElements.forEach(element => {
+        // Reset position to original coordinates
+        const originalLeft = element.getAttribute('data-original-left') || element.style.left;
+        const originalTop = element.getAttribute('data-original-top') || element.style.top;
+        element.style.left = originalLeft;
+        element.style.top = originalTop;
+        element.style.transform = 'none';
+        element.classList.remove('highlighted');
+        
+        // Store original position if not already stored
+        if (!element.getAttribute('data-original-left')) {
+          element.setAttribute('data-original-left', originalLeft);
+          element.setAttribute('data-original-top', originalTop);
+        }
+      });
+      
+      // Reset jsPlumb instance if available
+      if (window.jsPlumbInstance) {
+        window.jsPlumbInstance.repaintEverything();
+      }
+    }
+
+    function toggleConnections() {
+      const connectors = document.querySelectorAll('.jtk-connector');
+      const isVisible = connectors[0]?.style.display !== 'none';
+      
+      connectors.forEach(connector => {
+        connector.style.display = isVisible ? 'none' : 'block';
+      });
+      
+      // Also toggle connection labels
+      const labels = document.querySelectorAll('.jtk-overlay');
+      labels.forEach(label => {
+        label.style.display = isVisible ? 'none' : 'block';
+      });
+    }
+
+    function exportDiagram() {
+      const container = document.querySelector('.uml-diagram-container');
+      if (container) {
+        // Use html2canvas to capture the HTML elements
+        if (typeof html2canvas !== 'undefined') {
+          html2canvas(container, {
+            backgroundColor: '#ffffff',
+            scale: 2,
+            useCORS: true,
+            allowTaint: true
+          }).then(canvas => {
+            const link = document.createElement('a');
+            link.download = 'uml-diagram.png';
+            link.href = canvas.toDataURL();
+            link.click();
+          });
+        } else {
+          // Fallback: create a simple screenshot using canvas
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.width = container.offsetWidth;
+          canvas.height = container.offsetHeight;
+          
+          // Fill background
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          
+          // Draw a simple representation
+          ctx.fillStyle = '#000000';
+          ctx.font = '16px Arial';
+          ctx.fillText('UML Diagram Export', 50, 50);
+          ctx.fillText('Please use browser screenshot tools for better results', 50, 80);
+          
+          const link = document.createElement('a');
+          link.download = 'uml-diagram.png';
+          link.href = canvas.toDataURL();
+          link.click();
+        }
+      }
+    }
 
   </script>
 </body>
