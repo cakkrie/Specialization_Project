@@ -18,7 +18,7 @@
   --primary-accent: #303dd1; /* accent primary - used in stats */
   
   /* Font Families */
-  --font-primary: "BBH Sans Bogle", sans-serif;
+  --font-primary: "Bebas Neue", sans-serif;
   --font-secondary: "Raleway", "Helvetica Neue", Helvetica, sans-serif;
   
   /* Font Sizes */
@@ -43,6 +43,7 @@
   --font-weight-black: 900;
   
   /* Line Heights */
+  --line-height-tight: 0.7;
   --line-height-normal: 1.0;
   --line-height-loose: 1.4;
   --line-height-extra-loose: 1.8;
@@ -321,14 +322,22 @@ header .left i {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  padding: var(--spacing-5xl) var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: var(--spacing-5xl) var(--spacing-xl);
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  /* Grid background tokens */
+  background-color: var(--black);
+  background-image: 
+    /* Larger, lighter grid (100px) */
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    /* Smaller, lighter grid (25px) */
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
   --grid-size: 24px;
   --grid-color: rgba(255, 255, 255, 0.06);
   --grid-strong-color: rgba(255, 255, 255, 0.12);
@@ -406,10 +415,37 @@ header .left i {
   z-index: 1;
   text-align: left;
   width: 100%;
-  color: var(--gray-200);
+  color: var(--white);
   display: flex;
-  align-items: center;
-  gap: var(--spacing-xl);
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: var(--spacing-5xl) 0;
+  box-sizing: border-box;
+}
+
+.main-title {
+  font-family: var(--font-primary);
+  font-size: clamp(48px, 8vw, 120px);
+  line-height: 0.9;
+  color: var(--white);
+  margin-top: 0;
+}
+
+.title-line {
+  display: block;
+}
+
+.subtitle {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-loose);
+  color: var(--white);
+  max-width: 600px;
+  margin-bottom: 0;
+  position: absolute;
+  bottom: 0;
 }
 
 .title-cta {
