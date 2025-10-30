@@ -17,15 +17,14 @@
  </head>
 <body>
   <header>
-    <div class="left"><a href="index.html" class="body-sm">FishOn</a></div>
+    <div class="left"><a href="index.html">FishOn</a></div>
     <div class="center">
-      <a href="about.html" class="body-sm">About</a>
-      <a href="research.html" class="body-sm">Research</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
     </div>
   </header>
 
   <main>
-    
     <section class="landing-page">
       <div class="landing-page-title">
         <div class="main-title">
@@ -80,7 +79,6 @@
       </div>
     </section>
 
-    
     <section class="bubble-section">
       <div id="bubble-field" class="bubble-field" aria-live="polite"></div>
       <br>
@@ -92,83 +90,72 @@
           <span class="cta-text">EXPLORE FISHING COMMUNITY</span>
         </a>
       </div>
-      
     </section>
 
     <section class="list-light">
       <div class="header-3xl">Map of <br>Community</div>
       <br>
- 
       <section class="list">
+        <div class="list-row">
+          <div class="header-3xl">01</div>
+          <div class="header-2xl">Software</div>
+          <div class="row-labels"><span class="label">Software</span></div>
+          <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+        </div>
+        <div class="list-row-content">
+          <p>An app that analyzes data points — including satellite imagery, weather patterns, water depth data, and historical fishing records to generate fish activity forecasts, hotspot maps, and water clarity maps.</p>
+        </div>
 
-      <div class="list-row">
-        <div class="caption-base">(01)</div>
-        <div class="body-lg">LakeMonster</div>
-        <div class="row-labels"><span class="label">Software</span></div>
-        <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-      </div>
-      <div class="list-row-content">
-        <p>An app that analyzes data points — including satellite imagery, weather patterns, water depth data, and historical fishing records to generate fish activity forecasts, hotspot maps, and water clarity maps.</p>
-      </div>
+        <div class="list-row">
+          <div class="caption-base">(02)</div>
+          <div class="body-sm">Fishbuddy</div>
+          <div class="row-labels"><span class="label">Software</span></div>
+          <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+        </div>
+        <div class="list-row-content">
+          <p>Smart decisions: uses 10+ weather factors (temp, pressure, humidity) to flag prime times, recommend bait, and navigate nearby spots. Social: in-app forum to share catches and techniques.</p>
+        </div>
 
-      <div class="list-row">
-        <div class="caption-base">(02)</div>
-        <div class="body-sm">Fishbuddy</div>
-        <div class="row-labels"><span class="label">Software</span></div>
-        <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-      </div>
-      <div class="list-row-content">
-        <p>Smart decisions: uses 10+ weather factors (temp, pressure, humidity) to flag prime times, recommend bait, and navigate nearby spots. Social: in-app forum to share catches and techniques.</p>
-      </div>
+        <div class="list-row">
+          <div class="caption-base">(03)</div>
+          <div class="body-sm">墨迹天气</div>
+          <div class="row-labels"><span class="label">Software</span></div>
+          <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+        </div>
+        <div class="list-row-content">
+          <p>Expert-verified with hi-res satellite and depth maps. AR+AI logging: snap a fish to auto-record species, size/weight, location, and weather. AR contests: create/join casual challenges with live leaderboards.</p>
+        </div>
 
-      <div class="list-row">
-        <div class="caption-base">(03)</div>
-        <div class="body-sm">墨迹天气</div>
-        <div class="row-labels"><span class="label">Software</span></div>
-        <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-      </div>
-      <div class="list-row-content">
-        <p>Expert-verified with hi-res satellite and depth maps. AR+AI logging: snap a fish to auto-record species, size/weight, location, and weather. AR contests: create/join casual challenges with live leaderboards.</p>
-      </div>
+        <div class="list-row">
+          <div class="caption-base">(04)</div>
+          <div class="body-sm">Sea.ai</div>
+          <div class="row-labels"><span class="label">Hardware</span></div>
+          <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+        </div>
+        <div class="list-row-content">
+          <p>Smart camera: combines optical and infrared sensors, utilizes AI and ML algorithms to detect objects on the water surface.</p>
+        </div>
 
-      <div class="list-row">
-        <div class="caption-base">(04)</div>
-        <div class="body-sm">Sea.ai</div>
-        <div class="row-labels"><span class="label">Hardware</span></div>
-        <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-      </div>
-      <div class="list-row-content">
-        <p>Smart camera: combines optical and infrared sensors, utilizes AI and ML algorithms to detect objects on the water surface.</p>
-      </div>
-
-      <div class="list-row">
-        <div class="caption-base">(05)</div>
-        <div class="body-sm">Chasing F1 Pro</div>
-        <div class="row-labels"><span class="label">Hardware</span></div>
-        <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-      </div>
-      <div class="list-row-content">
-        <p>Remote/autonomous lateral movement, station-hold, multi-spot waypoints. Depth &amp; temperature sensors; Wi‑Fi streams live video + depth/temp to the app. Bait-boat mount with one-tap in-app bait release.</p>
-      </div>
-
-
-      <div class="list-row">
-        <div class="caption-base">(06)</div>
-        <div class="body-sm">Compare with competitors</div>
-        <div class="row-labels"><span class="label">Matrix</span></div>
-        <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-      </div>
-
-        </section>
-      </div>
+        <div class="list-row">
+          <div class="caption-base">(05)</div>
+          <div class="body-sm">Chasing F1 Pro</div>
+          <div class="row-labels"><span class="label">Hardware</span></div>
+          <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
+        </div>
+        <div class="list-row-content">
+          <p>Remote/autonomous lateral movement, station-hold, multi-spot waypoints. Depth &amp; temperature sensors; Wi‑Fi streams live video + depth/temp to the app. Bait-boat mount with one-tap in-app bait release.</p>
+        </div>
+      </section>
+    </section>
 
     <br>
     <br>
     <br>
 
 
-    <div class="header-3xl">UML Diagram</div>
-    
+    <div class="header-4xl primary">How it works</div>
+    <div class="body-sm" style="text-align: center;">An uml diagram of the specilized fishing map</div>
+  
 
     <section class="uml-section">
       <div class="uml-diagram-container" id="uml-diagram">
@@ -177,110 +164,113 @@
     </section>
 
       <!-- Earth Visualization Section -->
-      <div class="earth-section">
-        <div class="earth-container">
-          <div class="earth-layers">
-            <canvas id="layer-bottom" class="earth-layer" data-layer="bottom" width="675" height="675"></canvas>
-            <canvas id="layer-middle" class="earth-layer" data-layer="middle" width="675" height="675"></canvas>
-            <canvas id="layer-top" class="earth-layer" data-layer="top" width="675" height="675"></canvas>
-          </div>
+    <div class="earth-section">
+      <div class="earth-container">
+        <div class="earth-layers">
+          <canvas id="layer-bottom" class="earth-layer" data-layer="bottom" width="675" height="675"></canvas>
+          <canvas id="layer-middle" class="earth-layer" data-layer="middle" width="675" height="675"></canvas>
+          <canvas id="layer-top" class="earth-layer" data-layer="top" width="675" height="675"></canvas>
         </div>
+      </div>
         
-        <div class="earth-content">
-          <div class="earth-info" id="earth-info">
-            <div class="info-item active" data-layer="bottom">
-              <h2 class="header-md">2D Map Interface</h2>
-              <ul>
-                <li>Recommendation engine</li>
-                <li>Community-marked fishing spots</li>
-                <li>Real-time weather overlays & ideal time suggestions</li>
-                <li>Route planning and GPS-based navigation</li>
-              </ul>
-            </div>
-            <div class="info-item" data-layer="middle">
-              <h2 class="header-md">2.5D Map Interface</h2>
-              <ul>
-                <li>Unlock & track regional fish species</li>
-                <li>Check-in system with badges & rewards</li>
-                <li>Encouragement system via motivational popups</li>
-                <li>Beginner-friendly suggestion cards</li>
-              </ul>
-            </div>
-            <div class="info-item" data-layer="top">
-              <h2 class="header-md">4D XR Map Interface</h2>
-              <ul>
-                <li>Visual reconstruction of fish spots via 3D scanning</li>
-                <li>AR-based immersive previews</li>
-                <li>Fish species terrain recognition with AI guidance</li>
-                <li>Species detection & highlight moment replay</li>
-              </ul>
-            </div>
+      <div class="earth-content">
+        <div class="earth-info" id="earth-info">
+          <div class="info-item active" data-layer="bottom">
+            <h2 class="header-md">2D Map Interface</h2>
+            <ul>
+              <li>Recommendation engine</li>
+              <li>Community-marked fishing spots</li>
+              <li>Real-time weather overlays & ideal time suggestions</li>
+              <li>Route planning and GPS-based navigation</li>
+            </ul>
+          </div>
+          <div class="info-item" data-layer="middle">
+            <h2 class="header-md">2.5D Map Interface</h2>
+            <ul>
+              <li>Unlock & track regional fish species</li>
+              <li>Check-in system with badges & rewards</li>
+              <li>Encouragement system via motivational popups</li>
+              <li>Beginner-friendly suggestion cards</li>
+            </ul>
+          </div>
+          <div class="info-item" data-layer="top">
+            <h2 class="header-md">4D XR Map Interface</h2>
+             <ul>
+              <li>Visual reconstruction of fish spots via 3D scanning</li>
+              <li>AR-based immersive previews</li>
+              <li>Fish species terrain recognition with AI guidance</li>
+              <li>Species detection & highlight moment replay</li>
+            </ul>
           </div>
         </div>
       </div>
+    </div>
 
        <!-- Parallax Section -->
-       <div class="parallax-container" id="parallax-container">
-          <div class="parallax-wrapper">
-            <img src="Photo/bottom_layer.png" alt="Bottom Layer Parallax" class="parallax-image" id="parallax-image">
+    <div class="parallax-container" id="parallax-container">
+      <div class="parallax-wrapper">
+        <img src="Photo/bottom_layer.png" alt="Bottom Layer Parallax" class="parallax-image" id="parallax-image">
             
             <!-- Phone screens in the center -->
-            <div class="screen-container">
-              <img src="Photo/buttom1_screen.png" alt="Screen 1" class="phone-screen screen-1">
-              <img src="Photo/buttom2_screen.png" alt="Screen 2" class="phone-screen screen-2">
-              <img src="Photo/buttom3_screen.png" alt="Screen 3" class="phone-screen screen-3">
-            </div>
+        <div class="screen-container">
+          <img src="Photo/buttom1_screen.png" alt="Screen 1" class="phone-screen screen-1">
+          <img src="Photo/buttom2_screen.png" alt="Screen 2" class="phone-screen screen-2">
+          <img src="Photo/buttom3_screen.png" alt="Screen 3" class="phone-screen screen-3">
+        </div>
             
-            <svg class="progress-ring" width="675" height="675">
-              <circle class="progress-circle-bg" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#333" stroke-width="2"/>
-              <circle class="progress-circle progress-section-1" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
-              <circle class="progress-circle progress-section-2" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
-              <circle class="progress-circle progress-section-3" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
-            </svg>
-            <div class="parallax-titles">
-              <div class="title-text title-1"><span>2D Map</span><span class="title-sub">Real-time overlays and navigation</span><span class="title-body">A data-driven map that visualizes real fishing spots, weather, and location information for quick decision-making</span></div>
-              <div class="title-text title-2"><span>2.5D Map</span><span class="title-sub">Emotion & Discovery Map</span><span class="title-body">A semi-immersive map blending 3D depth and emotional feedback, exploration through ambient visuals.</span></div>
-              <div class="title-text title-3"><span>4D XR Map</span><span class="title-sub">Immersive XR previews</span><span class="title-body">An extended-reality environment that anchors fish and environment in real-world space, merging physical and virtual fishing experiences.</span></div>
-            </div>
-          </div>
-       </div>
+        <svg class="progress-ring" width="675" height="675">
+          <circle class="progress-circle-bg" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#333" stroke-width="2"/>
+          <circle class="progress-circle progress-section-1" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
+          <circle class="progress-circle progress-section-2" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
+          <circle class="progress-circle progress-section-3" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
+        </svg>
+        <div class="parallax-titles">
+          <div class="title-text title-1"><span>2D Map</span><span class="title-sub">Real-time overlays and navigation</span><span class="title-body">A data-driven map that visualizes real fishing spots, weather, and location information for quick decision-making</span></div>
+          <div class="title-text title-2"><span>2.5D Map</span><span class="title-sub">Emotion & Discovery Map</span><span class="title-body">A semi-immersive map blending 3D depth and emotional feedback, exploration through ambient visuals.</span></div>
+           <div class="title-text title-3"><span>4D XR Map</span><span class="title-sub">Immersive XR previews</span><span class="title-body">An extended-reality environment that anchors fish and environment in real-world space, merging physical and virtual fishing experiences.</span></div>
+        </div>
+      </div>
+    </div>
        
        
        <!-- Grey Card Section (3vh spacing from bottom) -->
-       <section class="bottom-card-section">
-         <h2 class="header-xl">Radical Prototype</h2>
-         <div class="grey-card" id="tiltCard">
-           <div class="card-text">
-             Letting users to "see" the dynamic fish habitats and real-time encouragement from an AI multidimensional agent, creating an immersive yet emotionally supportive fishing journey
-           </div>
-         </div>
-       </section>
+    <section class="bottom-card-section">
+      <div class="header-4xl primary">Radical Prototype</div>
+      <div class="body-sm" style="text-align: center;">Letting users to "see" the dynamic fish habitats and real-time encouragement from an AI multidimensional agent, creating an immersive yet emotionally supportive fishing journey</div>
+        <div class="grey-card" id="tiltCard">
+          <div class="card-text">
+            <p>Letting users to "see" the dynamic fish habitats and real-time encouragement from an AI multidimensional agent, creating an immersive yet emotionally supportive fishing journey</p>
+          </div>
+        </div>
+      </div>
+    </section>
        
        <!-- Responsive Cards Grid Section -->
-       <section class="responsive-cards-section">
-         <div class="responsive-cards-grid">
-           <div class="responsive-card">
-             <div class="header-xl">Fishing Tech</div>
-             <div class="responsive-card-description">Envisions a future where fishing blends data, emotion, and nature to explore new nature–AI relationships.</div>
-           </div>
-           <div class="responsive-card">
-             <div class="header-xl">Provocative</div>
-             <div class="responsive-card-description">Balance tech's focus on efficiency and experience with emphasizing mindfulness, emotion, and play.</div>
-           </div>
-           <div class="responsive-card">
-             <div class="header-xl">Narrative-driven</div>
-             <div class="responsive-card-description">Builds a story between user, environment and community through every fishing journey.</div>
-           </div>
-           <div class="responsive-card">
-             <div class="header-xl">Experience over functional</div>
-             <div class="responsive-card-description">Focuses on illustrating ideas of journey while blending technical completion.</div>
-           </div>
-           <div class="responsive-card">
-             <div class="header-xl">Speculative</div>
-             <div class="responsive-card-description">Connects speculative storytelling with design research to reflect on the fishing community.</div>
-           </div>
-         </div>
-       </section>
+    <section class="responsive-cards-section">
+      <div class="responsive-cards-grid">
+        <div class="responsive-card">
+          <div class="header-xl">Fishing Tech</div>
+             div class="responsive-card-description">Envisions a future where fishing blends data, emotion, and nature to explore new nature–AI relationships.</div>
+          </div>
+          <div class="responsive-card">
+            <div class="header-xl">Provocative</div>
+            <div class="responsive-card-description">Balance tech's focus on efficiency and experience with emphasizing mindfulness, emotion, and play.</div>
+          </div>
+          <div class="responsive-card">
+            <div class="header-xl">Narrative-driven</div>
+            <p>Builds a story between user, environment and community through every fishing journey.</p>
+          </div>
+          <div class="responsive-card">
+            <div class="header-xl">Experience over functional</div>
+            <p>Focuses on illustrating ideas of journey while blending technical completion.</p>
+          </div>
+          <div class="responsive-card">
+            <div class="header-xl">Speculative</div>
+            <p>Connects speculative storytelling with design research to reflect on the fishing community.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script>

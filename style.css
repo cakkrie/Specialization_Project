@@ -98,6 +98,7 @@
 }
 
 .header-4xl {
+  font-family: var(--font-secondary);
   font-size: var(--font-size-4xl);
   line-height: var(--line-height-normal);
   letter-spacing: var(--letter-spacing-normal);
@@ -109,6 +110,11 @@
   text-transform: uppercase;
   line-height: var(--line-height-loose);
   font-weight: var(--font-weight-light);
+}
+
+.header-4xl.primary { 
+  font-family: var(--font-primary); 
+  text-align: center;
 }
 
 .header-2xl {
@@ -196,33 +202,17 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-secondary);
-  background-color: var(--black);
-  color: var(--white);
+  color: var(--black);
   width: 100%;
   overflow-x: hidden;
+  background-color: var(--gray-50);
 }
 
 /* Light theme override */
 body.light-theme {
-  background-color: var(--white);
-  color: var(--gray-500);
-}
-
-body.light-theme header .left a,
-body.light-theme header .right a {
-  color: var(--gray-500);
-}
-
-body.light-theme header .left a:hover,
-body.light-theme header .right a:hover {
-  color: var(--gray-400);
-}
-
-body.light-theme header .center a {
-  color: var(--gray-300);
-}
-
-body.light-theme header .center a:hover {
+  padding: 0;
+  margin: 0;
+  background-color: var(--gray-50);
   color: var(--gray-500);
 }
 
@@ -241,64 +231,24 @@ header {
   box-sizing: border-box;
 }
 
-header .left {
-  color: var(--gray-200);
-  font-weight: var(--font-weight-medium);
-  text-transform: uppercase;
-  text-align: left;
-  grid-column: 1;
-}
-
-header .left a {
-  color: var(--gray-200);
+header a{
+  color: var(--gray-400);
   text-decoration: none;
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   text-transform: uppercase;
   transition: color var(--transition-normal);
+  margin-right: 15px;
 }
 
-header .left a:hover {
-  color: var(--white);
+header a:hover {
+  color: var(--gray-300);
 }
+
 
 header .center {
-  font-weight: var(--font-weight-normal);
   text-align: center;
-  color: var(--white);
   grid-column: 2;
-  text-transform: uppercase;
-}
-
-header .center span {
-  font-size: var(--font-size-xs);
-  color: var(--gray-200);
-}
-
-header .center a {
-  color: var(--gray-300);
-  text-decoration: none;
-  font-weight: var(--font-weight-normal);
-  margin: 0 15px;
-}
-
-header .center a:hover {
-  color: var(--gray-200);
-}
-
-header .right {
-  text-align: center;
-  text-transform: uppercase;
-  grid-column: 3;
-}
-
-header .right a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: var(--font-weight-normal);
-}
-
-header .right a:hover {
-  color: var(--gray-200);
 }
 
 /* Icon styling */
@@ -307,12 +257,7 @@ header i {
   font-size: var(--font-size-base);
 }
 
-header .left i {
-  color: var(--primary);
-}
-
 /* Main container */
-
 
 /* Landing Page Section */
 .landing-page {
@@ -1490,12 +1435,9 @@ a.gallery-card {
   height: 300vh;
   overflow: hidden;
   background-color: var(--black);
-}
+  padding: 0px;
+  margin: 0px;
 
-.parallax-wrapper {
-  position: relative;
-  width: 675px;
-  height: 675px;
 }
 
 .parallax-wrapper {
@@ -1881,35 +1823,30 @@ a.gallery-card {
 
 /* Sequence Diagram (Mermaid) */
 .mermaid {
-  background: var(--gray-500);
-  border-radius: 15px;
-  padding: var(--spacing-3xl);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  margin: var(--spacing-4xl) auto;
-  max-width: 1000px;
-  transform: scale(4);
+  width: 60%;
+  transform: scale(1.5);
   transform-origin: center;
 }
 
-.mermaid text {
-  font-size: 36px !important;
-  font-weight: var(--font-weight-semibold) !important;
-  fill: var(--white) !important;
-  color: var(--white) !important;
-}
-
 .mermaid .actor {
-  font-size: 42px !important;
-  font-weight: var(--font-weight-bold) !important;
-  fill: var(--white) !important;
-  color: var(--white) !important;
+  font-size:  var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  fill: var(--black);
+  color: var(--black);
 }
 
 .mermaid .messageText {
-  font-size: 34px !important;
-  font-weight: var(--font-weight-medium) !important;
-  fill: var(--white) !important;
-  color: var(--white) !important;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  fill: var(--black);
+  color: var(--black);
+}
+
+.mermaid text {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  fill: var(--black);
+  color: var(--black);
 }
 
 /* Gallery Container */
