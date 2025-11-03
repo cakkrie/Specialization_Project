@@ -17,25 +17,29 @@
   </header>
 
   <main>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <section class="uml-section">
       <div class="mermaid">
-sequenceDiagram
-    participant User
-    participant FishingSession
-    participant Spot
-    participant WeatherData
-    participant RecommendationEngine
-    participant EmotionAI
+      sequenceDiagram
+          participant User
+          participant FishingSession
+          participant Spot
+          participant WeatherData
+          participant RecommendationEngine
+          participant EmotionAI
 
-    User->>FishingSession: Begin fishing activity
-    FishingSession->>Spot: Request nearby spots
-    FishingSession->>EmotionAI: Send catch result + performance
-    WeatherData->>RecommendationEngine: Provide weather context
-    EmotionAI->>User: Provide feedback & reward
-    RecommendationEngine->>FishingSession: Recommend optimal spot
-    Spot->>FishingSession: Get environmental data
+          User->>FishingSession: Begin fishing activity
+          FishingSession->>Spot: Request nearby spots
+          FishingSession->>EmotionAI: Send catch result + performance
+          WeatherData->>RecommendationEngine: Provide weather context
+          EmotionAI->>User: Provide feedback & reward
+          RecommendationEngine->>FishingSession: Recommend optimal spot
+          Spot->>FishingSession: Get environmental data
       </div>
     </section>
 
