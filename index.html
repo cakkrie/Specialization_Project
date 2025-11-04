@@ -182,8 +182,6 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
 
 
     <div class="header-4xl primary">How it works</div>
@@ -198,42 +196,34 @@
 
       <!-- Earth Visualization Section -->
     <div class="earth-section">
-      <div class="earth-container">
-        <div class="earth-layers">
-          <canvas id="layer-bottom" class="earth-layer" data-layer="bottom" width="675" height="675"></canvas>
-          <canvas id="layer-middle" class="earth-layer" data-layer="middle" width="675" height="675"></canvas>
-          <canvas id="layer-top" class="earth-layer" data-layer="top" width="675" height="675"></canvas>
+      <div class="earth-section-pin">
+        <div class="earth-content">
+          <div class="earth-info" id="earth-info">
+            <div class="info-item active" data-layer="bottom">
+              <div class="header-2xl">2D Map Interface</div>
+              <ul>
+                <li>Recommendation engine</li>
+                <li>Community-marked fishing spots</li>
+                <li>Real-time weather overlays & ideal time suggestions</li>
+                <li>Route planning and GPS-based navigation</li>
+              </ul>
+            </div>
+            <div class="info-item" data-layer="top">
+              <div class="header-2xl">4D XR Map Interface</div>
+               <ul>
+                <li>Visual reconstruction of fish spots via 3D scanning</li>
+                <li>AR-based immersive previews</li>
+                <li>Fish species terrain recognition with AI guidance</li>
+                <li>Species detection & highlight moment replay</li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-        
-      <div class="earth-content">
-        <div class="earth-info" id="earth-info">
-          <div class="info-item active" data-layer="bottom">
-            <h2 class="header-md">2D Map Interface</h2>
-            <ul>
-              <li>Recommendation engine</li>
-              <li>Community-marked fishing spots</li>
-              <li>Real-time weather overlays & ideal time suggestions</li>
-              <li>Route planning and GPS-based navigation</li>
-            </ul>
-          </div>
-          <div class="info-item" data-layer="middle">
-            <h2 class="header-md">2.5D Map Interface</h2>
-            <ul>
-              <li>Unlock & track regional fish species</li>
-              <li>Check-in system with badges & rewards</li>
-              <li>Encouragement system via motivational popups</li>
-              <li>Beginner-friendly suggestion cards</li>
-            </ul>
-          </div>
-          <div class="info-item" data-layer="top">
-            <h2 class="header-md">4D XR Map Interface</h2>
-             <ul>
-              <li>Visual reconstruction of fish spots via 3D scanning</li>
-              <li>AR-based immersive previews</li>
-              <li>Fish species terrain recognition with AI guidance</li>
-              <li>Species detection & highlight moment replay</li>
-            </ul>
+        <div class="earth-container">
+          <div class="earth-layers">
+            <canvas id="layer-bottom" class="earth-layer" data-layer="bottom" width="675" height="675"></canvas>
+            <canvas id="layer-middle" class="earth-layer" data-layer="middle" width="675" height="675"></canvas>
+            <canvas id="layer-top" class="earth-layer" data-layer="top" width="675" height="675"></canvas>
           </div>
         </div>
       </div>
@@ -457,9 +447,9 @@
          const parallaxStartY = earthSectionBottom;
          const parallaxEndY = parallaxStartY + (viewportHeight * 3);
          
-         // 当earth-section完全进入视窗时，显示图像在初始位置
+         // 当earth-section完全进入视窗时，隐藏parallax图像，只显示earth layers
          if (scrollY >= earthSectionTop && scrollY < parallaxStartY) {
-           parallaxWrapper.className = 'parallax-wrapper initial';
+           parallaxWrapper.className = 'parallax-wrapper';
            earthLayers.classList.remove('hidden'); // 显示原始圆圈
            progressRing.classList.remove('visible'); // 隐藏进度条
            titleTexts.forEach(title => title.classList.remove('visible')); // 隐藏所有标题
