@@ -440,8 +440,9 @@ header i {
 
 /* Landing Context Section */
 .landing-context {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
+  z-index: 10;
 }
 
 .landing-context-pin {
@@ -452,6 +453,7 @@ header i {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 10;
 }
 
 .landing-context video,
@@ -472,11 +474,11 @@ header i {
   padding: var(--spacing-xl) var(--spacing-2xl);
   color: var(--white);
   background-color: transparent;
-  z-index: 1;
-    opacity: 0;
+  z-index: 10;
+  opacity: 0;
   transform: translateY(10px);
   transition: opacity 300ms ease, transform 300ms ease;
-  }
+}
 
 .landing-context .header-2xl {
   display: inline;
@@ -1296,7 +1298,7 @@ a.gallery-card {
   padding: var(--spacing-4xl) var(--spacing-6xl);
   max-width: 1400px;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .earth-container {
@@ -1312,21 +1314,20 @@ a.gallery-card {
 
 .earth-layers {
   position: relative;
-  width: 520px;
-  height: 520px;
+  width: 400px;
+  height: 400px;
 }
 
 .earth-titles {
   position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 10;
+  left: var(--spacing-7xl);
+  bottom: var(--spacing-3xl);
+  z-index: 1000;
   pointer-events: none;
 }
 
 .earth-title-text {
-  position: absolute;
-  left: calc(-420px - var(--spacing-6xl));
+  position: relative;
   bottom: 0;
   color: var(--white);
   font-family: var(--font-secondary);
@@ -1492,8 +1493,8 @@ a.gallery-card {
 }
 
 .parallax-image {
-  width: 675px;
-  height: 675px;
+  width: 520px;
+  height: 520px;
   border-radius: var(--radius-full);
   overflow: hidden;
   display: block;
@@ -1528,17 +1529,17 @@ a.gallery-card {
 
 .progress-section-1 {
   transform: rotate(0deg);
-  stroke-dasharray: 234 469;
+  stroke-dasharray: 180 360;
 }
 
 .progress-section-2 {
   transform: rotate(120deg);
-  stroke-dasharray: 234 469;
+  stroke-dasharray: 180 360;
 }
 
 .progress-section-3 {
   transform: rotate(240deg);
-  stroke-dasharray: 234 469;
+  stroke-dasharray: 180 360;
 }
 
 .parallax-titles {
@@ -1980,8 +1981,19 @@ img.content-image {
 .responsive-cards-section {
   padding: var(--spacing-6xl) var(--spacing-xl) var(--spacing-8xl) var(--spacing-xl);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.responsive-cards-section .header-4xl {
+  margin-bottom: var(--spacing-lg);
+}
+
+.responsive-cards-section p {
+  margin-bottom: var(--spacing-4xl);
+  max-width: 800px;
+  text-align: center;
 }
 
 .responsive-cards-grid {
@@ -2336,8 +2348,8 @@ img.content-image {
   }
   
   .earth-layers {
-    width: 520px;
-    height: 520px;
+    width: 400px;
+    height: 400px;
   }
   
   .earth-content {
@@ -2490,28 +2502,7 @@ img.content-image {
   .landing-context .trend-row .trend-card {
     width: 100%;
   }
-  
-  .bottom-card-section {
-    padding: 300vh var(--spacing-xl) var(--spacing-6xl) var(--spacing-xl);
-    gap: var(--spacing-4xl);
-  }
-  
-  .grey-card {
-    width: 280px;
-    height: 480px;
-    border-radius: var(--radius-md);
-    padding: var(--spacing-3xl);
-    transform: rotateX(-12deg) rotateY(20deg) rotateZ(-4deg);
-  }
-  
-  .grey-card::after {
-    border-radius: 18px;
-  }
-  
-  .card-text {
-    font-size: var(--font-size-md);
-  }
-  
+ 
   /* UML Diagram responsive layout for small screens */
   .uml-diagram-container {
     grid-template-columns: 1fr;
