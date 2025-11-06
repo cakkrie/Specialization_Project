@@ -194,6 +194,85 @@
       </div>
     </section>
 
+
+    <section class="user-journey-section">
+      <div class="user-journey-pin">
+        <div class="header-4xl primary">User Journey</div>
+        <div class="user-journey-preview" id="journeyPreview">
+          <div class="journey-preview-item">
+            <div class="journey-preview-circle">1</div>
+            <div class="journey-preview-label">constructing a <br>customer journey</div>
+          </div>
+          <div class="journey-preview-item">
+            <div class="journey-preview-circle">2</div>
+            <div class="journey-preview-label">unexpected<br>pivot</div>
+          </div>
+          <div class="journey-preview-item">
+            <div class="journey-preview-circle">3</div>
+            <div class="journey-preview-label">unintended<br>accident</div>
+          </div>
+        </div>
+        <div class="user-journey-cards">
+          <div class="user-journey-card card-1" id="journey-card-1">
+            <div class="user-journey-card-content-section">
+              <div class="user-journey-card-header">
+                <h3 class="user-journey-card-title">Constructing a<br>customer journey</h3>
+              </div>
+              <div class="user-journey-card-number">01.</div>
+              <div class="user-journey-card-description">
+                The complete path users take when interacting with our map to understand their needs, motivations, and pain points.
+              </div>
+            </div>
+            <div class="user-journey-card-illustration">
+              <img src="Photo/main-page/Constructing-a-customer-journey.png" alt="Constructing a customer journey" class="journey-illustration" data-modal-src="Photo/main-page/detail-map-1.png">
+            </div>
+          </div>
+          <div class="user-journey-card card-2" id="journey-card-2">
+            <div class="user-journey-card-content-section">
+              <div class="user-journey-card-header">
+                <h3 class="user-journey-card-title">Unexpected<br>Pivot</h3>
+              </div>
+              <div class="user-journey-card-number">02.</div>
+              <div class="user-journey-card-description">
+                An unplanned change in direction caused by external factors during the user journey.
+              </div>
+            </div>
+            <div class="user-journey-card-illustration">
+              <img src="Photo/main-page/Unexpected-pivot.png" alt="Unexpected pivot" class="journey-illustration">
+            </div>
+          </div>
+          <div class="user-journey-card card-3" id="journey-card-3">
+            <div class="user-journey-card-content-section">
+              <div class="user-journey-card-header">
+                <h3 class="user-journey-card-title">Unintended<br>Accident</h3>
+              </div>
+              <div class="user-journey-card-number">03.</div>
+              <div class="user-journey-card-description">
+                An unexpected user behavior or outcome that reveals hidden issues or opportunities in the design.
+              </div>
+            </div>
+            <div class="user-journey-card-illustration">
+              <img src="Photo/main-page/Unintended-accident.png" alt="Unintended accident" class="journey-illustration">
+            </div>
+          </div>
+        </div>
+        <div class="user-journey-footer-text">
+          Visualizing a user journey map helps teams clearly understand users' experiences, identify pain points, and uncover opportunities for improvement across the entire journey.
+        </div>
+      </div>
+    </section>
+
+    <!-- Fullscreen Image Modal -->
+    <div class="image-modal" id="imageModal">
+      <button class="image-modal-close" id="closeModal" aria-label="Close modal">×</button>
+      <img class="image-modal-content" id="modalImage" src="" alt="">
+    </div>
+
+
+
+
+
+
       <!-- Earth Visualization Section -->
     <div class="earth-section">
       <div class="earth-section-pin">
@@ -219,6 +298,7 @@
             </div>
           </div>
         </div>
+
         <div class="earth-container">
           <div class="earth-layers">
             <canvas id="layer-bottom" class="earth-layer" data-layer="bottom" width="520" height="520"></canvas>
@@ -318,6 +398,8 @@
       initStickyEffect();
       initAboutLanding2Scroll();
       initTiltCard();
+      initUserJourneyScroll();
+      initImageModal();
     });
     
     // Tilt card effect
@@ -332,6 +414,105 @@
       
       card.addEventListener('mouseleave', function() {
         card.classList.remove('hovered');
+      });
+    }
+
+    // User Journey scroll animations - similar to landing-context
+    function initUserJourneyScroll() {
+      const section = document.querySelector('.user-journey-section');
+      const card1 = document.getElementById('journey-card-1');
+      const card2 = document.getElementById('journey-card-2');
+      const card3 = document.getElementById('journey-card-3');
+      const preview = document.getElementById('journeyPreview');
+      
+      if (!section || !card1 || !card2 || !card3 || !preview) return;
+
+      const SCROLL_LENGTH = 2000; // total pinned scroll distance in px
+
+      // Ensure section height supports sticky duration
+      section.style.minHeight = `calc(100vh + ${SCROLL_LENGTH}px)`;
+
+      function render() {
+        const start = section.offsetTop;
+        const y = window.scrollY;
+        const delta = Math.min(Math.max(y - start, 0), SCROLL_LENGTH);
+
+        // Reset all
+        card1.classList.remove('visible');
+        card2.classList.remove('visible');
+        card3.classList.remove('visible');
+
+        // Show cards gradually based on scroll progress
+        if (delta < 600) {
+          // First 600px: show title and preview circles, no cards
+          preview.classList.remove('hidden');
+        } else if (delta < 1200) {
+          // 600-1200px: hide preview, show first card
+          preview.classList.add('hidden');
+          card1.classList.add('visible');
+        } else if (delta < 1800) {
+          // 1200-1800px: show first and second card
+          preview.classList.add('hidden');
+          card1.classList.add('visible');
+          card2.classList.add('visible');
+        } else {
+          // 1800px+: show all three cards
+          preview.classList.add('hidden');
+          card1.classList.add('visible');
+          card2.classList.add('visible');
+          card3.classList.add('visible');
+        }
+      }
+
+      window.addEventListener('scroll', render, { passive: true });
+      window.addEventListener('resize', render);
+      render();
+    }
+
+    // Image Modal functionality
+    function initImageModal() {
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const closeBtn = document.getElementById('closeModal');
+      const cards = document.querySelectorAll('.user-journey-card');
+
+      if (!modal || !modalImage || !closeBtn) return;
+
+      // Add click event to each card
+      cards.forEach(card => {
+        card.addEventListener('click', function() {
+          const img = this.querySelector('.journey-illustration');
+          if (img) {
+            // Use data-modal-src if available, otherwise use the image src
+            const modalSrc = img.getAttribute('data-modal-src') || img.src;
+            modalImage.src = modalSrc;
+            modalImage.alt = img.alt || 'Fullscreen image';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+          }
+        });
+      });
+
+      // Close modal when clicking close button
+      closeBtn.addEventListener('click', function() {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      });
+
+      // Close modal when clicking outside the image
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = ''; // Restore scrolling
+        }
+      });
+
+      // Close modal with ESC key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          modal.classList.remove('active');
+          document.body.style.overflow = ''; // Restore scrolling
+        }
       });
     }
 
