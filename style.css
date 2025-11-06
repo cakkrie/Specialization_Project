@@ -1312,8 +1312,47 @@ a.gallery-card {
 
 .earth-layers {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 520px;
+  height: 520px;
+}
+
+.earth-titles {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.earth-title-text {
+  position: absolute;
+  left: calc(-420px - var(--spacing-6xl));
+  bottom: 0;
+  color: var(--white);
+  font-family: var(--font-secondary);
+  font-size: 42px;
+  font-weight: var(--font-weight-extrabold);
+  line-height: 0.9;
+  letter-spacing: var(--letter-spacing-normal);
+  white-space: normal;
+  max-width: 420px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.earth-title-text.active {
+  opacity: 1;
+}
+
+.earth-title-text .title-body {
+  display: block;
+  margin-top: var(--spacing-md);
+  color: var(--gray-100);
+  font-weight: var(--font-weight-normal);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  letter-spacing: var(--letter-spacing-normal);
 }
 
 .earth-layers::before {
@@ -1325,7 +1364,7 @@ a.gallery-card {
   transform: translate(-50%, -50%);
   z-index: 20;
   color: var(--white);
-  font-size: 140px;
+  font-size: 182px;
   font-weight: var(--font-weight-semibold);
   pointer-events: none;
 }
@@ -1367,12 +1406,12 @@ a.gallery-card {
 
 .earth-content {
   position: absolute;
-  left: var(--spacing-6xl);
-  bottom: var(--spacing-4xl);
+  right:3px;
+  top: 80px;
   max-width: 600px;
   min-width: 500px;
   padding-left: var(--spacing-xl);
-  padding-right: var(--spacing-4xl);
+  padding-right: 8px;
   z-index: 2;
 }
 
@@ -1406,7 +1445,7 @@ a.gallery-card {
 }
 
 .info-item li {
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.6;
   margin-bottom: var(--spacing-md);
   color: var(--white);
@@ -1420,7 +1459,7 @@ a.gallery-card {
   left: 0;
   top: 0;
   color: var(--white);
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.6;
   pointer-events: none;
 }
@@ -1469,10 +1508,12 @@ a.gallery-card {
   z-index: 1001;
   opacity: 0;
   transition: opacity 0.5s ease;
+  display: none;
 }
 
 .progress-ring.visible {
-  opacity: 1;
+  opacity: 0;
+  display: none;
 }
 
 .progress-circle-bg {
@@ -1480,7 +1521,7 @@ a.gallery-card {
 }
 
 .progress-circle {
-  transform-origin: 337.5px 337.5px;
+  transform-origin: 260px 260px;
   transition: stroke-dashoffset 1s ease;
   stroke-linecap: butt;
 }
@@ -1508,6 +1549,7 @@ a.gallery-card {
   height: 100%;
   pointer-events: none;
   z-index: 1002;
+  display: none;
 }
 
 .title-text {
@@ -1578,7 +1620,7 @@ a.gallery-card {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1001;
+  z-index: 1002;
   pointer-events: none;
 }
 
@@ -1589,24 +1631,25 @@ a.gallery-card {
   opacity: 0;
   transition: opacity 0.6s ease, transform 0.6s ease;
   pointer-events: none;
+  z-index: 1002;
 }
 
 .phone-screen.screen-1 {
-  width: 800px;
+  width: 640px;
   height: auto;
   transform: translate(-50%, -20%);
 }
 
 .phone-screen.screen-2 {
-  width: 500px;
+  width: 640px;
   height: auto;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -20%);
 }
 
 .phone-screen.screen-3 {
-  width: 500px;
+  width: 640px;
   height: auto;
-  transform: translate(-70%, -40%);
+  transform: translate(-50%, -20%);
 }
 
 .phone-screen.active {
@@ -2293,8 +2336,8 @@ img.content-image {
   }
   
   .earth-layers {
-    width: 400px;
-    height: 400px;
+    width: 520px;
+    height: 520px;
   }
   
   .earth-content {
@@ -2311,19 +2354,19 @@ img.content-image {
   }
   
   .parallax-image {
-    width: 400px;
-    height: 400px;
+    width: 520px;
+    height: 520px;
   }
   
   .progress-ring {
-    width: 400px;
-    height: 400px;
+    width: 520px;
+    height: 520px;
   }
   
   .progress-ring circle {
-    cx: 200;
-    cy: 200;
-    r: 198;
+    cx: 260;
+    cy: 260;
+    r: 258.5;
   }
   
   .parallax-wrapper.initial {
@@ -2369,12 +2412,12 @@ img.content-image {
   }
   
   .phone-screen.screen-1 {
-    width: 440px;
+    width: 352px;
   }
   
   .phone-screen.screen-2,
   .phone-screen.screen-3 {
-    width: 280px;
+    width: 352px;
   }
   
   .research-main {

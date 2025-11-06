@@ -200,7 +200,7 @@
         <div class="earth-content">
           <div class="earth-info" id="earth-info">
             <div class="info-item active" data-layer="bottom">
-              <div class="header-2xl">2D Map Interface</div>
+              <!-- <div class="header-2xl">2D Map Interface</div> -->
               <ul>
                 <li>Recommendation engine</li>
                 <li>Community-marked fishing spots</li>
@@ -208,8 +208,17 @@
                 <li>Route planning and GPS-based navigation</li>
               </ul>
             </div>
+            <div class="info-item" data-layer="middle">
+              <!-- <div class="header-2xl">2.5D Map Interface</div> -->
+              <ul>
+                <li>Unlock & track regional fish species</li>
+                <li>Check-in system with badges & rewards</li>
+                <li>Encouragement system via motivational popups</li>
+                <li>Beginner-friendly suggestion cards</li>
+              </ul>
+            </div>
             <div class="info-item" data-layer="top">
-              <div class="header-2xl">4D XR Map Interface</div>
+              <!-- <div class="header-2xl">4D XR Map Interface</div> -->
                <ul>
                 <li>Visual reconstruction of fish spots via 3D scanning</li>
                 <li>AR-based immersive previews</li>
@@ -224,6 +233,20 @@
             <canvas id="layer-bottom" class="earth-layer" data-layer="bottom" width="675" height="675"></canvas>
             <canvas id="layer-middle" class="earth-layer" data-layer="middle" width="675" height="675"></canvas>
             <canvas id="layer-top" class="earth-layer" data-layer="top" width="675" height="675"></canvas>
+          </div>
+          <div class="earth-titles">
+            <div class="earth-title-text active" data-layer="bottom">
+              <span>2D Map</span>
+              <span class="title-body">A data-driven map that visualizes real fishing spots, weather, and location information for quick decision-making</span>
+            </div>
+            <div class="earth-title-text" data-layer="middle">
+              <span>2.5D Map</span>
+              <span class="title-body">A semi-immersive map blending 3D depth and emotional feedback, exploration through ambient visuals.</span>
+            </div>
+            <div class="earth-title-text" data-layer="top">
+              <span>4D XR Map</span>
+              <span class="title-body">An extended-reality environment that anchors fish and environment in real-world space, merging physical and virtual fishing experiences.</span>
+            </div>
           </div>
         </div>
       </div>
@@ -242,10 +265,10 @@
         </div>
             
         <svg class="progress-ring" width="675" height="675">
-          <circle class="progress-circle-bg" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#333" stroke-width="2"/>
-          <circle class="progress-circle progress-section-1" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
-          <circle class="progress-circle progress-section-2" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
-          <circle class="progress-circle progress-section-3" cx="337.5" cy="337.5" r="335.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="703" stroke-dashoffset="703"/>
+          <circle class="progress-circle-bg" cx="260" cy="260" r="258.5" fill="none" stroke="#333" stroke-width="2"/>
+          <circle class="progress-circle progress-section-1" cx="260" cy="260" r="258.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="542" stroke-dashoffset="542"/>
+          <circle class="progress-circle progress-section-2" cx="260" cy="260" r="258.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="542" stroke-dashoffset="542"/>
+          <circle class="progress-circle progress-section-3" cx="260" cy="260" r="258.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="542" stroke-dashoffset="542"/>
         </svg>
         <div class="parallax-titles">
           <div class="title-text title-1"><span>2D Map</span><span class="title-sub">Real-time overlays and navigation</span><span class="title-body">A data-driven map that visualizes real fishing spots, weather, and location information for quick decision-making</span></div>
@@ -428,30 +451,31 @@
        const parallaxContainer = document.getElementById('parallax-container');
       const earthSection = document.querySelector('.earth-section');
        const earthLayers = document.querySelector('.earth-layers');
-       const progressRing = document.querySelector('.progress-ring');
-       const progressSections = document.querySelectorAll('.progress-circle');
+       // const progressRing = document.querySelector('.progress-ring'); // 已隐藏
+       // const progressSections = document.querySelectorAll('.progress-circle'); // 已隐藏
        const titleTexts = document.querySelectorAll('.title-text');
        const phoneScreens = document.querySelectorAll('.phone-screen');
        
-       if (!parallaxWrapper || !parallaxContainer || !earthSection || !earthLayers || !progressRing) return;
+       if (!parallaxWrapper || !parallaxContainer || !earthSection || !earthLayers) return;
        
        // 获取earth-section的底部位置
        const earthSectionBottom = earthSection.offsetTop + earthSection.offsetHeight;
        const viewportHeight = window.innerHeight;
        let hasStartedParallax = false;
+       let parallaxStartY = earthSectionBottom; // 在外部作用域定义，供 changeImageWithTransition 使用
       
       function handleScroll() {
         const scrollY = window.scrollY;
          const earthSectionTop = earthSection.offsetTop;
          const earthSectionBottom = earthSectionTop + earthSection.offsetHeight;
-         const parallaxStartY = earthSectionBottom;
+         parallaxStartY = earthSectionBottom; // 更新外部变量
          const parallaxEndY = parallaxStartY + (viewportHeight * 3);
          
          // 当earth-section完全进入视窗时，隐藏parallax图像，只显示earth layers
          if (scrollY >= earthSectionTop && scrollY < parallaxStartY) {
            parallaxWrapper.className = 'parallax-wrapper';
            earthLayers.classList.remove('hidden'); // 显示原始圆圈
-           progressRing.classList.remove('visible'); // 隐藏进度条
+            // progressRing 已隐藏
            titleTexts.forEach(title => title.classList.remove('visible')); // 隐藏所有标题
            phoneScreens.forEach(screen => screen.classList.remove('active')); // 隐藏所有屏幕
            hasStartedParallax = false;
@@ -460,21 +484,27 @@
         else if (scrollY >= parallaxStartY && scrollY <= parallaxEndY) {
           parallaxWrapper.className = 'parallax-wrapper center';
           
-          // 一旦开始视差效果，就隐藏原始圆圈并显示进度条
+          // 一旦开始视差效果，就隐藏原始圆圈
           if (!hasStartedParallax) {
             earthLayers.classList.add('hidden');
-            progressRing.classList.add('visible');
             hasStartedParallax = true;
           }
-          
-          // 每次都重新触发进度条动画
-          progressRing.classList.add('visible');
-          animateProgressBars();
           
           // 根据滚动进度显示不同的标题
           const progress = (scrollY - parallaxStartY) / (viewportHeight * 3);
           const scale = 1 + (progress * 0.1); // 从1.0轻微缩放到1.1
-          parallaxWrapper.style.transform = `translate(-50%, -50%) scale(${scale})`;
+          parallaxWrapper.style.transform = `translate(-50%, -50%)`;
+          
+          // 只对 parallax-image 应用缩放，不影响 phone-screen
+          const parallaxImage = document.querySelector('.parallax-image');
+          if (parallaxImage) {
+            parallaxImage.style.transform = `scale(${scale})`;
+            // 确保 buttom1、buttom2、buttom3.png 的透明度保持为 50%
+            const currentSrc = parallaxImage.src;
+            if (currentSrc.includes('buttom1.png') || currentSrc.includes('buttom2.png') || currentSrc.includes('buttom3.png')) {
+              parallaxImage.style.opacity = '0.5';
+            }
+          }
           
           // 控制标题显示
           updateTitles(progress);
@@ -482,19 +512,29 @@
          // 超过视差区域时，隐藏图像并恢复原始圆圈
          else if (scrollY > parallaxEndY) {
            parallaxWrapper.className = 'parallax-wrapper';
+           parallaxWrapper.style.transform = '';
            earthLayers.classList.remove('hidden'); // 恢复显示原始圆圈
-           progressRing.classList.remove('visible'); // 隐藏进度条
+            // progressRing 已隐藏
            titleTexts.forEach(title => title.classList.remove('visible')); // 隐藏所有标题
            phoneScreens.forEach(screen => screen.classList.remove('active')); // 隐藏所有屏幕
+           const parallaxImage = document.querySelector('.parallax-image');
+           if (parallaxImage) {
+             parallaxImage.style.transform = '';
+           }
            hasStartedParallax = false;
          }
          // 在earth-section之前，完全隐藏图像
          else {
            parallaxWrapper.className = 'parallax-wrapper';
+           parallaxWrapper.style.transform = '';
            earthLayers.classList.remove('hidden'); // 确保原始圆圈可见
            progressRing.classList.remove('visible'); // 确保进度条隐藏
            titleTexts.forEach(title => title.classList.remove('visible')); // 隐藏所有标题
            phoneScreens.forEach(screen => screen.classList.remove('active')); // 隐藏所有屏幕
+           const parallaxImage = document.querySelector('.parallax-image');
+           if (parallaxImage) {
+             parallaxImage.style.transform = '';
+           }
            hasStartedParallax = false;
          }
       }
@@ -545,42 +585,35 @@
        // 带过渡效果的图片切换函数
        function changeImageWithTransition(newSrc, scaleSize = 1) {
          const parallaxImage = document.querySelector('.parallax-image');
-         if (parallaxImage.src.includes(newSrc) && parallaxImage.style.transform.includes(`scale(${scaleSize})`)) return; // 如果已经是目标图片和缩放，不重复切换
+         if (parallaxImage.src.includes(newSrc)) return; // 如果已经是目标图片，不重复切换
+         
+         // 获取当前滚动进度，保持缩放一致性
+         const currentProgress = (window.scrollY - parallaxStartY) / (viewportHeight * 3);
+         const currentScale = 1 + (currentProgress * 0.1);
+         
+         // 检查是否是 buttom1、buttom2 或 buttom3.png，设置透明度为 50%
+         const isButtomImage = newSrc.includes('buttom1.png') || newSrc.includes('buttom2.png') || newSrc.includes('buttom3.png');
+         const targetOpacity = isButtomImage ? '0.5' : '1';
          
          // 淡出
          parallaxImage.style.opacity = '0.3';
-         parallaxImage.style.transform = 'scale(0.95)';
+         parallaxImage.style.transform = `scale(${currentScale * 0.95})`;
          
          setTimeout(() => {
            // 切换图片
            parallaxImage.src = newSrc;
            
-           // 淡入并应用缩放
-           parallaxImage.style.opacity = '1';
-           parallaxImage.style.transform = `scale(${scaleSize})`;
+           // 淡入并应用当前滚动对应的缩放和透明度
+           parallaxImage.style.opacity = targetOpacity;
+           parallaxImage.style.transform = `scale(${currentScale})`;
          }, 300); // 300ms后切换图片
        }
       
-      // 进度条动画函数
-      let animationTimeout;
-      function animateProgressBars() {
-        // 清除之前的动画
-        if (animationTimeout) {
-          clearTimeout(animationTimeout);
-        }
-        
-        // 首先重置所有进度条到初始状态
-        progressSections.forEach((section) => {
-          section.style.strokeDashoffset = '703';
-        });
-        
-        // 然后依次动画每个进度条
-        progressSections.forEach((section, index) => {
-          setTimeout(() => {
-            section.style.strokeDashoffset = '0';
-          }, index * 500); // 每个进度条间隔500ms动画
-        });
-      }
+      // 进度条动画函数 - 已禁用
+      // let animationTimeout;
+      // function animateProgressBars() {
+      //   // 进度条已隐藏，不再执行动画
+      // }
       
       // 初始化时确保图像处于隐藏状态
       parallaxWrapper.className = 'parallax-wrapper';
@@ -710,6 +743,16 @@
         const targetInfo = document.querySelector(`.info-item[data-layer="${layerType}"]`);
         if (targetInfo) {
           targetInfo.classList.add('active');
+        }
+        
+        // 切换标题显示
+        const titleTexts = document.querySelectorAll('.earth-title-text');
+        titleTexts.forEach(title => {
+          title.classList.remove('active');
+        });
+        const targetTitle = document.querySelector(`.earth-title-text[data-layer="${layerType}"]`);
+        if (targetTitle) {
+          targetTitle.classList.add('active');
         }
         
         // 调试信息（可以在控制台查看）
