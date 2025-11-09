@@ -130,6 +130,18 @@
   font-weight: var(--font-weight-normal);
 }
 
+.header-md {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-normal);
+}
+
+/* Font Weight Utility Classes */
+.font-weight-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
 /* Body Text */
 .body-base {
   font-size: var(--font-size-md);
