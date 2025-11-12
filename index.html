@@ -347,22 +347,21 @@
         <img src="Photo/bottom_layer.png" alt="Bottom Layer Parallax" class="parallax-image" id="parallax-image">
             
         <div class="screen-container">
-          <img src="Photo/buttom1_screen.png" alt="Screen 1" class="phone-screen screen-1">
           <img src="Photo/buttom2_screen.png" alt="Screen 2" class="phone-screen screen-2">
           <img src="Photo/buttom3_screen.png" alt="Screen 3" class="phone-screen screen-3">
         </div>
             
-        <svg class="progress-ring" width="520" height="520">
+        <!-- <svg class="progress-ring" width="520" height="520">
           <circle class="progress-circle-bg" cx="260" cy="260" r="199" fill="none" stroke="#333" stroke-width="2"/>
           <circle class="progress-circle progress-section-1" cx="260" cy="260" r="199" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="417" stroke-dashoffset="417"/>
           <circle class="progress-circle progress-section-2" cx="260" cy="260" r="199" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="417" stroke-dashoffset="417"/>
           <circle class="progress-circle progress-section-3" cx="260" cy="260" r="199" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="417" stroke-dashoffset="417"/>
-        </svg>
-        <div class="parallax-titles">
+        </svg> -->
+        <!-- <div class="parallax-titles">
           <div class="title-text title-1"><span>2D Map</span><span class="title-sub">Real-time overlays and navigation</span><span class="title-body">A data-driven map that visualizes real fishing spots, weather, and location information for quick decision-making</span></div>
-          <!-- <div class="title-text title-2"><span>2.5D Map</span><span class="title-sub">Emotion & Discovery Map</span><span class="title-body">A semi-immersive map blending 3D depth and emotional feedback, exploration through ambient visuals.</span></div> -->
-           <div class="title-text title-3"><span>4D XR Map</span><span class="title-sub">Immersive XR previews</span><span class="title-body">An extended-reality environment that anchors fish and environment in real-world space, merging physical and virtual fishing experiences.</span></div>
-        </div>
+          <div class="title-text title-2"><span>2.5D Map</span><span class="title-sub">Emotion & Discovery Map</span><span class="title-body">A semi-immersive map blending 3D depth and emotional feedback, exploration through ambient visuals.</span></div> -->
+           <!-- <div class="title-text title-3"><span>4D XR Map</span><span class="title-sub">Immersive XR previews</span><span class="title-body">An extended-reality environment that anchors fish and environment in real-world space, merging physical and virtual fishing experiences.</span></div> -->
+        </div> 
       </div>
       <br>
       <br>
@@ -645,7 +644,7 @@
        const parallaxWrapper = document.querySelector('.parallax-wrapper');
        const parallaxContainer = document.getElementById('parallax-container');
       const earthSection = document.querySelector('.earth-section');
-       const earthLayers = document.querySelector('.earth-layers');
+      const earthLayers = document.querySelector('.earth-layers');
        const landingContextSection = document.querySelector('.landing-context');
        // const progressRing = document.querySelector('.progress-ring'); // 已隐藏
        // const progressSections = document.querySelectorAll('.progress-circle'); // 已隐藏
@@ -655,6 +654,7 @@
        if (!parallaxWrapper || !parallaxContainer || !earthSection || !earthLayers) return;
        
        const viewportHeight = window.innerHeight;
+       parallaxContainer.style.height = `${viewportHeight * 3}px`;
        let hasStartedParallax = false;
        let parallaxStartY = 0; // 在外部作用域定义，供 changeImageWithTransition 使用
       
@@ -735,9 +735,9 @@
           const parallaxImage = document.querySelector('.parallax-image');
           if (parallaxImage) {
             parallaxImage.style.transform = `scale(${scale})`;
-            // 确保 buttom1、buttom2、buttom3.png 的透明度保持为 50%
+            // 确保 buttom2、buttom3.png 的透明度保持为 50%
             const currentSrc = parallaxImage.src;
-            if (currentSrc.includes('buttom1.png') || currentSrc.includes('buttom2.png') || currentSrc.includes('buttom3.png')) {
+            if (currentSrc.includes('buttom2.png') || currentSrc.includes('buttom3.png')) {
               parallaxImage.style.opacity = '0.5';
             }
           }
@@ -789,29 +789,16 @@
          // 移除所有颜色类
          parallaxImage.classList.remove('color-bottom', 'color-middle', 'color-top');
          
-         // 根据滚动进度显示对应的标题、颜色和屏幕
-         if (progress >= 0 && progress < 0.33) {
-           // 第一个窗口高度：显示第一个标题 - 蓝色（bottom层）
-           titleTexts[0].classList.add('visible');
-           phoneScreens[0].classList.add('active'); // 显示第一个屏幕
-           changeImageWithTransition('Photo/buttom1.png', 1.2);
-           console.log('切换到buttom1图片和屏幕1, progress:', progress);
-          } else if (progress >= 0.33 && progress < 0.66) {
-            // 第二个窗口高度：显示第二个标题 - 浅紫色（middle层）
-            titleTexts[1].classList.add('visible');
-            phoneScreens[1].classList.add('active'); // 显示第二个屏幕
-            changeImageWithTransition('Photo/buttom2.png', 1.2);
-            console.log('切换到buttom2图片和屏幕2, progress:', progress);
-          } else if (progress >= 0.66) {
-            // 第三个窗口高度：显示第三个标题 - 绿色（top层）
-            titleTexts[2].classList.add('visible');
-            phoneScreens[2].classList.add('active'); // 显示第三个屏幕
-            changeImageWithTransition('Photo/buttom3.png', 1.2);
-            console.log('切换到buttom3图片和屏幕3, progress:', progress);
-         }
-         
-         // 调试信息
-         console.log('当前进度:', progress, '第三个标题可见:', titleTexts[2].classList.contains('visible'));
+        // 根据滚动进度显示对应的标题和屏幕
+        if (progress >= 0 && progress < 0.5) {
+          if (titleTexts[0]) titleTexts[0].classList.add('visible');
+          if (phoneScreens[0]) phoneScreens[0].classList.add('active');
+          changeImageWithTransition('Photo/buttom2.png', 1.2);
+        } else if (progress >= 0.5) {
+          if (titleTexts[1]) titleTexts[1].classList.add('visible');
+          if (phoneScreens[1]) phoneScreens[1].classList.add('active');
+          changeImageWithTransition('Photo/buttom3.png', 1.2);
+        }
        }
        
        // 带过渡效果的图片切换函数
@@ -820,11 +807,11 @@
          if (parallaxImage.src.includes(newSrc)) return; // 如果已经是目标图片，不重复切换
          
          // 获取当前滚动进度，保持缩放一致性
-         const currentProgress = (window.scrollY - parallaxStartY) / (viewportHeight * 3);
+        const currentProgress = (window.scrollY - parallaxStartY) / (viewportHeight * 3);
          const currentScale = 1 + (currentProgress * 0.1);
          
-         // 检查是否是 buttom1、buttom2 或 buttom3.png，设置透明度为 50%
-         const isButtomImage = newSrc.includes('buttom1.png') || newSrc.includes('buttom2.png') || newSrc.includes('buttom3.png');
+        // 检查是否是 buttom2 或 buttom3.png，设置透明度为 50%
+        const isButtomImage = newSrc.includes('buttom2.png') || newSrc.includes('buttom3.png');
          const targetOpacity = isButtomImage ? '0.5' : '1';
          
          // 淡出

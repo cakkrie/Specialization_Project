@@ -1268,7 +1268,8 @@ a.gallery-card {
 .earth-section {
   height: 100vh;
   position: relative;
-  background-color: var(--black);
+  background-color: #ededed;
+  color: var(--black);
 }
 
 .earth-section::before {
@@ -1290,7 +1291,7 @@ a.gallery-card {
   transform: translateY(-50%) rotate(-90deg);
   transform-origin: center;
   font-size: var(--font-size-xs);
-  color: var(--gray-300);
+  color: var(--black);
   white-space: nowrap;
   z-index: 10;
   font-family: var(--font-secondary);
@@ -1341,7 +1342,7 @@ a.gallery-card {
 .earth-title-text {
   position: relative;
   bottom: 0;
-  color: var(--white);
+  color: var(--black);
   font-family: var(--font-secondary);
   font-size: 42px;
   font-weight: var(--font-weight-extrabold);
@@ -1361,7 +1362,7 @@ a.gallery-card {
 .earth-title-text .title-body {
   display: block;
   margin-top: var(--spacing-md);
-  color: var(--gray-100);
+  color: var(--black);
   font-weight: var(--font-weight-normal);
   font-size: 0.875rem;
   line-height: 1.6;
@@ -1432,7 +1433,7 @@ a.gallery-card {
 .earth-info {
   position: relative;
   padding-left: var(--spacing-lg);
-  color: var(--white);
+  color: var(--black);
 }
 
 .info-item {
@@ -1447,7 +1448,7 @@ a.gallery-card {
 
 
 .earth-content h2 {
-  color: var(--white);
+  color: var(--black);
 }
 
 .info-item ul {
@@ -1461,8 +1462,8 @@ a.gallery-card {
   font-size: 0.875rem;
   line-height: 1.6;
   margin-bottom: var(--spacing-md);
-  color: var(--white);
-    position: relative;
+  color: var(--black);
+  position: relative;
   padding-left: 18px;
 }
 
@@ -1471,7 +1472,7 @@ a.gallery-card {
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--white);
+  color: var(--black);
   font-size: 0.875rem;
   line-height: 1.6;
   pointer-events: none;
@@ -1484,9 +1485,9 @@ a.gallery-card {
 .parallax-container {
   position: relative;
   width: 100%;
-  height: 300vh;
+  height: 200vh;
   overflow: hidden;
-  background-color: var(--black);
+  background-color: #ededed;
   padding: 0px;
   margin: 0px;
 
