@@ -279,14 +279,23 @@
         <div class="earth-content">
           <div class="earth-info" id="earth-info">
             <div class="info-item active" data-layer="bottom">
-              <div class="header-md font-weight-semibold">Community-marked fishing spots</div>
+              <div class="header-md font-weight-semibold">Input</div>
               <div class="body-sm">
-              <ul>
-                <li>Fishing species</li>
-                <li>Community post</li>
-                <li>Weather</li>
-                <li>Location related</li>
-              </ul>
+                <ul>
+                  <li>What time period I want to fish</li>
+                  <li>Acceptable distance range</li>
+                  <li>Type of fishing</li>
+                </ul>
+              </div>
+              <br><br>
+              <div class="header-md font-weight-semibold">Output</div>
+              <div class="body-sm">
+                <ul>
+                  <li>GPS API</li>
+                  <li>Weather API</li>
+                  <li>Ideal time suggestions</li>
+                  <li>Overall recommendation score</li>
+                </ul>
               </div>
             </div>
             <div class="info-item" data-layer="top">
@@ -662,7 +671,8 @@
       function getSectionPositions() {
         const earthSectionTop = earthSection.offsetTop;
         const earthSectionBottom = earthSectionTop + earthSection.offsetHeight;
-        parallaxStartY = earthSectionBottom; // 更新外部变量
+        const parallaxEarlyOffset = viewportHeight * 0.8;
+        parallaxStartY = Math.max(earthSectionTop, earthSectionBottom - parallaxEarlyOffset); // 更新外部变量
         const parallaxEndY = parallaxStartY + (viewportHeight * 3);
         
         let landingContextTop = Infinity;
@@ -729,7 +739,15 @@
           // 根据滚动进度显示不同的标题
           const progress = (scrollY - positions.parallaxStartY) / (viewportHeight * 3);
           const scale = 1 + (progress * 0.1); // 从1.0轻微缩放到1.1
+          const fadeStart = 0.8;
+          const fadeRange = 0.2;
+          let wrapperOpacity = 1;
+          if (progress >= fadeStart) {
+            wrapperOpacity = Math.max(0, 1 - ((progress - fadeStart) / fadeRange));
+          }
+
           parallaxWrapper.style.transform = `translate(-50%, -50%)`;
+          parallaxWrapper.style.opacity = `${wrapperOpacity}`;
           
           // 只对 parallax-image 应用缩放，不影响 phone-screen
           const parallaxImage = document.querySelector('.parallax-image');

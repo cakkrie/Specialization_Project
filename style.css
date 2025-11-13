@@ -1994,7 +1994,7 @@ img.content-image {
 .user-journey-section {
   min-height: 100vh;
   position: relative;
-  z-index: 10;
+  z-index: 3000;
 }
 
 .user-journey-pin {
