@@ -1486,6 +1486,8 @@ a.gallery-card {
   position: relative;
   width: 100%;
   height: 200vh;
+  display: flex;
+  justify-content: center;
   overflow: hidden;
   background-color: #ededed;
   padding: 0px;
@@ -1494,13 +1496,17 @@ a.gallery-card {
 }
 
 .parallax-wrapper {
-  position: fixed;
+  position: sticky;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 520px;
   z-index: 1000;
   pointer-events: none;
-  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s ease;
   opacity: 0;
   visibility: hidden;
 }
@@ -1679,9 +1685,6 @@ a.gallery-card {
 }
 
 .parallax-wrapper.center {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
   opacity: 1;
   visibility: visible;
 }

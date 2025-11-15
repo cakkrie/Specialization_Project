@@ -739,15 +739,6 @@
           // 根据滚动进度显示不同的标题
           const progress = (scrollY - positions.parallaxStartY) / (viewportHeight * 3);
           const scale = 1 + (progress * 0.1); // 从1.0轻微缩放到1.1
-          const fadeStart = 0.8;
-          const fadeRange = 0.2;
-          let wrapperOpacity = 1;
-          if (progress >= fadeStart) {
-            wrapperOpacity = Math.max(0, 1 - ((progress - fadeStart) / fadeRange));
-          }
-
-          parallaxWrapper.style.transform = `translate(-50%, -50%)`;
-          parallaxWrapper.style.opacity = `${wrapperOpacity}`;
           
           // 只对 parallax-image 应用缩放，不影响 phone-screen
           const parallaxImage = document.querySelector('.parallax-image');
@@ -765,14 +756,14 @@
           return;
         }
         
-        // 4. 超过 parallax 区域：隐藏 parallax，恢复 earth layers
+        // 4. 超过 parallax 区域：保持最后状态，恢复 earth layers
         if (scrollY > positions.parallaxEndY) {
-          hideParallax();
-          parallaxWrapper.style.transform = '';
+          showParallax();
           const parallaxImage = document.querySelector('.parallax-image');
           if (parallaxImage) {
-            parallaxImage.style.transform = '';
+            parallaxImage.style.transform = 'scale(1.1)';
           }
+          updateTitles(1);
           earthLayers.classList.remove('hidden');
           hasStartedParallax = false;
           return;
@@ -780,7 +771,6 @@
         
         // 5. 在 earth-section 之前：完全隐藏 parallax
         hideParallax();
-        parallaxWrapper.style.transform = '';
         const parallaxImage = document.querySelector('.parallax-image');
         if (parallaxImage) {
           parallaxImage.style.transform = '';
