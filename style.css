@@ -2011,6 +2011,11 @@ img.content-image {
   padding: var(--spacing-6xl) var(--spacing-xl);
 }
 
+/* Literature Review section title transition */
+.user-journey-section:has(#literaturereview) .header-4xl.primary {
+  transition: opacity 300ms ease, visibility 300ms ease;
+}
+
 .user-journey-section .header-4xl {
   position: absolute;
   top: 50%;
@@ -2196,6 +2201,44 @@ img.content-image {
   height: 100%;
   object-fit: contain;
   max-height: 200px;
+}
+
+/* Literature Review cards - image only, full card */
+#literature-1,
+#literature-2,
+#literature-3 {
+  transform: translateX(-50px) scale(0.8);
+  transform-origin: center;
+}
+
+#literature-1.visible,
+#literature-2.visible,
+#literature-3.visible {
+  transform: translateX(0) scale(0.8);
+}
+
+#literature-1.visible:hover,
+#literature-2.visible:hover,
+#literature-3.visible:hover {
+  transform: translateX(0) scale(0.82);
+}
+
+#literature-1 .user-journey-card-illustration,
+#literature-2 .user-journey-card-illustration,
+#literature-3 .user-journey-card-illustration {
+  padding: 0;
+  min-height: auto;
+  height: 100%;
+  flex: 1;
+}
+
+#literature-1 .journey-illustration,
+#literature-2 .journey-illustration,
+#literature-3 .journey-illustration {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: none;
 }
 
 /* Image Modal */
@@ -2850,5 +2893,19 @@ img.content-image {
   
   .journey-illustration {
     max-height: 160px;
+  }
+  
+  /* Literature Review cards - responsive */
+  #literature-1 .user-journey-card-illustration,
+  #literature-2 .user-journey-card-illustration,
+  #literature-3 .user-journey-card-illustration {
+    padding: 0;
+    min-height: auto;
+  }
+  
+  #literature-1 .journey-illustration,
+  #literature-2 .journey-illustration,
+  #literature-3 .journey-illustration {
+    max-height: none;
   }
 }

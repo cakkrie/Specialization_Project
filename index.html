@@ -183,6 +183,45 @@
     <br>
     <br>
 
+    <section class="user-journey-section">
+      <div class="user-journey-pin">
+        <div class="header-4xl primary">Literature Review</div>
+        <div class="user-journey-preview" id="literaturereview">
+          <div class="journey-preview-item">
+            <div class="journey-preview-circle">1</div>
+            <div class="journey-preview-label">constructing a <br>customer journey</div>
+          </div>
+          <div class="journey-preview-item">
+            <div class="journey-preview-circle">2</div>
+            <div class="journey-preview-label">unexpected<br>pivot</div>
+          </div>
+          <div class="journey-preview-item">
+            <div class="journey-preview-circle">3</div>
+            <div class="journey-preview-label">unintended<br>accident</div>
+          </div>
+        </div>
+        <div class="user-journey-cards">
+          <div class="user-journey-card card-1" id="literature-1">
+            <div class="user-journey-card-illustration">
+              <img src="Photo/literature-review/Literature_1.png" alt="Literature 1" class="journey-illustration" data-modal-src="Photo/literature-review/Literature_1_Expand.png">
+            </div>
+          </div>
+          <div class="user-journey-card card-2" id="literature-2">
+            <div class="user-journey-card-illustration">
+              <img src="Photo/literature-review/Literature_2.png" alt="Literature 2" class="journey-illustration" data-modal-src="Photo/literature-review/Literature_2_Expand.png">
+            </div>
+          </div>
+          <div class="user-journey-card card-3" id="literature-3">
+            <div class="user-journey-card-illustration">
+              <img src="Photo/literature-review/Literature_3.png" alt="Literature 3" class="journey-illustration" data-modal-src="Photo/literature-review/Literature_3_Expand.png">
+            </div>
+          </div>
+        </div>
+        <!-- <div class="user-journey-footer-text">
+          Visualizing a user journey map helps teams clearly understand users' experiences, identify pain points, and uncover opportunities for improvement across the entire journey.
+        </div> -->
+      </div>
+    </section>
 
     <div class="header-4xl primary">How it works</div>
     <div class="body-sm" style="text-align: center;">An uml diagram of the specilized fishing map</div>
@@ -281,7 +320,7 @@
             <div class="info-item active" data-layer="bottom">
               <div class="header-md font-weight-semibold">Input</div>
               <div class="body-sm">
-                <ul>
+              <ul>
                   <li>What time period I want to fish</li>
                   <li>Acceptable distance range</li>
                   <li>Type of fishing</li>
@@ -295,7 +334,7 @@
                   <li>Weather API</li>
                   <li>Ideal time suggestions</li>
                   <li>Overall recommendation score</li>
-                </ul>
+              </ul>
               </div>
             </div>
             <div class="info-item" data-layer="top">
@@ -429,6 +468,7 @@
       initAboutLanding2Scroll();
       initTiltCard();
       initUserJourneyScroll();
+      initLiteratureReviewScroll();
       initImageModal();
     });
     
@@ -449,13 +489,16 @@
 
     // User Journey scroll animations - similar to landing-context
     function initUserJourneyScroll() {
-      const section = document.querySelector('.user-journey-section');
+      const preview = document.getElementById('journeyPreview');
+      if (!preview) return;
+      
+      // Find the section that contains the journeyPreview element
+      const section = preview.closest('.user-journey-section');
       const card1 = document.getElementById('journey-card-1');
       const card2 = document.getElementById('journey-card-2');
       const card3 = document.getElementById('journey-card-3');
-      const preview = document.getElementById('journeyPreview');
       
-      if (!section || !card1 || !card2 || !card3 || !preview) return;
+      if (!section || !card1 || !card2 || !card3) return;
 
       const SCROLL_LENGTH = 2000; // total pinned scroll distance in px
 
@@ -488,6 +531,72 @@
         } else {
           // 1800px+: show all three cards
           preview.classList.add('hidden');
+          card1.classList.add('visible');
+          card2.classList.add('visible');
+          card3.classList.add('visible');
+        }
+      }
+
+      window.addEventListener('scroll', render, { passive: true });
+      window.addEventListener('resize', render);
+      render();
+    }
+
+    // Literature Review scroll animations - same as User Journey
+    function initLiteratureReviewScroll() {
+      const preview = document.getElementById('literaturereview');
+      if (!preview) return;
+      
+      // Find the section that contains the literaturereview element
+      const section = preview.closest('.user-journey-section');
+      const card1 = document.getElementById('literature-1');
+      const card2 = document.getElementById('literature-2');
+      const card3 = document.getElementById('literature-3');
+      
+      if (!section || !card1 || !card2 || !card3) return;
+
+      // Find the title element
+      const title = section.querySelector('.header-4xl.primary');
+
+      const SCROLL_LENGTH = 2000; // total pinned scroll distance in px
+
+      // Ensure section height supports sticky duration
+      section.style.minHeight = `calc(100vh + ${SCROLL_LENGTH}px)`;
+
+      function render() {
+        const start = section.offsetTop;
+        const y = window.scrollY;
+        const delta = Math.min(Math.max(y - start, 0), SCROLL_LENGTH);
+
+        // Reset all
+        card1.classList.remove('visible');
+        card2.classList.remove('visible');
+        card3.classList.remove('visible');
+
+        // Show cards gradually based on scroll progress
+        if (delta < 600) {
+          // First 600px: show title and preview circles, no cards
+          preview.classList.remove('hidden');
+          if (title) title.style.opacity = '1';
+          if (title) title.style.visibility = 'visible';
+        } else if (delta < 1200) {
+          // 600-1200px: hide preview and title, show first card
+          preview.classList.add('hidden');
+          if (title) title.style.opacity = '0';
+          if (title) title.style.visibility = 'hidden';
+          card1.classList.add('visible');
+        } else if (delta < 1800) {
+          // 1200-1800px: show first and second card
+          preview.classList.add('hidden');
+          if (title) title.style.opacity = '0';
+          if (title) title.style.visibility = 'hidden';
+          card1.classList.add('visible');
+          card2.classList.add('visible');
+        } else {
+          // 1800px+: show all three cards
+          preview.classList.add('hidden');
+          if (title) title.style.opacity = '0';
+          if (title) title.style.visibility = 'hidden';
           card1.classList.add('visible');
           card2.classList.add('visible');
           card3.classList.add('visible');
