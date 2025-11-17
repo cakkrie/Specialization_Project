@@ -2393,6 +2393,61 @@ img.content-image {
   position: relative;
 }
 
+/* Barrier of Entry Section */
+.barrier-of-entry-section {
+  background: var(--gray-50);
+  padding: var(--spacing-6xl) var(--spacing-xl);
+  position: relative;
+}
+
+.barrier-of-entry-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.barrier-circles-container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  margin-top: var(--spacing-4xl);
+  overflow: hidden;
+}
+
+.barrier-circle-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: max-content;
+  max-width: 200px;
+}
+
+.barrier-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+}
+
+.barrier-circle.black-circle {
+  background-color: var(--black);
+}
+
+.barrier-circle.gray-circle {
+  background-color: var(--gray-300);
+}
+
+.barrier-circle-label {
+  font-size: var(--font-size-md);
+  font-family: var(--font-primary);
+  text-align: center;
+  color: var(--black);
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.2;
+}
+
 /* jsPlumb UML Diagram Interactive Styles */
 .uml-section {
   display: flex;
