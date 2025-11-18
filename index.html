@@ -899,8 +899,8 @@
        
        if (!parallaxWrapper || !parallaxContainer || !earthSection || !earthLayers) return;
        
-       const viewportHeight = window.innerHeight;
-       parallaxContainer.style.height = `${viewportHeight * 3}px`;
+      const viewportHeight = window.innerHeight;
+      parallaxContainer.style.height = `${viewportHeight * 2}px`;
        let hasStartedParallax = false;
        let parallaxStartY = 0; // 在外部作用域定义，供 changeImageWithTransition 使用
       
@@ -910,7 +910,7 @@
         const earthSectionBottom = earthSectionTop + earthSection.offsetHeight;
         const parallaxEarlyOffset = viewportHeight * 0.8;
         parallaxStartY = Math.max(earthSectionTop, earthSectionBottom - parallaxEarlyOffset); // 更新外部变量
-        const parallaxEndY = parallaxStartY + (viewportHeight * 3);
+        const parallaxEndY = parallaxStartY + (viewportHeight * 2);
         
         let landingContextTop = Infinity;
         let landingContextBottom = Infinity;
@@ -974,7 +974,7 @@
           showParallax();
           
           // 根据滚动进度显示不同的标题
-          const progress = (scrollY - positions.parallaxStartY) / (viewportHeight * 3);
+          const progress = (scrollY - positions.parallaxStartY) / (viewportHeight * 2);
           const scale = 1 + (progress * 0.1); // 从1.0轻微缩放到1.1
           
           // 只对 parallax-image 应用缩放，不影响 phone-screen
@@ -1053,7 +1053,7 @@
          if (parallaxImage.src.includes(newSrc)) return; // 如果已经是目标图片，不重复切换
          
          // 获取当前滚动进度，保持缩放一致性
-        const currentProgress = (window.scrollY - parallaxStartY) / (viewportHeight * 3);
+        const currentProgress = (window.scrollY - parallaxStartY) / (viewportHeight * 2);
          const currentScale = 1 + (currentProgress * 0.1);
          
         // 检查是否是 buttom2 或 buttom3.png，设置透明度为 50%
