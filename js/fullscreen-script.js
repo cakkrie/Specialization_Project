@@ -25,7 +25,7 @@ function initFullscreen() {
 
     // Scene
     fullscreenScene = new THREE.Scene();
-    fullscreenScene.background = new THREE.Color(0x000000); // Black background
+    fullscreenScene.background = new THREE.Color(0xffffff); // White background
     
     // Camera
     fullscreenCamera = new THREE.PerspectiveCamera(
@@ -47,7 +47,7 @@ function initFullscreen() {
     fullscreenRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio for performance
     fullscreenRenderer.shadowMap.enabled = true;
     fullscreenRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    fullscreenRenderer.setClearColor(0x000000, 1);
+    fullscreenRenderer.setClearColor(0xffffff, 1);
     // Enhance lighting and color response if supported
     if (THREE && THREE.ACESFilmicToneMapping) {
         fullscreenRenderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -142,9 +142,15 @@ function createNetworkSpheres() {
 	const connectionDistance = 4;
 
 	const sphereGeometry = new THREE.SphereGeometry(sphereRadius, 16, 16);
-	const innerMaterial = new THREE.MeshStandardMaterial({ color: 0x1919e3 }); // Group 1 blue
+	// Blue sphere with reduced saturation
+	const innerMaterialColor = new THREE.Color();
+	innerMaterialColor.setHSL(0.67, 0.3, 0.45); // Blue hue, low saturation, medium lightness
+	const innerMaterial = new THREE.MeshStandardMaterial({ color: innerMaterialColor });
 	const outerMaterial = new THREE.MeshStandardMaterial({ color: 0xededed }); // Group 2 light grey
-	const outerHighlightMaterial = new THREE.MeshStandardMaterial({ color: 0xdbfa5a }); // Group 2 highlights
+	// Green sphere with reduced saturation
+	const outerHighlightMaterialColor = new THREE.Color();
+	outerHighlightMaterialColor.setHSL(0.19, 0.3, 0.7); // Green hue, low saturation, light
+	const outerHighlightMaterial = new THREE.MeshStandardMaterial({ color: outerHighlightMaterialColor });
 
     function addSphere(x, y, z, labelIndex, material, labelOverride) {
         const sphere = new THREE.Mesh(sphereGeometry, (material || outerMaterial).clone());
@@ -223,7 +229,7 @@ function createTextLabel(sphereData) {
     
     // Set font and text properties
     context.font = '16px "Helvetica Neue", Helvetica, Arial, sans-serif';
-    context.fillStyle = '#ffffff';
+    context.fillStyle = '#000000'; // Deep black text
     context.textAlign = 'center';
     context.textBaseline = 'middle';
     
@@ -323,7 +329,7 @@ function createConnections(maxDistance) {
         geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
         
         const material = new THREE.LineBasicMaterial({ 
-            color: 0xffffff // White lines
+            color: 0x2a2a2a // Darker grey lines
         });
         
         const line = new THREE.Line(geometry, material);
