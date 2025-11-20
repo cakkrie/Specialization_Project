@@ -2422,12 +2422,6 @@ img.content-image {
   position: relative;
 }
 
-.barrier-of-entry-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  text-align: center;
-}
-
 .barrier-cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -2440,19 +2434,16 @@ img.content-image {
 .barrier-card {
   background: var(--white);
   border-radius: var(--radius-xs);
-  box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  min-height: 300px;
+  min-height: 260px;
 }
 
 .barrier-card-upper {
-  background: var(--gray-50);
-  padding: var(--spacing-xl);
+  background: var(--white);
+  padding: var(--spacing-lg) var(--spacing-lg) 0 var(--spacing-lg);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
@@ -2462,11 +2453,10 @@ img.content-image {
 
 .barrier-card-category {
   position: absolute;
-  top: var(--spacing-xl);
-  right: var(--spacing-xl);
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
   font-size: var(--font-size-xs);
   font-family: var(--font-secondary);
-  color: var(--gray-400);
   letter-spacing: 0.5px;
 }
 
@@ -2477,21 +2467,9 @@ img.content-image {
   margin: 18px 0 0 0;
   line-height: 1.3;
   flex: 1;
+  margin-bottom: 0;
 }
 
-.barrier-card-action {
-  width: 36px;
-  height: 36px;
-  background: var(--black);
-  border: none;
-  border-radius: var(--radius-xs);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  margin-top: var(--spacing-md);
-  transition: background 0.2s ease;
-}
 
 .barrier-card-action:hover {
   background: var(--gray-400);
@@ -2526,6 +2504,13 @@ img.content-image {
 
 /* jsPlumb UML Diagram Interactive Styles */
 .uml-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.technology-ecosystem-section {
+  padding: var(--spacing-6xl) var(--spacing-xl);
   display: flex;
   justify-content: center;
   align-items: center;
