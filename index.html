@@ -330,8 +330,15 @@
       </div>
     </section>
 
-    <section class="technology-ecosystem-section">
-      <img src="Photo/Technology-ecosystem.png" alt="Technology Ecosystem" style="width: 100%; height: auto; display: block;">
+    <section class="technology-ecosystem-section" id="technologyEcosystem">
+      <div class="technology-ecosystem-pin">
+        <div class="tech-eco-title">Technology Ecosystem</div>
+        <div class="tech-eco-img-container">
+          <img src="Photo/technology-ecosystem/Technology-ecosystem1.png" alt="Technology Ecosystem 1" class="tech-eco-img tech-eco-img-1">
+          <img src="Photo/technology-ecosystem/Technology-ecosystem2.png" alt="Technology Ecosystem 2" class="tech-eco-img tech-eco-img-2">
+          <img src="Photo/technology-ecosystem/Technology-ecosystem3.png" alt="Technology Ecosystem 3" class="tech-eco-img tech-eco-img-3">
+        </div>
+      </div>
     </section>
 
     <section class="user-journey-section">
@@ -571,6 +578,7 @@
       initLiteratureReviewScroll();
       initImageModal();
       initBarrierCircles();
+      initTechnologyEcosystemScroll();
     });
     
     // Tilt card effect
@@ -758,6 +766,52 @@
       const container = document.getElementById('barrierCards');
       if (!container) return;
       // Grid layout handles positioning automatically
+    }
+
+    // Technology Ecosystem scroll animation
+    function initTechnologyEcosystemScroll() {
+      const section = document.getElementById('technologyEcosystem');
+      if (!section) return;
+
+      const img1 = section.querySelector('.tech-eco-img-1');
+      const img2 = section.querySelector('.tech-eco-img-2');
+      const img3 = section.querySelector('.tech-eco-img-3');
+
+      if (!img1 || !img2 || !img3) return;
+
+      // Initialize: show first image
+      img1.classList.add('active');
+
+      const SCROLL_LENGTH = 2000; // total scroll distance for the section
+      section.style.minHeight = `calc(100vh + ${SCROLL_LENGTH}px)`;
+
+      function render() {
+        const start = section.offsetTop;
+        const y = window.scrollY;
+        const delta = Math.min(Math.max(y - start, 0), SCROLL_LENGTH);
+        const progress = delta / SCROLL_LENGTH;
+
+        // Reset all images
+        img1.classList.remove('active');
+        img2.classList.remove('active');
+        img3.classList.remove('active');
+
+        // Show images based on scroll progress
+        if (progress < 0.33) {
+          // First third: show image 1
+          img1.classList.add('active');
+        } else if (progress < 0.66) {
+          // Second third: show image 2
+          img2.classList.add('active');
+        } else {
+          // Last third: show image 3
+          img3.classList.add('active');
+        }
+      }
+
+      window.addEventListener('scroll', render, { passive: true });
+      window.addEventListener('resize', render);
+      render();
     }
 
     function scrollToAbout() {

@@ -2510,10 +2510,57 @@ img.content-image {
 }
 
 .technology-ecosystem-section {
-  padding: var(--spacing-6xl) var(--spacing-xl);
+  position: relative;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.technology-ecosystem-pin {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+.tech-eco-title {
+  position: absolute;
+  top: var(--spacing-4xl);
+  right: var(--spacing-4xl);
+  font-size: var(--font-size-3xl);
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  color: var(--black);
+  z-index: 10;
+}
+
+.tech-eco-img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-4xl);
+}
+
+.tech-eco-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.tech-eco-img.active {
+  opacity: 1;
+  z-index: 1;
 }
 
 .uml-diagram-container {
