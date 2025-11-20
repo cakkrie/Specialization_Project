@@ -186,40 +186,32 @@
     <section class="user-journey-section">
       <div class="user-journey-pin">
         <div class="header-4xl primary">Literature Review</div>
-        <div class="user-journey-preview" id="literaturereview">
-          <div class="journey-preview-item">
-            <div class="journey-preview-circle"></div>
-            <!-- <div class="journey-preview-label">constructing a <br>customer journey</div> -->
-          </div>
-          <div class="journey-preview-item">
-            <div class="journey-preview-circle"></div>
-            <!-- <div class="journey-preview-label">unexpected<br>pivot</div> -->
-          </div>
-          <div class="journey-preview-item">
-            <div class="journey-preview-circle"></div>
-            <!-- <div class="journey-preview-label">unintended<br>accident</div> -->
-          </div>
-        </div>
         <div class="user-journey-cards">
           <div class="user-journey-card card-1" id="literature-1">
             <div class="user-journey-card-illustration">
               <img src="Photo/literature-review/Literature_1.png" alt="Literature 1" class="journey-illustration" data-modal-src="Photo/literature-review/Literature_1_Expand.png">
+            </div>
+            <div class="literature-card-icon">
+              <span class="literature-card-plus">+</span>
             </div>
           </div>
           <div class="user-journey-card card-2" id="literature-2">
             <div class="user-journey-card-illustration">
               <img src="Photo/literature-review/Literature_2.png" alt="Literature 2" class="journey-illustration" data-modal-src="Photo/literature-review/Literature_2_Expand.png">
             </div>
+            <div class="literature-card-icon">
+              <span class="literature-card-plus">+</span>
+            </div>
           </div>
           <div class="user-journey-card card-3" id="literature-3">
             <div class="user-journey-card-illustration">
               <img src="Photo/literature-review/Literature_3.png" alt="Literature 3" class="journey-illustration" data-modal-src="Photo/literature-review/Literature_3_Expand.png">
             </div>
+            <div class="literature-card-icon">
+              <span class="literature-card-plus">+</span>
+            </div>
           </div>
         </div>
-        <!-- <div class="user-journey-footer-text">
-          Visualizing a user journey map helps teams clearly understand users' experiences, identify pain points, and uncover opportunities for improvement across the entire journey.
-        </div> -->
       </div>
     </section>
 
@@ -235,60 +227,86 @@
         <div class="body-sm" style="text-align: center;">in terms of technology and as a designer</div>
       </div>
       
-      <div class="barrier-circles-container" id="barrierCircles">
-        <!-- Black circles (left side) -->
-        <div class="barrier-circle-wrapper">
-          <div class="barrier-circle black-circle" data-circle="black-1"></div>
-          <div class="barrier-circle-label">Complex Multi-Layer Information Architecture</div>
+      <div class="barrier-cards-container" id="barrierCards">
+        <!-- Designer barriers (black indicator) -->
+        <div class="barrier-card designer-barrier">
+          <div class="barrier-card-upper">
+            <div class="barrier-card-category">Designer</div>
+            <h3 class="barrier-card-title">Complex Multi-Layer Information Architecture</h3>
+          </div>
+          <div class="barrier-card-lower">
+            <div class="barrier-card-pattern"></div>
+          </div>
         </div>
-        <div class="barrier-circle-wrapper">
-          <div class="barrier-circle black-circle" data-circle="black-2"></div>
-          <div class="barrier-circle-label">Outdoor Contextual UX</div>
+
+        <div class="barrier-card designer-barrier">
+          <div class="barrier-card-upper">
+            <div class="barrier-card-category">Designer</div>
+            <h3 class="barrier-card-title">Gamification System Design</h3>
+          </div>
+          <div class="barrier-card-lower">
+            <div class="barrier-card-pattern"></div>
+          </div>
         </div>
-        <div class="barrier-circle-wrapper">
-          <div class="barrier-circle black-circle" data-circle="black-3"></div>
-          <div class="barrier-circle-label">Gamification System Design</div>
-        </div>
-        <div class="barrier-circle-wrapper">
-          <div class="barrier-circle black-circle" data-circle="black-4"></div>
-          <div class="barrier-circle-label">Emotion-Addressing UX & Tone Design</div>
+        <div class="barrier-card designer-barrier">
+          <div class="barrier-card-upper">
+            <div class="barrier-card-category">Designer</div>
+            <h3 class="barrier-card-title">Emotion-Addressing UX & Tone Design</h3>
+          </div>
+          <div class="barrier-card-lower">
+            <div class="barrier-card-pattern"></div>
+          </div>
         </div>
         
-        <!-- Gray circles (right side) -->
-        <div class="barrier-circle-wrapper">
-          <div class="barrier-circle gray-circle" data-circle="gray-1"></div>
-          <div class="barrier-circle-label">Multi-Source Fishing Data Complexity</div>
+        <!-- Technology barriers (gray indicator) -->
+        <div class="barrier-card technology-barrier">
+          <div class="barrier-card-upper">
+            <div class="barrier-card-category">Technology</div>
+            <h3 class="barrier-card-title">Multi-Source Fishing Data Complexity</h3>
+          </div>
+          <div class="barrier-card-lower">
+            <div class="barrier-card-pattern"></div>
+          </div>
         </div>
-        <div class="barrier-circle-wrapper">
-          <div class="barrier-circle gray-circle" data-circle="gray-2"></div>
-          <div class="barrier-circle-label">Emotional Modeling Complexity</div>
+        <div class="barrier-card technology-barrier">
+          <div class="barrier-card-upper">
+            <div class="barrier-card-category">Technology</div>
+            <h3 class="barrier-card-title">Emotional Modeling Complexity</h3>
+          </div>
+          <div class="barrier-card-lower">
+            <div class="barrier-card-pattern"></div>
+          </div>
         </div>
-        <div class="barrier-circle-wrapper">
-          <div class="barrier-circle gray-circle" data-circle="gray-3"></div>
-          <div class="barrier-circle-label">Trust & Behavior Barriers Among Anglers</div>
+        <div class="barrier-card technology-barrier">
+          <div class="barrier-card-upper">
+            <div class="barrier-card-category">Technology</div>
+            <h3 class="barrier-card-title">Trust & Behavior Barriers Among Anglers</h3>
+          </div>
+          <div class="barrier-card-lower">
+            <div class="barrier-card-pattern"></div>
+          </div>
         </div>
-        <div class="barrier-circle-wrapper">
-          <div class="barrier-circle gray-circle" data-circle="gray-4"></div>
-          <div class="barrier-circle-label">Sparse / Imprecise Location Data</div>
+        <div class="barrier-card technology-barrier">
+          <div class="barrier-card-upper">
+            <div class="barrier-card-category">Technology</div>
+            <h3 class="barrier-card-title">Sparse / Imprecise Location Data</h3>
+          </div>
+          <div class="barrier-card-lower">
+            <div class="barrier-card-pattern"></div>
+          </div>
         </div>
-        <div class="barrier-circle-wrapper">
-          <div class="barrier-circle gray-circle" data-circle="gray-5"></div>
-          <div class="barrier-circle-label">Gamification × Real Data Synchronization</div>
+        <div class="barrier-card technology-barrier">
+          <div class="barrier-card-upper">
+            <div class="barrier-card-category">Technology</div>
+            <h3 class="barrier-card-title">Gamification × Real Data Synchronization</h3>
+          </div>
+          <div class="barrier-card-lower">
+            <div class="barrier-card-pattern"></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     
     <br>
     <br>
@@ -624,16 +642,15 @@
 
     // Literature Review scroll animations - same as User Journey
     function initLiteratureReviewScroll() {
-      const preview = document.getElementById('literaturereview');
-      if (!preview) return;
-      
-      // Find the section that contains the literaturereview element
-      const section = preview.closest('.user-journey-section');
       const card1 = document.getElementById('literature-1');
+      if (!card1) return;
+      
+      // Find the section that contains the literature review cards
+      const section = card1.closest('.user-journey-section');
       const card2 = document.getElementById('literature-2');
       const card3 = document.getElementById('literature-3');
       
-      if (!section || !card1 || !card2 || !card3) return;
+      if (!section || !card2 || !card3) return;
 
       // Find the title element
       const title = section.querySelector('.header-4xl.primary');
@@ -655,26 +672,22 @@
 
         // Show cards gradually based on scroll progress
         if (delta < 600) {
-          // First 600px: show title and preview circles, no cards
-          preview.classList.remove('hidden');
+          // First 600px: show title only, no cards
           if (title) title.style.opacity = '1';
           if (title) title.style.visibility = 'visible';
         } else if (delta < 1200) {
-          // 600-1200px: hide preview and title, show first card
-          preview.classList.add('hidden');
+          // 600-1200px: hide title, show first card
           if (title) title.style.opacity = '0';
           if (title) title.style.visibility = 'hidden';
           card1.classList.add('visible');
         } else if (delta < 1800) {
           // 1200-1800px: show first and second card
-          preview.classList.add('hidden');
           if (title) title.style.opacity = '0';
           if (title) title.style.visibility = 'hidden';
           card1.classList.add('visible');
           card2.classList.add('visible');
         } else {
           // 1800px+: show all three cards
-          preview.classList.add('hidden');
           if (title) title.style.opacity = '0';
           if (title) title.style.visibility = 'hidden';
           card1.classList.add('visible');
@@ -735,57 +748,13 @@
       });
     }
 
-    // Barrier of Entry circles fixed positioning
+    // Barrier of Entry cards initialization (no positioning needed - using CSS grid)
     function initBarrierCircles() {
-      const container = document.getElementById('barrierCircles');
+      // Cards are now displayed in a grid layout via CSS, no JavaScript positioning needed
+      // This function is kept for compatibility but does nothing
+      const container = document.getElementById('barrierCards');
       if (!container) return;
-
-      // Get wrappers instead of individual circles
-      const blackWrappers = Array.from(container.querySelectorAll('.black-circle')).map(circle => circle.closest('.barrier-circle-wrapper')).filter(Boolean);
-      const grayWrappers = Array.from(container.querySelectorAll('.gray-circle')).map(circle => circle.closest('.barrier-circle-wrapper')).filter(Boolean);
-
-      // Fixed positions for black circles (left side) - using percentages
-      const blackPositions = [
-        { left: '13%', top: '77%' },  // Bottom-left quadrant
-        { left: '22%', top: '61%' },  // Slightly above and to the right
-        { left: '10%', top: '46%' },  // Mid-left area
-        { left: '30%', top: '25%' }   // Upper-left quadrant
-      ];
-
-      // Fixed positions for gray circles (right side) - using percentages
-      const grayPositions = [
-        { left: '81%', top: '79%' },  // Bottom-right quadrant
-        { left: '65%', top: '63%' },   // Slightly above and to the left
-        { left: '90%', top: '52%' },   // Mid-right area
-        { left: '79%', top: '20%' },   // Upper-right quadrant
-        { left: '85%', top: '9%' }    // Near top-right corner
-      ];
-
-      // Position black circle wrappers
-      // Position based on circle center, not wrapper center
-      blackWrappers.forEach((wrapper, index) => {
-        if (blackPositions[index]) {
-          const circle = wrapper.querySelector('.barrier-circle');
-          // Position wrapper so that circle center is at the specified position
-          wrapper.style.left = blackPositions[index].left;
-          wrapper.style.top = blackPositions[index].top;
-          // Translate to center the circle (not the whole wrapper)
-          wrapper.style.transform = 'translate(-50%, 0)';
-        }
-      });
-
-      // Position gray circle wrappers
-      // Position based on circle center, not wrapper center
-      grayWrappers.forEach((wrapper, index) => {
-        if (grayPositions[index]) {
-          const circle = wrapper.querySelector('.barrier-circle');
-          // Position wrapper so that circle center is at the specified position
-          wrapper.style.left = grayPositions[index].left;
-          wrapper.style.top = grayPositions[index].top;
-          // Translate to center the circle (not the whole wrapper)
-          wrapper.style.transform = 'translate(-50%, 0)';
-        }
-      });
+      // Grid layout handles positioning automatically
     }
 
     function scrollToAbout() {
