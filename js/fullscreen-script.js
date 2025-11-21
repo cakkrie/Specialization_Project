@@ -21,8 +21,6 @@ function initFullscreen() {
     canvas.id = 'fullscreen-threejs-canvas';
     fullscreenContainer.appendChild(canvas);
 
-    // Removed back button for embedded use
-
     // Scene
     fullscreenScene = new THREE.Scene();
     fullscreenScene.background = new THREE.Color(0xffffff); // White background

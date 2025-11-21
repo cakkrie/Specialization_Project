@@ -8,12 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
-
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- jsPlumb Toolkit CSS -->
   <script src="node_modules/@jsplumbtoolkit/browser-ui/js/jsplumbtoolkit.browser-ui.umd.js"></script>
   <link rel="stylesheet" href="node_modules/@jsplumbtoolkit/browser-ui/css/jsplumbtoolkit.css">
-  <link rel="stylesheet" href="app.css">
  </head>
 <body>
   <header>
@@ -56,134 +57,118 @@
 
         <div class="overlay trend-row" id="trend-row" aria-hidden="true">
           <div class="overlay trend-card" id="young-trend" aria-hidden="true">
-            <h3>Lack of experience</h3>
-            <p>The growing participation among Gen Z usually don't have much experience and need help from friends to guide them on fishing.</p>
+            <div class="trend-card-content">
+              <div class="trend-category">User Trait1</div>
+              <h3>Lack of experience</h3>
+              <p>The growing participation among Gen Z usually don't have much experience and need help from friends to guide them on fishing.</p>
+            </div>
           </div>
           <div class="overlay trend-card" id="rely-tech" aria-hidden="true">
-            <h3>Rely on technology</h3>
-            <p>Mobile apps, sonar, and AI-driven insights increasingly guide spot selection and tactics.</p>
+            <div class="trend-card-content">
+              <div class="trend-category">User Trait2</div>
+              <h3>Rely on technology</h3>
+              <p>Mobile apps, sonar, and AI-driven insights increasingly guide spot selection and tactics.</p>
+            </div>
           </div>
           <div class="overlay trend-card" id="limited-time" aria-hidden="true">
-            <h3>Limited time on fishing</h3>
-            <p>Busy schedules push for efficient, outcome-oriented trips and bite-time optimization.</p>
+            <div class="trend-card-content">
+              <div class="trend-category">User Trait3</div>
+              <h3>Limited time on fishing</h3>
+              <p>Busy schedules push for efficient, outcome-oriented trips and bite-time optimization.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <section class="hmw-section">
+      <div class="hmw-bubbles-container">
+        <div class="hmw-tags-prefix">Turn fishing actions into a personalized journey</div>
+      </div>
       <div class="hmw-container">
         <div class="header-xl">How might we design a tool</div>
-        <div class="header-6xl">for younger anglers</div>
-        <div class="header-2xl">In the digitalized era?</div>
+        <div class="header-3xl">for younger anglers <br>In the digitalized era?</div>
       </div>
-    </section>
-
-    <section class="bubble-section">
-      <div id="bubble-field" class="bubble-field" aria-live="polite"></div>
-      <br>
-      <br>
-      <br>
-      <div class="cta">
-        <a href="fishing-community.html" class="title-cta" aria-label="Explore Fishing Community">
+      <div class="cta hmw-cta">
+        <a href="ontology.html" class="title-cta" aria-label="Explore Ontology">
           <span class="cta-icon" aria-hidden="true">↳</span>
-          <span class="cta-text">EXPLORE FISHING COMMUNITY</span>
+          <span class="cta-text">EXPLORE IMMERSIVELY
+          </span>
         </a>
       </div>
     </section>
 
-    <section class="list-light">
-      <div class="header-3xl primary">Map of <br>Community</div>
-      <br>
-      <section class="list">
-        <div class="list-row open">
-          <div class="header-sm">Software</div>
-          <div class="header-2xl" style="margin-left: 30px">Information Overload</div>
+    <section class="map-community-section">
+      <div class="map-community-content">
+        <div class="header-3xl">Map of Community</div>
+        <div class="map-community-cards">
+          <div class="map-community-card">
+              <div class="caption-base">(01)</div>
+              <div class="body-sm">Shang Yu</div>
+            <div class="map-community-card-content">
+              <p>As China's leading fishing technology brand, Shangyu is dedicated to delivering localized tech solutions for the recreational fishing community, catering to anglers of all skill levels. By integrating AI technology with educational and interactive features, the platform creates an easy-to-use and engaging fishing experience, becoming a knowledgeable companion for every fishing trip.</p>
+            </div>
+              <div class="labels"><span class="label">Software</span></div>
+          </div>
+          <div class="map-community-card">
+              <div class="caption-base">(02)</div>
+              <div class="body-sm">LakeMonster</div>
+            <div class="map-community-card-content">
+              <p>An app that analyzes data points — including satellite imagery, weather patterns, water depth data, and historical fishing records to generate fish activity forecasts, hotspot maps, and water clarity maps.</p>
+            </div>
+              <div class="labels"><span class="label">Software</span></div>
+          </div>
+          <div class="map-community-card">
+              <div class="caption-base">(03)</div>
+              <div class="body-sm">Fishbuddy</div>
+            <div class="map-community-card-content">
+              <p>Smart decisions: uses 10+ weather factors (temp, pressure, humidity) to flag prime times, recommend bait, and navigate nearby spots. Social: in-app forum to share catches and techniques.</p>
+            </div>
+              <div class="labels"><span class="label">Software</span></div>
+          </div>
+          <div class="map-community-card">
+              <div class="caption-base">(04)</div>
+              <div class="body-sm">Sea.ai</div>
+            <div class="map-community-card-content">
+              <p>Smart camera: combines optical and infrared sensors, utilizes AI and ML algorithms to detect objects on the water surface.</p>
+            </div>
+              <div class="labels"><span class="label">Hardware</span></div>
+          </div>
+          <div class="map-community-card">
+              <div class="caption-base">(05)</div>
+              <div class="body-sm">Chasing F1 Pro</div>
+            <div class="map-community-card-content">
+              <p>Remote/autonomous lateral movement, station-hold, multi-spot waypoints. Depth &amp; temperature sensors; Wi‑Fi streams live video + depth/temp to the app. Bait-boat mount with one-tap in-app bait release.</p>
+            </div>
+              <div class="labels"><span class="label">Hardware</span></div>
+          </div>
         </div>
-        <div class="list-row-content">
-          <p>There are many software tools for fishing, such as Fishbuddy, LakeMonster, and Sea.ai. They are all good tools for fishing, but most of them are not very user-friendly for younger anglers as they display too much professional fishing knowledge.</p>
-          <p>Younger anglers usually don't have much experience and need help from friends to interpret the knowledge or guide them in the fishing process.</p>
+        <div class="map-community-list">
+          <div class="map-community-list-left">
+            <div class="map-community-list-headline"><span class="headline-gray">Current solutions </span><span class="headline-white">overload anglers with information</span><span class="headline-gray"> and are </span><span class="headline-white">expensive for entry</span></div>
+          </div>
+          <div class="map-community-list-right">
+            <div class="map-community-list-item">
+              <div class="map-community-list-item-title">Software</div>
+              <div class="map-community-list-item-content">
+                <p>There are many software tools for fishing, such as Fishbuddy, LakeMonster, and Sea.ai. They are all good tools for fishing, but most of them are not very user-friendly for younger anglers as they display too much professional fishing knowledge.</p>
+                <p>Younger anglers usually don't have much experience and need help from friends to interpret the knowledge or guide them in the fishing process.</p>
+              </div>
+            </div>
+            <div class="map-community-list-item">
+              <div class="map-community-list-item-title">Hardware</div>
+              <div class="map-community-list-item-content">
+                <p>The current hardware tools for fishing are expensive since they are not widely used in recreational fishing. Young anglers who haven't had much experience may not want to invest in expensive hardware tools.</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="list-row open">
-          <div class="header-sm">Hardware</div>
-          <div class="header-2xl" style="margin-left: 30px">Expensive Entry</div>
-        </div>
-        <div class="list-row-content">
-          <p>There are many software tools for fishing, such as Fishbuddy, LakeMonster, and Sea.ai. They are all good tools for fishing, but most of them are not very user-friendly for younger anglers as they display too much professional fishing knowledge.</p>
-          <p>Younger anglers usually don't have much experience and need help from friends to interpret the knowledge or guide them in the fishing process.</p>
-        </div>
-      </section>
-
-      <section class="list">
-        <div class="list-row">
-          <div class="caption-base">(00)</div>
-          <div class="body-sm">Shang Yu</div>
-          <div class="row-labels"><span class="label">Software</span></div>
-          <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-        </div>
-        <div class="list-row-content">
-          <p>As China’s leading fishing technology brand, Shangyu is dedicated to delivering localized tech solutions for the recreational fishing community, catering to anglers of all skill levels. By integrating AI technology with educational and interactive features, the platform creates an easy-to-use and engaging fishing experience, becoming a knowledgeable companion for every fishing trip.</p>
-          <img src="Photo/research-photo/fishing-com/shang-yu-intro.png" alt="Shang Yu app intro screens" class="content-image content-image-small">
-        </div>
-
-        <div class="list-row">
-          <div class="caption-base">(01)</div>
-          <div class="body-sm">LakeMonster</div>
-          <div class="row-labels"><span class="label">Software</span></div>
-          <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-        </div>
-        <div class="list-row-content">
-          <p>An app that analyzes data points — including satellite imagery, weather patterns, water depth data, and historical fishing records to generate fish activity forecasts, hotspot maps, and water clarity maps.</p>
-        </div>
-
-        <div class="list-row">
-          <div class="caption-base">(02)</div>
-          <div class="body-sm">Fishbuddy</div>
-          <div class="row-labels"><span class="label">Software</span></div>
-          <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-        </div>
-        <div class="list-row-content">
-          <p>Smart decisions: uses 10+ weather factors (temp, pressure, humidity) to flag prime times, recommend bait, and navigate nearby spots. Social: in-app forum to share catches and techniques.</p>
-        </div>
-
-        <div class="list-row">
-          <div class="caption-base">(03)</div>
-          <div class="body-sm">Sea.ai</div>
-          <div class="row-labels"><span class="label">Hardware</span></div>
-          <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-        </div>
-        <div class="list-row-content">
-          <p>Smart camera: combines optical and infrared sensors, utilizes AI and ML algorithms to detect objects on the water surface.</p>
-        </div>
-
-        <div class="list-row">
-          <div class="caption-base">(04)</div>
-          <div class="body-sm">Chasing F1 Pro</div>
-          <div class="row-labels"><span class="label">Hardware</span></div>
-          <button class="toggle" onclick="toggleRow(this)" aria-label="Toggle details"></button>
-        </div>
-        <div class="list-row-content">
-          <p>Remote/autonomous lateral movement, station-hold, multi-spot waypoints. Depth &amp; temperature sensors; Wi‑Fi streams live video + depth/temp to the app. Bait-boat mount with one-tap in-app bait release.</p>
-        </div>
-      </section>
     </section>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
 
-    <section class="user-journey-section">
+    <section class="user-journey-section" style="background: #fff;">
       <div class="user-journey-pin">
         <div class="header-4xl primary">Literature Review</div>
         <div class="user-journey-cards">
@@ -192,7 +177,7 @@
               <img src="Photo/literature-review/Literature_1.png" alt="Literature 1" class="journey-illustration" data-modal-src="Photo/literature-review/Literature_1_Expand.png">
             </div>
             <div class="literature-card-icon">
-              <span class="literature-card-plus">+</span>
+              <i class="fas fa-plus"></i>
             </div>
           </div>
           <div class="user-journey-card card-2" id="literature-2">
@@ -200,7 +185,7 @@
               <img src="Photo/literature-review/Literature_2.png" alt="Literature 2" class="journey-illustration" data-modal-src="Photo/literature-review/Literature_2_Expand.png">
             </div>
             <div class="literature-card-icon">
-              <span class="literature-card-plus">+</span>
+              <i class="fas fa-plus"></i>
             </div>
           </div>
           <div class="user-journey-card card-3" id="literature-3">
@@ -208,17 +193,13 @@
               <img src="Photo/literature-review/Literature_3.png" alt="Literature 3" class="journey-illustration" data-modal-src="Photo/literature-review/Literature_3_Expand.png">
             </div>
             <div class="literature-card-icon">
-              <span class="literature-card-plus">+</span>
+              <i class="fas fa-plus"></i>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="ontology-section" style="width: 50%; height: 80vh; margin: 0 auto; padding: 0; background: #fff;">
-      <div class="header-4xl primary" style="padding: var(--spacing-6xl) 0;">The FishOn Ontology</div>
-      <iframe src="ontology.html" style="width: 100%; height: 100%; border: none; display: block;"></iframe>
-    </section>
 
     <section class="barrier-of-entry-section">
       <div class="barrier-of-entry-content">
@@ -311,16 +292,7 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="header-4xl primary">How it works</div>
+    <br>    <div class="header-4xl primary">How it works</div>
     <div class="body-sm" style="text-align: center;">An uml diagram of the specilized fishing map</div>
   
 
@@ -415,10 +387,6 @@
     </div>
 
 
-
-
-
-
       <!-- Earth Visualization Section -->
     <div class="earth-section">
       <div class="earth-section-pin">
@@ -506,16 +474,6 @@
           <img src="Photo/buttom3_screen.png" alt="Screen 3" class="phone-screen screen-3">
         </div>
             
-        <!-- <svg class="progress-ring" width="520" height="520">
-          <circle class="progress-circle-bg" cx="260" cy="260" r="199" fill="none" stroke="#333" stroke-width="2"/>
-          <circle class="progress-circle progress-section-1" cx="260" cy="260" r="199" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="417" stroke-dashoffset="417"/>
-          <circle class="progress-circle progress-section-2" cx="260" cy="260" r="199" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="417" stroke-dashoffset="417"/>
-          <circle class="progress-circle progress-section-3" cx="260" cy="260" r="199" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="417" stroke-dashoffset="417"/>
-        </svg> -->
-        <!-- <div class="parallax-titles">
-          <div class="title-text title-1"><span>2D Map</span><span class="title-sub">Real-time overlays and navigation</span><span class="title-body">A data-driven map that visualizes real fishing spots, weather, and location information for quick decision-making</span></div>
-          <div class="title-text title-2"><span>2.5D Map</span><span class="title-sub">Emotion & Discovery Map</span><span class="title-body">A semi-immersive map blending 3D depth and emotional feedback, exploration through ambient visuals.</span></div> -->
-           <!-- <div class="title-text title-3"><span>4D XR Map</span><span class="title-sub">Immersive XR previews</span><span class="title-body">An extended-reality environment that anchors fish and environment in real-world space, merging physical and virtual fishing experiences.</span></div> -->
         </div> 
       </div>
       <br>
@@ -573,7 +531,6 @@
       initEarthInteraction();
       initStickyEffect();
       initAboutLanding2Scroll();
-      initTiltCard();
       initUserJourneyScroll();
       initLiteratureReviewScroll();
       initImageModal();
@@ -581,20 +538,6 @@
       initTechnologyEcosystemScroll();
     });
     
-    // Tilt card effect
-    function initTiltCard() {
-      const card = document.getElementById('tiltCard');
-      if (!card) return;
-      
-      // On hover: straighten the card
-      card.addEventListener('mouseenter', function() {
-        card.classList.add('hovered');
-      });
-      
-      card.addEventListener('mouseleave', function() {
-        card.classList.remove('hovered');
-      });
-    }
 
     // User Journey scroll animations - similar to landing-context
     function initUserJourneyScroll() {
@@ -814,48 +757,61 @@
       render();
     }
 
-    function scrollToAbout() {
-      const target = document.querySelector('.landing-context');
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
 
+    // Initialize file tags for HMW section
+    function initHMWBubbles() {
+      const bubbleContainer = document.querySelector('.hmw-bubbles-container');
+      if (!bubbleContainer) return;
 
-    // Scroll-based animation functionality
-    function initScrollAnimations() {
-      const cards = document.querySelectorAll('.project-card');
-      
-      // Intersection Observer for fade-in animation
-      const observerOptions = {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
-      };
+      // Create grid container for all tags (check weather first, then others)
+      const tagsGrid = document.createElement('div');
+      tagsGrid.className = 'hmw-tags-grid';
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const cardIndex = Array.from(cards).indexOf(entry.target);
-            // Stagger animation with increasing delay
-            setTimeout(() => {
-              entry.target.classList.add('animate-in');
-            }, cardIndex * 100);
-          }
-        });
-      }, observerOptions);
+      // All tags - check weather first, then others
+      const fileTags = [
+        { icon: 'cloud', text: 'Check weather & forecast' },
+        { icon: 'fish', text: 'Target species' },
+        { icon: 'map-pin', text: 'Target location' },
+        { icon: 'file-check', text: 'Verify local regulations' },
+        { icon: 'calendar', text: 'Check calendar' },
+        { icon: 'fish', text: 'Prepare bait' },
+        { icon: 'navigation', text: 'Navigate to destination' },
+        { icon: 'users', text: 'Plan trip with friends' },
+        { icon: 'book-open', text: 'Learn tutorials' },
+        { icon: 'user-check', text: 'Schedule local guide' }
+      ];
 
-      // Observe all cards
-      cards.forEach(card => {
-        observer.observe(card);
+      // Create all file tags in grid layout
+      fileTags.forEach((item, index) => {
+        const tag = document.createElement('div');
+        tag.className = 'hmw-file-tag';
+        tag.innerHTML = `<i data-lucide="${item.icon}"></i><span>${item.text}</span>`;
+        tagsGrid.appendChild(tag);
       });
+
+      // Insert grid after prefix and before suffix
+      const prefix = bubbleContainer.querySelector('.hmw-tags-prefix');
+      const suffix = bubbleContainer.querySelector('.hmw-tags-suffix');
+      if (prefix && suffix) {
+        prefix.insertAdjacentElement('afterend', tagsGrid);
+      } else {
+        bubbleContainer.appendChild(tagsGrid);
+      }
+
+      // Initialize Lucide icons for the tags
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
     }
 
     // Initialize animations and load header when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
-      if (typeof loadHeader === 'function') {
-        loadHeader();
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
       }
-      initScrollAnimations();
+      
+      initHMWBubbles();
     });
 
     // Sticky scroll control for landing-context (2500px total pin, 5 stages)
@@ -1248,36 +1204,6 @@
       }
     }
 
-      // Expandable functionality
-      function toggleExpandable(element) {
-      const content = element.nextElementSibling;
-      const isExpanded = element.classList.contains('expanded');
-      
-      if (isExpanded) {
-        element.classList.remove('expanded');
-        content.classList.remove('expanded');
-      } else {
-        element.classList.add('expanded');
-        content.classList.add('expanded');
-      }
-    }
-
-    // Toggle content with add icon
-    function toggleContent(iconElement) {
-      const titleElement = iconElement.parentElement;
-      const content = titleElement.nextElementSibling;
-      const isExpanded = titleElement.classList.contains('expanded');
-      
-      if (isExpanded) {
-        titleElement.classList.remove('expanded');
-        content.classList.remove('expanded');
-        iconElement.textContent = '+';
-      } else {
-        titleElement.classList.add('expanded');
-        content.classList.add('expanded');
-        iconElement.textContent = '−';
-      }
-    }
 
     // Row toggle for list
     function toggleRow(btn) {
@@ -1292,138 +1218,7 @@
       }
     }
 
-    // Random Trip Actions Generator
-    const ANGLER_ACTIONS = [
-      'Check weather',
-      'Target species',
-      'Target location',
-      'Get fishing license',
-      'Verify local regulations',
-      'Pack',
-      'Prepare bait',
-      'Inspect line/leader',
-      'Sharpen hooks',
-      'Download offline maps',
-      'Load waypoints',
-      'Check PFDs and safety kit',
-      'Confirm boat/kayak condition and fuel/air',
-      'Pack cooler, ice, and fish bag',
-      'Carry measuring items',
-      'Set departure time',
-      'Tell someone your plan and ETA',
-    ];
-
-    function sampleActions(source, count) {
-      const array = [...source];
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array.slice(0, count);
-    }
-
-    let CURRENT_ITEMS = [];
-
-    function rectsOverlap(ax, ay, aw, ah, bx, by, bw, bh, margin = 8) {
-      return !(
-        ax + aw + margin <= bx ||
-        bx + bw + margin <= ax ||
-        ay + ah + margin <= by ||
-        by + bh + margin <= ay
-      );
-    }
-
-    function findNonOverlappingPosition(bw, bh, fieldWidth, fieldHeight, placed, attempts = 200) {
-      for (let i = 0; i < attempts; i++) {
-        const x = Math.max(0, Math.random() * Math.max(0, fieldWidth - bw));
-        const y = Math.max(0, Math.random() * Math.max(0, fieldHeight - bh));
-        let ok = true;
-        for (let j = 0; j < placed.length; j++) {
-          const p = placed[j];
-          if (rectsOverlap(x, y, bw, bh, p.x, p.y, p.w, p.h)) {
-            ok = false;
-            break;
-          }
-        }
-        if (ok) return { x, y };
-      }
-      return null; // not found
-    }
-
-    function renderBubbles(count = 12, presetItems = null) {
-      const field = document.getElementById('bubble-field');
-      if (!field) {
-        console.error('Bubble field not found!');
-        return;
-      }
-      field.innerHTML = '';
-      const items = presetItems && presetItems.length ? presetItems : sampleActions(ANGLER_ACTIONS, count);
-      CURRENT_ITEMS = items;
-      const fieldWidth = field.clientWidth;
-      const fieldHeight = field.clientHeight;
-      console.log('Field dimensions:', fieldWidth, 'x', fieldHeight);
-      
-      // Ensure field has valid dimensions
-      if (fieldWidth <= 0 || fieldHeight <= 0) {
-        console.error('Invalid field dimensions:', fieldWidth, 'x', fieldHeight);
-        return;
-      }
-      const placed = [];
-      items.forEach(text => {
-        const b = document.createElement('div');
-        b.className = 'action-bubble';
-        // Randomize bubble size between 100px and 220px
-        const size = Math.floor(100 + Math.random() * 120);
-        b.style.setProperty('--bubble-size', size + 'px');
-        b.textContent = text;
-        field.appendChild(b);
-        // Measure and place without overlap
-        const bw = b.offsetWidth;
-        const bh = b.offsetHeight;
-        const pos = findNonOverlappingPosition(bw, bh, fieldWidth, fieldHeight, placed, 240);
-        if (pos) {
-          b.style.left = pos.x + 'px';
-          b.style.top = pos.y + 'px';
-          console.log('Positioned bubble at:', pos.x, pos.y);
-          placed.push({ x: pos.x, y: pos.y, w: bw, h: bh });
-        } else {
-          console.log('No position found for bubble:', text);
-          // Fallback: use simple random positioning
-          const fallbackX = Math.random() * Math.max(0, fieldWidth - bw);
-          const fallbackY = Math.random() * Math.max(0, fieldHeight - bh);
-          b.style.left = fallbackX + 'px';
-          b.style.top = fallbackY + 'px';
-          console.log('Using fallback position:', fallbackX, fallbackY);
-          placed.push({ x: fallbackX, y: fallbackY, w: bw, h: bh });
-        }
-      });
-    }
-
-    function repositionBubbles() {
-      const field = document.getElementById('bubble-field');
-      if (!field || !CURRENT_ITEMS.length) return;
-      renderBubbles(CURRENT_ITEMS.length, CURRENT_ITEMS);
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
-      // Add a small delay to ensure the field has proper dimensions
-      setTimeout(() => {
-        renderBubbles();
-      }, 100);
-      
-      const regen = document.getElementById('regenerate-bubbles');
-      if (regen) {
-        regen.addEventListener('click', (e) => {
-          e.preventDefault();
-          renderBubbles();
-        });
-      }
-      window.addEventListener('resize', () => {
-        // debounce resize
-        clearTimeout(window.__bubbleResizeTimer);
-        window.__bubbleResizeTimer = setTimeout(repositionBubbles, 150);
-      });
-      
       // Initialize jsPlumb for UML diagram
       initJsPlumbUML();
     });
@@ -1463,16 +1258,6 @@
       return cardHtml;
     }
 
-    // Generate info card HTML from data
-    function generateInfoCard(infoData) {
-      const cardHtml = `
-        <div class="uml-info-card ${infoData.gridPosition}">
-          ${infoData.title.map(title => `<h4>${title}</h4>`).join('')}
-          <p>${infoData.description}</p>
-        </div>
-      `;
-      return cardHtml;
-    }
 
     // Render UML diagram from JSON data
     function renderUMLDiagram(data) {
@@ -1663,91 +1448,6 @@
       console.log('jsPlumb UML diagram initialized successfully from JSON data');
     }
 
-    // UML Control Functions
-    async function reloadUMLData() {
-      console.log('Reloading UML data...');
-      await initJsPlumbUML();
-    }
-
-    function resetUMLDiagram() {
-      const umlElements = document.querySelectorAll('.uml-card');
-      umlElements.forEach(element => {
-        // Reset position to original coordinates
-        const originalLeft = element.getAttribute('data-original-left') || element.style.left;
-        const originalTop = element.getAttribute('data-original-top') || element.style.top;
-        element.style.left = originalLeft;
-        element.style.top = originalTop;
-        element.style.transform = 'none';
-        element.classList.remove('highlighted');
-        
-        // Store original position if not already stored
-        if (!element.getAttribute('data-original-left')) {
-          element.setAttribute('data-original-left', originalLeft);
-          element.setAttribute('data-original-top', originalTop);
-        }
-      });
-      
-      // Reset jsPlumb instance if available
-      if (window.jsPlumbInstance) {
-        window.jsPlumbInstance.repaintEverything();
-      }
-    }
-
-    function toggleConnections() {
-      const connectors = document.querySelectorAll('.jtk-connector');
-      const isVisible = connectors[0]?.style.display !== 'none';
-      
-      connectors.forEach(connector => {
-        connector.style.display = isVisible ? 'none' : 'block';
-      });
-      
-      // Also toggle connection labels
-      const labels = document.querySelectorAll('.jtk-overlay');
-      labels.forEach(label => {
-        label.style.display = isVisible ? 'none' : 'block';
-      });
-    }
-
-    function exportDiagram() {
-      const container = document.querySelector('.uml-diagram-container');
-      if (container) {
-        // Use html2canvas to capture the HTML elements
-        if (typeof html2canvas !== 'undefined') {
-          html2canvas(container, {
-            backgroundColor: '#ffffff',
-            scale: 2,
-            useCORS: true,
-            allowTaint: true
-          }).then(canvas => {
-            const link = document.createElement('a');
-            link.download = 'uml-diagram.png';
-            link.href = canvas.toDataURL();
-            link.click();
-          });
-        } else {
-          // Fallback: create a simple screenshot using canvas
-          const canvas = document.createElement('canvas');
-          const ctx = canvas.getContext('2d');
-          canvas.width = container.offsetWidth;
-          canvas.height = container.offsetHeight;
-          
-          // Fill background
-          ctx.fillStyle = '#ffffff';
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-          
-          // Draw a simple representation
-          ctx.fillStyle = '#000000';
-          ctx.font = '16px Arial';
-          ctx.fillText('UML Diagram Export', 50, 50);
-          ctx.fillText('Please use browser screenshot tools for better results', 50, 80);
-          
-          const link = document.createElement('a');
-          link.download = 'uml-diagram.png';
-          link.href = canvas.toDataURL();
-          link.click();
-        }
-      }
-    }
 
   </script>
 </body>
