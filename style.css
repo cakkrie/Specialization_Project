@@ -862,7 +862,7 @@ header i {
 }
 
 .hmw-container .header-3xl {
-  font-weight: var(--font-weight-black);
+  font-weight: var(--font-weight-extrabold);
   text-transform: none;
   font-family: var(--font-secondary);
   margin: 0;
