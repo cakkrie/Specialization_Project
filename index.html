@@ -387,34 +387,6 @@
       <img class="image-modal-content" id="modalImage" src="" alt="">
     </div> -->
 
-      <!-- Earth Visualization Section -->
-    <div class="earth-section">
-      <div class="earth-section-pin">
-        <div class="earth-container">
-          <div class="earth-layers">
-            <canvas id="layer-bottom" class="earth-layer" data-layer="bottom" width="520" height="520"></canvas>
-            <canvas id="layer-middle" class="earth-layer" data-layer="middle" width="520" height="520"></canvas>
-            <canvas id="layer-top" class="earth-layer" data-layer="top" width="520" height="520"></canvas>
-          </div>
-        </div>
-        <div class="earth-titles">
-          <div class="earth-title-text left active" data-layer="bottom">
-            <span>2D Map</span>
-            <span class="title-body">A data-driven map that visualizes real fishing spots, weather, and location information for quick decision-making</span>
-          </div>
-          <div class="earth-title-text right active" data-layer="top">
-            <span>4D XR Map</span>
-            <span class="title-body">An extended-reality environment that anchors fish and environment in real-world space, merging physical and virtual fishing experiences.</span>
-          </div>
-        </div>
-        <div class="screen-container">
-          <img src="Photo/buttom2_screen.png" alt="Screen 2" class="phone-screen screen-2">
-          <img src="Photo/buttom3_screen.png" alt="Screen 3" class="phone-screen screen-3">
-        </div>
-      </div>
-    </div>
-
-
     <section class="responsive-cards-section">
       <div class="header-4xl primary">Radical Prototype</div>
       <p>Letting users to "see" the dynamic fish habitats and real-time encouragement from an AI multidimensional agent, creating an immersive yet emotionally supportive fishing journey</p>
@@ -448,7 +420,6 @@
   <script>
     // Initialize when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
-      initEarthInteraction();
       initAboutLanding2Scroll();
       initUserJourneyScroll();
       initLiteratureReviewScroll();
@@ -798,126 +769,6 @@
       middle: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAYAAAB/HSuDAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUACAMZSURBVHgB7P3dsyXJcSeIuUeec++tr/4ApwBi2RSKWIga67EZ9hrN1kz7goJsSe6YyYzAkE3JTCYB86Y3YEd/QHXNHzAg/wGhYbsP0jQwjTGjCQtgbLrwIDM9DDXNh20bURRQGDTRBIpgd6M+7r3nZEbI3SMiT2RkRGaeW99V/uu+dfJkRkZERkac8J+7hweCQqFQKBSKx4Lvvv3BFf5stt1LiO4ly38WXuJzBlGugTEOAa5YcGDoq3P4EgKlc47T0FmgdPRpnSRHyoi+0i3uCvJ152JxfIBJ8S5cx+xaPL7pv8bL8vER3fIR1QmAKhou9+ko5U1rLUqdO/cTucXZj4zBj1r+slpJ2n/6pU/fBIVCoVAoFI8cCAqFQqFQKO4Lb7/945eO4OglaNsrhkg8WvOSa/AzRH9fIv4thB2weZFY+m8FQn0luT0S7hFBD59YSLsIrAwIBH9wPFV2JV0pr7xuS5E+w81eqeBzu0kXPwLrPkaHN50h5YEj5QEpDk7g5KMvfem3PgKFQqFQKBRnhioAFAqFQqGogC30bJ0nInpFSD2SVd2YzzCpZxLvyFqPhi3wPYTc5iQ6s8T36bJ75DixyAMMyXlJITDIM7HoL0JSz5ECIK2PeBX4L7V6lBQTLjREXtbeiO0neVi4iQ3+RDwQRGGAN9nboEN3k9OerNp3VVGgUCgUCkUZqgBQKBQKxXOJaLU33fY1b7GH36FJ8SWisle8Wz2QBb8n8+mtI+I+5WYPY9f6RVb27HyuQCjBFeoHSZmjeub5zigq9oFL8iqVP3kv1J8hbR9XyzvoHX6CBm+6tvvINOZduu0jdN...',
       top: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAYAAAB/HSuDAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUABqJtSURBVHgB7P1djxxXliWIni/78PBwkpFkSBRb6lSzs1nZjFu4aAg9BdSti+QA8zSoeYwE+u0+9UP/iYj4E/nQf2AAxWPdx7p3mEBPA4WGULioIdHFzuFVtrIoSkEqGPTwcPs658xe+xzz8AiSSkmZKSlTewWdZm5ubm5uEWZ29tprr62UQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgE3zK0EggEAoHgjxM6xjjOR03Ac0yUQCAQCAQCgeAVCAEgEAgEgu8dKJDn+1MO5lNgj1uWVpF+NP4b5/kN+H8t7Nd5cRwX0rq0bJ0wEKJAIBAIBALBDw5OCQQCgUDw/cAqg69zdI8Af/9gn8N7PD/YPzC8Iq+aSIKDgwOt9jGztqW9FPnjtf29vRVpgOd7+3sRn8DvzySCkAECgUAgEAh+CBAFgEAgEAi+U+SsvF7dkWJ6EtdS+jnS12pvP4IQuHv3rj5Uh2rn4U5aaU9dJAAID2idnd2HtD5e31vl/pkw4EV78Xz7WV3wipZAIBAIBAKB4E8HQgAIBAKB4DsDgn8KyA2C8QNF2Xm1t2IDOPNPgf3dw7v6IQXyDw4f6N3dXXV4SIH/9g7fvx4cPbgQrGP5K8t2M0mwRhDsE...'
     };
-
-    // Earth layer interaction functionality
-    function initEarthInteraction() {
-      const canvases = document.querySelectorAll('.earth-layer');
-      const earthSection = document.querySelector('.earth-section');
-      const earthLayersContainer = document.querySelector('.earth-layers');
-      
-      // 设置canvas
-      setupCanvases();
-      
-      // 添加滚动监听，实现地球模糊效果和文字消失，然后screen-container升起
-      function handleEarthScroll() {
-        if (!earthSection) return;
-        
-        const sectionTop = earthSection.offsetTop;
-        const sectionHeight = earthSection.offsetHeight;
-        const scrollY = window.scrollY;
-        const viewportHeight = window.innerHeight;
-        const earthTitles = document.querySelectorAll('.earth-title-text');
-        const screenContainer = document.querySelector('.screen-container');
-        const phoneScreens = document.querySelectorAll('.phone-screen');
-        
-        // 计算滚动进度：当滚动到earth-section时开始
-        const scrollStart = sectionTop;
-        const scrollProgress = Math.max(0, Math.min(1, (scrollY - scrollStart) / sectionHeight));
-        
-        // 第一阶段（0-0.5）：地球变模糊，文字消失
-        if (scrollProgress <= 0.5) {
-          const phase1Progress = scrollProgress / 0.5; // 0 到 1
-          
-          // 地球模糊：从0px到20px
-          const maxBlur = 20;
-          const blurValue = phase1Progress * maxBlur;
-          canvases.forEach(canvas => {
-            canvas.style.filter = `blur(${blurValue}px)`;
-            canvas.style.transition = 'filter 0.1s ease-out';
-          });
-          
-          // 文字消失：opacity从1到0
-          const textOpacity = 1 - phase1Progress;
-          earthTitles.forEach(title => {
-            title.style.opacity = textOpacity;
-            title.style.transition = 'opacity 0.3s ease-out';
-          });
-          
-          // screen-container保持在下方（隐藏）
-          if (screenContainer) {
-            screenContainer.style.opacity = '0';
-            screenContainer.style.transform = 'translate(-50%, 100%)';
-            screenContainer.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
-          }
-          phoneScreens.forEach(screen => {
-            screen.classList.remove('active');
-          });
-        } 
-        // 第二阶段（0.5-1）：screen-container从下方升起
-        else {
-          const phase2Progress = (scrollProgress - 0.5) / 0.5; // 0 到 1
-          
-          // 地球保持最大模糊
-          canvases.forEach(canvas => {
-            canvas.style.filter = 'blur(20px)';
-          });
-          
-          // 文字完全消失
-          earthTitles.forEach(title => {
-            title.style.opacity = '0';
-          });
-          
-          // screen-container从下方升起
-          if (screenContainer) {
-            const translateY = 100 - (phase2Progress * 100); // 从100%到0%
-            screenContainer.style.opacity = phase2Progress > 0.1 ? '1' : '0';
-            screenContainer.style.transform = `translate(-50%, ${translateY}%)`;
-            screenContainer.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
-          }
-          
-          // 根据进度显示不同的screen
-          if (phase2Progress < 0.5) {
-            phoneScreens[0]?.classList.add('active');
-            phoneScreens[1]?.classList.remove('active');
-          } else {
-            phoneScreens[0]?.classList.remove('active');
-            phoneScreens[1]?.classList.add('active');
-          }
-        }
-      }
-      
-      function setupCanvases() {
-        const imageFiles = {
-          'bottom': 'Photo/bottom.png',
-          'middle': 'Photo/middle.png', 
-          'top': 'Photo/top.png'
-        };
-        
-        canvases.forEach(canvas => {
-          const layerType = canvas.getAttribute('data-layer');
-          const ctx = canvas.getContext('2d');
-          
-          // 设置canvas尺寸
-          canvas.width = 520;
-          canvas.height = 520;
-          
-          // 加载对应的PNG图片
-          const img = new Image();
-          img.onload = function() {
-            // 清空canvas
-            ctx.clearRect(0, 0, 520, 520);
-            // 绘制图片
-            ctx.drawImage(img, 0, 0, 520, 520);
-          };
-          img.src = imageFiles[layerType];
-        });
-      }
-      
-      // 监听滚动事件
-      window.addEventListener('scroll', handleEarthScroll, { passive: true });
-      window.addEventListener('resize', handleEarthScroll);
-      handleEarthScroll(); // 初始调用
-    }
 
 
     // Row toggle for list
