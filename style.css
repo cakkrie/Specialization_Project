@@ -20,7 +20,7 @@
   
   /* Font Families */
   --font-primary: "Bebas Neue", sans-serif;
-  --font-secondary: "Raleway", "Helvetica Neue", Helvetica, sans-serif;
+  --font-secondary: "Lexend", "Helvetica Neue", Helvetica, sans-serif;
   
   /* Font Sizes */
   --font-size-xs: 10px;
@@ -576,6 +576,188 @@ header i {
   font-size: 14px;
   color: #666666;
   line-height: 1.6;
+}
+
+/* Earth Intro Section */
+.earth-intro-section {
+  background: #000000;
+  min-height: calc(100vh + 2000px);
+  position: relative;
+}
+
+.earth-intro-pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.earth-bg {
+  position: absolute;
+  width: auto;
+  height: 60%;
+  max-width: 60%;
+  object-fit: contain;
+  z-index: 1;
+  transition: filter 0.5s ease;
+}
+
+.earth-bg.blurred {
+  filter: blur(10px);
+}
+
+.earth-map-overlay {
+  position: absolute;
+  width: auto;
+  height: 85%;
+  max-width: 85%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  bottom: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#earth-map-1 {
+  z-index: 2;
+}
+
+#earth-map-2 {
+  z-index: 3;
+}
+
+.earth-map-overlay.active {
+  opacity: 1;
+}
+
+.earth-content-box {
+  position: absolute;
+  max-width: 450px;
+  padding: var(--spacing-2xl) var(--spacing-3xl);
+  color: var(--white);
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.earth-content-box.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.earth-content-left {
+  bottom: 5%;
+  left: var(--spacing-xl);
+}
+
+.earth-content-right {
+  bottom: 5%;
+  right: var(--spacing-xl);
+}
+
+.earth-content-title {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-light);
+  color: var(--white);
+}
+
+.earth-content-subtitle {
+  display: inline-block;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: 4px var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-normal);
+  border-radius: 3px;
+  line-height: 1.2;
+}
+
+.earth-content-subtitle:first-child {
+  margin-top: 0;
+}
+
+.earth-content-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.earth-content-section:last-child {
+  margin-bottom: 0;
+}
+
+.earth-content-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-secondary);
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--gray-200);
+  padding-left: var(--spacing-xl);
+  position: relative;
+}
+
+
+.earth-content-list li:before {
+  content: "•";
+  position: absolute;
+  left: var(--spacing-sm);
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.earth-content-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Workflow Section */
+.workflow-section {
+  background: var(--white);
+  padding: var(--spacing-6xl) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.workflow-header {
+  width: 100%;
+  max-width: 1400px;
+  margin-bottom: var(--spacing-5xl);
+  text-align: center;
+}
+
+.workflow-title {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--black);
+  text-transform: lowercase;
+  margin: 0;
+}
+
+.workflow-container {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workflow-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 /* How Might We Section */

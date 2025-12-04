@@ -81,6 +81,7 @@
       </div>
     </section>
 
+
     <section class="hmw-section">
       <div class="hmw-bubbles-container">
         <div class="hmw-tags-prefix">Turn fishing actions into a personalized journey</div>
@@ -381,11 +382,65 @@
       </div>
     </section>
 
-    <!-- Fullscreen Image Modal
-    <div class="image-modal" id="imageModal">
-      <button class="image-modal-close" id="closeModal" aria-label="Close modal">×</button>
-      <img class="image-modal-content" id="modalImage" src="" alt="">
-    </div> -->
+    <section class="earth-intro-section" id="earth-intro">
+      <div class="earth-intro-pin">
+        <img src="Photo/earth/earth.png" alt="Earth" class="earth-bg" id="earth-bg">
+        <img src="Photo/earth/map_1.png" alt="Map 1" class="earth-map-overlay" id="earth-map-1">
+        <img src="Photo/earth/map_2.png" alt="Map 2" class="earth-map-overlay" id="earth-map-2">
+        
+        <div class="earth-content-box earth-content-left" id="earth-content-left">
+          <h2 class="earth-content-title">Recommended<br> Spots Map</h2>
+          <div class="earth-content-section">
+            <h3 class="earth-content-subtitle">Input</h3>
+            <ul class="earth-content-list">
+              <li>Preffered fishing time period</li>
+              <li>Acceptable distance range</li>
+              <li>Type of fishing</li>
+            </ul>
+          </div>
+          <div class="earth-content-section">
+            <h3 class="earth-content-subtitle">Output</h3>
+            <ul class="earth-content-list">
+              <li>Location and distance</li>
+              <li>Weather data (Water temperature, air pressure, wind speed)</li>
+              <li>Ideal time suggestions</li>
+              <li>Recommendation score</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="earth-content-box earth-content-right" id="earth-content-right">
+          <h2 class="earth-content-title">Extended Reality Map</h2>
+          <div class="earth-content-section">
+            <h3 class="earth-content-subtitle">Input</h3>
+            <ul class="earth-content-list">
+              <li>Video of current surrounding</li>
+              <li>GPS data (auto)</li>
+              <li>Weather API (auto)</li>
+            </ul>
+          </div>
+
+          <div class="earth-content-section">
+            <h3 class="earth-content-subtitle">Output</h3>
+            <ul class="earth-content-list">
+              <li>Shade area analysis</li>
+              <li>Fish habitat prediction</li>
+              <li>Real-time fish behavior analysis</li>
+              <li>Smart fishing spot recommendation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="workflow-section">
+      <div class="workflow-header">
+        <h2 class="workflow-title">workflow - design decision</h2>
+      </div>
+      <div class="workflow-container">
+        <img src="Photo/workflow/design_layer.png" alt="Design Layer" class="workflow-image">
+      </div>
+    </section>
 
     <section class="responsive-cards-section">
       <div class="header-4xl primary">Radical Prototype</div>
@@ -417,6 +472,12 @@
 
   </main>
 
+  <!-- Image Modal -->
+  <div id="imageModal" class="image-modal">
+    <button id="closeModal" class="image-modal-close">&times;</button>
+    <img id="modalImage" class="image-modal-content" src="" alt="Fullscreen image">
+  </div>
+
   <script>
     // Initialize when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
@@ -426,6 +487,7 @@
       initImageModal();
       initBarrierCircles();
       initTechnologyEcosystemScroll();
+      initEarthIntroScroll();
     });
     
 
@@ -599,6 +661,58 @@
       const container = document.getElementById('barrierCards');
       if (!container) return;
       // Grid layout handles positioning automatically
+    }
+
+    // Earth Intro scroll animation
+    function initEarthIntroScroll() {
+      const section = document.getElementById('earth-intro');
+      if (!section) return;
+
+      const earthBg = document.getElementById('earth-bg');
+      const map1 = document.getElementById('earth-map-1');
+      const map2 = document.getElementById('earth-map-2');
+      const contentLeft = document.getElementById('earth-content-left');
+      const contentRight = document.getElementById('earth-content-right');
+
+      if (!earthBg || !map1 || !map2 || !contentLeft || !contentRight) return;
+
+      const SCROLL_LENGTH = 2000; // total scroll distance for the section
+      section.style.minHeight = `calc(100vh + ${SCROLL_LENGTH}px)`;
+
+      function render() {
+        const start = section.offsetTop;
+        const y = window.scrollY;
+        const delta = Math.min(Math.max(y - start, 0), SCROLL_LENGTH);
+        const progress = delta / SCROLL_LENGTH;
+
+        // Reset all states
+        earthBg.classList.remove('blurred');
+        map1.classList.remove('active');
+        map2.classList.remove('active');
+        contentLeft.classList.remove('visible');
+        contentRight.classList.remove('visible');
+
+        // At 30% (0.3): Show content boxes
+        if (progress >= 0.3 && progress < 0.6) {
+          contentLeft.classList.add('visible');
+          contentRight.classList.add('visible');
+        }
+
+        // At 60% (0.6): Blur earth, show map_1, and hide content boxes
+        if (progress >= 0.6) {
+          earthBg.classList.add('blurred');
+          map1.classList.add('active');
+        }
+
+        // At 80% (0.8): Show map_2 on top
+        if (progress >= 0.8) {
+          map2.classList.add('active');
+        }
+      }
+
+      window.addEventListener('scroll', render, { passive: true });
+      window.addEventListener('resize', render);
+      render();
     }
 
     // Technology Ecosystem scroll animation
