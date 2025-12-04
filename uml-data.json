@@ -193,11 +193,6 @@
     },
     {
       "source": "user-01",
-      "target": "challenge-01",
-      "label": "aggregates"
-    },
-    {
-      "source": "user-01",
       "target": "catch-01",
       "label": "creates"
     },
@@ -207,29 +202,59 @@
       "label": "uses"
     },
     {
+      "source": "user-01",
+      "target": "emotion-ai-01",
+      "label": "tracks"
+    },
+    {
       "source": "fishing-session-01",
       "target": "catch-01",
       "label": "contains (0..*)"
     },
     {
+      "source": "fishing-session-01",
+      "target": "spot-01",
+      "label": "at (1)"
+    },
+    {
+      "source": "fishing-session-01",
+      "target": "weather-data-01",
+      "label": "uses"
+    },
+    {
       "source": "catch-01",
       "target": "spot-01",
-      "label": "record at (1..)"
+      "label": "record at (1)"
     },
     {
       "source": "catch-01",
       "target": "map-ui-01",
+      "label": "displays"
+    },
+    {
+      "source": "catch-01",
+      "target": "ar-session-01",
       "label": "uses"
     },
     {
-      "source": "data-logger-01",
-      "target": "cloud-db-01",
-      "label": "syncs"
+      "source": "recommendation-engine-01",
+      "target": "spot-01",
+      "label": "recommends"
+    },
+    {
+      "source": "recommendation-engine-01",
+      "target": "weather-data-01",
+      "label": "analyzes"
     },
     {
       "source": "map-ui-01",
       "target": "ar-session-01",
-      "label": "uses"
+      "label": "activates"
+    },
+    {
+      "source": "map-ui-01",
+      "target": "spot-01",
+      "label": "shows"
     },
     {
       "source": "weather-data-01",
@@ -237,9 +262,9 @@
       "label": "feeds"
     },
     {
-      "source": "user-01",
-      "target": "badge-01",
-      "label": "earns"
+      "source": "weather-data-01",
+      "target": "recommendation-engine-01",
+      "label": "informs"
     }
   ],
   "infoCards": [

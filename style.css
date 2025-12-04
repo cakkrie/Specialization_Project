@@ -1493,51 +1493,34 @@ a.gallery-card {
 
 /* Earth Visualization */
 .earth-section {
-  height: 100vh;
+  min-height: 200vh;
+  width: 100%;
   position: relative;
-  background-color: #ededed;
-  color: var(--black);
+  background-color: #2a2a2a;
+  color: #ffffff;
+  overflow: hidden;
 }
 
 .earth-section::before {
-  content: "";
-  position: absolute;
-  left: var(--spacing-6xl);
-  top: 0;
-  bottom: 0;
-  width: 0.5px;
-  background-color: var(--gray-300);
-  z-index: 10;
+  display: none;
 }
 
 .earth-section::after {
-  content: "ABOUT MAP";
-  position: absolute;
-  left: var(--spacing-5xl);
-  top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
-  transform-origin: center;
-  font-size: var(--font-size-xs);
-  color: var(--black);
-  white-space: nowrap;
-  z-index: 10;
-  font-family: var(--font-secondary);
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  display: none;
 }
 
 .earth-section-pin {
   position: sticky;
   top: 0;
   height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-6xl);
-  padding: var(--spacing-4xl) var(--spacing-6xl);
-  max-width: 1400px;
-  margin: 0 auto;
+  padding: 0;
+  margin: 0;
   overflow: visible;
 }
 
@@ -1547,9 +1530,11 @@ a.gallery-card {
   align-items: center;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   flex-shrink: 0;
   z-index: 1;
+  pointer-events: none;
 }
 
 .earth-layers {
@@ -1560,16 +1545,19 @@ a.gallery-card {
 
 .earth-titles {
   position: absolute;
-  left: var(--spacing-7xl);
-  bottom: var(--spacing-3xl);
+  bottom: var(--spacing-4xl);
   z-index: 1000;
   pointer-events: none;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 var(--spacing-6xl);
 }
 
 .earth-title-text {
   position: relative;
   bottom: 0;
-  color: var(--black);
+  color: #ffffff;
   font-family: var(--font-secondary);
   font-size: 42px;
   font-weight: var(--font-weight-extrabold);
@@ -1577,7 +1565,7 @@ a.gallery-card {
   letter-spacing: var(--letter-spacing-normal);
   white-space: normal;
   max-width: 420px;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.5s ease;
   pointer-events: none;
 }
@@ -1586,10 +1574,18 @@ a.gallery-card {
   opacity: 1;
 }
 
+.earth-title-text.left {
+  text-align: left;
+}
+
+.earth-title-text.right {
+  text-align: right;
+}
+
 .earth-title-text .title-body {
   display: block;
   margin-top: var(--spacing-md);
-  color: var(--black);
+  color: #ffffff;
   font-weight: var(--font-weight-normal);
   font-size: 0.875rem;
   line-height: 1.6;
@@ -1620,6 +1616,7 @@ a.gallery-card {
   transition: all var(--transition-normal);
   border-radius: var(--radius-full);
   overflow: hidden;
+  filter: blur(0px);
 }
 
 .earth-layer[data-layer="bottom"] {
@@ -1646,63 +1643,15 @@ a.gallery-card {
 }
 
 .earth-content {
-  position: absolute;
-  right:3px;
-  top: 80px;
-  max-width: 600px;
-  min-width: 500px;
-  padding-left: var(--spacing-xl);
-  padding-right: 8px;
-  z-index: 2;
+  display: none;
 }
 
-
 .earth-info {
-  position: relative;
-  padding-left: var(--spacing-lg);
-  color: var(--black);
+  display: none;
 }
 
 .info-item {
   display: none;
-  animation: fadeInUp 0.5s ease;
-  text-align: left;
-}
-
-.info-item.active {
-  display: block;
-}
-
-
-.earth-content h2 {
-  color: var(--black);
-}
-
-.info-item ul {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0 0;
-  text-align: left;
-}
-
-.info-item li {
-  font-size: 0.875rem;
-  line-height: 1.6;
-  margin-bottom: var(--spacing-md);
-  color: var(--black);
-  position: relative;
-  padding-left: 18px;
-}
-
-.info-item li:before {
-  content: "\25B8";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--black);
-  font-size: 0.875rem;
-  line-height: 1.6;
-  pointer-events: none;
 }
 
 @keyframes fadeInUp {
@@ -1866,9 +1815,11 @@ a.gallery-card {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 100%);
   z-index: 1002;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .phone-screen {
@@ -1878,25 +1829,15 @@ a.gallery-card {
   opacity: 0;
   transition: opacity 0.6s ease, transform 0.6s ease;
   pointer-events: none;
-  z-index: 1002;
+  z-index: 1003;
+  transform: translate(-50%, -50%);
 }
 
-.phone-screen.screen-1 {
-  width: 640px;
-  height: auto;
-  transform: translate(-50%, -20%);
-}
-
-.phone-screen.screen-2 {
-  width: 640px;
-  height: auto;
-  transform: translate(-50%, -20%);
-}
-
+.phone-screen.screen-1,
+.phone-screen.screen-2,
 .phone-screen.screen-3 {
   width: 640px;
   height: auto;
-  transform: translate(-50%, -20%);
 }
 
 .phone-screen.active {
@@ -2072,6 +2013,9 @@ a.gallery-card {
   width: 60%;
   transform: scale(1.5);
   transform-origin: center;
+  background-color: var(--gray-50);
+  padding: var(--spacing-4xl);
+  border-radius: var(--radius-md);
 }
 
 .mermaid .actor {
@@ -2093,6 +2037,36 @@ a.gallery-card {
   font-weight: var(--font-weight-medium);
   fill: var(--black);
   color: var(--black);
+}
+
+/* Style sequence diagram arrows to be blue */
+.mermaid svg .messageLine0,
+.mermaid svg .messageLine1 {
+  stroke: var(--primary) !important;
+  stroke-width: 2;
+}
+
+.mermaid svg .messageArrow {
+  stroke: var(--primary) !important;
+  fill: var(--primary) !important;
+}
+
+.mermaid svg path.messageLine0,
+.mermaid svg path.messageLine1 {
+  stroke: var(--primary) !important;
+}
+
+.mermaid svg .arrowhead path {
+  stroke: var(--primary) !important;
+  fill: var(--primary) !important;
+}
+
+/* Style lifelines to be dashed */
+.mermaid svg .actor-line,
+.mermaid svg line.actor-line {
+  stroke: var(--gray-300) !important;
+  stroke-dasharray: 5, 5 !important;
+  stroke-width: 1;
 }
 
 /* Gallery Container */
@@ -2679,12 +2653,6 @@ img.content-image {
 .barrier-card-pattern {
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.6) 0%, transparent 30%),
-    radial-gradient(circle at 80% 70%, rgba(147, 112, 219, 0.5) 0%, transparent 30%),
-    radial-gradient(circle at 50% 50%, rgba(255, 165, 0, 0.4) 0%, transparent 40%),
-    radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.3) 0%, transparent 25%);
-  position: absolute;
   top: 0;
   left: 0;
 }
@@ -2789,35 +2757,6 @@ img.content-image {
   transform-origin: center;
 }
 
-/* Tooltip for all cards with data-tooltip attribute */
-.uml-card[data-tooltip]:hover::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  top: -20%;
-  background: var(--gray-400);
-  color: var(--white);
-  padding: 8px;
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-normal);
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  text-align: left;
-  line-height: 1.4;
-  white-space: pre-wrap;
-}
-
-.uml-card[data-tooltip]:hover::before {
-  content: "";
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: var(--gray-400);
-  z-index: 1000;
-  pointer-events: none;
-}
-
 .uml-card-header {
   margin-bottom: 12px;
   border-bottom: none;
@@ -2889,48 +2828,19 @@ img.content-image {
 .uml-card[data-tooltip]:hover::after {
   content: attr(data-tooltip);
   position: absolute;
-  top: -20%;
   background: var(--gray-400);
   color: var(--white);
   padding: 8px;
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-normal);
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   text-align: left;
   line-height: 1.4;
   white-space: pre-wrap;
-  max-width: 280px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
+  max-width: 260px;
+  text-transform: none;
 }
 
-/* Style for the Math challenge label */
-.uml-card[data-tooltip]:hover::after {
-  font-family: var(--font-secondary);
-}
-
-.uml-card[data-tooltip]:hover::after::first-line {
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-sm);
-  color: #ffd700;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.uml-card[data-tooltip]:hover::before {
-  content: "";
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: var(--gray-400);
-  z-index: 1000;
-  pointer-events: none;
-}
 
 /* Math challenge indicator for specific cards */
 .uml-card[data-uml-id="recommendation-engine-01"]::after,
@@ -2975,7 +2885,6 @@ img.content-image {
 .jtk-overlay {
   fill: var(--gray-300);
 }
-
 
 
 @media (min-width: 900px) {
@@ -3031,7 +2940,7 @@ img.content-image {
   .earth-section-pin {
     flex-direction: column;
     gap: var(--spacing-4xl);
-    padding: var(--spacing-4xl) var(--spacing-xl);
+    padding: 0;
   }
   
   .earth-container {
@@ -3039,15 +2948,25 @@ img.content-image {
   }
   
   .earth-layers {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
   }
   
-  .earth-content {
-    min-width: auto;
+  .earth-titles {
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+    padding: 0 var(--spacing-xl);
+    bottom: var(--spacing-2xl);
+  }
+  
+  .earth-title-text {
+    font-size: 28px;
     max-width: 100%;
-    margin-left: 0;
-    padding-left: 0;
+  }
+  
+  .earth-title-text.left,
+  .earth-title-text.right {
+    text-align: left;
   }
   
   

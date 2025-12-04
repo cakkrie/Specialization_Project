@@ -381,70 +381,15 @@
       </div>
     </section>
 
-    <!-- Fullscreen Image Modal -->
+    <!-- Fullscreen Image Modal
     <div class="image-modal" id="imageModal">
       <button class="image-modal-close" id="closeModal" aria-label="Close modal">×</button>
       <img class="image-modal-content" id="modalImage" src="" alt="">
-    </div>
-
+    </div> -->
 
       <!-- Earth Visualization Section -->
     <div class="earth-section">
       <div class="earth-section-pin">
-        <div class="earth-content">
-          <div class="earth-info" id="earth-info">
-            <div class="info-item active" data-layer="bottom">
-              <div class="header-md font-weight-semibold">Input</div>
-              <div class="body-sm">
-              <ul>
-                  <li>What time period I want to fish</li>
-                  <li>Acceptable distance range</li>
-                  <li>Type of fishing</li>
-                </ul>
-              </div>
-              <br><br>
-              <div class="header-md font-weight-semibold">Output</div>
-              <div class="body-sm">
-                <ul>
-                  <li>GPS API</li>
-                  <li>Weather API</li>
-                  <li>Ideal time suggestions</li>
-                  <li>Overall recommendation score</li>
-              </ul>
-              </div>
-            </div>
-            <div class="info-item" data-layer="top">
-              <div class="header-md font-weight-semibold">Input</div>
-              <div class="body-sm">
-               <ul>
-                <li>video of current surrounding</li>
-                <li>GPS</li>
-              </ul>
-              </div>
-              <br><br>
-              <div class="header-md font-weight-semibold">Processing</div>
-              <div class="body-sm">
-               <ul>
-                <li>Feature Extraction</li>
-                <li>3D Environment Reconstruction</li>
-              </ul>
-              </div>
-              <br><br>
-              <div class="header-md font-weight-semibold">Output</div>
-              <div class="body-sm">
-               <ul>
-                <li>Shade Analysis</li>
-                <li>Fish Cluster Prediction</li>
-                <li>Spot Recommendation & Change Forecasting</li>
-
-              </ul>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-
         <div class="earth-container">
           <div class="earth-layers">
             <canvas id="layer-bottom" class="earth-layer" data-layer="bottom" width="520" height="520"></canvas>
@@ -453,47 +398,21 @@
           </div>
         </div>
         <div class="earth-titles">
-          <div class="earth-title-text active" data-layer="bottom">
+          <div class="earth-title-text left active" data-layer="bottom">
             <span>2D Map</span>
             <span class="title-body">A data-driven map that visualizes real fishing spots, weather, and location information for quick decision-making</span>
           </div>
-          <div class="earth-title-text" data-layer="top">
+          <div class="earth-title-text right active" data-layer="top">
             <span>4D XR Map</span>
             <span class="title-body">An extended-reality environment that anchors fish and environment in real-world space, merging physical and virtual fishing experiences.</span>
           </div>
         </div>
-      </div>
-    </div>
-
-       <!-- Parallax Section -->
-    <div class="parallax-container" id="parallax-container">
-      <div class="parallax-wrapper">
-        <img src="Photo/bottom_layer.png" alt="Bottom Layer Parallax" class="parallax-image" id="parallax-image">
-            
         <div class="screen-container">
           <img src="Photo/buttom2_screen.png" alt="Screen 2" class="phone-screen screen-2">
           <img src="Photo/buttom3_screen.png" alt="Screen 3" class="phone-screen screen-3">
         </div>
-            
-        </div> 
       </div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
     </div>
-
-
-    <section class="user-journey-section">
-      <div class="header-4xl primary">User Journey</div>
-      <p>Letting users to "see" the dynamic fish habitats and real-time encouragement from an AI multidimensional agent, creating an immersive yet emotionally supportive fishing journey</p>
-
-    </section>
 
 
     <section class="responsive-cards-section">
@@ -530,7 +449,6 @@
     // Initialize when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
       initEarthInteraction();
-      initStickyEffect();
       initAboutLanding2Scroll();
       initUserJourneyScroll();
       initLiteratureReviewScroll();
@@ -873,205 +791,6 @@
       render();
     }
 
-    // 实现滚动时的视差效果
-    function initStickyEffect() {
-       const parallaxWrapper = document.querySelector('.parallax-wrapper');
-       const parallaxContainer = document.getElementById('parallax-container');
-      const earthSection = document.querySelector('.earth-section');
-      const earthLayers = document.querySelector('.earth-layers');
-       const landingContextSection = document.querySelector('.landing-context');
-       // const progressRing = document.querySelector('.progress-ring'); // 已隐藏
-       // const progressSections = document.querySelectorAll('.progress-circle'); // 已隐藏
-       const titleTexts = document.querySelectorAll('.title-text');
-       const phoneScreens = document.querySelectorAll('.phone-screen');
-       
-       if (!parallaxWrapper || !parallaxContainer || !earthSection || !earthLayers) return;
-       
-      const viewportHeight = window.innerHeight;
-      parallaxContainer.style.height = `${viewportHeight * 2}px`;
-       let hasStartedParallax = false;
-       let parallaxStartY = 0; // 在外部作用域定义，供 changeImageWithTransition 使用
-      
-      // 计算各区域位置的辅助函数
-      function getSectionPositions() {
-        const earthSectionTop = earthSection.offsetTop;
-        const earthSectionBottom = earthSectionTop + earthSection.offsetHeight;
-        const parallaxEarlyOffset = viewportHeight * 0.8;
-        parallaxStartY = Math.max(earthSectionTop, earthSectionBottom - parallaxEarlyOffset); // 更新外部变量
-        const parallaxEndY = parallaxStartY + (viewportHeight * 2);
-        
-        let landingContextTop = Infinity;
-        let landingContextBottom = Infinity;
-        if (landingContextSection) {
-          landingContextTop = landingContextSection.offsetTop;
-          landingContextBottom = landingContextTop + landingContextSection.offsetHeight;
-        }
-        
-        return {
-          landingContextTop,
-          landingContextBottom,
-          earthSectionTop,
-          earthSectionBottom,
-          parallaxStartY,
-          parallaxEndY
-        };
-      }
-      
-      // 隐藏 parallax 的辅助函数
-      function hideParallax() {
-        parallaxWrapper.className = 'parallax-wrapper';
-        parallaxWrapper.style.opacity = '0';
-        parallaxWrapper.style.visibility = 'hidden';
-        titleTexts.forEach(title => title.classList.remove('visible'));
-        phoneScreens.forEach(screen => screen.classList.remove('active'));
-      }
-      
-      // 显示 parallax 的辅助函数
-      function showParallax() {
-        parallaxWrapper.className = 'parallax-wrapper center';
-        parallaxWrapper.style.opacity = '';
-        parallaxWrapper.style.visibility = '';
-        if (!hasStartedParallax) {
-          earthLayers.classList.add('hidden');
-          hasStartedParallax = true;
-        }
-      }
-      
-      function handleScroll() {
-        const scrollY = window.scrollY;
-        const positions = getSectionPositions();
-        
-        // 1. 在 landing-context 区域：完全隐藏 parallax
-        if (scrollY >= positions.landingContextTop && scrollY < positions.landingContextBottom) {
-          hideParallax();
-          earthLayers.classList.remove('hidden');
-          hasStartedParallax = false;
-          return;
-        }
-        
-        // 2. 在 earth-section 区域：显示 earth layers，隐藏 parallax
-        if (scrollY >= positions.earthSectionTop && scrollY < positions.parallaxStartY) {
-          hideParallax();
-          earthLayers.classList.remove('hidden');
-          hasStartedParallax = false;
-          return;
-        }
-        
-        // 3. 在 parallax 区域：显示 parallax，隐藏 earth layers
-        if (scrollY >= positions.parallaxStartY && scrollY <= positions.parallaxEndY) {
-          showParallax();
-          
-          // 根据滚动进度显示不同的标题
-          const progress = (scrollY - positions.parallaxStartY) / (viewportHeight * 2);
-          const scale = 1 + (progress * 0.1); // 从1.0轻微缩放到1.1
-          
-          // 只对 parallax-image 应用缩放，不影响 phone-screen
-          const parallaxImage = document.querySelector('.parallax-image');
-          if (parallaxImage) {
-            parallaxImage.style.transform = `scale(${scale})`;
-            // 确保 buttom2、buttom3.png 的透明度保持为 50%
-            const currentSrc = parallaxImage.src;
-            if (currentSrc.includes('buttom2.png') || currentSrc.includes('buttom3.png')) {
-              parallaxImage.style.opacity = '0.5';
-            }
-          }
-          
-          // 控制标题显示
-          updateTitles(progress);
-          return;
-        }
-        
-        // 4. 超过 parallax 区域：保持最后状态，恢复 earth layers
-        if (scrollY > positions.parallaxEndY) {
-          showParallax();
-          const parallaxImage = document.querySelector('.parallax-image');
-          if (parallaxImage) {
-            parallaxImage.style.transform = 'scale(1.1)';
-          }
-          updateTitles(1);
-          earthLayers.classList.remove('hidden');
-          hasStartedParallax = false;
-          return;
-        }
-        
-        // 5. 在 earth-section 之前：完全隐藏 parallax
-        hideParallax();
-        const parallaxImage = document.querySelector('.parallax-image');
-        if (parallaxImage) {
-          parallaxImage.style.transform = '';
-        }
-        earthLayers.classList.remove('hidden');
-        hasStartedParallax = false;
-      }
-      
-       // 更新标题显示函数
-       function updateTitles(progress) {
-         const parallaxImage = document.querySelector('.parallax-image');
-         const phoneScreens = document.querySelectorAll('.phone-screen');
-         
-         // 隐藏所有标题
-         titleTexts.forEach(title => {
-           title.classList.remove('visible');
-         });
-         
-         // 隐藏所有屏幕
-         phoneScreens.forEach(screen => {
-           screen.classList.remove('active');
-         });
-         
-         // 移除所有颜色类
-         parallaxImage.classList.remove('color-bottom', 'color-middle', 'color-top');
-         
-        // 根据滚动进度显示对应的标题和屏幕
-        // 调整进度分配：screen-2 显示前 2/3，screen-3 显示后 1/3
-        if (progress >= 0 && progress < 0.66) {
-          if (titleTexts[0]) titleTexts[0].classList.add('visible');
-          if (phoneScreens[0]) phoneScreens[0].classList.add('active');
-          changeImageWithTransition('Photo/buttom2.png', 1.2);
-        } else if (progress >= 0.66) {
-          if (titleTexts[1]) titleTexts[1].classList.add('visible');
-          if (phoneScreens[1]) phoneScreens[1].classList.add('active');
-          changeImageWithTransition('Photo/buttom3.png', 1.2);
-        }
-       }
-       
-       // 带过渡效果的图片切换函数
-       function changeImageWithTransition(newSrc, scaleSize = 1) {
-         const parallaxImage = document.querySelector('.parallax-image');
-         if (parallaxImage.src.includes(newSrc)) return; // 如果已经是目标图片，不重复切换
-         
-         // 获取当前滚动进度，保持缩放一致性
-        const currentProgress = (window.scrollY - parallaxStartY) / (viewportHeight * 2);
-         const currentScale = 1 + (currentProgress * 0.1);
-         
-        // 检查是否是 buttom2 或 buttom3.png，设置透明度为 50%
-        const isButtomImage = newSrc.includes('buttom2.png') || newSrc.includes('buttom3.png');
-         const targetOpacity = isButtomImage ? '0.5' : '1';
-         
-         // 淡出
-         parallaxImage.style.opacity = '0.3';
-         parallaxImage.style.transform = `scale(${currentScale * 0.95})`;
-         
-         setTimeout(() => {
-           // 切换图片
-           parallaxImage.src = newSrc;
-           
-           // 淡入并应用当前滚动对应的缩放和透明度
-           parallaxImage.style.opacity = targetOpacity;
-           parallaxImage.style.transform = `scale(${currentScale})`;
-         }, 300); // 300ms后切换图片
-       }
-      
-
-      // 初始化时确保图像处于隐藏状态
-      parallaxWrapper.className = 'parallax-wrapper';
-      
-      // 监听滚动事件
-      window.addEventListener('scroll', handleScroll);
-      
-      // 初始检查
-      handleScroll();
-    }
 
     // Data URI constants for the three layers
     const LAYER_DATA = {
@@ -1083,14 +802,89 @@
     // Earth layer interaction functionality
     function initEarthInteraction() {
       const canvases = document.querySelectorAll('.earth-layer');
-      const infoItems = document.querySelectorAll('.info-item');
+      const earthSection = document.querySelector('.earth-section');
       const earthLayersContainer = document.querySelector('.earth-layers');
-      
-      // 初始化：显示bottom层内容
-      showInfoForLayer('bottom');
       
       // 设置canvas
       setupCanvases();
+      
+      // 添加滚动监听，实现地球模糊效果和文字消失，然后screen-container升起
+      function handleEarthScroll() {
+        if (!earthSection) return;
+        
+        const sectionTop = earthSection.offsetTop;
+        const sectionHeight = earthSection.offsetHeight;
+        const scrollY = window.scrollY;
+        const viewportHeight = window.innerHeight;
+        const earthTitles = document.querySelectorAll('.earth-title-text');
+        const screenContainer = document.querySelector('.screen-container');
+        const phoneScreens = document.querySelectorAll('.phone-screen');
+        
+        // 计算滚动进度：当滚动到earth-section时开始
+        const scrollStart = sectionTop;
+        const scrollProgress = Math.max(0, Math.min(1, (scrollY - scrollStart) / sectionHeight));
+        
+        // 第一阶段（0-0.5）：地球变模糊，文字消失
+        if (scrollProgress <= 0.5) {
+          const phase1Progress = scrollProgress / 0.5; // 0 到 1
+          
+          // 地球模糊：从0px到20px
+          const maxBlur = 20;
+          const blurValue = phase1Progress * maxBlur;
+          canvases.forEach(canvas => {
+            canvas.style.filter = `blur(${blurValue}px)`;
+            canvas.style.transition = 'filter 0.1s ease-out';
+          });
+          
+          // 文字消失：opacity从1到0
+          const textOpacity = 1 - phase1Progress;
+          earthTitles.forEach(title => {
+            title.style.opacity = textOpacity;
+            title.style.transition = 'opacity 0.3s ease-out';
+          });
+          
+          // screen-container保持在下方（隐藏）
+          if (screenContainer) {
+            screenContainer.style.opacity = '0';
+            screenContainer.style.transform = 'translate(-50%, 100%)';
+            screenContainer.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+          }
+          phoneScreens.forEach(screen => {
+            screen.classList.remove('active');
+          });
+        } 
+        // 第二阶段（0.5-1）：screen-container从下方升起
+        else {
+          const phase2Progress = (scrollProgress - 0.5) / 0.5; // 0 到 1
+          
+          // 地球保持最大模糊
+          canvases.forEach(canvas => {
+            canvas.style.filter = 'blur(20px)';
+          });
+          
+          // 文字完全消失
+          earthTitles.forEach(title => {
+            title.style.opacity = '0';
+          });
+          
+          // screen-container从下方升起
+          if (screenContainer) {
+            const translateY = 100 - (phase2Progress * 100); // 从100%到0%
+            screenContainer.style.opacity = phase2Progress > 0.1 ? '1' : '0';
+            screenContainer.style.transform = `translate(-50%, ${translateY}%)`;
+            screenContainer.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+          }
+          
+          // 根据进度显示不同的screen
+          if (phase2Progress < 0.5) {
+            phoneScreens[0]?.classList.add('active');
+            phoneScreens[1]?.classList.remove('active');
+          } else {
+            phoneScreens[0]?.classList.remove('active');
+            phoneScreens[1]?.classList.add('active');
+          }
+        }
+      }
       
       function setupCanvases() {
         const imageFiles = {
@@ -1119,90 +913,10 @@
         });
       }
       
-      // 使用mousemove事件来检测鼠标位置
-      earthLayersContainer.addEventListener('mousemove', function(e) {
-        const rect = this.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
-        
-        // 检查是否在地球范围内
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const distance = Math.sqrt(
-          Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2)
-        );
-        const radius = rect.width / 2;
-        
-        if (distance > radius) {
-          return; // 鼠标在地球外
-        }
-        
-        // 使用基于区域的检测
-        const detectedLayer = detectLayerByRegion(mouseX, mouseY, rect);
-        showInfoForLayer(detectedLayer);
-      });
-      
-      function detectLayerByRegion(mouseX, mouseY, rect) {
-        // 将鼠标位置转换为相对坐标 (0-1)
-        const x = mouseX / rect.width;
-        const y = mouseY / rect.height;
-        
-        // 计算距离中心的相对距离
-        const centerX = 0.5;
-        const centerY = 0.5;
-        const distanceFromCenter = Math.sqrt(
-          Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2)
-        );
-        
-        // 边缘区域 (距离中心 > 40%) - 蓝色海洋
-        if (distanceFromCenter > 0.4) {
-          return 'bottom';
-        }
-        // 外围区域 (距离中心 25-40%) - 大陆边缘
-        else if (distanceFromCenter > 0.25) {
-          // 在特定角度范围内检测大陆
-          const angle = Math.atan2(y - centerY, x - centerX);
-          const angleDeg = (angle * 180 / Math.PI + 360) % 360;
-          
-          // 大陆通常在特定角度范围内
-          if ((angleDeg > 30 && angleDeg < 150) || 
-              (angleDeg > 210 && angleDeg < 330)) {
-            return 'middle';
-          } else {
-            return 'bottom';
-          }
-        }
-        // 中心区域 (距离中心 < 25%) - 城市密集区
-        else {
-          return 'top';
-        }
-      }
-      
-      function showInfoForLayer(layerType) {
-        // 隐藏所有文字内容
-        infoItems.forEach(item => {
-          item.classList.remove('active');
-        });
-        
-        // 显示对应的文字内容
-        const targetInfo = document.querySelector(`.info-item[data-layer="${layerType}"]`);
-        if (targetInfo) {
-          targetInfo.classList.add('active');
-        }
-        
-        // 切换标题显示
-        const titleTexts = document.querySelectorAll('.earth-title-text');
-        titleTexts.forEach(title => {
-          title.classList.remove('active');
-        });
-        const targetTitle = document.querySelector(`.earth-title-text[data-layer="${layerType}"]`);
-        if (targetTitle) {
-          targetTitle.classList.add('active');
-        }
-        
-        // 调试信息（可以在控制台查看）
-        console.log('当前显示图层:', layerType);
-      }
+      // 监听滚动事件
+      window.addEventListener('scroll', handleEarthScroll, { passive: true });
+      window.addEventListener('resize', handleEarthScroll);
+      handleEarthScroll(); // 初始调用
     }
 
 
