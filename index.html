@@ -440,6 +440,19 @@
         
         <div class="earth-content-box earth-content-left" id="earth-content-left">
           <h2 class="earth-content-title">Recommended<br> Spots Map</h2>
+          <p class="earth-content-description">AI-powered location recommendations based on weather, time, and fishing preferences</p>
+        </div>
+
+        <div class="earth-content-box earth-content-left" id="earth-content-left-extended">
+          <h2 class="earth-content-title">Extended Reality Map</h2>
+        </div>
+
+        <div class="earth-content-box earth-content-right" id="earth-content-right-title">
+          <h2 class="earth-content-title">Extended Reality Map</h2>
+          <p class="earth-content-description">Real-time AR overlay showing fish habitats and optimal fishing spots</p>
+        </div>
+
+        <div class="earth-content-box earth-content-right" id="earth-content-right">
           <div class="earth-content-section">
             <h3 class="earth-content-subtitle">Input</h3>
             <ul class="earth-content-list">
@@ -459,8 +472,7 @@
           </div>
         </div>
 
-        <div class="earth-content-box earth-content-right" id="earth-content-right">
-          <h2 class="earth-content-title">Extended Reality Map</h2>
+        <div class="earth-content-box earth-content-right" id="earth-content-right-extended">
           <div class="earth-content-section">
             <h3 class="earth-content-subtitle">Input</h3>
             <ul class="earth-content-list">
@@ -726,9 +738,12 @@
       const map1 = document.getElementById('earth-map-1');
       const map2 = document.getElementById('earth-map-2');
       const contentLeft = document.getElementById('earth-content-left');
+      const contentLeftExtended = document.getElementById('earth-content-left-extended');
+      const contentRightTitle = document.getElementById('earth-content-right-title');
       const contentRight = document.getElementById('earth-content-right');
+      const contentRightExtended = document.getElementById('earth-content-right-extended');
 
-      if (!earthBg || !map1 || !map2 || !contentLeft || !contentRight) return;
+      if (!earthBg || !map1 || !map2 || !contentLeft || !contentLeftExtended || !contentRightTitle || !contentRight || !contentRightExtended) return;
 
       const SCROLL_LENGTH = 2000; // total scroll distance for the section
       section.style.minHeight = `calc(100vh + ${SCROLL_LENGTH}px)`;
@@ -744,23 +759,35 @@
         map1.classList.remove('active');
         map2.classList.remove('active');
         contentLeft.classList.remove('visible');
+        contentLeftExtended.classList.remove('visible');
+        contentRightTitle.classList.remove('visible');
         contentRight.classList.remove('visible');
+        contentRightExtended.classList.remove('visible');
 
-        // At 30% (0.3): Show content boxes
-        if (progress >= 0.3 && progress < 0.6) {
+        // Initial frame: Show both titles
+        if (progress < 0.6) {
           contentLeft.classList.add('visible');
+          contentRightTitle.classList.add('visible');
+        }
+
+        // At 60% (0.6): Blur earth, show map_1, and show Recommended Spots Map content
+        if (progress >= 0.6 && progress < 0.8) {
+          earthBg.classList.add('blurred');
+          map1.classList.add('active');
+          contentLeft.classList.add('visible');
+          contentRightTitle.classList.remove('visible');
           contentRight.classList.add('visible');
         }
 
-        // At 60% (0.6): Blur earth, show map_1, and hide content boxes
-        if (progress >= 0.6) {
+        // At 80% (0.8): Show map_2 on top, Extended Reality Map title on left, content on right
+        if (progress >= 0.8) {
           earthBg.classList.add('blurred');
           map1.classList.add('active');
-        }
-
-        // At 80% (0.8): Show map_2 on top
-        if (progress >= 0.8) {
           map2.classList.add('active');
+          contentLeft.classList.remove('visible');
+          contentLeftExtended.classList.add('visible');
+          contentRight.classList.remove('visible');
+          contentRightExtended.classList.add('visible');
         }
       }
 
